@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Programa de validación de modelos de riesgo de crédito · AuditCaat's</title>
+<title>Seguimiento del equipo · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -286,6 +286,90 @@ a:hover { color: var(--ac-marca-alto); }
 }
 .ac-cita cite { display: block; font-style: normal; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); margin-top: var(--e-2); }
 
+/* ---------- Simuladores ---------------------------------------------- */
+.ac-widget {
+  margin: 0 0 var(--e-5);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  background: var(--ac-cedula);
+  overflow: hidden;
+}
+.ac-w-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-2) var(--e-4);
+  background: var(--ac-tinta); color: #fff;
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+}
+.ac-w-encab span { color: #7FD1B9; letter-spacing: .12em; text-transform: uppercase; }
+.ac-w-encab em { color: rgba(255,255,255,.72); font-style: normal; }
+.ac-w-cuerpo { padding: var(--e-4); }
+
+.ac-w-controles {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--e-3) var(--e-5); margin-bottom: var(--e-4);
+}
+.ac-w-ctrl label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--t-sm); font-weight: 600; margin-bottom: 2px;
+}
+.ac-w-ctrl label b { font-family: var(--ac-dato); font-weight: 500; color: var(--ac-marca); }
+.ac-w-ctrl input[type=range] { width: 100%; accent-color: var(--ac-marca); margin: 0; }
+.ac-w-check {
+  display: flex; align-items: center; gap: var(--e-2);
+  font-size: var(--t-sm); font-weight: 600; align-self: end; padding-bottom: 2px;
+}
+.ac-w-check input { accent-color: var(--ac-marca); }
+
+.ac-w-lienzo { background: var(--ac-papel); border-radius: var(--radio); padding: var(--e-2); }
+.ac-w-lienzo svg { width: 100%; height: auto; display: block; }
+
+.ac-w-lectura {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: var(--ac-rayado); margin-top: var(--e-4);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio); overflow: hidden;
+}
+.ac-w-lectura > div { background: var(--ac-cedula); padding: var(--e-3) var(--e-4); }
+.ac-w-lectura > div.alerta { background: var(--ac-alerta-bg); }
+.ac-w-lectura dt {
+  font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .07em;
+  color: var(--ac-tinta-3);
+}
+.ac-w-lectura dd {
+  margin: 2px 0 0; font-family: var(--ac-dato); font-size: var(--t-lg); font-weight: 500;
+}
+.ac-w-lectura > div.alerta dd { color: var(--ac-alerta); }
+
+.ac-w-pie {
+  padding: var(--e-3) var(--e-4);
+  border-top: 1px dashed var(--ac-rayado-2); background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+
+/* Piezas de los graficos */
+.w-eje { stroke: var(--ac-rayado-2); stroke-width: 1; }
+.w-txt { font-family: var(--ac-dato); font-size: 11px; fill: var(--ac-tinta-3); }
+.w-barra-on  { fill: var(--ac-marca); }
+.w-barra-off { fill: var(--ac-rayado); }
+.w-barra-neg { fill: var(--ac-tinta-2); }
+.w-barra-mal { fill: var(--ac-tick); }
+.w-barra-ref { fill: var(--ac-rayado-2); }
+.w-barra-tot { fill: var(--ac-tinta); }
+.w-hist-b { fill: var(--ac-marca); opacity: .55; }
+.w-hist-m { fill: var(--ac-tick); opacity: .70; }
+.w-corte  { stroke: var(--ac-tick); stroke-width: 2; }
+.w-corte-t { fill: var(--ac-tick); }
+.w-optimo { stroke: var(--ac-marca); stroke-width: 2; stroke-dasharray: 4 3; }
+.w-optimo-t { fill: var(--ac-marca); }
+.w-linea-a { fill: none; stroke: var(--ac-tick); stroke-width: 2.5; }
+.w-linea-b { fill: none; stroke: var(--ac-marca); stroke-width: 2.5; }
+.w-pto-a { fill: var(--ac-tick); }
+.w-pto-b { fill: var(--ac-marca); }
+.w-t-a { fill: var(--ac-tick); }
+.w-t-b { fill: var(--ac-marca); }
+.w-t-ref { fill: var(--ac-tinta-3); }
+.w-c0 { fill: #12594F; } .w-c1 { fill: #B0182D; } .w-c2 { fill: #8A5B00; }
+.w-c3 { fill: #2B5F8A; } .w-c4 { fill: #6B3FA0; } .w-c5 { fill: #47586B; }
+
 /* Bloque de codigo del laboratorio */
 .ac-codigo {
   margin: 0 0 var(--e-4);
@@ -410,171 +494,15 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong>AuditCaat's Data Assurance</strong>
-      <small>Programa de formación interna</small>
+      <strong>Seguimiento del equipo</strong>
+      <small>Programa MRC-2026</small>
     </div>
-    <div class="ac-cabecera-fin" id="cab-participante"></div>
+    <div class="ac-cabecera-fin"><a href="index.html" style="color:#fff">Volver al índice</a></div>
   </div>
 </header>
 
-<main>
-
-  <!-- ============ Portada ============ -->
-  <section class="ac-envoltura ac-portada">
-    <div class="ac-eyebrow">Programa MRC-2026 · 21 horas</div>
-    <h1>Validación de modelos de riesgo de crédito</h1>
-    <p class="bajada">
-      Ocho módulos para auditores y contadores que deben revisar la cifra que sale de un modelo
-      estadístico. Ningún concepto se enseña sin responder tres cosas: qué cifra contable depende
-      de él, qué ocurre si está mal y qué procedimiento de auditoría corresponde.
-    </p>
-    <p class="bajada" style="font-size:var(--t-md);margin-top:var(--e-4)">
-      Cada módulo cierra con un laboratorio en Python: código que se ejecuta sobre la
-      cartera del curso y produce el papel de trabajo del módulo. No se requiere
-      experiencia previa en programación; el código viene escrito y comentado.
-    </p>
-
-    <dl class="ac-fichaprograma">
-      <div><dt>Módulos</dt><dd>8</dd></div>
-      <div><dt>Duración</dt><dd>21 h</dd></div>
-      <div><dt>Aprobación</dt><dd>70 %</dd></div>
-      <div><dt>Entregables</dt><dd>8 papeles</dd></div>
-      <div><dt>Certifica</dt><dd>Por módulo</dd></div>
-      <div><dt>Entorno</dt><dd>Python</dd></div>
-    </dl>
-  </section>
-
-  <!-- ============ Registro ============ -->
-  <section class="ac-angosto" id="bloque-registro" hidden>
-    <div class="ac-cedula">
-      <div class="ac-cedula-encab">
-        <span class="ref">REG</span>
-        <h3>Inscripción al programa</h3>
-      </div>
-      <div class="ac-cedula-cuerpo">
-        <p>Los datos se registran una sola vez para los ocho módulos y se usan para emitir los
-        certificados. Quedan guardados en este navegador; si cambias de equipo, deberás volver a
-        inscribirte y convalidar los módulos ya aprobados con su código.</p>
-
-        <div class="ac-campo">
-          <label for="f-nombre">Nombre completo</label>
-          <input id="f-nombre" autocomplete="name" placeholder="Como debe aparecer en el certificado">
-          <div class="error">Ingresa nombre y apellido.</div>
-        </div>
-        <div class="ac-campo">
-          <label for="f-doc">Documento de identidad</label>
-          <input id="f-doc" autocomplete="off" placeholder="RUT, DNI o pasaporte">
-          <div class="error">Ingresa el documento.</div>
-        </div>
-        <div class="ac-campo">
-          <label for="f-mail">Correo</label>
-          <input id="f-mail" type="email" autocomplete="email" placeholder="nombre@organizacion.com">
-          <div class="error">Ingresa un correo válido.</div>
-        </div>
-        <div class="ac-campo">
-          <label for="f-cargo">Rol</label>
-          <select id="f-cargo">
-            <option value="">Selecciona</option>
-            <option>Auditor externo</option>
-            <option>Auditor interno</option>
-            <option>Contador</option>
-            <option>Analista de riesgo</option>
-            <option>Validador de modelos</option>
-            <option>Supervisión o regulación</option>
-            <option>Otro</option>
-          </select>
-          <div class="error">Selecciona un rol.</div>
-        </div>
-        <div class="ac-campo">
-          <label for="f-org">Organización</label>
-          <input id="f-org" autocomplete="organization" placeholder="Empresa o institución">
-          <div class="error">Ingresa la organización.</div>
-        </div>
-
-        <button class="ac-btn ac-btn-primario" id="btn-inscribir">Inscribirme</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ Índice de legajo ============ -->
-  <section class="ac-envoltura" id="bloque-ruta" hidden>
-    <div class="ac-avance">
-      <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
-      <small id="ac-avance-txt"></small>
-    </div>
-
-    <div class="ac-legajo">
-      <div class="ac-legajo-encab">
-        <h2>Índice del legajo</h2>
-        <span>Ref. · Módulo · Dedicación y fuente · Estado · Marca</span>
-      </div>
-      <div id="ruta"></div>
-    </div>
-
-    <div class="ac-cedula" id="bloque-convalidar">
-      <div class="ac-cedula-encab">
-        <span class="ref">CONV</span>
-        <h3>Convalidar un módulo ya aprobado</h3>
-      </div>
-      <div class="ac-cedula-cuerpo">
-        <p>Si ya cursaste un módulo y tienes su certificado, ingresa el código para reconocerlo
-        sin repetirlo. Aplica a quienes aprobaron el Módulo I antes de que existiera el portal.</p>
-        <div class="ac-campo">
-          <label for="f-conv-mod">Módulo</label>
-          <select id="f-conv-mod"></select>
-        </div>
-        <div class="ac-campo">
-          <label for="f-conv-cod">Código del certificado</label>
-          <input id="f-conv-cod" placeholder="AC-2026-XXXXX-XXXX" style="font-family:var(--ac-dato);text-transform:uppercase">
-          <div class="error">El código no tiene el formato AC-2026-XXXXX-XXXX.</div>
-        </div>
-        <button class="ac-btn ac-btn-secundario" id="btn-convalidar">Convalidar</button>
-        <span id="conv-msg" style="margin-left:12px;font-size:var(--t-sm)"></span>
-      </div>
-    </div>
-
-    <div class="ac-cedula" id="bloque-respaldo">
-      <div class="ac-cedula-encab">
-        <span class="ref">RESP</span>
-        <h3>Respaldo del avance</h3>
-      </div>
-      <div class="ac-cedula-cuerpo">
-        <p>Tu avance queda guardado en este navegador, así que puedes cerrar y
-        continuar otro día sin perder nada. El respaldo sirve para otra cosa: llevar
-        el avance a otro equipo, recuperarlo si se limpia el navegador, y enviarlo a
-        la coordinación del programa.</p>
-
-        <div style="display:flex;gap:var(--e-3);flex-wrap:wrap;align-items:center">
-          <button class="ac-btn ac-btn-primario" id="btn-exportar">Descargar mi avance</button>
-          <label class="ac-btn ac-btn-secundario" for="f-importar" style="margin:0">
-            Restaurar desde un archivo</label>
-          <input type="file" id="f-importar" accept=".json,application/json" hidden>
-        </div>
-        <p id="resp-msg" style="margin:var(--e-4) 0 0;font-size:var(--t-sm)"></p>
-
-        <p style="margin-top:var(--e-4);font-size:var(--t-sm);color:var(--ac-tinta-2)">
-          Coordinación del programa:
-          <a href="seguimiento.html" id="enlace-equipo">consolidar el avance del equipo</a>.
-        </p>
-      </div>
-    </div>
-
-    <div class="ac-cedula" id="bloque-diploma" hidden>
-      <div class="ac-cedula-encab">
-        <span class="ref">DIP</span>
-        <h3>Diploma del programa</h3>
-      </div>
-      <div class="ac-cedula-cuerpo">
-        <p>Los ocho módulos están aprobados. El diploma acredita las 21 horas del programa completo.</p>
-        <button class="ac-btn ac-btn-primario" id="btn-diploma">Emitir diploma</button>
-      </div>
-    </div>
-
-    <p class="ac-no-imprimir" style="text-align:right;font-size:var(--t-xs)">
-      <a href="#" id="btn-salir">Cerrar sesión y borrar mis datos de este navegador</a>
-    </p>
-  </section>
-
+<main class="ac-envoltura" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+  <div id="equipo"></div>
 </main>
 
 <script>
@@ -594,10 +522,18 @@ const AC_PROGRAMA = {
   titulo: "Validación de modelos de riesgo de crédito para auditores y contadores",
   emisor: "AuditCaat's Data Assurance",
   anio: 2026,
-  horasTotales: 21,
+  horasTotales: 23,
   entorno: "Python 3.11 · pandas · numpy · scikit-learn",
   aprobacionMinima: 0.70,   // 70% del puntaje del modulo
   modulos: [
+    {
+      id: "M00", ref: "0", marca: "✓", horas: 2.0, clase: "Material del programa",
+      titulo: "Python para quien nunca ha programado",
+      resumen: "Desde la primera línea. Colab sin instalar nada, variables, tablas, filtrar y agrupar. Si usas Excel, ya sabes más de lo que crees.",
+      entregable: "Cuaderno con los controles de integridad",
+      estadoPublicacion: "publicado",
+      url: "modulos/m00.html"
+    },
     {
       id: "M01", ref: "A", marca: "✓", horas: 2.5, clase: "Clase 1",
       titulo: "Por qué un contador audita modelos",
@@ -1244,135 +1180,173 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 
 </script>
 <script>
-(function () {
-  const $ = AC.util.$;
+/* ===================================================================
+   AuditCaat's — Seguimiento del equipo  (ac_equipo.js)
 
-  // El logo se pinta como fondo CSS; si no se cargó el base64, queda el monograma.
-  if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
-    $("#logo").classList.add("tiene-imagen");
-  }
+   Consolida los archivos de avance que envian los participantes y
+   produce la tabla de control del programa. Todo ocurre en el
+   navegador del coordinador: los archivos no se suben a ningun lado.
+   =================================================================== */
 
-  function pintar() {
-    const p = AC.Participante.obtener();
-    $("#bloque-registro").hidden = !!p;
-    $("#bloque-ruta").hidden = !p;
-    if (!p) return;
+(function (global) {
+  "use strict";
 
-    $("#cab-participante").innerHTML =
-      AC.util.esc(p.nombre) + "<br>" + AC.util.esc(p.organizacion);
+  const ACEquipo = {
+    registros: [],
 
-    AC.Portal.render("#ruta");
-    $("#bloque-diploma").hidden = !AC.Progreso.programaCompleto();
+    montar(destino) {
+      const nodo = typeof destino === "string" ? document.querySelector(destino) : destino;
+      if (!nodo) return;
+      this.registros = [];
 
-    $("#enlace-equipo").href = AC.Rutas.equipo();
+      nodo.innerHTML = `
+        <div class="ac-cedula">
+          <div class="ac-cedula-encab">
+            <span class="ref">EQ</span>
+            <h3>Seguimiento del equipo</h3>
+          </div>
+          <div class="ac-cedula-cuerpo">
+            <p>Carga los archivos de avance que envían los participantes. Puedes
+            seleccionar varios a la vez. Los archivos se procesan en este navegador
+            y no se envían a ningún servidor.</p>
+            <div style="display:flex;gap:var(--e-3);flex-wrap:wrap;align-items:center">
+              <label class="ac-btn ac-btn-primario" for="eq-archivos" style="margin:0">
+                Cargar archivos de avance</label>
+              <input type="file" id="eq-archivos" accept=".json,application/json" multiple hidden>
+              <button class="ac-btn ac-btn-secundario" id="eq-csv" disabled>Exportar a CSV</button>
+              <button class="ac-btn ac-btn-secundario" id="eq-limpiar" disabled>Limpiar</button>
+            </div>
+            <p id="eq-msg" style="margin:var(--e-4) 0 0;font-size:var(--t-sm);color:var(--ac-tinta-2)"></p>
+          </div>
+        </div>
+        <div id="eq-tabla"></div>`;
 
-    if (!AC.Store.persistente()) {
-      $("#cab-participante").innerHTML +=
-        '<br><span style="color:#F0C24B">Sin guardado permanente en este navegador</span>';
+      const $ = s => nodo.querySelector(s);
+
+      $("#eq-archivos").addEventListener("change", ev => {
+        const archivos = Array.from(ev.target.files);
+        let leidos = 0, errores = [];
+
+        archivos.forEach(f => {
+          const lector = new FileReader();
+          lector.onload = () => {
+            const r = AC.Respaldo.revisar(lector.result);
+            if (!r.ok) errores.push(f.name + ": " + r.motivo);
+            else this.agregar(AC.Respaldo.resumir(r.datos));
+            if (++leidos === archivos.length) this.pintar(nodo, errores);
+          };
+          lector.readAsText(f);
+        });
+        ev.target.value = "";
+      });
+
+      $("#eq-csv").addEventListener("click", () => this.csv());
+      $("#eq-limpiar").addEventListener("click", () => {
+        this.registros = [];
+        this.pintar(nodo, []);
+      });
+    },
+
+    /** Un participante por documento: si llega un archivo mas nuevo, reemplaza. */
+    agregar(r) {
+      const i = this.registros.findIndex(x => x.documento === r.documento);
+      if (i < 0) this.registros.push(r);
+      else if (r.aprobados >= this.registros[i].aprobados) this.registros[i] = r;
+    },
+
+    pintar(nodo, errores) {
+      const $ = s => nodo.querySelector(s);
+      const esc = AC.util.esc;
+      const hay = this.registros.length > 0;
+
+      $("#eq-csv").disabled = !hay;
+      $("#eq-limpiar").disabled = !hay;
+
+      const partes = [];
+      if (errores.length) partes.push("No se pudieron leer " + errores.length + " archivo(s).");
+      if (hay) partes.push(this.registros.length + " participante(s) cargado(s).");
+      $("#eq-msg").textContent = partes.join(" ");
+      $("#eq-msg").title = errores.join("\n");
+
+      if (!hay) { $("#eq-tabla").innerHTML = ""; return; }
+
+      const mods = AC.programa.modulos;
+      const orden = this.registros.slice().sort((a, b) => b.aprobados - a.aprobados);
+
+      const filas = orden.map(r => {
+        const celdas = r.detalle.map(d =>
+          '<td class="num" title="' + (d.codigo ? esc(d.codigo) : "sin certificado") + '">' +
+          (d.aprobado ? '<span style="color:var(--ac-ok);font-weight:700">' +
+                        esc(mods.find(m => m.id === d.id).marca) + "</span>" : "·") +
+          "</td>").join("");
+        const alerta = r.firmaValida ? "" :
+          ' <span style="color:var(--ac-alerta)" title="El archivo fue modificado después de generarse">△</span>';
+        return "<tr><td>" + esc(r.nombre) + alerta +
+               '<br><span style="color:var(--ac-tinta-3);font-size:var(--t-xs)">' +
+               esc(r.documento) + " · " + esc(r.organizacion) + "</span></td>" +
+               celdas +
+               '<td class="num">' + r.aprobados + "/" + r.total + "</td>" +
+               '<td class="num">' + r.horas.toFixed(1).replace(".", ",") + "</td>" +
+               '<td class="num">' + (r.maximo ? Math.round(r.puntaje / r.maximo * 100) + " %" : "—") + "</td>" +
+               '<td class="num">' + esc(r.generado) + "</td></tr>";
+      }).join("");
+
+      const totalMods = mods.map(m =>
+        '<td class="num">' + this.registros.filter(r =>
+          r.detalle.find(d => d.id === m.id && d.aprobado)).length + "</td>").join("");
+
+      $("#eq-tabla").innerHTML =
+        '<div class="ac-cedula"><div class="ac-cedula-cuerpo" style="overflow-x:auto">' +
+        '<table class="ac-tabla"><thead><tr><th>Participante</th>' +
+        mods.map(m => '<th class="num" title="' + esc(m.titulo) + '">' + esc(m.ref) + "</th>").join("") +
+        '<th class="num">Avance</th><th class="num">Horas</th>' +
+        '<th class="num">Logro</th><th class="num">Corte</th></tr></thead>' +
+        "<tbody>" + filas + "</tbody>" +
+        '<tfoot><tr><th>Aprobaciones por módulo</th>' + totalMods +
+        '<th colspan="4"></th></tr></tfoot></table>' +
+        '<p style="font-size:var(--t-xs);color:var(--ac-tinta-3);margin:var(--e-3) 0 0">' +
+        "Pasa el cursor sobre una marca para ver el código del certificado. " +
+        "El triángulo junto a un nombre indica que el archivo fue modificado después " +
+        "de generarse.</p></div></div>";
+    },
+
+    csv() {
+      const mods = AC.programa.modulos;
+      const cab = ["Nombre", "Documento", "Correo", "Organizacion"]
+        .concat(mods.map(m => m.ref + " " + m.titulo))
+        .concat(["Modulos aprobados", "Horas acreditadas", "Logro", "Fecha del respaldo", "Integridad"]);
+
+      const filas = this.registros.map(r => {
+        const cols = [r.nombre, r.documento, r.email, r.organizacion]
+          .concat(r.detalle.map(d => d.aprobado ? (d.codigo || "aprobado") : ""))
+          .concat([r.aprobados, r.horas.toFixed(1),
+                   r.maximo ? Math.round(r.puntaje / r.maximo * 100) + "%" : "",
+                   r.generado, r.firmaValida ? "OK" : "ARCHIVO MODIFICADO"]);
+        return cols.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(";");
+      });
+
+      // BOM para que Excel reconozca los acentos al abrir el archivo
+      const blob = new Blob(["\ufeff" + [cab.map(c => '"' + c + '"').join(";")]
+        .concat(filas).join("\r\n")], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "seguimiento_" + AC.programa.codigo + "_" +
+                   new Date().toISOString().slice(0, 10) + ".csv";
+      a.click();
+      URL.revokeObjectURL(a.href);
     }
-  }
-
-  // ---- Inscripción ----
-  function validar(id, prueba) {
-    const campo = $("#" + id).closest(".ac-campo");
-    const ok = prueba($("#" + id).value.trim());
-    campo.classList.toggle("invalido", !ok);
-    return ok;
-  }
-
-  $("#btn-inscribir").addEventListener("click", function () {
-    const ok = [
-      validar("f-nombre", v => v.split(/\s+/).length >= 2),
-      validar("f-doc",    v => v.length >= 5),
-      validar("f-mail",   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)),
-      validar("f-cargo",  v => v !== ""),
-      validar("f-org",    v => v.length >= 2)
-    ].every(Boolean);
-    if (!ok) return;
-
-    AC.Participante.registrar({
-      nombre: $("#f-nombre").value,
-      documento: $("#f-doc").value,
-      email: $("#f-mail").value,
-      cargo: $("#f-cargo").value,
-      organizacion: $("#f-org").value
-    });
-    pintar();
-    const ruta = $("#bloque-ruta");
-    if (ruta.scrollIntoView) ruta.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  // ---- Convalidación ----
-  $("#f-conv-mod").innerHTML = AC.programa.modulos
-    .map(m => '<option value="' + m.id + '">' + m.ref + " · " + AC.util.esc(m.titulo) + "</option>").join("");
-
-  $("#btn-convalidar").addEventListener("click", function () {
-    const cod = $("#f-conv-cod").value.trim().toUpperCase();
-    const mod = $("#f-conv-mod").value;
-    const ok = AC.Progreso.convalidar(mod, cod);
-    $("#f-conv-cod").closest(".ac-campo").classList.toggle("invalido", !ok);
-    $("#conv-msg").textContent = ok ? "Módulo convalidado." : "";
-    $("#conv-msg").style.color = "var(--ac-ok)";
-    if (ok) { $("#f-conv-cod").value = ""; pintar(); }
-  });
-
-  // ---- Respaldo ----
-  const msg = (texto, color) => {
-    const n = $("#resp-msg");
-    n.textContent = texto;
-    n.style.color = color || "var(--ac-tinta-2)";
   };
 
-  $("#btn-exportar").addEventListener("click", function () {
-    const nombre = AC.Respaldo.descargar();
-    msg(nombre ? "Descargado " + nombre : "No hay avance que respaldar.", "var(--ac-ok)");
-  });
+  global.ACEquipo = ACEquipo;
+})(window);
 
-  $("#f-importar").addEventListener("change", function (ev) {
-    const archivo = ev.target.files[0];
-    if (!archivo) return;
-    const lector = new FileReader();
-    lector.onload = function () {
-      let r = AC.Respaldo.restaurar(lector.result, false);
-
-      if (!r.ok && r.distinto) {
-        const seguir = confirm(
-          "El respaldo pertenece a " + r.entrante.nombre + " y en este navegador " +
-          "está registrado " + r.actual.nombre + ".\n\n" +
-          "Si continúas, se reemplazará al participante actual. ¿Continuar?");
-        if (!seguir) { msg("Restauración cancelada."); ev.target.value = ""; return; }
-        r = AC.Respaldo.restaurar(lector.result, true);
-      }
-
-      if (!r.ok) { msg(r.motivo, "var(--ac-tick)"); ev.target.value = ""; return; }
-
-      pintar();
-      let t = "Avance restaurado: " + r.aprobados + " de " +
-              AC.programa.modulos.length + " módulos aprobados.";
-      if (r.alterado) t += " El archivo fue modificado después de generarse; " +
-                           "revisa el avance antes de darlo por válido.";
-      msg(t, r.alterado ? "var(--ac-alerta)" : "var(--ac-ok)");
-      ev.target.value = "";
-    };
-    lector.readAsText(archivo);
-  });
-
-  // ---- Diploma ----
-  $("#btn-diploma").addEventListener("click", function () {
-    const d = AC.Certificado.emitirDiploma();
-    if (d) location.href = AC.Rutas.diploma();
-  });
-
-  // ---- Salir ----
-  $("#btn-salir").addEventListener("click", function (e) {
-    e.preventDefault();
-    if (confirm("Se borrarán tu inscripción y tu avance en este navegador. Los certificados ya emitidos siguen siendo válidos. ¿Continuar?")) {
-      AC.Participante.salir();
-      location.reload();
-    }
-  });
-
-  pintar();
+</script>
+<script>
+(function () {
+  if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
+    document.querySelector("#logo").classList.add("tiene-imagen");
+  }
+  ACEquipo.montar("#equipo");
 })();
 </script>
 </body>
