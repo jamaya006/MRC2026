@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<title>Por qué un contador audita modelos · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -410,7 +410,7 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
+      <strong id="cab-titulo">Por qué un contador audita modelos</strong>
       <small id="cab-ref">Referencia</small>
     </div>
     <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
@@ -425,146 +425,141 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
+    <strong>Qué se lleva de este módulo</strong>Situar el modelo como fuente de una cifra de los estados financieros y no como un asunto técnico del área de riesgo. Al terminar, distinguir los tres tipos de modelo, leer una ventana de observación y saber qué significa que un modelo esté mal.
   </div>
 
-  <section class="ac-cedula" data-cedula="H-1">
+  <section class="ac-cedula" data-cedula="A-1">
     <div class="ac-cedula-encab">
-      <span class="ref">H-1</span>
-      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
+      <span class="ref">A-1</span>
+      <h3>De la pérdida incurrida a la pérdida esperada</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
-      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
-      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
+      <p>Durante décadas la provisión se reconocía cuando existía evidencia objetiva de deterioro: el cliente había dejado de pagar. El marco actual invierte el orden. La pérdida se estima desde el origen del crédito, antes de que ocurra el incumplimiento.</p>
+      <p>El cambio tiene una consecuencia práctica para quien audita: la provisión dejó de ser el resultado de una regla verificable línea por línea y pasó a ser una estimación producida por un modelo. Ya no se recalcula la cifra: se evalúa el proceso que la produce.</p>
+      <div class="ac-nota"><strong>Regla de trabajo del programa</strong>Ningún concepto estadístico se introduce sin responder tres preguntas: qué cifra contable depende de él, qué ocurre si está mal y qué procedimiento de auditoría corresponde. Si las tres no tienen respuesta, el concepto no entra al programa.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-2">
+  <section class="ac-cedula" data-cedula="A-2">
     <div class="ac-cedula-encab">
-      <span class="ref">H-2</span>
-      <h3>Frecuencia, severidad y valor en riesgo</h3>
+      <span class="ref">A-2</span>
+      <h3>Los tres tipos de modelo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
-      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
-      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+      <p>En una institución financiera conviven al menos tres familias de modelos de riesgo de crédito. Se construyen distinto, se evalúan contra umbrales distintos y fallan de maneras distintas. Tratarlos como uno solo lleva a conclusiones equivocadas.</p>
+      <table class="ac-tabla"><thead><tr><th>Tipo</th><th>Población</th><th>Qué predice</th><th>Información disponible</th></tr></thead><tbody><tr><td>Admisión</td><td>Cliente nuevo</td><td>Si incumplirá el crédito solicitado</td><td>Externa y declarada</td></tr><tr><td>Comportamiento</td><td>Cliente vigente</td><td>Si se deteriorará en los próximos meses</td><td>Historial interno completo</td></tr><tr><td>Cobranza</td><td>Cliente en mora</td><td>Si seguirá empeorando o se recuperará</td><td>Historial más gestión de cobro</td></tr></tbody></table>
+      <blockquote class="ac-cita">El tercer mundo es todo lo que es cobranza: los recursos dentro de los modelos de cobranza no son infinitos.<cite>Clase 1, aprox. 01:03:31</cite></blockquote>
+      <div class="ac-nota"><strong>Consecuencia para la revisión</strong>El modelo de comportamiento dispone de historial interno y por eso se le exige más desempeño que a uno de admisión. Aplicar el mismo umbral a ambos es un error que aparece con frecuencia en informes de validación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-3">
+  <section class="ac-cedula" data-cedula="A-3">
     <div class="ac-cedula-encab">
-      <span class="ref">H-3</span>
-      <h3>Stress test: qué es y qué no es</h3>
+      <span class="ref">A-3</span>
+      <h3>Ventana de observación y ventana de desempeño</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
-      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
-      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
+      <p>Todo modelo se construye sobre dos períodos. La ventana de observación es aquella de la que se toman las características del cliente. La ventana de desempeño es el período posterior en el que se observa si incumplió o no.</p>
+      <p>Esta separación es lo que hace que el modelo prediga en lugar de describir. Si una variable de la ventana de observación contiene información que en realidad pertenece a la ventana de desempeño, el modelo está mirando la respuesta.</p>
+      <blockquote class="ac-cita">Si yo construí un modelo de admisión de cliente con todas las originaciones de créditos entre 2018 y 2020…<cite>Clase 1, aprox. 01:53:29</cite></blockquote>
+      <div class="ac-riesgo"><strong>Ventana contaminada</strong>Un cliente con buen comportamiento histórico dejó de comportarse igual durante la pandemia. Un modelo construido con esa ventana aprende un patrón que no se repite en condiciones normales, y su calibración queda desplazada aunque el orden entre clientes se conserve.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar las fechas exactas de ambas ventanas y verificar que no se superponen. Preguntar expresamente si alguna abarca períodos con ayudas estatales, reprogramaciones masivas o suspensión de cobranza, y qué tratamiento se dio a las operaciones afectadas.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-4">
+  <section class="ac-cedula" data-cedula="A-4">
     <div class="ac-cedula-encab">
-      <span class="ref">H-4</span>
-      <h3>Castigo, recupero y presupuesto de riesgo</h3>
+      <span class="ref">A-4</span>
+      <h3>Qué significa que un modelo esté mal</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
-      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
-      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
+      <p>Un modelo se equivoca en casos individuales por definición: estima probabilidades, no certezas. Que rechace a un cliente que habría pagado no es una falla. La falla es equivocarse de forma sistemática.</p>
+      <ul><li>Sesgo: se equivoca siempre en la misma dirección, por ejemplo subestimando la probabilidad de incumplimiento de un segmento completo.</li><li>Inestabilidad: funcionaba y dejó de funcionar porque la población cambió.</li><li>Fuga de información: parece funcionar porque usa datos que no existían al momento de decidir.</li><li>Desalineación: funciona, pero no se usa como fue diseñado, por ejemplo con un punto de corte que no corresponde a la política vigente.</li></ul>
+      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Los cuatro producen hallazgos distintos y recomendaciones distintas. El sesgo afecta la suficiencia de la provisión; la inestabilidad, el monitoreo; la fuga, la construcción; la desalineación, el control interno operativo.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-5">
+  <section class="ac-cedula" data-cedula="A-5">
     <div class="ac-cedula-encab">
-      <span class="ref">H-5</span>
-      <h3>El memorando de validación independiente</h3>
+      <span class="ref">A-5</span>
+      <h3>Cómo se mide que un modelo separa</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
-      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
-      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
+      <p>La primera pregunta sobre cualquier modelo de clasificación es si logra separar a quienes incumplen de quienes no. Existen tres medidas de uso habitual y conviene reconocer qué aporta cada una.</p>
+      <blockquote class="ac-cita">Lo que se denomina tasa de divergencia o índice de divergencia: lo que busco es que los promedios de las distribuciones sean lo más distintos posibles.<cite>Clase 1, aprox. 02:26:03</cite></blockquote>
+      <div class="ac-umbral"><strong>Referencias citables</strong>Área bajo la curva ROC sobre 0,80 se considera buena. KS entre 25 % y 35 % es normal en admisión y entre 35 % y 50 % en comportamiento. Divergencia sobre 2 indica buena separación entre las distribuciones.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se presentan las tres métricas como confirmaciones independientes. Área bajo la curva y Gini son la misma medida en distinta escala, y las tres miden capacidad de ordenar. Ninguna prueba que el nivel de la probabilidad estimada sea correcto.</div>
+      <div class="ac-nota"><strong>Lo que falta en casi todos los informes</strong>La comparación entre probabilidad estimada e incumplimiento observado. Es la única evidencia que sostiene la suficiencia de la provisión, y se desarrolla en el Módulo V.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-6">
+  <section class="ac-cedula" data-cedula="A-6">
     <div class="ac-cedula-encab">
-      <span class="ref">H-6</span>
-      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
+      <span class="ref">A-6</span>
+      <h3>Quién responde por el número</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
-
-rng = np.random.default_rng(20260722)
-SIMULACIONES = 50_000
-
-pd_ = c.pd_aplicable.to_numpy()
-lgd = c.lgd.to_numpy()
-ead = c.ead.to_numpy()
-
-perdidas = np.empty(SIMULACIONES)
-for i in range(SIMULACIONES):
-    incumple = rng.random(pd_.size) &lt; pd_
-    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
-
-esperada = perdidas.mean()
-var99 = np.percentile(perdidas, 99)
-
-print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
-print(f"VaR 99 %            {var99:&gt;14,.0f}")
-print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
-      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
-RHO = 0.15
-for rho in (0.0, 0.10, 0.20):
-    tot = np.empty(10_000)
-    for i in range(10_000):
-        shock = rng.standard_normal()
-        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
-                  rng.standard_normal(pd_.size))
-        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
-        tot[i] = (ead[incumple] * lgd[incumple]).sum()
-    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
-
-# Escenario adverso: al menos tan severo como la peor crisis observada
-pd_estres = np.clip(pd_ * 2.4, 0, 1)
-print(f"\nPérdida esperada bajo tensión "
-      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
-      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
+      <p>La provisión atraviesa varias áreas antes de llegar al estado financiero, y cada una asume una responsabilidad distinta. Identificar quién responde por qué es condición previa para dirigir un hallazgo a quien corresponde.</p>
+      <table class="ac-tabla"><thead><tr><th>Función</th><th>Responsabilidad</th></tr></thead><tbody><tr><td>Negocio</td><td>Origina las operaciones y aplica la política de crédito</td></tr><tr><td>Riesgos</td><td>Construye el modelo y estima los parámetros</td></tr><tr><td>Contabilidad</td><td>Registra la provisión y prepara la revelación</td></tr><tr><td>Auditoría interna</td><td>Evalúa el diseño y la operación de los controles</td></tr><tr><td>Validación independiente</td><td>Verifica que el modelo hace lo que dice hacer</td></tr><tr><td>Regulador</td><td>Fija requisitos mínimos y supervisa su cumplimiento</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La validación independiente la realiza el mismo equipo que construyó el modelo, o reporta al área de riesgo. La revisión puede ser técnicamente impecable y aun así no constituir validación independiente.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-7">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-7</span>
+      <h3>Laboratorio: construir las ventanas y medir la tasa base</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Todo el programa trabaja sobre la misma cartera sintética. El primer ejercicio arma las dos ventanas y obtiene la tasa de incumplimiento, que es el número contra el cual se comparará todo lo demás.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Ventanas de observación y desempeño</em></div><pre><code>import pandas as pd
+
+cartera = pd.read_csv("cartera.csv",
+                      parse_dates=["fecha_originacion", "fecha_default"])
+
+# Ventana de observación: originaciones del período de construcción
+obs = cartera[cartera.fecha_originacion.between("2022-01-01", "2022-12-31")].copy()
+
+# Ventana de desempeño: doce meses posteriores a cada originación
+obs["fin_desempeno"] = obs.fecha_originacion + pd.DateOffset(months=12)
+obs["malo"] = (obs.fecha_default.notna() &amp;
+               (obs.fecha_default &lt;= obs.fin_desempeno)).astype(int)
+
+print(f"Operaciones            {len(obs):&gt;10,}")
+print(f"Tasa de incumplimiento {obs.malo.mean():&gt;10.2%}")
+
+# Control: ninguna fecha de incumplimiento puede preceder a la originación
+con_default = obs[obs.fecha_default.notna()]
+assert (con_default.fecha_default &gt;= con_default.fecha_originacion).all()</code></pre></div>
+      <div class="ac-nota"><strong>Lo que hay que mirar</strong>La tasa de incumplimiento del período de construcción es el punto de comparación para el resto del programa. Anótala: si difiere de la de los períodos vecinos, esa diferencia es el primer indicio de una ventana contaminada.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-7">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-7"></span>
     </div>
   </section>
 
@@ -1411,217 +1406,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "h1",
+    "id": "a1",
     "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
+    "texto": "¿Qué cambió para el auditor con el paso a pérdida esperada?",
     "opciones": [
       {
-        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
+        "txt": "La provisión pasó de ser una regla verificable a una estimación producida por un modelo, por lo que se evalúa el proceso además de la cifra",
         "ok": true
       },
       {
-        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
+        "txt": "La provisión dejó de registrarse en resultados"
       },
       {
-        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
+        "txt": "El auditor ya no necesita revisar la cartera"
       },
       {
-        "txt": "Ambas se provisionan, con distinto horizonte"
+        "txt": "La provisión pasó a ser responsabilidad exclusiva del regulador"
       }
     ],
-    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
+    "retro": "El cambio es de naturaleza de la cifra: de hecho verificable a estimación. Eso traslada el foco al proceso que la produce."
   },
   {
-    "id": "h2",
+    "id": "a2",
     "puntaje": 10,
-    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
+    "texto": "¿Por qué se exige más desempeño a un modelo de comportamiento que a uno de admisión?",
     "opciones": [
       {
-        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
+        "txt": "Porque dispone del historial interno del cliente, información que el modelo de admisión no tiene",
         "ok": true
       },
       {
-        "txt": "Que la pérdida máxima posible es ese monto"
+        "txt": "Porque se aplica a carteras de mayor monto"
       },
       {
-        "txt": "Que el 99 % de los clientes no incumplirá"
+        "txt": "Porque lo exige expresamente la normativa contable"
       },
       {
-        "txt": "Que la provisión debe igualar ese monto"
+        "txt": "Porque usa técnicas estadísticas más avanzadas"
       }
     ],
-    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
+    "retro": "Más información disponible implica mayor expectativa de desempeño. Por eso los umbrales de KS difieren entre ambos tipos."
   },
   {
-    "id": "h3",
+    "id": "a3",
     "puntaje": 10,
-    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
+    "texto": "¿Qué distingue a la ventana de observación de la de desempeño?",
     "opciones": [
       {
-        "txt": "La correlación supuesta entre incumplimientos",
+        "txt": "La de observación aporta las características del cliente; la de desempeño registra si incumplió",
         "ok": true
       },
       {
-        "txt": "El número de operaciones de la cartera"
+        "txt": "La de observación es siempre de doce meses"
       },
       {
-        "txt": "La tasa de interés de colocación"
+        "txt": "La de desempeño se usa solo en modelos de cobranza"
       },
       {
-        "txt": "El nivel de provisión constituido"
+        "txt": "Son nombres distintos para el mismo período"
       }
     ],
-    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
+    "retro": "La separación temporal entre ambas es lo que hace que el modelo prediga en lugar de describir."
   },
   {
-    "id": "h4",
+    "id": "a4",
     "puntaje": 10,
-    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
+    "texto": "Un modelo rechaza a un cliente que habría pagado sin problemas. ¿Es una falla del modelo?",
     "opciones": [
       {
-        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
+        "txt": "No: el modelo estima probabilidades. La falla sería equivocarse de forma sistemática",
         "ok": true
       },
       {
-        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
+        "txt": "Sí: todo rechazo incorrecto es una falla"
       },
       {
-        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
+        "txt": "Sí, si el cliente reclama formalmente"
       },
       {
-        "txt": "No aplica observación porque el escenario es hipotético"
+        "txt": "Solo si el monto del crédito es material"
       }
     ],
-    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
+    "retro": "Los errores individuales son inherentes. Lo que se audita es el error sistemático: sesgo, inestabilidad, fuga o desalineación."
   },
   {
-    "id": "h5",
+    "id": "a5",
     "puntaje": 10,
-    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
+    "texto": "Un modelo funcionaba bien y su desempeño se deterioró porque la cartera cambió de composición. ¿Cómo se clasifica?",
     "opciones": [
       {
-        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
+        "txt": "Inestabilidad",
         "ok": true
       },
       {
-        "txt": "Se reconoce un gasto adicional por el monto total"
+        "txt": "Fuga de información"
       },
       {
-        "txt": "Se traslada a etapa 2"
+        "txt": "Sesgo"
       },
       {
-        "txt": "Se reversa la provisión contra resultados"
+        "txt": "Desalineación"
       }
     ],
-    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
+    "retro": "La inestabilidad apunta al monitoreo: el modelo era válido y la población dejó de ser la misma."
   },
   {
-    "id": "h6",
+    "id": "a6",
     "puntaje": 10,
-    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
+    "texto": "El modelo opera con un punto de corte distinto al que fija la política vigente. ¿Cómo se clasifica?",
     "opciones": [
       {
-        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
+        "txt": "Desalineación entre el modelo y su uso",
         "ok": true
       },
       {
-        "txt": "Se incumple el plazo legal de prescripción"
+        "txt": "Sesgo del modelo"
       },
       {
-        "txt": "Se pierde el derecho a cobrar la operación"
+        "txt": "Inestabilidad de la población"
       },
       {
-        "txt": "Aumenta la provisión del período siguiente"
+        "txt": "Error de calibración"
       }
     ],
-    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
+    "retro": "El modelo puede ser correcto y estar mal utilizado. Es un hallazgo de control interno operativo, no de metodología."
   },
   {
-    "id": "h7",
+    "id": "a7",
     "puntaje": 10,
-    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
+    "texto": "Un modelo de admisión reporta área bajo la curva de 0,82. ¿Qué se puede concluir?",
     "opciones": [
       {
-        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
+        "txt": "Que ordena bien a los clientes, pero no que la probabilidad estimada tenga el nivel correcto",
         "ok": true
       },
       {
-        "txt": "Ser realizada por un tercero externo a la institución"
+        "txt": "Que la provisión está correctamente dimensionada"
       },
       {
-        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
+        "txt": "Que el modelo es estable en el tiempo"
       },
       {
-        "txt": "Contar con la aprobación del área de riesgo"
+        "txt": "Que no requiere validación adicional"
       }
     ],
-    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
+    "retro": "Discriminación y calibración son cosas distintas. Ordenar bien no implica estimar bien el nivel."
   },
   {
-    "id": "h8",
+    "id": "a8",
     "puntaje": 10,
-    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
+    "texto": "¿Qué mide la divergencia?",
     "opciones": [
       {
-        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
+        "txt": "Cuán distintos son los promedios de las distribuciones de quienes incumplen y quienes no",
         "ok": true
       },
       {
-        "txt": "Que el efecto supere la materialidad"
+        "txt": "La diferencia entre PD estimada y observada"
       },
       {
-        "txt": "Que el auditado esté de acuerdo"
+        "txt": "El desplazamiento de la población entre períodos"
       },
       {
-        "txt": "Que exista una recomendación asociada"
+        "txt": "La proporción de falsos positivos"
       }
     ],
-    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
+    "retro": "Busca que las dos distribuciones estén lo más separadas posible. Valores sobre 2 indican buena separación."
   },
   {
-    "id": "h9",
+    "id": "a9",
     "puntaje": 10,
-    "texto": "El presupuesto de riesgo se compone de:",
+    "texto": "La validación del modelo la realizó el mismo equipo que lo construyó. ¿Cuál es la observación?",
     "opciones": [
       {
-        "txt": "El gasto en riesgo más el castigo neto de recupero",
+        "txt": "No constituye validación independiente, aunque el trabajo sea técnicamente correcto",
         "ok": true
       },
       {
-        "txt": "La provisión constituida más el capital regulatorio"
+        "txt": "Es adecuado porque conocen mejor el modelo"
       },
       {
-        "txt": "La pérdida esperada más la inesperada"
+        "txt": "Solo es observable si el resultado fue favorable"
       },
       {
-        "txt": "El valor en riesgo al 99 %"
+        "txt": "Corresponde observación únicamente si lo exige el regulador"
       }
     ],
-    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
+    "retro": "La independencia es una condición orgánica. La calidad técnica del trabajo no la reemplaza."
   },
   {
-    "id": "h10",
+    "id": "a10",
     "puntaje": 10,
-    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
+    "texto": "¿Qué evidencia falta en casi todos los informes de desempeño?",
     "opciones": [
       {
-        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
+        "txt": "La comparación entre probabilidad estimada e incumplimiento observado",
         "ok": true
       },
       {
-        "txt": "La falta de registro de la semilla aleatoria del modelo"
+        "txt": "El área bajo la curva de la muestra de desarrollo"
       },
       {
-        "txt": "El uso de un algoritmo poco interpretable"
+        "txt": "El listado de variables del modelo"
       },
       {
-        "txt": "La ausencia de gráfico de silueta en la segmentación"
+        "txt": "El índice de Gini"
       }
     ],
-    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
+    "retro": "Es la única evidencia directa sobre la suficiencia de la provisión, y suele estar ausente entre métricas de discriminación."
   }
 ];
-ACModulo.iniciar("M08", BANCO);
+ACModulo.iniciar("M01", BANCO);
 </script>
 </body>
 </html>

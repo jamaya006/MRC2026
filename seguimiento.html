@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<title>Programa de validación de modelos de riesgo de crédito · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -410,181 +410,169 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
-      <small id="cab-ref">Referencia</small>
+      <strong>AuditCaat's Data Assurance</strong>
+      <small>Programa de formación interna</small>
     </div>
-    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+    <div class="ac-cabecera-fin" id="cab-participante"></div>
   </div>
 </header>
 
-<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+<main>
 
-  <div class="ac-avance">
-    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
-    <small id="ac-avance-txt"></small>
-  </div>
+  <!-- ============ Portada ============ -->
+  <section class="ac-envoltura ac-portada">
+    <div class="ac-eyebrow">Programa MRC-2026 · 21 horas</div>
+    <h1>Validación de modelos de riesgo de crédito</h1>
+    <p class="bajada">
+      Ocho módulos para auditores y contadores que deben revisar la cifra que sale de un modelo
+      estadístico. Ningún concepto se enseña sin responder tres cosas: qué cifra contable depende
+      de él, qué ocurre si está mal y qué procedimiento de auditoría corresponde.
+    </p>
+    <p class="bajada" style="font-size:var(--t-md);margin-top:var(--e-4)">
+      Cada módulo cierra con un laboratorio en Python: código que se ejecuta sobre la
+      cartera del curso y produce el papel de trabajo del módulo. No se requiere
+      experiencia previa en programación; el código viene escrito y comentado.
+    </p>
 
-  <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
-  </div>
-
-  <section class="ac-cedula" data-cedula="H-1">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-1</span>
-      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
-      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
-      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-1"></span>
-    </div>
+    <dl class="ac-fichaprograma">
+      <div><dt>Módulos</dt><dd>8</dd></div>
+      <div><dt>Duración</dt><dd>21 h</dd></div>
+      <div><dt>Aprobación</dt><dd>70 %</dd></div>
+      <div><dt>Entregables</dt><dd>8 papeles</dd></div>
+      <div><dt>Certifica</dt><dd>Por módulo</dd></div>
+      <div><dt>Entorno</dt><dd>Python</dd></div>
+    </dl>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-2">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-2</span>
-      <h3>Frecuencia, severidad y valor en riesgo</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
-      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
-      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-2"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" data-cedula="H-3">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-3</span>
-      <h3>Stress test: qué es y qué no es</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
-      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
-      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-3"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" data-cedula="H-4">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-4</span>
-      <h3>Castigo, recupero y presupuesto de riesgo</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
-      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
-      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-4"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" data-cedula="H-5">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-5</span>
-      <h3>El memorando de validación independiente</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
-      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
-      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-5"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" data-cedula="H-6">
-    <div class="ac-cedula-encab">
-      <span class="ref">H-6</span>
-      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
-
-rng = np.random.default_rng(20260722)
-SIMULACIONES = 50_000
-
-pd_ = c.pd_aplicable.to_numpy()
-lgd = c.lgd.to_numpy()
-ead = c.ead.to_numpy()
-
-perdidas = np.empty(SIMULACIONES)
-for i in range(SIMULACIONES):
-    incumple = rng.random(pd_.size) &lt; pd_
-    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
-
-esperada = perdidas.mean()
-var99 = np.percentile(perdidas, 99)
-
-print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
-print(f"VaR 99 %            {var99:&gt;14,.0f}")
-print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
-      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
-RHO = 0.15
-for rho in (0.0, 0.10, 0.20):
-    tot = np.empty(10_000)
-    for i in range(10_000):
-        shock = rng.standard_normal()
-        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
-                  rng.standard_normal(pd_.size))
-        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
-        tot[i] = (ead[incumple] * lgd[incumple]).sum()
-    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
-
-# Escenario adverso: al menos tan severo como la peor crisis observada
-pd_estres = np.clip(pd_ * 2.4, 0, 1)
-print(f"\nPérdida esperada bajo tensión "
-      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
-      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-6"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" id="bloque-eval">
-    <div class="ac-cedula-encab">
-      <span class="ref">EVAL</span>
-      <h3>Evaluación del módulo</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
-      <div id="quiz"></div>
-      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
-        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
-        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+  <!-- ============ Registro ============ -->
+  <section class="ac-angosto" id="bloque-registro" hidden>
+    <div class="ac-cedula">
+      <div class="ac-cedula-encab">
+        <span class="ref">REG</span>
+        <h3>Inscripción al programa</h3>
       </div>
-      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
-        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
-        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      <div class="ac-cedula-cuerpo">
+        <p>Los datos se registran una sola vez para los ocho módulos y se usan para emitir los
+        certificados. Quedan guardados en este navegador; si cambias de equipo, deberás volver a
+        inscribirte y convalidar los módulos ya aprobados con su código.</p>
+
+        <div class="ac-campo">
+          <label for="f-nombre">Nombre completo</label>
+          <input id="f-nombre" autocomplete="name" placeholder="Como debe aparecer en el certificado">
+          <div class="error">Ingresa nombre y apellido.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-doc">Documento de identidad</label>
+          <input id="f-doc" autocomplete="off" placeholder="RUT, DNI o pasaporte">
+          <div class="error">Ingresa el documento.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-mail">Correo</label>
+          <input id="f-mail" type="email" autocomplete="email" placeholder="nombre@organizacion.com">
+          <div class="error">Ingresa un correo válido.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-cargo">Rol</label>
+          <select id="f-cargo">
+            <option value="">Selecciona</option>
+            <option>Auditor externo</option>
+            <option>Auditor interno</option>
+            <option>Contador</option>
+            <option>Analista de riesgo</option>
+            <option>Validador de modelos</option>
+            <option>Supervisión o regulación</option>
+            <option>Otro</option>
+          </select>
+          <div class="error">Selecciona un rol.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-org">Organización</label>
+          <input id="f-org" autocomplete="organization" placeholder="Empresa o institución">
+          <div class="error">Ingresa la organización.</div>
+        </div>
+
+        <button class="ac-btn ac-btn-primario" id="btn-inscribir">Inscribirme</button>
       </div>
     </div>
+  </section>
+
+  <!-- ============ Índice de legajo ============ -->
+  <section class="ac-envoltura" id="bloque-ruta" hidden>
+    <div class="ac-avance">
+      <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+      <small id="ac-avance-txt"></small>
+    </div>
+
+    <div class="ac-legajo">
+      <div class="ac-legajo-encab">
+        <h2>Índice del legajo</h2>
+        <span>Ref. · Módulo · Dedicación y fuente · Estado · Marca</span>
+      </div>
+      <div id="ruta"></div>
+    </div>
+
+    <div class="ac-cedula" id="bloque-convalidar">
+      <div class="ac-cedula-encab">
+        <span class="ref">CONV</span>
+        <h3>Convalidar un módulo ya aprobado</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Si ya cursaste un módulo y tienes su certificado, ingresa el código para reconocerlo
+        sin repetirlo. Aplica a quienes aprobaron el Módulo I antes de que existiera el portal.</p>
+        <div class="ac-campo">
+          <label for="f-conv-mod">Módulo</label>
+          <select id="f-conv-mod"></select>
+        </div>
+        <div class="ac-campo">
+          <label for="f-conv-cod">Código del certificado</label>
+          <input id="f-conv-cod" placeholder="AC-2026-XXXXX-XXXX" style="font-family:var(--ac-dato);text-transform:uppercase">
+          <div class="error">El código no tiene el formato AC-2026-XXXXX-XXXX.</div>
+        </div>
+        <button class="ac-btn ac-btn-secundario" id="btn-convalidar">Convalidar</button>
+        <span id="conv-msg" style="margin-left:12px;font-size:var(--t-sm)"></span>
+      </div>
+    </div>
+
+    <div class="ac-cedula" id="bloque-respaldo">
+      <div class="ac-cedula-encab">
+        <span class="ref">RESP</span>
+        <h3>Respaldo del avance</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Tu avance queda guardado en este navegador, así que puedes cerrar y
+        continuar otro día sin perder nada. El respaldo sirve para otra cosa: llevar
+        el avance a otro equipo, recuperarlo si se limpia el navegador, y enviarlo a
+        la coordinación del programa.</p>
+
+        <div style="display:flex;gap:var(--e-3);flex-wrap:wrap;align-items:center">
+          <button class="ac-btn ac-btn-primario" id="btn-exportar">Descargar mi avance</button>
+          <label class="ac-btn ac-btn-secundario" for="f-importar" style="margin:0">
+            Restaurar desde un archivo</label>
+          <input type="file" id="f-importar" accept=".json,application/json" hidden>
+        </div>
+        <p id="resp-msg" style="margin:var(--e-4) 0 0;font-size:var(--t-sm)"></p>
+
+        <p style="margin-top:var(--e-4);font-size:var(--t-sm);color:var(--ac-tinta-2)">
+          Coordinación del programa:
+          <a href="seguimiento.html" id="enlace-equipo">consolidar el avance del equipo</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="ac-cedula" id="bloque-diploma" hidden>
+      <div class="ac-cedula-encab">
+        <span class="ref">DIP</span>
+        <h3>Diploma del programa</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Los ocho módulos están aprobados. El diploma acredita las 21 horas del programa completo.</p>
+        <button class="ac-btn ac-btn-primario" id="btn-diploma">Emitir diploma</button>
+      </div>
+    </div>
+
+    <p class="ac-no-imprimir" style="text-align:right;font-size:var(--t-xs)">
+      <a href="#" id="btn-salir">Cerrar sesión y borrar mis datos de este navegador</a>
+    </p>
   </section>
 
 </main>
@@ -1256,372 +1244,136 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 
 </script>
 <script>
-/* ===================================================================
-   AuditCaat's — Runtime de pagina de modulo  (ac_modulo.js)
-   Requiere ac_programa.js y ac_engine.js.
+(function () {
+  const $ = AC.util.$;
 
-   Un modulo solo declara su contenido y su banco de preguntas.
-   Toda la mecanica vive aqui: marcado de cedulas, habilitacion de la
-   evaluacion, calificacion y emision del certificado.
-   =================================================================== */
+  // El logo se pinta como fondo CSS; si no se cargó el base64, queda el monograma.
+  if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
+    $("#logo").classList.add("tiene-imagen");
+  }
 
-(function (global) {
-  "use strict";
-  const $ = AC.util.$, $$ = AC.util.$$;
+  function pintar() {
+    const p = AC.Participante.obtener();
+    $("#bloque-registro").hidden = !!p;
+    $("#bloque-ruta").hidden = !p;
+    if (!p) return;
 
-  const ACModulo = {
-    iniciar(moduloId, banco) {
-      const mod = AC.moduloPorId(moduloId);
-      if (!mod) { console.error("Módulo no declarado en ac_programa.js:", moduloId); return; }
+    $("#cab-participante").innerHTML =
+      AC.util.esc(p.nombre) + "<br>" + AC.util.esc(p.organizacion);
 
-      // Sin inscripcion no se abre el modulo: los certificados necesitan
-      // los datos del participante.
-      if (!AC.Participante.obtener()) {
-        location.href = AC.Rutas.indice();
-        return;
-      }
+    AC.Portal.render("#ruta");
+    $("#bloque-diploma").hidden = !AC.Progreso.programaCompleto();
 
-      this.mod = mod;
-      this.banco = banco;
+    $("#enlace-equipo").href = AC.Rutas.equipo();
 
-      if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
-        const l = $("#logo"); if (l) l.classList.add("tiene-imagen");
-      }
-      const t = $("#cab-titulo"); if (t) t.textContent = mod.titulo;
-      const r = $("#cab-ref");   if (r) r.textContent = "Referencia " + mod.ref + " · " + mod.horas.toFixed(1).replace(".", ",") + " h";
-      document.title = mod.titulo + " · AuditCaat's";
-
-      this.restaurarCedulas();
-      this.enlazarBotones();
-      AC.Quiz.render("#quiz", banco);
-      this.actualizarEstado();
-
-      const btn = $("#btn-calificar");
-      if (btn) btn.addEventListener("click", () => this.calificar());
-    },
-
-    cedulas() { return $$("[data-cedula]").map(n => n.dataset.cedula); },
-
-    restaurarCedulas() {
-      const p = AC.Progreso.modulo(this.mod.id);
-      this.cedulas().forEach(id => { if (p.cedulas[id]) this.estampar(id, false); });
-    },
-
-    enlazarBotones() {
-      $$("[data-marcar]").forEach(b =>
-        b.addEventListener("click", () => {
-          AC.Progreso.marcarCedula(this.mod.id, b.dataset.marcar);
-          this.estampar(b.dataset.marcar, true);
-          this.actualizarEstado();
-        })
-      );
-    },
-
-    estampar(cedulaId, animar) {
-      const sello = $('[data-marca-de="' + cedulaId + '"]');
-      if (sello) {
-        sello.textContent = this.mod.marca;
-        if (animar) sello.classList.add("puesta");
-        else { sello.style.opacity = 1; sello.classList.add("puesta"); }
-      }
-      const btn = $('[data-marcar="' + cedulaId + '"]');
-      if (btn) { btn.disabled = true; btn.textContent = "Cédula revisada"; }
-    },
-
-    actualizarEstado() {
-      const p = AC.Progreso.modulo(this.mod.id);
-      const total = this.cedulas().length;
-      const hechas = this.cedulas().filter(id => p.cedulas[id]).length;
-
-      const lleno = $("#ac-avance-lleno"), txt = $("#ac-avance-txt");
-      if (lleno) lleno.style.width = (total ? hechas / total * 100 : 0).toFixed(1) + "%";
-      if (txt) txt.textContent = hechas + " de " + total + " cédulas revisadas";
-
-      const listo = total > 0 && hechas === total;
-      const btn = $("#btn-calificar");
-      if (btn && !p.aprobado) btn.disabled = !listo;
-
-      const aviso = $("#eval-aviso");
-      if (aviso) {
-        aviso.textContent = listo
-          ? "Evaluación habilitada. Se aprueba con " + Math.round(AC.programa.aprobacionMinima * 100) + " %."
-          : "Faltan " + (total - hechas) + " cédulas para habilitar la evaluación. Se aprueba con " +
-            Math.round(AC.programa.aprobacionMinima * 100) + " %.";
-      }
-
-      if (p.aprobado) this.mostrarAprobado(p);
-    },
-
-    calificar() {
-      const r = AC.Quiz.calificar("#quiz", this.banco);
-
-      if (r.sinResponder > 0) {
-        // Se califica igual: dejar preguntas en blanco es una decision del
-        // participante, no un error del sistema. Solo se informa.
-        $("#resultado").textContent = r.sinResponder + " pregunta(s) sin responder. ";
-      }
-
-      const aprobado = r.razon >= AC.programa.aprobacionMinima;
-      AC.Progreso.guardar(this.mod.id, {
-        puntaje: r.puntaje, maximo: r.maximo, aprobado: aprobado,
-        rendido: new Date().toISOString()
-      });
-
-      $("#btn-calificar").disabled = true;
-      const res = $("#resultado");
-      res.textContent += r.puntaje + " / " + r.maximo + "  ·  " + Math.round(r.razon * 100) + " %  ·  " +
-        (aprobado ? "Aprobado" : "No aprobado");
-      res.style.color = aprobado ? "var(--ac-ok)" : "var(--ac-tick)";
-
-      if (aprobado) {
-        const cert = AC.Certificado.emitirModulo(this.mod.id);
-        this.mostrarAprobado(AC.Progreso.modulo(this.mod.id));
-        if (cert) $("#btn-cert").href = AC.Rutas.cert(this.mod.id);
-      } else {
-        // Reintento: se rehace el render para barajar de nuevo las opciones.
-        const nuevo = document.createElement("button");
-        nuevo.className = "ac-btn ac-btn-secundario";
-        nuevo.textContent = "Repetir evaluación";
-        nuevo.addEventListener("click", () => {
-          AC.Quiz.render("#quiz", this.banco);
-          res.textContent = "";
-          $("#btn-calificar").disabled = false;
-          nuevo.remove();
-        });
-        $("#btn-calificar").parentNode.appendChild(nuevo);
-      }
-    },
-
-    mostrarAprobado(p) {
-      const caja = $("#acciones-cert");
-      if (caja) caja.style.display = "block";
-      const btn = $("#btn-cert");
-      if (btn) btn.href = AC.Rutas.cert(this.mod.id);
-      const vol = $("#btn-indice");
-      if (vol) vol.href = AC.Rutas.indice();
-      const b = $("#btn-calificar");
-      if (b) b.disabled = true;
+    if (!AC.Store.persistente()) {
+      $("#cab-participante").innerHTML +=
+        '<br><span style="color:#F0C24B">Sin guardado permanente en este navegador</span>';
     }
+  }
+
+  // ---- Inscripción ----
+  function validar(id, prueba) {
+    const campo = $("#" + id).closest(".ac-campo");
+    const ok = prueba($("#" + id).value.trim());
+    campo.classList.toggle("invalido", !ok);
+    return ok;
+  }
+
+  $("#btn-inscribir").addEventListener("click", function () {
+    const ok = [
+      validar("f-nombre", v => v.split(/\s+/).length >= 2),
+      validar("f-doc",    v => v.length >= 5),
+      validar("f-mail",   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)),
+      validar("f-cargo",  v => v !== ""),
+      validar("f-org",    v => v.length >= 2)
+    ].every(Boolean);
+    if (!ok) return;
+
+    AC.Participante.registrar({
+      nombre: $("#f-nombre").value,
+      documento: $("#f-doc").value,
+      email: $("#f-mail").value,
+      cargo: $("#f-cargo").value,
+      organizacion: $("#f-org").value
+    });
+    pintar();
+    const ruta = $("#bloque-ruta");
+    if (ruta.scrollIntoView) ruta.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // ---- Convalidación ----
+  $("#f-conv-mod").innerHTML = AC.programa.modulos
+    .map(m => '<option value="' + m.id + '">' + m.ref + " · " + AC.util.esc(m.titulo) + "</option>").join("");
+
+  $("#btn-convalidar").addEventListener("click", function () {
+    const cod = $("#f-conv-cod").value.trim().toUpperCase();
+    const mod = $("#f-conv-mod").value;
+    const ok = AC.Progreso.convalidar(mod, cod);
+    $("#f-conv-cod").closest(".ac-campo").classList.toggle("invalido", !ok);
+    $("#conv-msg").textContent = ok ? "Módulo convalidado." : "";
+    $("#conv-msg").style.color = "var(--ac-ok)";
+    if (ok) { $("#f-conv-cod").value = ""; pintar(); }
+  });
+
+  // ---- Respaldo ----
+  const msg = (texto, color) => {
+    const n = $("#resp-msg");
+    n.textContent = texto;
+    n.style.color = color || "var(--ac-tinta-2)";
   };
 
-  global.ACModulo = ACModulo;
-})(window);
+  $("#btn-exportar").addEventListener("click", function () {
+    const nombre = AC.Respaldo.descargar();
+    msg(nombre ? "Descargado " + nombre : "No hay avance que respaldar.", "var(--ac-ok)");
+  });
 
-</script>
-<script>
-const BANCO = [
-  {
-    "id": "h1",
-    "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
-    "opciones": [
-      {
-        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
-        "ok": true
-      },
-      {
-        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
-      },
-      {
-        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
-      },
-      {
-        "txt": "Ambas se provisionan, con distinto horizonte"
+  $("#f-importar").addEventListener("change", function (ev) {
+    const archivo = ev.target.files[0];
+    if (!archivo) return;
+    const lector = new FileReader();
+    lector.onload = function () {
+      let r = AC.Respaldo.restaurar(lector.result, false);
+
+      if (!r.ok && r.distinto) {
+        const seguir = confirm(
+          "El respaldo pertenece a " + r.entrante.nombre + " y en este navegador " +
+          "está registrado " + r.actual.nombre + ".\n\n" +
+          "Si continúas, se reemplazará al participante actual. ¿Continuar?");
+        if (!seguir) { msg("Restauración cancelada."); ev.target.value = ""; return; }
+        r = AC.Respaldo.restaurar(lector.result, true);
       }
-    ],
-    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
-  },
-  {
-    "id": "h2",
-    "puntaje": 10,
-    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
-    "opciones": [
-      {
-        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
-        "ok": true
-      },
-      {
-        "txt": "Que la pérdida máxima posible es ese monto"
-      },
-      {
-        "txt": "Que el 99 % de los clientes no incumplirá"
-      },
-      {
-        "txt": "Que la provisión debe igualar ese monto"
-      }
-    ],
-    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
-  },
-  {
-    "id": "h3",
-    "puntaje": 10,
-    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
-    "opciones": [
-      {
-        "txt": "La correlación supuesta entre incumplimientos",
-        "ok": true
-      },
-      {
-        "txt": "El número de operaciones de la cartera"
-      },
-      {
-        "txt": "La tasa de interés de colocación"
-      },
-      {
-        "txt": "El nivel de provisión constituido"
-      }
-    ],
-    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
-  },
-  {
-    "id": "h4",
-    "puntaje": 10,
-    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
-    "opciones": [
-      {
-        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
-        "ok": true
-      },
-      {
-        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
-      },
-      {
-        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
-      },
-      {
-        "txt": "No aplica observación porque el escenario es hipotético"
-      }
-    ],
-    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
-  },
-  {
-    "id": "h5",
-    "puntaje": 10,
-    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
-    "opciones": [
-      {
-        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
-        "ok": true
-      },
-      {
-        "txt": "Se reconoce un gasto adicional por el monto total"
-      },
-      {
-        "txt": "Se traslada a etapa 2"
-      },
-      {
-        "txt": "Se reversa la provisión contra resultados"
-      }
-    ],
-    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
-  },
-  {
-    "id": "h6",
-    "puntaje": 10,
-    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
-    "opciones": [
-      {
-        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
-        "ok": true
-      },
-      {
-        "txt": "Se incumple el plazo legal de prescripción"
-      },
-      {
-        "txt": "Se pierde el derecho a cobrar la operación"
-      },
-      {
-        "txt": "Aumenta la provisión del período siguiente"
-      }
-    ],
-    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
-  },
-  {
-    "id": "h7",
-    "puntaje": 10,
-    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
-    "opciones": [
-      {
-        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
-        "ok": true
-      },
-      {
-        "txt": "Ser realizada por un tercero externo a la institución"
-      },
-      {
-        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
-      },
-      {
-        "txt": "Contar con la aprobación del área de riesgo"
-      }
-    ],
-    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
-  },
-  {
-    "id": "h8",
-    "puntaje": 10,
-    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
-    "opciones": [
-      {
-        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
-        "ok": true
-      },
-      {
-        "txt": "Que el efecto supere la materialidad"
-      },
-      {
-        "txt": "Que el auditado esté de acuerdo"
-      },
-      {
-        "txt": "Que exista una recomendación asociada"
-      }
-    ],
-    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
-  },
-  {
-    "id": "h9",
-    "puntaje": 10,
-    "texto": "El presupuesto de riesgo se compone de:",
-    "opciones": [
-      {
-        "txt": "El gasto en riesgo más el castigo neto de recupero",
-        "ok": true
-      },
-      {
-        "txt": "La provisión constituida más el capital regulatorio"
-      },
-      {
-        "txt": "La pérdida esperada más la inesperada"
-      },
-      {
-        "txt": "El valor en riesgo al 99 %"
-      }
-    ],
-    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
-  },
-  {
-    "id": "h10",
-    "puntaje": 10,
-    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
-    "opciones": [
-      {
-        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
-        "ok": true
-      },
-      {
-        "txt": "La falta de registro de la semilla aleatoria del modelo"
-      },
-      {
-        "txt": "El uso de un algoritmo poco interpretable"
-      },
-      {
-        "txt": "La ausencia de gráfico de silueta en la segmentación"
-      }
-    ],
-    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
-  }
-];
-ACModulo.iniciar("M08", BANCO);
+
+      if (!r.ok) { msg(r.motivo, "var(--ac-tick)"); ev.target.value = ""; return; }
+
+      pintar();
+      let t = "Avance restaurado: " + r.aprobados + " de " +
+              AC.programa.modulos.length + " módulos aprobados.";
+      if (r.alterado) t += " El archivo fue modificado después de generarse; " +
+                           "revisa el avance antes de darlo por válido.";
+      msg(t, r.alterado ? "var(--ac-alerta)" : "var(--ac-ok)");
+      ev.target.value = "";
+    };
+    lector.readAsText(archivo);
+  });
+
+  // ---- Diploma ----
+  $("#btn-diploma").addEventListener("click", function () {
+    const d = AC.Certificado.emitirDiploma();
+    if (d) location.href = AC.Rutas.diploma();
+  });
+
+  // ---- Salir ----
+  $("#btn-salir").addEventListener("click", function (e) {
+    e.preventDefault();
+    if (confirm("Se borrarán tu inscripción y tu avance en este navegador. Los certificados ya emitidos siguen siendo válidos. ¿Continuar?")) {
+      AC.Participante.salir();
+      location.reload();
+    }
+  });
+
+  pintar();
+})();
 </script>
 </body>
 </html>

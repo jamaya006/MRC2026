@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<title>Pérdida esperada y provisión NIIF 9 · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -410,7 +410,7 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
+      <strong id="cab-titulo">Pérdida esperada y provisión NIIF 9</strong>
       <small id="cab-ref">Referencia</small>
     </div>
     <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
@@ -425,146 +425,151 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
+    <strong>Qué se lleva de este módulo</strong>Seguir el recorrido completo desde el parámetro estadístico hasta el asiento contable y la revelación, e identificar en qué punto de ese recorrido se pierde la trazabilidad.
   </div>
 
-  <section class="ac-cedula" data-cedula="H-1">
+  <section class="ac-cedula" data-cedula="G-1">
     <div class="ac-cedula-encab">
-      <span class="ref">H-1</span>
-      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
+      <span class="ref">G-1</span>
+      <h3>Qué es una provisión y por qué existe</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
-      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
-      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
+      <p>La provisión por riesgo de crédito es la reserva que constituye una institución financiera para cubrir las pérdidas potenciales derivadas del incumplimiento de sus clientes. No es efectivo apartado: es un pasivo que reconoce una obligación probable.</p>
+      <blockquote class="ac-cita">Es la reserva que tienen las instituciones financieras para cubrir las potenciales pérdidas que se provocan por incumplimiento de contratos con los clientes.<cite>Clase 6, aprox. 00:00:19</cite></blockquote>
+      <p>La analogía que ordena el concepto para un contador es la depreciación. Un activo se deteriora y ese deterioro se reconoce para que los libros muestren el valor real del activo. La cartera de créditos es un activo, y la provisión es el reconocimiento de su deterioro.</p>
+      <blockquote class="ac-cita">Como cualquier activo, para mí la provisión es el concepto del deterioro de ese activo, como hablar de una depreciación: para tener en los libros el valor real de ese activo.<cite>Clase 6, aprox. 00:09:08</cite></blockquote>
+      <div class="ac-nota"><strong>Consecuencia para la auditoría</strong>Si la cartera tiene más probabilidad de impago, la provisión debe ser mayor. La pregunta de auditoría no es si la provisión existe, sino si su magnitud corresponde al riesgo efectivo de la cartera en la fecha de cierre.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-2">
+  <section class="ac-cedula" data-cedula="G-2">
     <div class="ac-cedula-encab">
-      <span class="ref">H-2</span>
-      <h3>Frecuencia, severidad y valor en riesgo</h3>
+      <span class="ref">G-2</span>
+      <h3>Los tres parámetros y la fórmula</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
-      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
-      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+      <p>La pérdida esperada se compone de tres parámetros. Cada uno proviene de un modelo distinto, con datos, supuestos y responsables distintos. Revisarlos como un solo bloque es el error de enfoque más frecuente.</p>
+      <table class="ac-tabla"><thead><tr><th>Parámetro</th><th>Qué estima</th><th>Origen habitual del dato</th></tr></thead><tbody><tr><td>PD</td><td>Probabilidad de que el cliente incumpla</td><td>Modelo de score o matriz de transición</td></tr><tr><td>LGD</td><td>Porcentaje de la exposición que no se recupera</td><td>Historia de recuperación y garantías</td></tr><tr><td>EAD</td><td>Exposición al momento del incumplimiento</td><td>Saldo más factores de conversión del contingente</td></tr></tbody></table>
+      <p>La pérdida esperada de una operación es el producto de los tres. Como es un producto, un error en cualquiera de ellos se traslada íntegro al resultado: un 20 % de error en la LGD produce un 20 % de error en la provisión, cualquiera sea la calidad del modelo de PD.</p>
+      <blockquote class="ac-cita">Es poco común que el criterio prospectivo se aplique sobre la EAD, porque la EAD corresponde básicamente a los factores del contingente.<cite>Clase 8, aprox. 00:01:54</cite></blockquote>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Toda la atención de validación se concentra en el modelo de PD, que es el más elaborado y el que tiene métricas atractivas. La LGD suele ser un promedio histórico sin modelo detrás y sin revisión, y pesa exactamente igual en la cifra.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar por separado la documentación de PD, LGD y EAD. Registrar cuál de las tres carece de metodología formal. Habitualmente es la LGD, y ahí suele estar el mayor riesgo no cubierto.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-3">
+  <section class="ac-cedula" data-cedula="G-3">
     <div class="ac-cedula-encab">
-      <span class="ref">H-3</span>
-      <h3>Stress test: qué es y qué no es</h3>
+      <span class="ref">G-3</span>
+      <h3>Etapas y horizonte de estimación</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
-      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
-      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
+      <p>El marco de pérdida esperada clasifica las operaciones en tres etapas según haya o no aumento significativo del riesgo desde el reconocimiento inicial. La etapa determina el horizonte sobre el que se estima la pérdida.</p>
+      <table class="ac-tabla"><thead><tr><th>Etapa</th><th>Situación</th><th>Horizonte de la pérdida esperada</th></tr></thead><tbody><tr><td class="num">1</td><td>Sin aumento significativo del riesgo</td><td>Doce meses</td></tr><tr><td class="num">2</td><td>Aumento significativo, sin deterioro crediticio</td><td>Toda la vida del instrumento</td></tr><tr><td class="num">3</td><td>Con deterioro crediticio</td><td>Toda la vida, con interés sobre saldo neto</td></tr></tbody></table>
+      <p>El paso de etapa 1 a etapa 2 multiplica la provisión de una operación, porque cambia el horizonte. Por eso el criterio de aumento significativo del riesgo es una de las definiciones con mayor efecto sobre la cifra y una de las menos formalizadas.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El criterio de traspaso está definido de forma cualitativa o depende de un umbral que se puede ajustar sin cambiar la metodología documentada. Mover ese umbral mueve la provisión sin que aparezca como cambio de política contable.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Obtener el criterio cuantitativo de traspaso entre etapas, verificar que está aprobado formalmente y recalcular la distribución de la cartera por etapa aplicándolo sobre una muestra. Documentar cualquier diferencia contra el reporte.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-4">
+  <section class="ac-cedula" data-cedula="G-4">
     <div class="ac-cedula-encab">
-      <span class="ref">H-4</span>
-      <h3>Castigo, recupero y presupuesto de riesgo</h3>
+      <span class="ref">G-4</span>
+      <h3>Información prospectiva</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
-      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
-      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
+      <p>El marco exige incorporar información prospectiva: la estimación no puede basarse solo en lo observado, debe considerar condiciones futuras esperadas. En la práctica esto se traduce en proyectar los parámetros según escenarios macroeconómicos.</p>
+      <blockquote class="ac-cita">Se busca que se tomen los criterios prospectivos tanto en la probabilidad de incumplimiento como en la LGD. El criterio es que usted debe proyectar.<cite>Clase 8, aprox. 00:02:42</cite></blockquote>
+      <p>Los escenarios se ponderan por probabilidad de ocurrencia. Esa ponderación es una decisión de la administración con efecto directo sobre la provisión, y es uno de los puntos donde la subjetividad es mayor.</p>
+      <div class="ac-umbral"><strong>Qué debe estar documentado</strong>Escenarios utilizados, variables macroeconómicas de cada uno, fuente de las proyecciones, ponderación asignada a cada escenario, fundamento de esa ponderación y quién la aprobó.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La ponderación de escenarios se ajusta para alcanzar un nivel de provisión predefinido. Sin fundamento documentado y sin comparación con la ponderación del período anterior, el ajuste es indetectable en el estado financiero.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Comparar la ponderación de escenarios entre cierres consecutivos. Todo cambio debe tener fundamento documentado y aprobación. Un cambio de ponderación sin cambio en las proyecciones macroeconómicas subyacentes exige explicación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-5">
+  <section class="ac-cedula" data-cedula="G-5">
     <div class="ac-cedula-encab">
-      <span class="ref">H-5</span>
-      <h3>El memorando de validación independiente</h3>
+      <span class="ref">G-5</span>
+      <h3>Del parámetro al asiento</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
-      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
-      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
+      <p>La cadena completa tiene ocho eslabones y la trazabilidad se pierde casi siempre en el mismo punto: entre la salida del motor de cálculo y el asiento contable, donde suelen aplicarse ajustes manuales.</p>
+      <ol><li>Extracción de datos de los sistemas de origen.</li><li>Cálculo de los parámetros por operación o por segmento.</li><li>Aplicación de la fórmula de pérdida esperada.</li><li>Agregación por cartera y por etapa.</li><li>Ajustes de la administración, si existen.</li><li>Asiento contable del gasto y de la provisión acumulada.</li><li>Conciliación entre el motor de cálculo y el mayor contable.</li><li>Revelación en notas.</li></ol>
+      <div class="ac-riesgo"><strong>El ajuste de la administración</strong>Es la diferencia entre lo que el modelo calcula y lo que finalmente se contabiliza. Puede estar justificado, por ejemplo cuando el modelo no captura un riesgo reciente. Pero debe estar cuantificado, fundamentado y aprobado, y debe conciliar con el mayor.</div>
+      <div class="ac-umbral"><strong>Prueba mínima de conciliación</strong>La suma de la provisión por operación del motor de cálculo debe conciliar con el saldo del mayor. Toda diferencia debe estar explicada línea por línea. Una diferencia sin explicación es un hallazgo, aunque su monto sea inmaterial: revela que el control de conciliación no opera.</div>
+      <div class="ac-nota"><strong>Entregable de este módulo</strong>La hoja de recálculo de provisión: se toma una muestra de operaciones, se reconstruye la pérdida esperada con los parámetros vigentes y se concilia contra lo contabilizado.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-6">
+  <section class="ac-cedula" data-cedula="G-6">
     <div class="ac-cedula-encab">
-      <span class="ref">H-6</span>
-      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
+      <span class="ref">G-6</span>
+      <h3>Laboratorio: recálculo de provisión y conciliación</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
+      <p>El recálculo reproduce la provisión desde los parámetros y la concilia contra el mayor. Es el entregable del módulo y el procedimiento que se ejecuta en un encargo real.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Etapas, parámetros y pérdida esperada</em></div><pre><code>import pandas as pd
 
-rng = np.random.default_rng(20260722)
-SIMULACIONES = 50_000
+c = pd.read_csv("cartera_cierre.csv")
 
-pd_ = c.pd_aplicable.to_numpy()
-lgd = c.lgd.to_numpy()
-ead = c.ead.to_numpy()
+# Clasificación por etapa según el criterio documentado por la entidad
+c["etapa"] = 1
+c.loc[c.dias_mora.between(30, 89), "etapa"] = 2
+c.loc[c.dias_mora &gt;= 90, "etapa"] = 3
 
-perdidas = np.empty(SIMULACIONES)
-for i in range(SIMULACIONES):
-    incumple = rng.random(pd_.size) &lt; pd_
-    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
+# El horizonte cambia con la etapa: doce meses en la 1, toda la vida en 2 y 3
+c["pd_aplicable"] = c.pd_12m.where(c.etapa == 1, c.pd_lifetime)
 
-esperada = perdidas.mean()
-var99 = np.percentile(perdidas, 99)
+# EAD incluye el contingente por su factor de conversión
+c["ead"] = c.saldo + c.linea_no_usada * c.factor_conversion
 
-print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
-print(f"VaR 99 %            {var99:&gt;14,.0f}")
-print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
-      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
-RHO = 0.15
-for rho in (0.0, 0.10, 0.20):
-    tot = np.empty(10_000)
-    for i in range(10_000):
-        shock = rng.standard_normal()
-        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
-                  rng.standard_normal(pd_.size))
-        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
-        tot[i] = (ead[incumple] * lgd[incumple]).sum()
-    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
+c["perdida_esperada"] = c.pd_aplicable * c.lgd * c.ead</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Conciliación contra el mayor</em></div><pre><code>resumen = c.groupby("etapa").agg(
+    operaciones=("ead", "size"),
+    exposicion=("ead", "sum"),
+    provision=("perdida_esperada", "sum"))
+resumen["cobertura"] = resumen.provision / resumen.exposicion
+print(resumen.round(2))
 
-# Escenario adverso: al menos tan severo como la peor crisis observada
-pd_estres = np.clip(pd_ * 2.4, 0, 1)
-print(f"\nPérdida esperada bajo tensión "
-      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
-      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
+SALDO_MAYOR = 4_812_357.90          # cuenta de provisión al cierre
+recalculado = c.perdida_esperada.sum()
+diferencia = recalculado - SALDO_MAYOR
+
+print(f"\nRecálculo   {recalculado:&gt;14,.2f}")
+print(f"Mayor       {SALDO_MAYOR:&gt;14,.2f}")
+print(f"Diferencia  {diferencia:&gt;14,.2f}")
+
+if abs(diferencia) &gt; 0.01:
+    print("Requerir la composición del ajuste de la administración")</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Sensibilidad de la LGD</em></div><pre><code># La LGD suele no tener modelo detrás: conviene medir cuánto pesa
+for factor in (0.9, 1.0, 1.1, 1.2):
+    total = (c.pd_aplicable * (c.lgd * factor).clip(upper=1) * c.ead).sum()
+    print(f"LGD x{factor:&gt;4}   provisión {total:&gt;14,.0f}   "
+          f"variación {total / recalculado - 1:+.1%}")</code></pre></div>
+      <div class="ac-nota"><strong>Qué documentar</strong>La diferencia contra el mayor, su explicación línea por línea y el efecto de la sensibilidad de LGD. Ese conjunto es la cédula de provisión del encargo.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-6"></span>
     </div>
   </section>
 
@@ -1411,217 +1416,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "h1",
+    "id": "g1",
     "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
+    "texto": "¿Qué representa contablemente la provisión por riesgo de crédito?",
     "opciones": [
       {
-        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
+        "txt": "Un pasivo que reconoce el deterioro esperado de la cartera, análogo a la depreciación de un activo",
         "ok": true
       },
       {
-        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
+        "txt": "Efectivo apartado en una cuenta restringida"
       },
       {
-        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
+        "txt": "Un activo contingente"
       },
       {
-        "txt": "Ambas se provisionan, con distinto horizonte"
+        "txt": "Una reserva patrimonial de libre disposición"
       }
     ],
-    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
+    "retro": "Es un pasivo, no liquidez reservada. La cartera es un activo y la provisión reconoce su deterioro."
   },
   {
-    "id": "h2",
+    "id": "g2",
     "puntaje": 10,
-    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
+    "texto": "La LGD utilizada es un promedio histórico sin metodología documentada, mientras la PD proviene de un modelo validado. ¿Cuál es la observación?",
     "opciones": [
       {
-        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
+        "txt": "La LGD pesa igual que la PD en el producto: un error en ella se traslada íntegro a la provisión",
         "ok": true
       },
       {
-        "txt": "Que la pérdida máxima posible es ese monto"
+        "txt": "No hay observación: la PD es el parámetro determinante"
       },
       {
-        "txt": "Que el 99 % de los clientes no incumplirá"
+        "txt": "La LGD no requiere metodología por norma"
       },
       {
-        "txt": "Que la provisión debe igualar ese monto"
+        "txt": "El efecto se compensa con la EAD"
       }
     ],
-    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
+    "retro": "La pérdida esperada es un producto. Un 20 % de error en LGD produce 20 % de error en la provisión, por bueno que sea el modelo de PD."
   },
   {
-    "id": "h3",
+    "id": "g3",
     "puntaje": 10,
-    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
+    "texto": "Una operación pasa de etapa 1 a etapa 2. ¿Qué cambia en el cálculo?",
     "opciones": [
       {
-        "txt": "La correlación supuesta entre incumplimientos",
+        "txt": "El horizonte de estimación pasa de doce meses a toda la vida del instrumento",
         "ok": true
       },
       {
-        "txt": "El número de operaciones de la cartera"
+        "txt": "Se deja de reconocer interés"
       },
       {
-        "txt": "La tasa de interés de colocación"
+        "txt": "La LGD se fija en 100 %"
       },
       {
-        "txt": "El nivel de provisión constituido"
+        "txt": "La operación se castiga"
       }
     ],
-    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
+    "retro": "El cambio de etapa cambia el horizonte, y por eso multiplica la provisión de la operación."
   },
   {
-    "id": "h4",
+    "id": "g4",
     "puntaje": 10,
-    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
+    "texto": "El criterio de aumento significativo del riesgo está definido cualitativamente y depende de un umbral ajustable. ¿Cuál es el riesgo?",
     "opciones": [
       {
-        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
+        "txt": "Se puede mover la provisión ajustando el umbral, sin que aparezca como cambio de política contable",
         "ok": true
       },
       {
-        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
+        "txt": "Se incumple la definición de cartera vencida"
       },
       {
-        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
+        "txt": "Se afecta la clasificación del activo en el balance"
       },
       {
-        "txt": "No aplica observación porque el escenario es hipotético"
+        "txt": "Ninguno, mientras el umbral esté dentro de rangos de mercado"
       }
     ],
-    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
+    "retro": "El traspaso entre etapas es una de las definiciones con mayor efecto sobre la cifra. Debe ser cuantitativo y aprobado formalmente."
   },
   {
-    "id": "h5",
+    "id": "g5",
     "puntaje": 10,
-    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
+    "texto": "¿Qué significa incorporar información prospectiva en la estimación?",
     "opciones": [
       {
-        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
+        "txt": "Proyectar los parámetros considerando condiciones macroeconómicas futuras esperadas, no solo la historia observada",
         "ok": true
       },
       {
-        "txt": "Se reconoce un gasto adicional por el monto total"
+        "txt": "Estimar la provisión del ejercicio siguiente"
       },
       {
-        "txt": "Se traslada a etapa 2"
+        "txt": "Usar solo el último año de datos"
       },
       {
-        "txt": "Se reversa la provisión contra resultados"
+        "txt": "Proyectar el crecimiento de la cartera"
       }
     ],
-    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
+    "retro": "La estimación no puede apoyarse únicamente en lo observado. Se proyecta según escenarios y se pondera por probabilidad de ocurrencia."
   },
   {
-    "id": "h6",
+    "id": "g6",
     "puntaje": 10,
-    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
+    "texto": "La ponderación de escenarios cambió respecto del cierre anterior sin que cambiaran las proyecciones macroeconómicas. ¿Qué corresponde?",
     "opciones": [
       {
-        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
+        "txt": "Requerir el fundamento documentado y la aprobación del cambio",
         "ok": true
       },
       {
-        "txt": "Se incumple el plazo legal de prescripción"
+        "txt": "Aceptarlo: la ponderación es una decisión discrecional"
       },
       {
-        "txt": "Se pierde el derecho a cobrar la operación"
+        "txt": "Recalcular la provisión con la ponderación anterior y reportar la diferencia como error"
       },
       {
-        "txt": "Aumenta la provisión del período siguiente"
+        "txt": "Reportarlo solo si el efecto supera la materialidad"
       }
     ],
-    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
+    "retro": "La ponderación tiene efecto directo sobre la provisión y es uno de los puntos de mayor subjetividad. Todo cambio requiere fundamento."
   },
   {
-    "id": "h7",
+    "id": "g7",
     "puntaje": 10,
-    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
+    "texto": "¿En qué punto de la cadena se pierde con más frecuencia la trazabilidad?",
     "opciones": [
       {
-        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
+        "txt": "Entre la salida del motor de cálculo y el asiento contable, donde se aplican ajustes manuales",
         "ok": true
       },
       {
-        "txt": "Ser realizada por un tercero externo a la institución"
+        "txt": "En la extracción de datos de los sistemas de origen"
       },
       {
-        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
+        "txt": "En la aplicación de la fórmula de pérdida esperada"
       },
       {
-        "txt": "Contar con la aprobación del área de riesgo"
+        "txt": "En la revelación en notas"
       }
     ],
-    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
+    "retro": "Los ajustes de la administración pueden estar justificados, pero deben estar cuantificados, fundamentados y conciliados con el mayor."
   },
   {
-    "id": "h8",
+    "id": "g8",
     "puntaje": 10,
-    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
+    "texto": "Existe una diferencia inmaterial y sin explicación entre el motor de cálculo y el mayor contable. ¿Cómo se trata?",
     "opciones": [
       {
-        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
+        "txt": "Es un hallazgo: revela que el control de conciliación no está operando",
         "ok": true
       },
       {
-        "txt": "Que el efecto supere la materialidad"
+        "txt": "No se reporta por ser inmaterial"
       },
       {
-        "txt": "Que el auditado esté de acuerdo"
+        "txt": "Se ajusta contra resultados del ejercicio"
       },
       {
-        "txt": "Que exista una recomendación asociada"
+        "txt": "Se documenta como diferencia de redondeo"
       }
     ],
-    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
+    "retro": "La materialidad del monto no determina la conclusión sobre el control. Una diferencia sin explicación indica que la conciliación no se está ejecutando."
   },
   {
-    "id": "h9",
+    "id": "g9",
     "puntaje": 10,
-    "texto": "El presupuesto de riesgo se compone de:",
+    "texto": "¿Cuál de los tres parámetros suele carecer de metodología formal?",
     "opciones": [
       {
-        "txt": "El gasto en riesgo más el castigo neto de recupero",
+        "txt": "La LGD",
         "ok": true
       },
       {
-        "txt": "La provisión constituida más el capital regulatorio"
+        "txt": "La PD"
       },
       {
-        "txt": "La pérdida esperada más la inesperada"
+        "txt": "La EAD"
       },
       {
-        "txt": "El valor en riesgo al 99 %"
+        "txt": "Ninguno: los tres se documentan por igual"
       }
     ],
-    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
+    "retro": "La PD concentra la atención por sus métricas. La LGD suele ser un promedio histórico sin revisión, y pesa igual en la fórmula."
   },
   {
-    "id": "h10",
+    "id": "g10",
     "puntaje": 10,
-    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
+    "texto": "¿Qué evidencia sustenta mejor la suficiencia de la provisión de un segmento?",
     "opciones": [
       {
-        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
+        "txt": "La comparación entre PD estimada e incumplimiento efectivamente observado en una ventana cerrada",
         "ok": true
       },
       {
-        "txt": "La falta de registro de la semilla aleatoria del modelo"
+        "txt": "El área bajo la curva del modelo de PD"
       },
       {
-        "txt": "El uso de un algoritmo poco interpretable"
+        "txt": "El acta del comité que aprobó la metodología"
       },
       {
-        "txt": "La ausencia de gráfico de silueta en la segmentación"
+        "txt": "El PSI del puntaje del período"
       }
     ],
-    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
+    "retro": "La suficiencia depende del nivel, no del orden. Solo la comparación entre estimado y observado prueba que la provisión está bien dimensionada."
   }
 ];
-ACModulo.iniciar("M08", BANCO);
+ACModulo.iniciar("M07", BANCO);
 </script>
 </body>
 </html>

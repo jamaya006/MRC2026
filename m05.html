@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<title>Modelos alternativos y criterio de aceptación · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -410,7 +410,7 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
+      <strong id="cab-titulo">Modelos alternativos y criterio de aceptación</strong>
       <small id="cab-ref">Referencia</small>
     </div>
     <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
@@ -425,146 +425,134 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
+    <strong>Qué se lleva de este módulo</strong>Decidir cuándo un modelo más complejo que la regresión logística se justifica y cuándo es un riesgo. El criterio no es cuál predice mejor, sino cuál se puede explicar, reproducir y monitorear.
   </div>
 
-  <section class="ac-cedula" data-cedula="H-1">
+  <section class="ac-cedula" data-cedula="C-1">
     <div class="ac-cedula-encab">
-      <span class="ref">H-1</span>
-      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
+      <span class="ref">C-1</span>
+      <h3>Por qué aparecen los árboles y qué cambian</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
-      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
-      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
+      <p>La regresión logística impone una forma: el efecto de cada variable es monótono y se suma al de las demás. Un árbol de decisión no impone esa forma. Divide la población en grupos mediante cortes sucesivos y captura interacciones que la logística solo reproduce si alguien las declara explícitamente.</p>
+      <p>Esa flexibilidad tiene un costo. Un árbol profundo puede separar casi perfectamente la muestra de desarrollo y perder gran parte de ese desempeño fuera de ella. Es el mismo sobreajuste del módulo anterior, con más capacidad de producirlo.</p>
+      <div class="ac-nota"><strong>Lo que cambia para el auditor</strong>En una logística se revisa el signo y la magnitud de cada coeficiente. En un árbol no hay coeficientes: se revisa la estructura de cortes, la profundidad, el mínimo de casos por hoja y la estabilidad de esas reglas entre muestras.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-2">
+  <section class="ac-cedula" data-cedula="C-2">
     <div class="ac-cedula-encab">
-      <span class="ref">H-2</span>
-      <h3>Frecuencia, severidad y valor en riesgo</h3>
+      <span class="ref">C-2</span>
+      <h3>Bagging y boosting: qué se gana y qué se pierde</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
-      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
-      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+      <p>Un árbol solo es inestable. Las técnicas de ensamble combinan muchos árboles para estabilizar el resultado. Bagging los entrena en paralelo sobre remuestreos y promedia; boosting los entrena en secuencia, cada uno corrigiendo los errores del anterior.</p>
+      <table class="ac-tabla"><thead><tr><th>Enfoque</th><th>Cómo combina</th><th>Fortaleza</th><th>Riesgo dominante</th></tr></thead><tbody><tr><td>Árbol único</td><td>No combina</td><td>Reglas legibles</td><td>Inestabilidad</td></tr><tr><td>Bagging</td><td>Promedio en paralelo</td><td>Reduce varianza</td><td>Pierde legibilidad</td></tr><tr><td>Boosting</td><td>Secuencial y ponderado</td><td>Mayor desempeño</td><td>Sobreajuste y sensibilidad al ruido</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Boosting persigue los errores de los pasos anteriores. Si la muestra contiene registros con errores de carga o períodos anómalos, el modelo dedica capacidad a ajustar precisamente esos casos. El resultado luce mejor en desarrollo y se deteriora rápido en producción.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Antes de evaluar el desempeño de un ensamble, revisar la depuración de la muestra. Un modelo de boosting sobre datos sucios amplifica la suciedad en lugar de promediarla.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-3">
+  <section class="ac-cedula" data-cedula="C-3">
     <div class="ac-cedula-encab">
-      <span class="ref">H-3</span>
-      <h3>Stress test: qué es y qué no es</h3>
+      <span class="ref">C-3</span>
+      <h3>Interpretabilidad: el requisito que no es negociable</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
-      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
-      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
+      <p>Una institución debe poder explicar por qué rechazó una solicitud, tanto al cliente como al supervisor. Un modelo cuya decisión no se puede descomponer en razones concretas genera un problema operativo antes que estadístico.</p>
+      <p>La regresión logística con scorecard resuelve esto de forma natural: el puntaje es una suma de puntos atribuibles a atributos concretos. Un ensamble de cientos de árboles requiere herramientas adicionales de atribución, y esas herramientas son aproximaciones, no la decisión real del modelo.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La institución adopta un modelo de mayor desempeño y mantiene la scorecard anterior solo para explicar decisiones. Se termina con dos modelos: uno que decide y otro que justifica. La explicación entregada al cliente no corresponde al criterio que se aplicó.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Verificar que el modelo que produce la decisión es el mismo que genera la razón de rechazo comunicada. Solicitar diez casos rechazados y reconstruir la razón entregada al cliente desde la salida del modelo en producción.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-4">
+  <section class="ac-cedula" data-cedula="C-4">
     <div class="ac-cedula-encab">
-      <span class="ref">H-4</span>
-      <h3>Castigo, recupero y presupuesto de riesgo</h3>
+      <span class="ref">C-4</span>
+      <h3>Criterio de aceptación de un modelo más complejo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
-      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
-      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
+      <p>La pregunta no es si el modelo complejo predice mejor. Casi siempre predice algo mejor en la muestra de desarrollo. La pregunta es si esa mejora sobrevive en validación y si compensa el costo de explicarlo, mantenerlo y monitorearlo.</p>
+      <div class="ac-umbral"><strong>Regla de decisión propuesta</strong>Se acepta el modelo más complejo si la mejora de área bajo la curva en la muestra de validación, no en desarrollo, supera tres puntos porcentuales y se mantiene en una ventana fuera de tiempo. Por debajo de eso, la ganancia no compensa la pérdida de interpretabilidad.</div>
+      <ol><li>Comparar ambos modelos sobre exactamente la misma muestra de validación.</li><li>Verificar que la partición de datos fue idéntica y con la misma semilla.</li><li>Repetir la comparación sobre una ventana temporal posterior.</li><li>Estimar el efecto de la diferencia sobre la provisión, no solo sobre la métrica.</li><li>Documentar la decisión y los responsables que la aprobaron.</li></ol>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se comparan modelos evaluados sobre muestras distintas o con particiones diferentes. La comparación no es válida y la decisión de reemplazo queda sin sustento.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-5">
+  <section class="ac-cedula" data-cedula="C-5">
     <div class="ac-cedula-encab">
-      <span class="ref">H-5</span>
-      <h3>El memorando de validación independiente</h3>
+      <span class="ref">C-5</span>
+      <h3>Reproducibilidad: el hallazgo más frecuente</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
-      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
-      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
+      <p>Un modelo de aprendizaje automático depende de una semilla aleatoria, de versiones específicas de librerías y del orden de los datos de entrada. Si alguno de esos elementos no está documentado, el modelo no se puede reproducir y, por lo tanto, no se puede validar de forma independiente.</p>
+      <div class="ac-umbral"><strong>Elementos mínimos del expediente del modelo</strong>Semilla utilizada, versión del lenguaje y de cada librería, criterio y semilla de la partición de la muestra, hiperparámetros finales, fecha de extracción de los datos y responsable de cada paso.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Ejecutar de nuevo el modelo con el expediente entregado y comparar la salida con la reportada. Diferencias en el cuarto decimal son normales; diferencias en la métrica de desempeño indican que el expediente está incompleto.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El modelo se entrenó en el equipo de un analista que ya no está en la institución, con versiones de librerías que nadie registró. El modelo sigue operando y nadie puede reconstruirlo. Es una observación de continuidad operacional, además de una limitación al alcance de la validación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-6">
+  <section class="ac-cedula" data-cedula="C-6">
     <div class="ac-cedula-encab">
-      <span class="ref">H-6</span>
-      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
+      <span class="ref">C-6</span>
+      <h3>Laboratorio: comparar dos modelos con criterio</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
+      <p>La comparación solo es válida si ambos modelos ven exactamente la misma partición. El código fija la semilla una vez y la reutiliza, que es la condición que la cédula C-4 exige verificar.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Comparación sobre partición idéntica</em></div><pre><code>from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import roc_auc_score
 
-rng = np.random.default_rng(20260722)
-SIMULACIONES = 50_000
+SEMILLA = 20260722          # queda registrada en el expediente del modelo
 
-pd_ = c.pd_aplicable.to_numpy()
-lgd = c.lgd.to_numpy()
-ead = c.ead.to_numpy()
+X_tr, X_va, y_tr, y_va = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=SEMILLA)
 
-perdidas = np.empty(SIMULACIONES)
-for i in range(SIMULACIONES):
-    incumple = rng.random(pd_.size) &lt; pd_
-    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
+candidatos = {
+    "Logística": LogisticRegression(max_iter=1000),
+    "Boosting":  GradientBoostingClassifier(random_state=SEMILLA),
+}
 
-esperada = perdidas.mean()
-var99 = np.percentile(perdidas, 99)
+for nombre, modelo in candidatos.items():
+    modelo.fit(X_tr, y_tr)
+    auc_des = roc_auc_score(y_tr, modelo.predict_proba(X_tr)[:, 1])
+    auc_val = roc_auc_score(y_va, modelo.predict_proba(X_va)[:, 1])
+    print(f"{nombre:&lt;11} desarrollo {auc_des:.3f}   "
+          f"validación {auc_val:.3f}   caída {auc_des - auc_val:+.3f}")</code></pre></div>
+      <div class="ac-nota"><strong>Cómo se lee el resultado</strong>Lo que decide la adopción es la columna de validación, no la de desarrollo. La caída de cada modelo, por separado, indica cuánto sobreajustó. Un boosting con caída de 0,10 y una logística con caída de 0,02 dicen más sobre el riesgo del modelo que la diferencia entre ambos.</div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Registro de reproducibilidad</em></div><pre><code>import sys, sklearn, pandas, numpy
 
-print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
-print(f"VaR 99 %            {var99:&gt;14,.0f}")
-print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
-      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
-RHO = 0.15
-for rho in (0.0, 0.10, 0.20):
-    tot = np.empty(10_000)
-    for i in range(10_000):
-        shock = rng.standard_normal()
-        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
-                  rng.standard_normal(pd_.size))
-        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
-        tot[i] = (ead[incumple] * lgd[incumple]).sum()
-    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
-
-# Escenario adverso: al menos tan severo como la peor crisis observada
-pd_estres = np.clip(pd_ * 2.4, 0, 1)
-print(f"\nPérdida esperada bajo tensión "
-      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
-      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
+print(f"Python       {sys.version.split()[0]}")
+print(f"scikit-learn {sklearn.__version__}")
+print(f"pandas       {pandas.__version__}")
+print(f"numpy        {numpy.__version__}")
+print(f"Semilla      {SEMILLA}")
+# Esta salida se adjunta al expediente: sin ella no hay validación replicable</code></pre></div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-6"></span>
     </div>
   </section>
 
@@ -1411,217 +1399,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "h1",
+    "id": "c1",
     "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
+    "texto": "¿Cuál es la diferencia estructural entre una regresión logística y un árbol de decisión?",
     "opciones": [
       {
-        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
+        "txt": "El árbol captura interacciones entre variables sin que haya que declararlas, mientras la logística requiere especificarlas",
         "ok": true
       },
       {
-        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
+        "txt": "El árbol siempre tiene mejor desempeño"
       },
       {
-        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
+        "txt": "La logística no admite variables categóricas"
       },
       {
-        "txt": "Ambas se provisionan, con distinto horizonte"
+        "txt": "El árbol no requiere muestra de validación"
       }
     ],
-    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
+    "retro": "La logística impone efectos aditivos y monótonos. El árbol no, y por eso captura interacciones, pero también sobreajusta con más facilidad."
   },
   {
-    "id": "h2",
+    "id": "c2",
     "puntaje": 10,
-    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
+    "texto": "¿Por qué el boosting es especialmente sensible a la calidad de los datos?",
     "opciones": [
       {
-        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
+        "txt": "Porque cada iteración se concentra en los errores de la anterior, y los registros erróneos se comportan como errores a corregir",
         "ok": true
       },
       {
-        "txt": "Que la pérdida máxima posible es ese monto"
+        "txt": "Porque no admite variables continuas"
       },
       {
-        "txt": "Que el 99 % de los clientes no incumplirá"
+        "txt": "Porque promedia los resultados y diluye la señal"
       },
       {
-        "txt": "Que la provisión debe igualar ese monto"
+        "txt": "Porque requiere más memoria que otras técnicas"
       }
     ],
-    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
+    "retro": "El algoritmo pondera lo que no logró ajustar. Datos sucios reciben más atención, no menos, y el modelo termina ajustando ruido."
   },
   {
-    "id": "h3",
+    "id": "c3",
     "puntaje": 10,
-    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
+    "texto": "La institución decide con un modelo de boosting y explica los rechazos con la scorecard anterior. ¿Cuál es el hallazgo?",
     "opciones": [
       {
-        "txt": "La correlación supuesta entre incumplimientos",
+        "txt": "La razón comunicada al cliente no corresponde al criterio que efectivamente se aplicó",
         "ok": true
       },
       {
-        "txt": "El número de operaciones de la cartera"
+        "txt": "No hay hallazgo si ambas herramientas fueron aprobadas por el comité"
       },
       {
-        "txt": "La tasa de interés de colocación"
+        "txt": "El hallazgo es que la scorecard está desactualizada"
       },
       {
-        "txt": "El nivel de provisión constituido"
+        "txt": "Es una buena práctica de doble control"
       }
     ],
-    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
+    "retro": "Decidir con un modelo y justificar con otro deja a la institución sin capacidad real de explicar sus decisiones ante el cliente o el supervisor."
   },
   {
-    "id": "h4",
+    "id": "c4",
     "puntaje": 10,
-    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
+    "texto": "Un modelo complejo mejora el área bajo la curva de 0,81 a 0,88 en desarrollo y de 0,78 a 0,79 en validación. ¿Qué corresponde recomendar?",
     "opciones": [
       {
-        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
+        "txt": "No adoptarlo: la mejora real es de un punto y no compensa la pérdida de interpretabilidad",
         "ok": true
       },
       {
-        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
+        "txt": "Adoptarlo por la mejora de siete puntos"
       },
       {
-        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
+        "txt": "Adoptarlo y revisar la validación más adelante"
       },
       {
-        "txt": "No aplica observación porque el escenario es hipotético"
+        "txt": "Rehacer el desarrollo con más variables"
       }
     ],
-    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
+    "retro": "La mejora en desarrollo es sobreajuste. Lo que se puede esperar en producción es el resultado de validación: un punto porcentual."
   },
   {
-    "id": "h5",
+    "id": "c5",
     "puntaje": 10,
-    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
+    "texto": "Al comparar dos modelos candidatos, ¿qué condición hace inválida la comparación?",
     "opciones": [
       {
-        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
+        "txt": "Que se hayan evaluado sobre muestras de validación distintas o con particiones diferentes",
         "ok": true
       },
       {
-        "txt": "Se reconoce un gasto adicional por el monto total"
+        "txt": "Que uno sea logística y el otro un ensamble"
       },
       {
-        "txt": "Se traslada a etapa 2"
+        "txt": "Que uno use más variables que el otro"
       },
       {
-        "txt": "Se reversa la provisión contra resultados"
+        "txt": "Que se hayan entrenado en fechas distintas"
       }
     ],
-    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
+    "retro": "Sin la misma muestra y la misma partición, la diferencia de métricas puede deberse a la muestra y no al modelo."
   },
   {
-    "id": "h6",
+    "id": "c6",
     "puntaje": 10,
-    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
+    "texto": "¿Qué elemento es imprescindible en el expediente para poder replicar un modelo?",
     "opciones": [
       {
-        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
+        "txt": "La semilla aleatoria y las versiones de las librerías utilizadas",
         "ok": true
       },
       {
-        "txt": "Se incumple el plazo legal de prescripción"
+        "txt": "El nombre comercial del software"
       },
       {
-        "txt": "Se pierde el derecho a cobrar la operación"
+        "txt": "El acta del comité que lo aprobó"
       },
       {
-        "txt": "Aumenta la provisión del período siguiente"
+        "txt": "El presupuesto del proyecto"
       }
     ],
-    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
+    "retro": "Sin semilla ni versiones, la ejecución no es reproducible y la validación independiente pierde su base."
   },
   {
-    "id": "h7",
+    "id": "c7",
     "puntaje": 10,
-    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
+    "texto": "El validador reproduce el modelo y obtiene área bajo la curva de 0,74 frente al 0,82 reportado. ¿Cuál es la conclusión inmediata?",
     "opciones": [
       {
-        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
+        "txt": "El expediente entregado está incompleto y hay una limitación al alcance",
         "ok": true
       },
       {
-        "txt": "Ser realizada por un tercero externo a la institución"
+        "txt": "El modelo original está mal y debe descartarse"
       },
       {
-        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
+        "txt": "Es una diferencia normal por aleatoriedad"
       },
       {
-        "txt": "Contar con la aprobación del área de riesgo"
+        "txt": "Corresponde ajustar la semilla hasta igualar el resultado"
       }
     ],
-    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
+    "retro": "Ajustar la semilla hasta reproducir el número es exactamente lo contrario de validar. La diferencia indica que falta información en el expediente."
   },
   {
-    "id": "h8",
+    "id": "c8",
     "puntaje": 10,
-    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
+    "texto": "¿Qué se revisa en un árbol que no tiene equivalente en una regresión logística?",
     "opciones": [
       {
-        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
+        "txt": "La profundidad, el mínimo de casos por hoja y la estabilidad de los cortes",
         "ok": true
       },
       {
-        "txt": "Que el efecto supere la materialidad"
+        "txt": "El signo de los coeficientes"
       },
       {
-        "txt": "Que el auditado esté de acuerdo"
+        "txt": "El information value de cada variable"
       },
       {
-        "txt": "Que exista una recomendación asociada"
+        "txt": "El intercepto del modelo"
       }
     ],
-    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
+    "retro": "Un árbol no tiene coeficientes. Su control de complejidad está en la profundidad y en el tamaño mínimo de las hojas."
   },
   {
-    "id": "h9",
+    "id": "c9",
     "puntaje": 10,
-    "texto": "El presupuesto de riesgo se compone de:",
+    "texto": "El analista que construyó el modelo dejó la institución y nadie registró el entorno de ejecución. El modelo sigue operando. ¿Cómo se reporta?",
     "opciones": [
       {
-        "txt": "El gasto en riesgo más el castigo neto de recupero",
+        "txt": "Como observación de continuidad operacional y limitación al alcance de la validación",
         "ok": true
       },
       {
-        "txt": "La provisión constituida más el capital regulatorio"
+        "txt": "Como observación de recursos humanos"
       },
       {
-        "txt": "La pérdida esperada más la inesperada"
+        "txt": "No se reporta mientras el modelo funcione"
       },
       {
-        "txt": "El valor en riesgo al 99 %"
+        "txt": "Como deficiencia estadística del modelo"
       }
     ],
-    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
+    "retro": "El modelo puede ser estadísticamente correcto y aun así representar un riesgo operacional: no se puede mantener, corregir ni validar."
   },
   {
-    "id": "h10",
+    "id": "c10",
     "puntaje": 10,
-    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
+    "texto": "¿Qué aporta el bagging respecto de un árbol único?",
     "opciones": [
       {
-        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
+        "txt": "Reduce la varianza del resultado al promediar árboles entrenados sobre remuestreos",
         "ok": true
       },
       {
-        "txt": "La falta de registro de la semilla aleatoria del modelo"
+        "txt": "Aumenta la interpretabilidad del modelo"
       },
       {
-        "txt": "El uso de un algoritmo poco interpretable"
+        "txt": "Elimina la necesidad de tramificar variables"
       },
       {
-        "txt": "La ausencia de gráfico de silueta en la segmentación"
+        "txt": "Garantiza que no exista sobreajuste"
       }
     ],
-    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
+    "retro": "El bagging estabiliza. Lo que gana en varianza lo pierde en legibilidad: ya no hay un conjunto único de reglas que mostrar."
   }
 ];
-ACModulo.iniciar("M08", BANCO);
+ACModulo.iniciar("M03", BANCO);
 </script>
 </body>
 </html>

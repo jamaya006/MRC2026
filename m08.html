@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<title>Estabilidad y validación fuera de tiempo · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -410,7 +410,7 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
+      <strong id="cab-titulo">Estabilidad y validación fuera de tiempo</strong>
       <small id="cab-ref">Referencia</small>
     </div>
     <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
@@ -425,146 +425,147 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
+    <strong>Qué se lleva de este módulo</strong>Detectar el deterioro de un modelo que sigue operando. Es el módulo que sostiene el encargo recurrente: un modelo aprobado hace tres años puede estar produciendo hoy una provisión que ya no corresponde.
   </div>
 
-  <section class="ac-cedula" data-cedula="H-1">
+  <section class="ac-cedula" data-cedula="F-1">
     <div class="ac-cedula-encab">
-      <span class="ref">H-1</span>
-      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
+      <span class="ref">F-1</span>
+      <h3>Tres formas de validar y para qué sirve cada una</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
-      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
-      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
+      <p>Un modelo se evalúa sobre distintas muestras, y cada una responde una pregunta diferente. Confundirlas es la causa de que un modelo aprobado se deteriore sin que nadie lo advierta.</p>
+      <table class="ac-tabla"><thead><tr><th>Muestra</th><th>Qué responde</th><th>Qué no detecta</th></tr></thead><tbody><tr><td>Desarrollo</td><td>Si el modelo aprendió</td><td>Nada sobre generalización</td></tr><tr><td>Validación</td><td>Si generaliza a otros clientes del mismo período</td><td>Cambios en el tiempo</td></tr><tr><td>Fuera de tiempo</td><td>Si sigue vigente en un período posterior</td><td>—</td></tr></tbody></table>
+      <blockquote class="ac-cita">Hay diferentes formas de hacer este corte de datos: algunos ocupan tres, entrenamiento, prueba y validación, y lo hacen 60, 20 y 20; en este caso vamos a ocupar 80 y 20.<cite>Clase 3, aprox. 01:50:24</cite></blockquote>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La partición se hace al azar sobre todo el histórico. Clientes del mismo período quedan en ambas muestras y la validación no prueba nada sobre el paso del tiempo. Es el error más común y el más fácil de detectar.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar las fechas mínima y máxima de cada muestra. Si los rangos se solapan por completo, no existe validación fuera de tiempo, sin importar cómo se llame el apartado del informe.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-2">
+  <section class="ac-cedula" data-cedula="F-2">
     <div class="ac-cedula-encab">
-      <span class="ref">H-2</span>
-      <h3>Frecuencia, severidad y valor en riesgo</h3>
+      <span class="ref">F-2</span>
+      <h3>PSI: cómo se calcula y qué significa</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
-      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
-      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+      <p>El índice de estabilidad poblacional compara la distribución de una variable o del puntaje entre el período en que se construyó el modelo y el período actual. No mide desempeño: mide si la población sigue siendo la misma.</p>
+      <p>Se calcula por tramo. Para cada uno se toma la diferencia entre el porcentaje actual y el de referencia, se multiplica por el logaritmo de su razón, y se suman los tramos.</p>
+      <table class="ac-tabla"><thead><tr><th>Tramo de puntaje</th><th>% referencia</th><th>% actual</th><th>Aporte al PSI</th></tr></thead><tbody><tr><td>Bajo 400</td><td class="num">8,0 %</td><td class="num">14,0 %</td><td class="num">0,0336</td></tr><tr><td>400 a 500</td><td class="num">17,0 %</td><td class="num">21,0 %</td><td class="num">0,0085</td></tr><tr><td>500 a 600</td><td class="num">31,0 %</td><td class="num">29,0 %</td><td class="num">0,0013</td></tr><tr><td>600 a 700</td><td class="num">28,0 %</td><td class="num">24,0 %</td><td class="num">0,0062</td></tr><tr><td>Sobre 700</td><td class="num">16,0 %</td><td class="num">12,0 %</td><td class="num">0,0115</td></tr><tr><td>Total</td><td class="num">100 %</td><td class="num">100 %</td><td class="num">0,0611</td></tr></tbody></table>
+      <div class="ac-umbral"><strong>Interpretación del PSI</strong>Bajo 0,10 la población es estable. Entre 0,10 y 0,25 hay desplazamiento moderado que exige análisis. Sobre 0,25 el desplazamiento es relevante y el modelo debe revisarse formalmente.</div>
+      <div class="ac-nota"><strong>Qué mirar además del total</strong>El PSI total puede ser bajo mientras dos tramos se compensan entre sí. Revisar siempre el aporte por tramo, no solo la suma.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-3">
+  <section class="ac-cedula" data-cedula="F-3">
     <div class="ac-cedula-encab">
-      <span class="ref">H-3</span>
-      <h3>Stress test: qué es y qué no es</h3>
+      <span class="ref">F-3</span>
+      <h3>PSI de la población y de las variables</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
-      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
-      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
+      <p>El PSI se aplica sobre el puntaje final y también sobre cada variable de entrada. Cuando se calcula sobre las variables suele llamarse índice de estabilidad de características. La combinación de ambos identifica el origen del problema.</p>
+      <table class="ac-tabla"><thead><tr><th>PSI del puntaje</th><th>PSI de variables</th><th>Diagnóstico</th></tr></thead><tbody><tr><td>Bajo</td><td>Bajo</td><td>Población estable</td></tr><tr><td>Bajo</td><td>Alto en algunas</td><td>Cambios que se compensan; revisar igualmente</td></tr><tr><td>Alto</td><td>Alto en pocas</td><td>Origen identificado en esas variables</td></tr><tr><td>Alto</td><td>Bajo en todas</td><td>Revisar integridad del cálculo o cambio de política</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se monitorea solo el puntaje. Una variable cambia de definición en el sistema de origen, el resto compensa y el puntaje se ve estable mientras el modelo ya opera sobre datos distintos de los que se construyó.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el PSI por variable del último ciclo de monitoreo. Si no existe, la institución no está en condiciones de identificar la causa de un deterioro cuando ocurra.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-4">
+  <section class="ac-cedula" data-cedula="F-4">
     <div class="ac-cedula-encab">
-      <span class="ref">H-4</span>
-      <h3>Castigo, recupero y presupuesto de riesgo</h3>
+      <span class="ref">F-4</span>
+      <h3>Ventanas contaminadas: el caso de la pandemia</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
-      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
-      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
+      <p>La estabilidad supone que el período de referencia es representativo. Cuando la ventana de observación o de desempeño abarca un episodio excepcional, esa suposición no se cumple y todas las métricas construidas sobre ella quedan condicionadas.</p>
+      <p>Durante los años de pandemia coexistieron ayudas estatales, reprogramaciones masivas y suspensión de cobranza. El resultado fue morosidad artificialmente baja. Un modelo construido con esa ventana aprende un comportamiento de pago que no se repite en condiciones normales.</p>
+      <div class="ac-riesgo"><strong>Cómo se manifiesta</strong>El modelo subestima la probabilidad de incumplimiento de manera sistemática. La discriminación puede seguir siendo buena, porque el orden entre clientes se mantiene, mientras el nivel de la provisión queda por debajo del riesgo real.</div>
+      <div class="ac-umbral"><strong>Preguntas obligatorias sobre la ventana</strong>Qué período cubre la ventana de observación, qué período la de desempeño, si alguno abarca episodios excepcionales, y qué tratamiento se dio a las operaciones reprogramadas durante esos meses.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar la tasa de incumplimiento del período de construcción contra la de los períodos anterior y posterior. Una diferencia relevante sin explicación documentada es un hallazgo con efecto directo sobre la suficiencia de la provisión.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-5">
+  <section class="ac-cedula" data-cedula="F-5">
     <div class="ac-cedula-encab">
-      <span class="ref">H-5</span>
-      <h3>El memorando de validación independiente</h3>
+      <span class="ref">F-5</span>
+      <h3>Monitoreo: la política que casi nunca existe</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
-      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
-      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
+      <p>Un modelo no se valida una vez. La institución debe tener definido con qué frecuencia se mide, qué umbrales disparan una acción y quién decide. Sin eso, el monitoreo se convierte en un informe que nadie usa.</p>
+      <table class="ac-tabla"><thead><tr><th>Indicador</th><th>Frecuencia mínima</th><th>Umbral de acción</th></tr></thead><tbody><tr><td>PSI del puntaje</td><td>Mensual</td><td>Sobre 0,25</td></tr><tr><td>PSI por variable</td><td>Trimestral</td><td>Sobre 0,25 en cualquier variable</td></tr><tr><td>Área bajo la curva fuera de tiempo</td><td>Semestral</td><td>Caída sobre 5 puntos</td></tr><tr><td>PD estimada contra observada</td><td>Anual</td><td>Desvío sistemático por tramo</td></tr><tr><td>Tasa de aprobación</td><td>Mensual</td><td>Variación sin cambio de política</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El monitoreo existe, arroja PSI sobre 0,25 durante cuatro trimestres seguidos y no hay evidencia de acción. La deficiencia no es de medición sino de gobierno: la institución sabía y no actuó.</div>
+      <div class="ac-nota"><strong>Entregable de este módulo</strong>La plantilla de monitoreo con los cinco indicadores, sus umbrales y el responsable de cada uno. Es directamente reutilizable en encargos y es lo primero que se solicita al revisar el gobierno de modelos.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="H-6">
+  <section class="ac-cedula" data-cedula="F-6">
     <div class="ac-cedula-encab">
-      <span class="ref">H-6</span>
-      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
+      <span class="ref">F-6</span>
+      <h3>Laboratorio: función de PSI reutilizable</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
+      <p>Esta función es el entregable del módulo. Sirve tanto para el puntaje como para cualquier variable de entrada, y devuelve el detalle por tramo, que es lo que el total puede ocultar.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>PSI con detalle por tramo</em></div><pre><code>import numpy as np
+import pandas as pd
 
-rng = np.random.default_rng(20260722)
-SIMULACIONES = 50_000
+def psi(referencia, actual, tramos=10):
+    """Índice de estabilidad poblacional entre dos períodos.
 
-pd_ = c.pd_aplicable.to_numpy()
-lgd = c.lgd.to_numpy()
-ead = c.ead.to_numpy()
+    Los cortes se fijan con los percentiles del período de referencia:
+    es la distribución de construcción la que define la grilla.
+    """
+    cortes = np.percentile(referencia, np.linspace(0, 100, tramos + 1))
+    cortes[0], cortes[-1] = -np.inf, np.inf
 
-perdidas = np.empty(SIMULACIONES)
-for i in range(SIMULACIONES):
-    incumple = rng.random(pd_.size) &lt; pd_
-    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
+    r = np.histogram(referencia, cortes)[0] / len(referencia)
+    a = np.histogram(actual, cortes)[0] / len(actual)
+    r, a = np.clip(r, 1e-6, None), np.clip(a, 1e-6, None)
 
-esperada = perdidas.mean()
-var99 = np.percentile(perdidas, 99)
+    detalle = pd.DataFrame({"referencia": r, "actual": a,
+                            "aporte": (a - r) * np.log(a / r)})
+    return detalle, float(detalle.aporte.sum())
 
-print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
-print(f"VaR 99 %            {var99:&gt;14,.0f}")
-print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
-      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
-RHO = 0.15
-for rho in (0.0, 0.10, 0.20):
-    tot = np.empty(10_000)
-    for i in range(10_000):
-        shock = rng.standard_normal()
-        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
-                  rng.standard_normal(pd_.size))
-        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
-        tot[i] = (ead[incumple] * lgd[incumple]).sum()
-    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
 
-# Escenario adverso: al menos tan severo como la peor crisis observada
-pd_estres = np.clip(pd_ * 2.4, 0, 1)
-print(f"\nPérdida esperada bajo tensión "
-      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
-      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
+detalle, valor = psi(score_construccion, score_actual)
+print(detalle.round(4))
+print(f"PSI = {valor:.4f}  -&gt;",
+      "estable" if valor &lt; 0.10 else
+      "desplazamiento moderado" if valor &lt; 0.25 else
+      "REVISAR EL MODELO")</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Monitoreo por variable y tramos que se compensan</em></div><pre><code># Tramos que aportan mucho aunque el total sea bajo
+relevantes = detalle[detalle.aporte &gt; 0.02]
+if len(relevantes) and valor &lt; 0.10:
+    print("PSI total bajo pero con movimientos que se compensan:")
+    print(relevantes.round(4))
+
+# La cédula F-3 exige PSI también por variable de entrada
+for v in variables_modelo:
+    _, psi_v = psi(desarrollo[v], actual[v])
+    marca = "  &lt;-- REVISAR" if psi_v &gt; 0.25 else ""
+    print(f"{v:&lt;24} PSI {psi_v:.4f}{marca}")</code></pre></div>
+      <div class="ac-nota"><strong>Uso en encargos</strong>Guarda esta función como parte del papel de trabajo. Aplicada sobre la extracción del cliente, produce en minutos la evidencia que sostiene la observación sobre monitoreo de modelos.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="H-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-6"></span>
     </div>
   </section>
 
@@ -1411,217 +1412,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "h1",
+    "id": "f1",
     "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
+    "texto": "¿Qué prueba una muestra de validación que comparte período con la de desarrollo?",
     "opciones": [
       {
-        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
+        "txt": "Que el modelo generaliza a otros clientes del mismo período, pero nada sobre el paso del tiempo",
         "ok": true
       },
       {
-        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
+        "txt": "Que el modelo sigue vigente hoy"
       },
       {
-        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
+        "txt": "Que la población es estable"
       },
       {
-        "txt": "Ambas se provisionan, con distinto horizonte"
+        "txt": "Que la provisión está bien calculada"
       }
     ],
-    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
+    "retro": "Sin separación temporal no hay validación fuera de tiempo, aunque el informe use ese título."
   },
   {
-    "id": "h2",
+    "id": "f2",
     "puntaje": 10,
-    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
+    "texto": "El PSI del puntaje es 0,31. ¿Qué corresponde?",
     "opciones": [
       {
-        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
+        "txt": "Desplazamiento relevante de la población: el modelo debe revisarse formalmente",
         "ok": true
       },
       {
-        "txt": "Que la pérdida máxima posible es ese monto"
+        "txt": "Población estable, no se requiere acción"
       },
       {
-        "txt": "Que el 99 % de los clientes no incumplirá"
+        "txt": "El modelo perdió capacidad de discriminación"
       },
       {
-        "txt": "Que la provisión debe igualar ese monto"
+        "txt": "La provisión está sobrestimada"
       }
     ],
-    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
+    "retro": "Sobre 0,25 el desplazamiento exige revisión formal. El PSI no mide desempeño: indica que la población ya no es la de referencia."
   },
   {
-    "id": "h3",
+    "id": "f3",
     "puntaje": 10,
-    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
+    "texto": "El PSI total es 0,08 pero dos tramos aportan 0,04 cada uno en direcciones opuestas. ¿Qué corresponde observar?",
     "opciones": [
       {
-        "txt": "La correlación supuesta entre incumplimientos",
+        "txt": "Hay movimientos que se compensan en el total y deben analizarse por tramo",
         "ok": true
       },
       {
-        "txt": "El número de operaciones de la cartera"
+        "txt": "Nada: el total está bajo el umbral"
       },
       {
-        "txt": "La tasa de interés de colocación"
+        "txt": "El cálculo del PSI está mal hecho"
       },
       {
-        "txt": "El nivel de provisión constituido"
+        "txt": "Corresponde recalibrar el modelo"
       }
     ],
-    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
+    "retro": "El total puede ocultar desplazamientos relevantes que se anulan entre sí. Por eso se revisa el aporte por tramo."
   },
   {
-    "id": "h4",
+    "id": "f4",
     "puntaje": 10,
-    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
+    "texto": "El PSI del puntaje es bajo y el de una variable de entrada es 0,40. ¿Cuál es la hipótesis más probable?",
     "opciones": [
       {
-        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
+        "txt": "Esa variable cambió y el efecto se compensa con otras dentro del puntaje",
         "ok": true
       },
       {
-        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
+        "txt": "El modelo está funcionando correctamente"
       },
       {
-        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
+        "txt": "El PSI del puntaje está mal calculado"
       },
       {
-        "txt": "No aplica observación porque el escenario es hipotético"
+        "txt": "La cartera creció"
       }
     ],
-    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
+    "retro": "Es exactamente el caso que hace insuficiente monitorear solo el puntaje. La causa típica es un cambio de definición en el sistema de origen."
   },
   {
-    "id": "h5",
+    "id": "f5",
     "puntaje": 10,
-    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
+    "texto": "Un modelo se construyó con ventana de desempeño durante los meses de ayudas estatales y reprogramaciones masivas. ¿Cuál es el efecto esperable?",
     "opciones": [
       {
-        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
+        "txt": "Subestimación sistemática de la probabilidad de incumplimiento",
         "ok": true
       },
       {
-        "txt": "Se reconoce un gasto adicional por el monto total"
+        "txt": "Sobreestimación de la probabilidad de incumplimiento"
       },
       {
-        "txt": "Se traslada a etapa 2"
+        "txt": "Pérdida de capacidad de discriminación únicamente"
       },
       {
-        "txt": "Se reversa la provisión contra resultados"
+        "txt": "Ningún efecto si la muestra es grande"
       }
     ],
-    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
+    "retro": "La morosidad observada fue artificialmente baja. El modelo aprende ese comportamiento y estima por debajo del riesgo real."
   },
   {
-    "id": "h6",
+    "id": "f6",
     "puntaje": 10,
-    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
+    "texto": "En el caso anterior, ¿por qué la curva ROC puede seguir viéndose bien?",
     "opciones": [
       {
-        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
+        "txt": "Porque mide el orden entre clientes, que puede mantenerse aunque el nivel esté desplazado",
         "ok": true
       },
       {
-        "txt": "Se incumple el plazo legal de prescripción"
+        "txt": "Porque la ROC se calcula sobre la muestra de desarrollo"
       },
       {
-        "txt": "Se pierde el derecho a cobrar la operación"
+        "txt": "Porque la ROC corrige automáticamente por el período"
       },
       {
-        "txt": "Aumenta la provisión del período siguiente"
+        "txt": "Porque el desbalance de clases la infla"
       }
     ],
-    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
+    "retro": "Discriminación y calibración son independientes. El orden se conserva; el nivel no."
   },
   {
-    "id": "h7",
+    "id": "f7",
     "puntaje": 10,
-    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
+    "texto": "El PSI superó 0,25 durante cuatro trimestres y no hay evidencia de acción. ¿Cómo se clasifica el hallazgo?",
     "opciones": [
       {
-        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
+        "txt": "Deficiencia de gobierno de modelos: la institución detectó el deterioro y no actuó",
         "ok": true
       },
       {
-        "txt": "Ser realizada por un tercero externo a la institución"
+        "txt": "Deficiencia de la metodología de cálculo del PSI"
       },
       {
-        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
+        "txt": "Observación sin efecto porque el monitoreo se realizó"
       },
       {
-        "txt": "Contar con la aprobación del área de riesgo"
+        "txt": "Hallazgo de auditoría de sistemas"
       }
     ],
-    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
+    "retro": "Medir y no actuar es más grave que no medir: existe evidencia documentada de que se conocía la situación."
   },
   {
-    "id": "h8",
+    "id": "f8",
     "puntaje": 10,
-    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
+    "texto": "¿Qué documento pediría primero al evaluar el monitoreo de un modelo?",
     "opciones": [
       {
-        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
+        "txt": "La política que define indicadores, frecuencia, umbrales de acción y responsables",
         "ok": true
       },
       {
-        "txt": "Que el efecto supere la materialidad"
+        "txt": "El código fuente del modelo"
       },
       {
-        "txt": "Que el auditado esté de acuerdo"
+        "txt": "El último informe de resultados"
       },
       {
-        "txt": "Que exista una recomendación asociada"
+        "txt": "El acta de aprobación original"
       }
     ],
-    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
+    "retro": "Sin política, cada informe se interpreta a discreción y no hay criterio contra el cual medir el incumplimiento."
   },
   {
-    "id": "h9",
+    "id": "f9",
     "puntaje": 10,
-    "texto": "El presupuesto de riesgo se compone de:",
+    "texto": "¿Qué evidencia demuestra que existe validación fuera de tiempo?",
     "opciones": [
       {
-        "txt": "El gasto en riesgo más el castigo neto de recupero",
+        "txt": "Fechas mínima y máxima de cada muestra, con la de prueba en un período posterior al de desarrollo",
         "ok": true
       },
       {
-        "txt": "La provisión constituida más el capital regulatorio"
+        "txt": "El porcentaje de la partición, por ejemplo 80 y 20"
       },
       {
-        "txt": "La pérdida esperada más la inesperada"
+        "txt": "El nombre del apartado en el informe de validación"
       },
       {
-        "txt": "El valor en riesgo al 99 %"
+        "txt": "El número de observaciones de cada muestra"
       }
     ],
-    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
+    "retro": "La proporción de la partición no dice nada sobre separación temporal. Las fechas sí."
   },
   {
-    "id": "h10",
+    "id": "f10",
     "puntaje": 10,
-    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
+    "texto": "¿Cuál de estos indicadores detecta un cambio de comportamiento del negocio antes que las métricas de desempeño?",
     "opciones": [
       {
-        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
+        "txt": "La tasa de aprobación, cuando varía sin cambio de política",
         "ok": true
       },
       {
-        "txt": "La falta de registro de la semilla aleatoria del modelo"
+        "txt": "El área bajo la curva de la muestra de desarrollo"
       },
       {
-        "txt": "El uso de un algoritmo poco interpretable"
+        "txt": "El information value de las variables originales"
       },
       {
-        "txt": "La ausencia de gráfico de silueta en la segmentación"
+        "txt": "La exactitud global del modelo"
       }
     ],
-    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
+    "retro": "El desempeño requiere que el evento madure. La tasa de aprobación se observa de inmediato y anticipa el problema."
   }
 ];
-ACModulo.iniciar("M08", BANCO);
+ACModulo.iniciar("M06", BANCO);
 </script>
 </body>
 </html>
