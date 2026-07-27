@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>De la variable al scorecard · AuditCaat's</title>
+<title>Segmentación y sus riesgos · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -286,6 +286,90 @@ a:hover { color: var(--ac-marca-alto); }
 }
 .ac-cita cite { display: block; font-style: normal; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); margin-top: var(--e-2); }
 
+/* ---------- Simuladores ---------------------------------------------- */
+.ac-widget {
+  margin: 0 0 var(--e-5);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  background: var(--ac-cedula);
+  overflow: hidden;
+}
+.ac-w-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-2) var(--e-4);
+  background: var(--ac-tinta); color: #fff;
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+}
+.ac-w-encab span { color: #7FD1B9; letter-spacing: .12em; text-transform: uppercase; }
+.ac-w-encab em { color: rgba(255,255,255,.72); font-style: normal; }
+.ac-w-cuerpo { padding: var(--e-4); }
+
+.ac-w-controles {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--e-3) var(--e-5); margin-bottom: var(--e-4);
+}
+.ac-w-ctrl label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--t-sm); font-weight: 600; margin-bottom: 2px;
+}
+.ac-w-ctrl label b { font-family: var(--ac-dato); font-weight: 500; color: var(--ac-marca); }
+.ac-w-ctrl input[type=range] { width: 100%; accent-color: var(--ac-marca); margin: 0; }
+.ac-w-check {
+  display: flex; align-items: center; gap: var(--e-2);
+  font-size: var(--t-sm); font-weight: 600; align-self: end; padding-bottom: 2px;
+}
+.ac-w-check input { accent-color: var(--ac-marca); }
+
+.ac-w-lienzo { background: var(--ac-papel); border-radius: var(--radio); padding: var(--e-2); }
+.ac-w-lienzo svg { width: 100%; height: auto; display: block; }
+
+.ac-w-lectura {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: var(--ac-rayado); margin-top: var(--e-4);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio); overflow: hidden;
+}
+.ac-w-lectura > div { background: var(--ac-cedula); padding: var(--e-3) var(--e-4); }
+.ac-w-lectura > div.alerta { background: var(--ac-alerta-bg); }
+.ac-w-lectura dt {
+  font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .07em;
+  color: var(--ac-tinta-3);
+}
+.ac-w-lectura dd {
+  margin: 2px 0 0; font-family: var(--ac-dato); font-size: var(--t-lg); font-weight: 500;
+}
+.ac-w-lectura > div.alerta dd { color: var(--ac-alerta); }
+
+.ac-w-pie {
+  padding: var(--e-3) var(--e-4);
+  border-top: 1px dashed var(--ac-rayado-2); background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+
+/* Piezas de los graficos */
+.w-eje { stroke: var(--ac-rayado-2); stroke-width: 1; }
+.w-txt { font-family: var(--ac-dato); font-size: 11px; fill: var(--ac-tinta-3); }
+.w-barra-on  { fill: var(--ac-marca); }
+.w-barra-off { fill: var(--ac-rayado); }
+.w-barra-neg { fill: var(--ac-tinta-2); }
+.w-barra-mal { fill: var(--ac-tick); }
+.w-barra-ref { fill: var(--ac-rayado-2); }
+.w-barra-tot { fill: var(--ac-tinta); }
+.w-hist-b { fill: var(--ac-marca); opacity: .55; }
+.w-hist-m { fill: var(--ac-tick); opacity: .70; }
+.w-corte  { stroke: var(--ac-tick); stroke-width: 2; }
+.w-corte-t { fill: var(--ac-tick); }
+.w-optimo { stroke: var(--ac-marca); stroke-width: 2; stroke-dasharray: 4 3; }
+.w-optimo-t { fill: var(--ac-marca); }
+.w-linea-a { fill: none; stroke: var(--ac-tick); stroke-width: 2.5; }
+.w-linea-b { fill: none; stroke: var(--ac-marca); stroke-width: 2.5; }
+.w-pto-a { fill: var(--ac-tick); }
+.w-pto-b { fill: var(--ac-marca); }
+.w-t-a { fill: var(--ac-tick); }
+.w-t-b { fill: var(--ac-marca); }
+.w-t-ref { fill: var(--ac-tinta-3); }
+.w-c0 { fill: #12594F; } .w-c1 { fill: #B0182D; } .w-c2 { fill: #8A5B00; }
+.w-c3 { fill: #2B5F8A; } .w-c4 { fill: #6B3FA0; } .w-c5 { fill: #47586B; }
+
 /* Bloque de codigo del laboratorio */
 .ac-codigo {
   margin: 0 0 var(--e-4);
@@ -410,10 +494,10 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">De la variable al scorecard</strong>
+      <strong id="cab-titulo">Segmentación y sus riesgos</strong>
       <small id="cab-ref">Referencia</small>
     </div>
-    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+    <div class="ac-cabecera-fin"><a href="index.html" style="color:#fff">Volver al índice</a></div>
   </div>
 </header>
 
@@ -425,172 +509,134 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Revisar cómo se eligen y transforman las variables de un modelo de score, y detectar las tres fallas que más se repiten en esa etapa: correlación mal medida, tramos hechos por conveniencia y modelos ajustados a su propia muestra.
+    <strong>Qué se lleva de este módulo</strong>Entender cómo se construye una segmentación de cartera y por qué una segmentación mal hecha contamina la provisión de todos los segmentos, no solo del que está mal armado.
   </div>
 
-  <section class="ac-cedula" data-cedula="B-1">
+  <section class="ac-cedula" data-cedula="D-1">
     <div class="ac-cedula-encab">
-      <span class="ref">B-1</span>
-      <h3>Selección de variables: por qué la correlación no alcanza</h3>
+      <span class="ref">D-1</span>
+      <h3>Qué se busca al segmentar y por qué importa contablemente</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El primer filtro de un modelo es descartar variables redundantes. El error frecuente es aplicar correlación de Pearson a todo el conjunto sin mirar la naturaleza de cada variable. Pearson mide asociación lineal entre variables continuas; aplicada a variables cualitativas o a continuas ya tramificadas, entrega un número que no significa lo que el modelador cree.</p>
-      <blockquote class="ac-cita">Hay que tener en cuenta la naturaleza de las variables a la hora de analizarlas por correlación, sobre todo cuando son cualitativas, porque la correlación de Pearson por sí sola no ayuda.<cite>Clase 2, aprox. 00:13:05</cite></blockquote>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>Dos variables que miden lo mismo sobreviven al filtro porque su correlación calculada fue baja. El modelo queda con multicolinealidad, los coeficientes se vuelven inestables y basta un cambio menor de muestra para que cambien de signo.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la matriz de correlación junto con el diccionario de variables y verificar que el estadístico usado corresponde al tipo de variable. Para pares categórica-categórica corresponde V de Cramér o chi cuadrado; para categórica-continua, razón de correlación. Documentar el umbral de descarte y confirmar que se aplicó de forma consistente.</div>
+      <p>Segmentar es agrupar clientes u operaciones de modo que dentro de cada grupo el comportamiento sea parecido y entre grupos sea distinto. No hay una variable objetivo: es el algoritmo el que propone los grupos a partir de las características observadas.</p>
+      <blockquote class="ac-cita">Dentro del clustering se busca el grupo para que se puedan diferenciar en base a alguna caracterización que uno haga del grupo.<cite>Clase 4, aprox. 00:04:51</cite></blockquote>
+      <p>El efecto contable es directo: en los modelos de pérdida esperada se estima un conjunto de parámetros por segmento. Si los segmentos están mal definidos, los parámetros se calculan sobre poblaciones heterogéneas y la provisión resultante no refleja el riesgo de ninguna de ellas.</p>
+      <div class="ac-nota"><strong>La pregunta de auditoría</strong>¿La segmentación responde a diferencias reales de comportamiento de pago o a la estructura comercial de la institución? Segmentar por línea de negocio es cómodo para gestionar y frecuentemente inadecuado para provisionar.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="B-2">
+  <section class="ac-cedula" data-cedula="D-2">
     <div class="ac-cedula-encab">
-      <span class="ref">B-2</span>
-      <h3>Weight of evidence: qué mide y cómo se lee</h3>
+      <span class="ref">D-2</span>
+      <h3>Distancia y tipo de algoritmo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El weight of evidence, o WOE, se calcula por tramo de una variable. Compara la proporción de clientes buenos que caen en ese tramo con la proporción de clientes malos que caen en el mismo tramo, y toma el logaritmo de esa razón. Un WOE positivo indica concentración de buenos; uno negativo, de malos.</p>
-      <blockquote class="ac-cita">El WOE se define a nivel de cada tramo: el logaritmo de la proporción de buenos en la categoría sobre el total de buenos, contra la proporción equivalente de malos.<cite>Clase 2, aprox. 00:19:57</cite></blockquote>
-      <p>La utilidad para auditoría es que el WOE hace visible el comportamiento de la variable tramo por tramo. Una variable puede tener buen poder predictivo global y aun así comportarse de forma incoherente en un tramo específico.</p>
-      <table class="ac-tabla"><thead><tr><th>Tramo de antigüedad</th><th>Buenos</th><th>Malos</th><th>WOE</th><th>Lectura</th></tr></thead><tbody><tr><td>Menos de 6 meses</td><td class="num">1.200</td><td class="num">480</td><td class="num">-0,62</td><td>Concentra malos</td></tr><tr><td>6 a 24 meses</td><td class="num">3.400</td><td class="num">610</td><td class="num">0,18</td><td>Cerca del promedio</td></tr><tr><td>24 a 60 meses</td><td class="num">4.100</td><td class="num">390</td><td class="num">0,71</td><td>Concentra buenos</td></tr><tr><td>Más de 60 meses</td><td class="num">2.300</td><td class="num">340</td><td class="num">0,41</td><td>Rompe la monotonía</td></tr></tbody></table>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El último tramo baja en lugar de seguir subiendo. Si el modelador no lo explica, hay dos posibilidades: el tramo tiene pocos casos y el WOE es ruido, o la variable no se comporta como el negocio supone. Ambas exigen respuesta antes de aceptar el modelo.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Pedir la tabla de WOE por variable con el conteo de casos por tramo. Marcar todo tramo con menos del 5 % de la población y todo quiebre de monotonía sin justificación escrita en la documentación del modelo.</div>
+      <p>El primer elemento de una segmentación es la medida de distancia: el criterio numérico para decidir si dos cuentas se parecen. Cambiar la medida de distancia cambia los grupos, aun con los mismos datos.</p>
+      <blockquote class="ac-cita">Los elementos más importantes dentro de la segmentación son primero las medidas de distancia o de proximidad, que son las medidas estadísticas o numéricas que se van a utilizar para definir si una cuenta se parece a otra.<cite>Clase 4, aprox. 00:03:49</cite></blockquote>
+      <table class="ac-tabla"><thead><tr><th>Familia</th><th>Cómo agrupa</th><th>Cuándo se usa</th></tr></thead><tbody><tr><td>Jerárquico</td><td>Aglomera o divide por orden de distancia</td><td>Exploración, carteras pequeñas</td></tr><tr><td>No jerárquico (k-medias)</td><td>Asigna a centroides y los recalcula</td><td>Carteras grandes, producción</td></tr></tbody></table>
+      <p>Dentro de los métodos jerárquicos, el criterio de enlace también altera el resultado: vecino más próximo, vecino más lejano, distancia del centroide o método de Ward producen agrupaciones distintas sobre los mismos datos.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Las variables entran al algoritmo sin estandarizar. Una variable expresada en pesos domina por completo la distancia frente a una expresada en meses, y los grupos terminan definidos por la unidad de medida en lugar del comportamiento.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Verificar que las variables fueron estandarizadas antes de calcular distancias y que el criterio de estandarización está documentado. Es una revisión de dos minutos que explica la mayoría de las segmentaciones sin sentido económico.</div>
+      <div data-widget="segmentos"></div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="B-3">
+  <section class="ac-cedula" data-cedula="D-3">
     <div class="ac-cedula-encab">
-      <span class="ref">B-3</span>
-      <h3>Information value: el umbral que se puede citar</h3>
+      <span class="ref">D-3</span>
+      <h3>Cuántos grupos: codo y silueta</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Mientras el WOE describe cada tramo, el information value resume en un solo número el poder predictivo de la variable completa. Se usa para decidir qué variables entran al modelo, y es especialmente habitual en regresión logística binaria y en modelos de score.</p>
-      <blockquote class="ac-cita">El information value mide la predicción del atributo, y es muy útil cuando se trabaja con regresiones logísticas binarias, en particular para un modelo de score.<cite>Clase 2, aprox. 00:15:17</cite></blockquote>
-      <div class="ac-umbral"><strong>Rangos de referencia del information value</strong>Bajo 0,02 la variable no aporta. Entre 0,02 y 0,10 el aporte es débil. Entre 0,10 y 0,30 es aceptable. Entre 0,30 y 0,50 es fuerte. Sobre 0,50 hay que sospechar: una variable así de predictiva suele contener información que no estaba disponible al momento de decidir.</div>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El caso clásico es una variable con IV superior a 0,8 que resulta ser el estado de morosidad del propio período que se quiere predecir. El modelo luce excelente en desarrollo y no sirve en producción, porque esa variable no existe cuando hay que decidir sobre un cliente nuevo.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Listar las variables con IV sobre 0,50 y para cada una reconstruir el momento en que el dato queda disponible. Contrastarlo con la fecha de la decisión de crédito. Si el dato es posterior, hay fuga de información y el desempeño reportado está sobrestimado.</div>
+      <p>El número de grupos no lo entrega el algoritmo: lo elige quien construye el modelo. Existen dos apoyos habituales para esa decisión, y ninguno de los dos entrega una respuesta única.</p>
+      <blockquote class="ac-cita">Hay dos métodos que son los más comunes: el método del codo y el gráfico de la silueta.<cite>Clase 4, aprox. 00:49:55</cite></blockquote>
+      <ul><li>Codo: se grafica la variabilidad no explicada contra el número de grupos. La curva desciende y en algún punto se aplana. Ese quiebre sugiere el número.</li><li>Silueta: mide, para cada caso, qué tan bien encaja en su grupo comparado con el grupo más cercano. Valores altos indican grupos bien separados.</li></ul>
+      <div class="ac-umbral"><strong>Criterio de revisión</strong>El número elegido debe estar justificado por al menos uno de los dos métodos y cada segmento debe contener volumen suficiente para estimar sus parámetros de riesgo. Un segmento con muy pocos incumplimientos no permite estimar una probabilidad de incumplimiento confiable, por más nítida que sea su separación.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se elige el número de grupos que coincide con la estructura comercial existente, y el gráfico del codo se agrega después como respaldo. La decisión es previa al análisis y el análisis se usa como justificación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="B-4">
+  <section class="ac-cedula" data-cedula="D-4">
     <div class="ac-cedula-encab">
-      <span class="ref">B-4</span>
-      <h3>Binning: dónde se pierde la trazabilidad</h3>
+      <span class="ref">D-4</span>
+      <h3>Cómo una segmentación mal hecha contamina la provisión</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Convertir una variable continua en tramos se llama binning. Existen rutinas de binning óptimo que buscan automáticamente los cortes que maximizan el information value. El problema es que el óptimo estadístico y el óptimo de gestión no coinciden.</p>
-      <blockquote class="ac-cita">El binning óptimo maximiza la diferencia a través del information value. El problema de ese óptimo es que maximiza los grupos: busca muchos grupos.<cite>Clase 2, aprox. 00:29:06</cite></blockquote>
-      <p>Muchos tramos elevan el IV en la muestra de desarrollo y al mismo tiempo dejan tramos con pocos casos, que son los primeros en volverse inestables cuando la cartera cambia. Un modelo con veinte tramos por variable es un modelo difícil de explicar a un comité y difícil de monitorear.</p>
-      <div class="ac-umbral"><strong>Criterio práctico de revisión</strong>Entre cuatro y seis tramos por variable, cada uno con al menos 5 % de la población, y WOE monótono salvo justificación de negocio documentada.</div>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>Los cortes se rehacen sobre la misma muestra hasta que el modelo alcanza la métrica que el comité quería ver. No queda registro de los cortes descartados y el resultado es un modelo ajustado a su propia muestra.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la bitácora de construcción del binning: cortes probados, criterio de selección y quién los aprobó. La ausencia de esa bitácora es en sí misma un hallazgo de control interno, independiente de la calidad estadística del modelo.</div>
+      <p>El daño de una segmentación defectuosa no se queda en el segmento mal armado. Si un grupo heterogéneo mezcla deudores de riesgo distinto, su probabilidad de incumplimiento promedio subestima el riesgo de una parte y lo sobreestima en la otra. La provisión total puede parecer razonable mientras está mal distribuida entre carteras.</p>
+      <table class="ac-tabla"><thead><tr><th>Situación</th><th>Efecto en el parámetro</th><th>Efecto en la provisión</th></tr></thead><tbody><tr><td>Segmento heterogéneo</td><td>PD promedio no representativa</td><td>Mal distribuida entre carteras</td></tr><tr><td>Segmento con pocos casos</td><td>PD inestable entre períodos</td><td>Volatilidad no explicada del gasto</td></tr><tr><td>Segmentos superpuestos</td><td>Doble conteo de comportamiento</td><td>Riesgo de subprovisión</td></tr><tr><td>Reglas de asignación ambiguas</td><td>Migración arbitraria entre segmentos</td><td>Cambios de provisión sin cambio de riesgo</td></tr></tbody></table>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la regla de asignación de un cliente a su segmento y aplicarla sobre una muestra. Verificar que un mismo cliente no pueda quedar en dos segmentos y que la regla no dependa de campos que cambian por gestión comercial y no por riesgo.</div>
+      <div class="ac-riesgo"><strong>Señal en los estados financieros</strong>Un movimiento relevante del gasto por provisión sin cambio equivalente en la morosidad observada suele originarse en migración de clientes entre segmentos, no en deterioro real de la cartera.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="B-5">
+  <section class="ac-cedula" data-cedula="D-5">
     <div class="ac-cedula-encab">
-      <span class="ref">B-5</span>
-      <h3>Del modelo al scorecard: odds, puntos y escala</h3>
+      <span class="ref">D-5</span>
+      <h3>Estabilidad de los segmentos en el tiempo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La salida de una regresión logística es una probabilidad. Una probabilidad de 0,037 no es un número con el que un comité de crédito trabaje cómodamente. Por eso se aplica una transformación lineal que lleva esa probabilidad a una escala de puntos: eso es la scorecard.</p>
-      <blockquote class="ac-cita">La probabilidad no siempre es fácil de interpretar en un comité. Por eso se instauró la scorecard, que es hacer una transformación lineal de las probabilidades a una escala entendible.<cite>Clase 2, aprox. 00:56:32</cite></blockquote>
-      <p>El odds es la razón entre buenos y malos de la población. Si por cada veinte clientes buenos hay uno malo, el odds es veinte a uno. La escala se define fijando un puntaje de referencia para un odds dado y los puntos necesarios para duplicar ese odds.</p>
-      <table class="ac-tabla"><thead><tr><th>Atributo del solicitante</th><th>Puntos</th></tr></thead><tbody><tr><td>Base de la escala</td><td class="num">83</td></tr><tr><td>Sexo declarado: hombre</td><td class="num">98</td></tr><tr><td>Línea disponible entre 2,5 y 4,5 veces el ingreso</td><td class="num">93</td></tr><tr><td>Puntaje total del ejemplo</td><td class="num">274</td></tr></tbody></table>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La escala es una transformación, no información nueva. Reescalar no mejora un modelo malo: solo lo hace ver ordenado. Un scorecard bien presentado puede esconder un modelo con discriminación insuficiente.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Verificar que el puntaje de corte usado en la operación corresponde a la probabilidad que la política de crédito dice aceptar. Es frecuente que la escala se recalibre y el punto de corte quede en el valor antiguo, aprobando clientes que la política vigente rechazaría.</div>
-      <div class="ac-riesgo"><strong>Atributos sensibles</strong>Cuando la scorecard asigna puntos por sexo, edad, nacionalidad o domicilio, hay que verificar si la normativa aplicable lo permite y si existe evaluación de trato diferenciado. Es un riesgo regulatorio y reputacional, no solo estadístico.</div>
+      <p>Una segmentación se construye sobre una foto de la cartera. La cartera cambia. La pregunta que casi nunca está respondida en la documentación es cada cuánto se revisa la segmentación y bajo qué criterio se rehace.</p>
+      <div class="ac-umbral"><strong>Elementos que debe fijar la política</strong>Frecuencia de revisión de la segmentación, indicador que dispara una reconstrucción, procedimiento para tratar clientes que cambian de segmento y responsable de aprobar el cambio.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La segmentación se rehace cada vez que el resultado no gusta, sin regla previa. Reconstruir los grupos es una de las formas más eficaces de mover la provisión sin que aparezca como un cambio de metodología.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Comparar la composición de cada segmento entre dos cierres. Documentar el porcentaje de clientes que cambió de segmento y contrastarlo contra el cambio observado en el comportamiento de pago. Sin cambio de comportamiento, la migración exige explicación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="B-6">
+  <section class="ac-cedula" data-cedula="D-6">
     <div class="ac-cedula-encab">
-      <span class="ref">B-6</span>
-      <h3>Sobreajuste y regularización</h3>
+      <span class="ref">D-6</span>
+      <h3>Laboratorio: segmentar y revisar el resultado</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Un modelo sobreajustado es el que funciona muy bien sobre la población con la que se construyó y falla al aplicarse a otra. Es el riesgo central de toda la etapa de construcción, y por eso importa el binning, el número de variables y la separación entre muestra de desarrollo y de validación.</p>
-      <blockquote class="ac-cita">Cuando trato de perfeccionar tanto el modelo, ese modelo tiende a sobreajustarse: funciona muy bien para la población con la que se construyó, pero no cuando se aplica a una población diferente.<cite>Clase 2, aprox. 01:17:07</cite></blockquote>
-      <p>Ridge y Lasso son técnicas de regularización: penalizan los coeficientes grandes para que el modelo generalice mejor y para reducir multicolinealidad. Lasso además puede llevar coeficientes exactamente a cero, con lo que selecciona variables.</p>
-      <div class="ac-umbral"><strong>Señal de alerta</strong>Una caída del área bajo la curva superior a cinco puntos porcentuales entre la muestra de desarrollo y la de validación indica sobreajuste y exige explicación.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Pedir las métricas de desempeño calculadas por separado en desarrollo y en validación, con el detalle de cómo se dividió la muestra. Si solo existe una cifra global, el modelo no fue validado: fue descrito.</div>
+      <p>En el simulador viste qué ocurre al no estandarizar. Ahora se hace sobre la cartera y se comprueba si los segmentos sirven para estimar parámetros de riesgo.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Estandarizar, que es el paso que se olvida</em></div><pre><code>from sklearn.preprocessing import StandardScaler
+
+variables = ["monto_original", "antiguedad_meses", "carga_financiera"]
+Z = StandardScaler().fit_transform(cartera[variables])
+
+print(Z[:3])   # las tres primeras filas ya transformadas</code></pre></div>
+      <p>Estandarizar deja todas las variables en la misma escala: cada una pasa a medirse en desviaciones respecto de su propio promedio. Sin este paso, el monto en pesos aplasta a la antigüedad en meses y los grupos se forman por la unidad de medida.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 2. Probar distintos números de grupos</em></div><pre><code>from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+
+for k in range(2, 9):
+    km = KMeans(n_clusters=k, n_init=10, random_state=20260722).fit(Z)
+    print(f"k={k}   silueta {silhouette_score(Z, km.labels_):.3f}")</code></pre></div>
+      <p>El bucle repite lo mismo para cada valor de k. La silueta mide qué tan separados quedan los grupos: más alto es mejor. No entrega una respuesta única, solo un apoyo para la decisión.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Fijar los grupos y mirar su riesgo</em></div><pre><code>km = KMeans(n_clusters=4, n_init=10, random_state=20260722).fit(Z)
+cartera["segmento"] = km.labels_
+
+perfil = cartera.groupby("segmento").agg(
+    operaciones=("malo", "size"),
+    incumplimientos=("malo", "sum"),
+    tasa=("malo", "mean"))
+print(perfil.round(4))
+
+print(perfil[perfil["incumplimientos"] &lt; 30])</code></pre></div>
+      <div class="ac-umbral"><strong>El control que decide si la segmentación sirve</strong>Un segmento con menos de treinta incumplimientos no permite estimar una probabilidad estable entre períodos, por nítida que sea su separación estadística. Es la observación que se lleva al informe.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-6"></span>
-    </div>
-  </section>
-
-  <section class="ac-cedula" data-cedula="B-7">
-    <div class="ac-cedula-encab">
-      <span class="ref">B-7</span>
-      <h3>Laboratorio: calcular WOE e information value</h3>
-    </div>
-    <div class="ac-cedula-cuerpo">
-      <p>La función siguiente reproduce lo que hace cualquier herramienta comercial de scorecard. Escribirla una vez sirve para saber exactamente qué se está revisando cuando el equipo de riesgo entrega una tabla de WOE.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>WOE e IV por variable</em></div><pre><code>import numpy as np
-import pandas as pd
-
-def woe_iv(df, variable, objetivo="malo", tramos=5):
-    d = df[[variable, objetivo]].copy()
-    if d[variable].dtype.kind in "ifc":
-        d["tramo"] = pd.qcut(d[variable], tramos, duplicates="drop")
-    else:
-        d["tramo"] = d[variable]
-
-    t = d.groupby("tramo", observed=True)[objetivo].agg(["count", "sum"])
-    t.columns = ["total", "malos"]
-    t["buenos"] = t.total - t.malos
-
-    # Corrección de continuidad: evita el logaritmo de cero en tramos sin eventos
-    t["p_buenos"] = (t.buenos + 0.5) / (t.buenos.sum() + 0.5 * len(t))
-    t["p_malos"] = (t.malos + 0.5) / (t.malos.sum() + 0.5 * len(t))
-
-    t["woe"] = np.log(t.p_buenos / t.p_malos)
-    t["iv"] = (t.p_buenos - t.p_malos) * t.woe
-    t["participacion"] = t.total / t.total.sum()
-    return t, t.iv.sum()
-
-tabla, iv = woe_iv(desarrollo, "antiguedad_meses")
-print(tabla[["total", "participacion", "woe", "iv"]].round(4))
-print(f"IV total = {iv:.4f}")</code></pre></div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Los dos controles de la cédula B-3 y B-4</em></div><pre><code># Control 1: ningún tramo bajo el 5 % de la población
-chicos = tabla[tabla.participacion &lt; 0.05]
-if len(chicos):
-    print("Tramos con volumen insuficiente:")
-    print(chicos[["total", "participacion"]])
-
-# Control 2: information value sospechosamente alto
-if iv &gt; 0.50:
-    print(f"ALERTA IV={iv:.3f}: verificar cuándo queda disponible esta variable "
-          f"frente a la fecha de la decisión de crédito")
-
-# Control 3: monotonía del WOE
-if not (tabla.woe.is_monotonic_increasing or tabla.woe.is_monotonic_decreasing):
-    print("El WOE no es monótono: requerir justificación de negocio")</code></pre></div>
-      <div class="ac-riesgo"><strong>Sobre el binning automático</strong>Las rutinas de binning óptimo maximizan el IV en la muestra de desarrollo y tienden a producir demasiados tramos. Si se usa una, hay que fijar el número máximo de tramos y el tamaño mínimo por tramo antes de ejecutarla, no después de ver el resultado.</div>
-    </div>
-    <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="B-7">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="B-7"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="D-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="D-6"></span>
     </div>
   </section>
 
@@ -608,7 +654,7 @@ if not (tabla.woe.is_monotonic_increasing or tabla.woe.is_monotonic_decreasing):
       </div>
       <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
         <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
-        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="index.html">Volver al índice</a>
       </div>
     </div>
   </section>
@@ -632,17 +678,25 @@ const AC_PROGRAMA = {
   titulo: "Validación de modelos de riesgo de crédito para auditores y contadores",
   emisor: "AuditCaat's Data Assurance",
   anio: 2026,
-  horasTotales: 21,
+  horasTotales: 23,
   entorno: "Python 3.11 · pandas · numpy · scikit-learn",
   aprobacionMinima: 0.70,   // 70% del puntaje del modulo
   modulos: [
+    {
+      id: "M00", ref: "0", marca: "✓", horas: 2.0, clase: "Material del programa",
+      titulo: "Python para quien nunca ha programado",
+      resumen: "Desde la primera línea. Colab sin instalar nada, variables, tablas, filtrar y agrupar. Si usas Excel, ya sabes más de lo que crees.",
+      entregable: "Cuaderno con los controles de integridad",
+      estadoPublicacion: "publicado",
+      url: "m00.html"
+    },
     {
       id: "M01", ref: "A", marca: "✓", horas: 2.5, clase: "Clase 1",
       titulo: "Por qué un contador audita modelos",
       resumen: "Ciclo del crédito, ventanas de observación y desempeño, tipos de modelo y qué significa que un modelo esté mal.",
       entregable: "Programa de entendimiento del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m01.html",
+      url: "m01.html",
       congelado: true   // hay certificados emitidos: quien ya lo aprobó puede convalidarlo
     },
     {
@@ -651,7 +705,7 @@ const AC_PROGRAMA = {
       resumen: "WOE, information value, binning, regresión logística, construcción del scorecard, sobreajuste y regularización.",
       entregable: "Cédula de revisión de variables y binning",
       estadoPublicacion: "publicado",
-      url: "modulos/m02.html"
+      url: "m02.html"
     },
     {
       id: "M03", ref: "C", marca: "○", horas: 2.5, clase: "Clases 2 y 5",
@@ -659,7 +713,7 @@ const AC_PROGRAMA = {
       resumen: "Árboles, bagging, boosting. Cuándo un modelo más complejo se justifica y cuándo es un riesgo de auditoría.",
       entregable: "Matriz comparativa de modelos candidatos",
       estadoPublicacion: "publicado",
-      url: "modulos/m03.html"
+      url: "m03.html"
     },
     {
       id: "M04", ref: "D", marca: "×", horas: 2.5, clase: "Clase 4",
@@ -667,7 +721,7 @@ const AC_PROGRAMA = {
       resumen: "Cluster y k-means, criterios de corte, cómo una segmentación mal construida contamina la provisión.",
       entregable: "Matriz de riesgos de segmentación",
       estadoPublicacion: "publicado",
-      url: "modulos/m04.html"
+      url: "m04.html"
     },
     {
       id: "M05", ref: "E", marca: "≡", horas: 3.0, clase: "Clases 3 y 5",
@@ -675,7 +729,7 @@ const AC_PROGRAMA = {
       resumen: "ROC, Gini, KS, divergencia, matriz de confusión y punto de corte. Lectura de gráficos de contorno y tablas de percentiles.",
       entregable: "Cédula de desempeño del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m05.html"
+      url: "m05.html"
     },
     {
       id: "M06", ref: "F", marca: "≠", horas: 2.5, clase: "Clase 3",
@@ -683,7 +737,7 @@ const AC_PROGRAMA = {
       resumen: "PSI, CSI, deterioro fuera de muestra y fuera de tiempo. El módulo con mayor uso en encargos reales.",
       entregable: "Plantilla de monitoreo con PSI",
       estadoPublicacion: "publicado",
-      url: "modulos/m06.html"
+      url: "m06.html"
     },
     {
       id: "M07", ref: "G", marca: "∫", horas: 2.5, clase: "Clases 6 y 7",
@@ -691,7 +745,7 @@ const AC_PROGRAMA = {
       resumen: "Stages, PD, LGD y EAD. Del parámetro estadístico al asiento contable y a la revelación.",
       entregable: "Hoja de recálculo de provisión",
       estadoPublicacion: "publicado",
-      url: "modulos/m07.html"
+      url: "m07.html"
     },
     {
       id: "M08", ref: "H", marca: "§", horas: 2.5, clase: "Clase 8",
@@ -699,7 +753,7 @@ const AC_PROGRAMA = {
       resumen: "Capital económico, pruebas de tensión y cierre del programa con el memorando de validación independiente.",
       entregable: "Memorando de validación independiente",
       estadoPublicacion: "publicado",
-      url: "modulos/m08.html"
+      url: "m08.html"
     }
   ]
 };
@@ -1264,9 +1318,9 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
   // Rutas de navegacion. El empaquetador de archivo unico las reemplaza
   // por rutas de hash para que el mismo runtime sirva en ambos formatos.
   const Rutas = {
-    cert: id => "../certificado.html?modulo=" + id,
+    cert: id => "certificado.html?modulo=" + id,
     diploma: () => "certificado.html?tipo=programa",
-    indice: () => "../index.html",
+    indice: () => "index.html",
     equipo: () => "seguimiento.html"
   };
 
@@ -1278,6 +1332,593 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
     moduloPorId: id => AC_PROGRAMA.modulos.find(m => m.id === id)
   };
 
+})(window);
+
+</script>
+<script>
+/* ===================================================================
+   AuditCaat's — Simuladores del programa  (ac_widgets.js)
+
+   Cada simulador se declara en el contenido como ("widget", "id") y
+   se monta sobre <div data-widget="id">. Todo se calcula en el
+   navegador con SVG: sin librerias, sin red, sin imagenes.
+
+   Los datos son sinteticos y deterministas: todos los participantes
+   ven exactamente los mismos numeros.
+   =================================================================== */
+
+(function (global) {
+  "use strict";
+
+  /* ---------- Utilidades ------------------------------------------ */
+
+  // Generador con semilla: misma semilla, misma serie, en todo navegador.
+  function azar(semilla) {
+    let a = semilla >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function normal(r) {                       // Box-Muller
+    return Math.sqrt(-2 * Math.log(1 - r())) * Math.cos(2 * Math.PI * r());
+  }
+  const fmt = (n, d) => n.toLocaleString("es-CL", {
+    minimumFractionDigits: d === undefined ? 0 : d,
+    maximumFractionDigits: d === undefined ? 0 : d });
+  const pct = (n, d) => fmt(n * 100, d === undefined ? 1 : d) + " %";
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  /* ---------- Andamiaje de la interfaz ----------------------------- */
+
+  function control(cfg) {
+    const id = "w" + Math.random().toString(36).slice(2, 8);
+    return `<div class="ac-w-ctrl">
+      <label for="${id}">${cfg.etiqueta}<b data-valor></b></label>
+      <input type="range" id="${id}" min="${cfg.min}" max="${cfg.max}"
+             step="${cfg.paso || 1}" value="${cfg.valor}" data-slider="${cfg.nombre}">
+    </div>`;
+  }
+
+  function interruptor(cfg) {
+    return `<label class="ac-w-check">
+      <input type="checkbox" data-check="${cfg.nombre}" ${cfg.valor ? "checked" : ""}>
+      <span>${cfg.etiqueta}</span></label>`;
+  }
+
+  function armar(nodo, cfg) {
+    nodo.innerHTML = `
+      <div class="ac-widget">
+        <div class="ac-w-encab">
+          <span>Simulador</span><em>${cfg.titulo}</em>
+        </div>
+        <div class="ac-w-cuerpo">
+          <div class="ac-w-controles">${cfg.controles}</div>
+          <div class="ac-w-lienzo" data-lienzo></div>
+          <div class="ac-w-lectura" data-lectura></div>
+        </div>
+        <div class="ac-w-pie">${cfg.pie}</div>
+      </div>`;
+
+    const estado = {};
+    const sliders = nodo.querySelectorAll("[data-slider]");
+    const checks = nodo.querySelectorAll("[data-check]");
+
+    function leer() {
+      sliders.forEach(s => { estado[s.dataset.slider] = parseFloat(s.value); });
+      checks.forEach(c => { estado[c.dataset.check] = c.checked; });
+      return estado;
+    }
+    function refrescar() {
+      leer();
+      sliders.forEach(s => {
+        const b = s.closest(".ac-w-ctrl").querySelector("[data-valor]");
+        if (b) b.textContent = cfg.etiquetaValor(s.dataset.slider, parseFloat(s.value));
+      });
+      cfg.dibujar(estado,
+        nodo.querySelector("[data-lienzo]"),
+        nodo.querySelector("[data-lectura]"));
+    }
+    sliders.forEach(s => s.addEventListener("input", refrescar));
+    checks.forEach(c => c.addEventListener("change", refrescar));
+    refrescar();
+  }
+
+  // Marco SVG con ejes
+  function svg(ancho, alto, contenido) {
+    return `<svg viewBox="0 0 ${ancho} ${alto}" preserveAspectRatio="xMidYMid meet"
+                 role="img" aria-hidden="true">${contenido}</svg>`;
+  }
+  const eje = (x1, y1, x2, y2) =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="w-eje"/>`;
+  const texto = (x, y, t, clase) =>
+    `<text x="${x}" y="${y}" class="w-txt ${clase || ""}">${t}</text>`;
+
+  function lectura(items) {
+    return items.map(i =>
+      `<div class="${i.alerta ? "alerta" : ""}"><dt>${i.k}</dt><dd>${i.v}</dd></div>`).join("");
+  }
+
+  /* =================================================================
+     M01 — El horizonte cambia la tasa de incumplimiento
+     ================================================================= */
+  const wVentana = {
+    titulo: "Ventana de desempeño",
+    montar(nodo) {
+      const r = azar(20260722);
+      // Momento del incumplimiento de cada operación, en meses
+      const meses = Array.from({ length: 4000 }, () => {
+        const u = r();
+        return u < 0.14 ? 1 + Math.floor(Math.abs(normal(r)) * 14) : 999;
+      });
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "h", etiqueta: "Horizonte observado", min: 3, max: 36, valor: 12 }),
+        etiquetaValor: (n, v) => v + " meses",
+        dibujar(e, lienzo, lect) {
+          const h = e.h;
+          const tasa = meses.filter(m => m <= h).length / meses.length;
+          const A = 620, B = 190;
+          let barras = "";
+          for (let m = 1; m <= 36; m++) {
+            const n = meses.filter(x => x === m).length;
+            const alto = (n / 90) * 130;
+            barras += `<rect x="${20 + (m - 1) * 16.4}" y="${160 - alto}" width="13"
+              height="${Math.max(alto, 0.5)}" class="${m <= h ? "w-barra-on" : "w-barra-off"}"/>`;
+          }
+          const xc = 20 + h * 16.4 - 1.5;
+          lienzo.innerHTML = svg(A, B,
+            barras +
+            `<line x1="${xc}" y1="14" x2="${xc}" y2="162" class="w-corte"/>` +
+            texto(xc + 5, 24, "corte", "w-corte-t") +
+            eje(18, 162, 606, 162) +
+            texto(20, 182, "mes 1") + texto(546, 182, "mes 36"));
+          lect.innerHTML = lectura([
+            { k: "Tasa de incumplimiento", v: pct(tasa, 2) },
+            { k: "Operaciones malas", v: fmt(meses.filter(m => m <= h).length) },
+            { k: "Aún sin madurar", v: fmt(meses.filter(m => m > h && m < 999).length),
+              alerta: h < 12 }
+          ]);
+        },
+        pie: "La misma cartera tiene tasas distintas según el horizonte. Un modelo a doce " +
+             "meses y otro a veinticuatro no son comparables aunque midan lo mismo. Si la " +
+             "ventana es corta, parte de los incumplimientos todavía no ocurrió."
+      });
+    }
+  };
+
+  /* =================================================================
+     M02 — Cuántos tramos: el IV sube y los tramos se vacían
+     ================================================================= */
+  const wBinning = {
+    titulo: "Tramos, WOE e information value",
+    montar(nodo) {
+      const r = azar(880123);
+      const datos = Array.from({ length: 6000 }, () => {
+        const x = clamp(30 + normal(r) * 18, 0, 96);          // antigüedad en meses
+        const p = 1 / (1 + Math.exp((x - 26) / 9));           // más antiguo, mejor
+        return { x: x, malo: r() < p * 0.30 ? 1 : 0 };
+      }).sort((a, b) => a.x - b.x);
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de tramos", min: 2, max: 20, valor: 5 }) +
+                   interruptor({ nombre: "opt", etiqueta: "Cortes automáticos por information value", valor: false }),
+        etiquetaValor: (n, v) => v + " tramos",
+        dibujar(e, lienzo, lect) {
+          const k = e.k, n = datos.length, porTramo = Math.floor(n / k);
+          // Dos formas de cortar: por cuantiles deja tramos parejos; el corte
+          // automatico busca maximizar el IV y produce tramos muy desiguales.
+          const min = datos[0].x, max = datos[n - 1].x;
+          const grupo = i => {
+            if (!e.opt) return datos.slice(i * porTramo, i === k - 1 ? n : (i + 1) * porTramo);
+            const a = min + (max - min) * (i / k), b = min + (max - min) * ((i + 1) / k);
+            return datos.filter(d => d.x >= a && (i === k - 1 ? d.x <= b : d.x < b));
+          };
+          const B = Math.max(1, datos.filter(d => !d.malo).length);
+          const M = Math.max(1, datos.filter(d => d.malo).length);
+          let iv = 0, chicos = 0, woes = [];
+          for (let i = 0; i < k; i++) {
+            const g = grupo(i);
+            if (!g.length) { woes.push({ w: 0, part: 0 }); chicos++; continue; }
+            const mal = g.filter(d => d.malo).length, bue = g.length - mal;
+            const pb = (bue + 0.5) / (B + 0.5 * k), pm = (mal + 0.5) / (M + 0.5 * k);
+            const w = Math.log(pb / pm);
+            iv += (pb - pm) * w;
+            woes.push({ w: w, part: g.length / n });
+            if (g.length / n < 0.05) chicos++;
+          }
+          const A = 620, H = 190, cero = 100, ancho = 580 / k;
+          let barras = woes.map((o, i) => {
+            const alto = clamp(o.w * 42, -84, 84);
+            return `<rect x="${22 + i * ancho + 2}" y="${alto > 0 ? cero - alto : cero}"
+              width="${Math.max(ancho - 4, 2)}" height="${Math.abs(alto) || 1}"
+              class="${o.part < 0.05 ? "w-barra-mal" : (o.w >= 0 ? "w-barra-on" : "w-barra-neg")}"/>`;
+          }).join("");
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(20, cero, 606, cero) +
+            texto(22, 22, "WOE positivo: concentra buenos") +
+            texto(22, 182, "WOE negativo: concentra malos"));
+          lect.innerHTML = lectura([
+            { k: "Information value", v: fmt(iv, 4), alerta: iv > 0.5 },
+            { k: "Tramos bajo el 5 %", v: chicos, alerta: chicos > 0 },
+            { k: "Lectura", v: iv < 0.02 ? "no aporta" : iv < 0.1 ? "débil"
+                 : iv < 0.3 ? "aceptable" : iv < 0.5 ? "fuerte" : "sospechoso" }
+          ]);
+        },
+        pie: "Con cortes por cuantiles los tramos quedan parejos. Activa los cortes " +
+             "automáticos y sube el número de tramos: el information value mejora y al mismo " +
+             "tiempo aparecen tramos en rojo, con menos del 5 % de la población. Ese es el " +
+             "costo oculto del binning automático, y es lo que hay que pedir que justifiquen."
+      });
+    }
+  };
+
+  /* =================================================================
+     M03 — Complejidad contra desempeño real
+     ================================================================= */
+  const wComplejidad = {
+    titulo: "Complejidad del modelo y sobreajuste",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "c", etiqueta: "Complejidad del modelo", min: 1, max: 20, valor: 4 }),
+        etiquetaValor: (n, v) => "nivel " + v,
+        dibujar(e, lienzo, lect) {
+          const des = c => 0.70 + 0.29 * (1 - Math.exp(-c / 4.2));
+          const val = c => 0.70 + 0.13 * (1 - Math.exp(-c / 3.0)) - 0.011 * Math.max(0, c - 6);
+          const A = 620, H = 200, x = c => 30 + (c - 1) * 29, y = a => 178 - (a - 0.68) * 470;
+          const linea = f => Array.from({ length: 20 }, (_, i) =>
+            `${i ? "L" : "M"}${x(i + 1)},${y(f(i + 1))}`).join(" ");
+          lienzo.innerHTML = svg(A, H,
+            eje(28, 178, 606, 178) + eje(28, 12, 28, 178) +
+            `<path d="${linea(des)}" class="w-linea-b"/>` +
+            `<path d="${linea(val)}" class="w-linea-a"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(des(e.c))}" r="5" class="w-pto-b"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(val(e.c))}" r="5" class="w-pto-a"/>` +
+            `<line x1="${x(e.c)}" y1="12" x2="${x(e.c)}" y2="178" class="w-corte"/>` +
+            texto(36, 24, "desarrollo", "w-t-b") + texto(36, 40, "validación", "w-t-a") +
+            texto(30, 194, "simple") + texto(556, 194, "complejo"));
+          const brecha = des(e.c) - val(e.c);
+          lect.innerHTML = lectura([
+            { k: "AUC en desarrollo", v: fmt(des(e.c), 3) },
+            { k: "AUC en validación", v: fmt(val(e.c), 3) },
+            { k: "Brecha", v: fmt(brecha, 3), alerta: brecha > 0.05 }
+          ]);
+        },
+        pie: "La curva de desarrollo nunca baja: por eso no sirve para decidir. La de " +
+             "validación sube, se estanca y empieza a caer. Cuando la brecha pasa de cinco " +
+             "puntos, el modelo está aprendiendo su propia muestra."
+      });
+    }
+  };
+
+  /* =================================================================
+     M04 — Estandarizar o no estandarizar
+     ================================================================= */
+  const wSegmentos = {
+    titulo: "Segmentación y escala de las variables",
+    montar(nodo) {
+      const r = azar(4477);
+      // monto en millones, antigüedad en meses: escalas muy distintas
+      const puntos = [];
+      [[8, 12], [8, 46], [34, 14], [34, 48]].forEach(c => {
+        for (let i = 0; i < 45; i++)
+          puntos.push({ m: c[0] + normal(r) * 5, a: c[1] + normal(r) * 6 });
+      });
+
+      function kmedias(pts, k, estandarizar) {
+        const em = estandarizar ? 1 / 13 : 1 / 13, ea = estandarizar ? 1 / 16 : 1 / 400;
+        const cen = Array.from({ length: k }, (_, i) => ({
+          m: pts[i * 37 % pts.length].m, a: pts[i * 53 % pts.length].a }));
+        let asig = [];
+        for (let it = 0; it < 25; it++) {
+          asig = pts.map(p => {
+            let mej = 0, d0 = Infinity;
+            cen.forEach((c, j) => {
+              const d = Math.pow((p.m - c.m) * em, 2) + Math.pow((p.a - c.a) * ea, 2);
+              if (d < d0) { d0 = d; mej = j; }
+            });
+            return mej;
+          });
+          cen.forEach((c, j) => {
+            const g = pts.filter((_, i) => asig[i] === j);
+            if (g.length) {
+              c.m = g.reduce((s, p) => s + p.m, 0) / g.length;
+              c.a = g.reduce((s, p) => s + p.a, 0) / g.length;
+            }
+          });
+        }
+        return asig;
+      }
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de grupos", min: 2, max: 6, valor: 4 }) +
+                   interruptor({ nombre: "std", etiqueta: "Estandarizar las variables", valor: false }),
+        etiquetaValor: (n, v) => "k = " + v,
+        dibujar(e, lienzo, lect) {
+          const asig = kmedias(puntos, e.k, e.std);
+          const A = 620, H = 210;
+          const px = p => 40 + (p.m / 46) * 550, py = p => 180 - (p.a / 62) * 160;
+          const circulos = puntos.map((p, i) =>
+            `<circle cx="${px(p).toFixed(1)}" cy="${py(p).toFixed(1)}" r="3.6"
+              class="w-c${asig[i] % 6}"/>`).join("");
+          lienzo.innerHTML = svg(A, H,
+            circulos + eje(36, 182, 600, 182) + eje(36, 10, 36, 182) +
+            texto(300, 202, "monto del crédito") +
+            `<text x="14" y="100" class="w-txt" transform="rotate(-90 14 100)">antigüedad</text>`);
+          // ¿los grupos se separan por monto o por antigüedad?
+          const gs = Array.from({ length: e.k }, (_, j) => puntos.filter((_, i) => asig[i] === j));
+          const varM = gs.map(g => g.length ? g.reduce((s, p) => s + p.m, 0) / g.length : 0);
+          const varA = gs.map(g => g.length ? g.reduce((s, p) => s + p.a, 0) / g.length : 0);
+          const disp = v => Math.max(...v) - Math.min(...v);
+          const domina = disp(varM) / 46 > disp(varA) / 62 * 1.6;
+          lect.innerHTML = lectura([
+            { k: "Variables", v: e.std ? "estandarizadas" : "en su escala original" },
+            { k: "Los grupos se separan por", v: domina ? "el monto, casi solo" : "ambas variables" },
+            { k: "Diagnóstico", v: domina ? "la escala manda sobre el comportamiento" : "segmentación razonable",
+              alerta: domina }
+          ]);
+        },
+        pie: "Con las variables sin estandarizar, el monto absorbe toda la distancia y los " +
+             "cortes salen verticales: la antigüedad deja de importar. Activa la casilla y " +
+             "mira cómo se reordenan los grupos con exactamente los mismos datos."
+      });
+    }
+  };
+
+  /* =================================================================
+     M05 — Punto de corte y costo de los dos errores
+     ================================================================= */
+  const wCorte = {
+    titulo: "Punto de corte, matriz de confusión y costo",
+    montar(nodo) {
+      const r = azar(9091);
+      const pob = Array.from({ length: 5000 }, () => {
+        const malo = r() < 0.08;
+        const s = clamp(malo ? 0.34 + normal(r) * 0.16 : 0.10 + normal(r) * 0.09, 0.001, 0.999);
+        return { malo: malo, p: s };
+      });
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "c", etiqueta: "Punto de corte", min: 1, max: 60, valor: 20 }) +
+          control({ nombre: "rel", etiqueta: "Pérdida frente al margen", min: 2, max: 25, valor: 8 }),
+        etiquetaValor: (n, v) => n === "c" ? v + " %" : v + " veces",
+        dibujar(e, lienzo, lect) {
+          const c = e.c / 100;
+          const VP = pob.filter(o => o.malo && o.p >= c).length;
+          const FN = pob.filter(o => o.malo && o.p < c).length;
+          const FP = pob.filter(o => !o.malo && o.p >= c).length;
+          const VN = pob.filter(o => !o.malo && o.p < c).length;
+          const costo = k => pob.filter(o => o.malo && o.p < k).length * e.rel +
+                             pob.filter(o => !o.malo && o.p >= k).length;
+          let mejor = 0.01, cm = Infinity;
+          for (let k = 0.01; k <= 0.60; k += 0.01) { const v = costo(k); if (v < cm) { cm = v; mejor = k; } }
+
+          const A = 620, H = 200;
+          const hist = (filtro, clase) => {
+            let s = "";
+            for (let i = 0; i < 60; i++) {
+              const n = pob.filter(o => filtro(o) && o.p >= i / 100 && o.p < (i + 1) / 100).length;
+              if (n) s += `<rect x="${24 + i * 9.6}" y="${170 - n / 2.2}" width="8.4"
+                height="${n / 2.2}" class="${clase}"/>`;
+            }
+            return s;
+          };
+          const xc = 24 + e.c * 9.6, xo = 24 + mejor * 100 * 9.6;
+          lienzo.innerHTML = svg(A, H,
+            hist(o => !o.malo, "w-hist-b") + hist(o => o.malo, "w-hist-m") +
+            eje(22, 172, 606, 172) +
+            `<line x1="${xo}" y1="16" x2="${xo}" y2="172" class="w-optimo"/>` +
+            `<line x1="${xc}" y1="10" x2="${xc}" y2="172" class="w-corte"/>` +
+            texto(28, 24, "no incumplen", "w-t-b") + texto(28, 40, "incumplen", "w-t-a") +
+            texto(xo - 18, 192, "óptimo", "w-optimo-t"));
+          lect.innerHTML = lectura([
+            { k: "Rechazados que habrían pagado", v: fmt(FP) },
+            { k: "Aprobados que incumplieron", v: fmt(FN), alerta: FN > VP },
+            { k: "Costo total del corte", v: fmt(costo(c)) },
+            { k: "Corte de mínimo costo", v: pct(mejor, 0), alerta: Math.abs(mejor - c) > 0.03 }
+          ]);
+        },
+        pie: "Mueve el corte y observa que el mínimo costo casi nunca está en 50 %. Sube la " +
+             "razón entre pérdida y margen: cuanto más cuesta un crédito que no se paga, más " +
+             "hacia la izquierda se va el corte óptimo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M06 — Cuánto desplazamiento hace falta para cruzar 0,25
+     ================================================================= */
+  const wPsi = {
+    titulo: "Índice de estabilidad poblacional",
+    montar(nodo) {
+      const base = [0.06, 0.11, 0.17, 0.22, 0.19, 0.14, 0.08, 0.03];
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "d", etiqueta: "Desplazamiento de la población", min: -30, max: 30, valor: 0 }) +
+          control({ nombre: "e", etiqueta: "Concentración", min: -20, max: 30, valor: 0 }),
+        etiquetaValor: (n, v) => (v > 0 ? "+" : "") + v,
+        dibujar(e, lienzo, lect) {
+          const n = base.length, centro = (n - 1) / 2;
+          let act = base.map((p, i) => {
+            const mov = 1 + (e.d / 100) * (i - centro);
+            const con = 1 + (e.e / 100) * (1 - Math.abs(i - centro) / centro);
+            return Math.max(p * mov * con, 0.001);
+          });
+          const s = act.reduce((a, b) => a + b, 0);
+          act = act.map(v => v / s);
+
+          let psi = 0, aportes = [];
+          act.forEach((a, i) => {
+            const ap = (a - base[i]) * Math.log(a / base[i]);
+            psi += ap; aportes.push(ap);
+          });
+
+          const A = 620, H = 190, w = 66;
+          let barras = "";
+          base.forEach((b, i) => {
+            const x = 30 + i * w;
+            barras += `<rect x="${x}" y="${168 - b * 480}" width="26" height="${b * 480}" class="w-barra-ref"/>`;
+            barras += `<rect x="${x + 28}" y="${168 - act[i] * 480}" width="26"
+              height="${act[i] * 480}" class="${aportes[i] > 0.02 ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(26, 168, 606, 168) +
+            texto(30, 22, "construcción", "w-t-ref") + texto(30, 38, "período actual", "w-t-a") +
+            texto(30, 186, "puntaje bajo") + texto(520, 186, "puntaje alto"));
+          const est = psi < 0.10 ? "población estable" : psi < 0.25
+            ? "desplazamiento moderado: analizar" : "desplazamiento relevante: revisar el modelo";
+          lect.innerHTML = lectura([
+            { k: "PSI", v: fmt(psi, 4), alerta: psi >= 0.25 },
+            { k: "Diagnóstico", v: est, alerta: psi >= 0.25 },
+            { k: "Tramos con aporte alto", v: aportes.filter(a => a > 0.02).length,
+              alerta: aportes.filter(a => a > 0.02).length > 0 }
+          ]);
+        },
+        pie: "Prueba a mover la población hacia un lado y luego a concentrarla en el centro. " +
+             "Fíjate en algo incómodo: se pueden tener dos tramos claramente distintos y un " +
+             "PSI total todavía bajo, porque los movimientos se compensan."
+      });
+    }
+  };
+
+  /* =================================================================
+     M07 — Los tres parámetros pesan igual
+     ================================================================= */
+  const wProvision = {
+    titulo: "Pérdida esperada y sus tres parámetros",
+    montar(nodo) {
+      const EXPOSICION = 4200000000;
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "pd", etiqueta: "PD", min: 5, max: 150, valor: 32, paso: 1 }) +
+          control({ nombre: "lgd", etiqueta: "LGD", min: 10, max: 90, valor: 45 }) +
+          control({ nombre: "cf", etiqueta: "Factor de conversión del contingente", min: 0, max: 100, valor: 40 }),
+        etiquetaValor: (n, v) => n === "pd" ? fmt(v / 10, 1) + " %" : v + " %",
+        dibujar(e, lienzo, lect) {
+          const pd = e.pd / 1000, lgd = e.lgd / 100;
+          const ead = EXPOSICION * (1 + 0.22 * (e.cf / 100));
+          const prov = pd * lgd * ead;
+          const baseProv = 0.032 * 0.45 * EXPOSICION * 1.088;
+
+          const A = 620, H = 150;
+          const barra = (y, etq, frac, clase) =>
+            `<rect x="150" y="${y}" width="${clamp(frac, 0, 1) * 430}" height="24" class="${clase}"/>` +
+            texto(20, y + 17, etq);
+          lienzo.innerHTML = svg(A, H,
+            barra(16, "PD", pd / 0.15, "w-barra-on") +
+            barra(52, "LGD", lgd, "w-barra-on") +
+            barra(88, "EAD", ead / (EXPOSICION * 1.25), "w-barra-on") +
+            `<rect x="150" y="120" width="${clamp(prov / (baseProv * 3), 0, 1) * 430}"
+               height="24" class="w-barra-tot"/>` + texto(20, 137, "Provisión"));
+          const var_ = prov / baseProv - 1;
+          lect.innerHTML = lectura([
+            { k: "Provisión", v: "$ " + fmt(prov) },
+            { k: "Cobertura de la exposición", v: pct(prov / ead, 2) },
+            { k: "Variación contra el cierre", v: (var_ > 0 ? "+" : "") + pct(var_, 1),
+              alerta: Math.abs(var_) > 0.15 }
+          ]);
+        },
+        pie: "Baja la PD un 10 % y anótalo. Ahora devuélvela y baja la LGD un 10 %. El efecto " +
+             "sobre la provisión es idéntico, porque es un producto. Por eso revisar solo el " +
+             "modelo de PD deja fuera la mitad del riesgo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M08 — La correlación engorda la cola
+     ================================================================= */
+  const wPerdidas = {
+    titulo: "Distribución de pérdidas, VaR y capital",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "rho", etiqueta: "Correlación entre incumplimientos", min: 0, max: 40, valor: 0 }) +
+          control({ nombre: "conf", etiqueta: "Nivel de confianza", min: 90, max: 999, valor: 990, paso: 1 }),
+        etiquetaValor: (n, v) => n === "rho" ? fmt(v / 100, 2) : fmt(v / 10, 1) + " %",
+        dibujar(e, lienzo, lect) {
+          const rho = e.rho / 100, conf = e.conf / 1000;
+          const r = azar(30303);
+          const N = 6000, pd = 0.032, lgd = 0.45, exp_ = 4200000000;
+          const perd = new Array(N);
+          for (let i = 0; i < N; i++) {
+            const shock = normal(r);
+            // Modelo de factor único: un shock común mueve a toda la cartera a la vez
+            const z = Math.sqrt(rho) * shock + Math.sqrt(1 - rho) * normal(r);
+            const tasa = clamp(pd * Math.exp(z * (0.35 + rho * 1.6) - 0.06), 0, 0.6);
+            perd[i] = tasa * lgd * exp_;
+          }
+          perd.sort((a, b) => a - b);
+          const media = perd.reduce((a, b) => a + b, 0) / N;
+          const varq = perd[Math.min(N - 1, Math.floor(conf * N))];
+          const tope = perd[N - 1] * 1.02;
+
+          const A = 620, H = 190, bins = 44;
+          let hist = "";
+          const cuenta = new Array(bins).fill(0);
+          perd.forEach(p => cuenta[Math.min(bins - 1, Math.floor(p / tope * bins))]++);
+          const maxc = Math.max(...cuenta);
+          cuenta.forEach((c, i) => {
+            const x = 24 + i * 13, alto = (c / maxc) * 140;
+            const val = (i + 0.5) / bins * tope;
+            hist += `<rect x="${x}" y="${164 - alto}" width="11.5" height="${alto || 0.5}"
+              class="${val >= varq ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          const xm = 24 + (media / tope) * bins * 13, xv = 24 + (varq / tope) * bins * 13;
+          lienzo.innerHTML = svg(A, H,
+            hist + eje(22, 166, 606, 166) +
+            `<line x1="${xm}" y1="14" x2="${xm}" y2="166" class="w-optimo"/>` +
+            `<line x1="${xv}" y1="14" x2="${xv}" y2="166" class="w-corte"/>` +
+            texto(xm + 5, 26, "esperada → provisión", "w-optimo-t") +
+            texto(clamp(xv - 150, 24, 420), 46, "VaR → capital", "w-corte-t"));
+          lect.innerHTML = lectura([
+            { k: "Pérdida esperada", v: "$ " + fmt(media) },
+            { k: "VaR al " + fmt(conf * 100, 1) + " %", v: "$ " + fmt(varq) },
+            { k: "Pérdida inesperada", v: "$ " + fmt(varq - media) },
+            { k: "Capital sobre la media", v: fmt((varq - media) / media, 2) + " veces",
+              alerta: (varq - media) / media > 1.5 }
+          ]);
+        },
+        pie: "Con correlación cero, la distribución es estrecha y el capital exigido es " +
+             "modesto. Súbela a 0,20 y observa: la pérdida esperada casi no se mueve, pero la " +
+             "cola se estira y el capital se multiplica. Ese supuesto no se ve en ningún dato " +
+             "observado y decide la cifra."
+      });
+    }
+  };
+
+  /* ---------- Registro y montaje ----------------------------------- */
+
+  const REGISTRO = {
+    ventana: wVentana, binning: wBinning, complejidad: wComplejidad,
+    segmentos: wSegmentos, corte: wCorte, psi: wPsi,
+    provision: wProvision, perdidas: wPerdidas
+  };
+
+  global.ACWidgets = {
+    registro: REGISTRO,
+    montarTodos(raiz) {
+      (raiz || document).querySelectorAll("[data-widget]").forEach(n => {
+        const w = REGISTRO[n.dataset.widget];
+        if (!w) { n.innerHTML = '<p class="ac-riesgo">Simulador no disponible.</p>'; return; }
+        try { w.montar(n); }
+        catch (err) {
+          n.innerHTML = '<p class="ac-riesgo">No se pudo cargar el simulador.</p>';
+          if (global.console) console.error("Widget", n.dataset.widget, err);
+        }
+      });
+    }
+  };
 })(window);
 
 </script>
@@ -1317,6 +1958,7 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
       const r = $("#cab-ref");   if (r) r.textContent = "Referencia " + mod.ref + " · " + mod.horas.toFixed(1).replace(".", ",") + " h";
       document.title = mod.titulo + " · AuditCaat's";
 
+      if (global.ACWidgets) ACWidgets.montarTodos(document);
       this.restaurarCedulas();
       this.enlazarBotones();
       AC.Quiz.render("#quiz", banco);
@@ -1437,217 +2079,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "b1",
+    "id": "d1",
     "puntaje": 10,
-    "texto": "El equipo de riesgo descartó variables usando correlación de Pearson sobre todo el conjunto, incluidas variables categóricas. ¿Cuál es la observación correcta?",
+    "texto": "¿Qué distingue a la segmentación de un modelo de score?",
     "opciones": [
       {
-        "txt": "Pearson no es el estadístico apropiado para variables categóricas, por lo que el filtro pudo dejar pasar variables redundantes",
+        "txt": "No hay variable objetivo: los grupos surgen de las características observadas",
         "ok": true
       },
       {
-        "txt": "Es correcto: Pearson se aplica a cualquier tipo de variable"
+        "txt": "La segmentación solo usa variables cualitativas"
       },
       {
-        "txt": "El problema es el umbral usado, no el estadístico"
+        "txt": "La segmentación no requiere datos históricos"
       },
       {
-        "txt": "No corresponde observación porque la correlación es una etapa exploratoria"
+        "txt": "El score no permite agrupar clientes"
       }
     ],
-    "retro": "Pearson mide asociación lineal entre continuas. Para pares categóricos corresponde V de Cramér o chi cuadrado. El riesgo es multicolinealidad no detectada y coeficientes inestables."
+    "retro": "Es aprendizaje no supervisado. Nadie le dice al algoritmo qué es un buen o mal cliente; el algoritmo propone agrupaciones."
   },
   {
-    "id": "b2",
+    "id": "d2",
     "puntaje": 10,
-    "texto": "Una variable presenta WOE de -0,62 en el primer tramo y 0,71 en el tercero. ¿Qué indica el signo negativo?",
+    "texto": "Las variables entraron al algoritmo sin estandarizar: monto en pesos y antigüedad en meses. ¿Cuál es la consecuencia?",
     "opciones": [
       {
-        "txt": "Que ese tramo concentra proporcionalmente más clientes malos que buenos",
+        "txt": "El monto domina la distancia y los grupos quedan definidos por la unidad de medida",
         "ok": true
       },
       {
-        "txt": "Que la variable fue mal calculada, porque el WOE no puede ser negativo"
+        "txt": "Ninguna: el algoritmo estandariza internamente"
       },
       {
-        "txt": "Que el tramo tiene pocos casos"
+        "txt": "Se reduce el número óptimo de grupos"
       },
       {
-        "txt": "Que la variable debe eliminarse del modelo"
+        "txt": "Aumenta el valor de la silueta"
       }
     ],
-    "retro": "El WOE es un logaritmo de razón de proporciones: negativo significa mayor peso de malos en ese tramo. Es informativo, no un defecto."
+    "retro": "Las distancias se calculan sobre las escalas originales. Una variable con valores grandes absorbe la distancia total."
   },
   {
-    "id": "b3",
+    "id": "d3",
     "puntaje": 10,
-    "texto": "Una variable presenta information value de 0,84. ¿Cuál es la primera hipótesis que debe verificar el auditor?",
+    "texto": "¿Qué muestra el gráfico del codo?",
     "opciones": [
       {
-        "txt": "Que la variable contiene información no disponible al momento de la decisión de crédito",
+        "txt": "El punto donde agregar más grupos deja de reducir apreciablemente la variabilidad no explicada",
         "ok": true
       },
       {
-        "txt": "Que la variable es excelente y debe ponderarse más"
+        "txt": "El grupo con mayor probabilidad de incumplimiento"
       },
       {
-        "txt": "Que el binning tiene pocos tramos"
+        "txt": "La correlación entre las variables usadas"
       },
       {
-        "txt": "Que el modelo está subajustado"
+        "txt": "La estabilidad de los grupos en el tiempo"
       }
     ],
-    "retro": "Un IV sobre 0,50 es sospechoso. El caso típico es una variable que refleja el propio evento que se quiere predecir. El desempeño reportado queda sobrestimado."
+    "retro": "Es una curva descendente que se aplana. El quiebre sugiere el número de grupos, pero es una sugerencia, no una respuesta única."
   },
   {
-    "id": "b4",
+    "id": "d4",
     "puntaje": 10,
-    "texto": "El modelador usó una rutina de binning óptimo que generó dieciocho tramos para una variable continua. ¿Cuál es el riesgo principal?",
+    "texto": "Un segmento quedó bien separado según la silueta, pero registra doce incumplimientos en el período. ¿Qué corresponde observar?",
     "opciones": [
       {
-        "txt": "Tramos con pocos casos que se vuelven inestables al cambiar la cartera, y un modelo difícil de explicar y monitorear",
+        "txt": "El volumen es insuficiente para estimar una probabilidad de incumplimiento confiable",
         "ok": true
       },
       {
-        "txt": "Ninguno: más tramos siempre mejoran la capacidad predictiva"
+        "txt": "Nada: la silueta valida el segmento"
       },
       {
-        "txt": "Que el information value quede subestimado"
+        "txt": "Debe fusionarse con el segmento de mayor volumen"
       },
       {
-        "txt": "Que la variable pase a ser categórica"
+        "txt": "Corresponde aumentar el número de grupos"
       }
     ],
-    "retro": "El óptimo estadístico maximiza el IV en la muestra de desarrollo. Eso eleva la métrica y al mismo tiempo fragiliza el modelo fuera de esa muestra."
+    "retro": "La separación estadística no sustituye el volumen. Con pocos eventos la PD del segmento será inestable entre períodos."
   },
   {
-    "id": "b5",
+    "id": "d5",
     "puntaje": 10,
-    "texto": "En la revisión del binning, el equipo no conserva registro de los cortes probados y descartados. ¿Cómo se clasifica esto?",
+    "texto": "El gasto por provisión subió de forma relevante sin que la morosidad observada cambiara. ¿Cuál es una causa a descartar primero?",
     "opciones": [
       {
-        "txt": "Hallazgo de control interno por falta de trazabilidad, independiente de la calidad estadística del resultado",
+        "txt": "Migración de clientes entre segmentos por cambios en la regla de asignación",
         "ok": true
       },
       {
-        "txt": "No es hallazgo si el modelo alcanza las métricas mínimas"
+        "txt": "Un error de suma en el estado de resultados"
       },
       {
-        "txt": "Hallazgo solo si el regulador lo exige expresamente"
+        "txt": "Cambios en la tasa de interés de colocación"
       },
       {
-        "txt": "Observación menor que se comunica verbalmente"
+        "txt": "Aumento del número de sucursales"
       }
     ],
-    "retro": "Sin bitácora no se puede descartar que los cortes se hayan ajustado hasta obtener la métrica deseada. La ausencia de evidencia es el hallazgo."
+    "retro": "Reasignar clientes a un segmento con parámetros distintos mueve la provisión sin que exista deterioro real."
   },
   {
-    "id": "b6",
+    "id": "d6",
     "puntaje": 10,
-    "texto": "¿Qué es el odds en la construcción de una scorecard?",
+    "texto": "¿Por qué segmentar por línea de negocio puede ser inadecuado para provisionar?",
     "opciones": [
       {
-        "txt": "La razón entre clientes buenos y malos de la población",
+        "txt": "Porque la estructura comercial no necesariamente coincide con diferencias reales de comportamiento de pago",
         "ok": true
       },
       {
-        "txt": "La probabilidad de incumplimiento del cliente"
+        "txt": "Porque las líneas de negocio cambian de nombre"
       },
       {
-        "txt": "El puntaje mínimo para aprobar una solicitud"
+        "txt": "Porque los sistemas no permiten esa apertura"
       },
       {
-        "txt": "La diferencia entre puntaje observado y esperado"
+        "txt": "Porque la norma exige segmentar solo por producto"
       }
     ],
-    "retro": "El odds es una razón, no una probabilidad. Si hay veinte buenos por cada malo, el odds es veinte a uno. La escala de puntos se construye sobre esa razón."
+    "retro": "La segmentación para provisión debe explicar riesgo. Que sea cómoda para gestionar no la hace adecuada para estimar parámetros."
   },
   {
-    "id": "b7",
+    "id": "d7",
     "puntaje": 10,
-    "texto": "Riesgo recalibró la escala de la scorecard pero el sistema mantiene el punto de corte anterior. ¿Cuál es el efecto?",
+    "texto": "La documentación no indica cada cuánto se revisa la segmentación. ¿Cómo se clasifica?",
     "opciones": [
       {
-        "txt": "Se están aprobando o rechazando solicitudes con un criterio distinto al que fija la política vigente",
+        "txt": "Deficiencia de gobierno del modelo: permite rehacer los grupos sin regla previa",
         "ok": true
       },
       {
-        "txt": "Ninguno: la escala es solo presentación"
+        "txt": "Observación de forma, sin efecto en la cifra"
       },
       {
-        "txt": "Mejora la aprobación porque la escala es más precisa"
+        "txt": "No es observable si los segmentos funcionan"
       },
       {
-        "txt": "Se corrige solo en el siguiente ciclo de monitoreo"
+        "txt": "Corresponde a la auditoría de sistemas"
       }
     ],
-    "retro": "La escala es una transformación, pero el punto de corte opera sobre la escala. Si una cambia y el otro no, la política deja de aplicarse como está escrita."
+    "retro": "Sin frecuencia ni criterio de disparo, la reconstrucción queda a discreción y puede usarse para mover la provisión."
   },
   {
-    "id": "b8",
+    "id": "d8",
     "puntaje": 10,
-    "texto": "El área bajo la curva es 0,86 en desarrollo y 0,74 en validación. ¿Qué corresponde concluir?",
+    "texto": "¿Qué diferencia a un método jerárquico de uno no jerárquico?",
     "opciones": [
       {
-        "txt": "Hay indicio de sobreajuste y se debe requerir explicación antes de aceptar el modelo",
+        "txt": "El jerárquico agrupa progresivamente por orden de distancia; el no jerárquico asigna a centroides que recalcula",
         "ok": true
       },
       {
-        "txt": "El modelo es aceptable porque ambos valores superan 0,70"
+        "txt": "El jerárquico no requiere medida de distancia"
       },
       {
-        "txt": "La muestra de validación es demasiado pequeña"
+        "txt": "El no jerárquico solo admite dos grupos"
       },
       {
-        "txt": "Corresponde recalcular el information value de las variables"
+        "txt": "El jerárquico es siempre más preciso"
       }
     ],
-    "retro": "Doce puntos de caída exceden ampliamente el margen razonable. El desempeño real esperable es el de validación, no el de desarrollo."
+    "retro": "Son familias distintas. Los jerárquicos se usan más para explorar; los no jerárquicos escalan mejor a carteras grandes."
   },
   {
-    "id": "b9",
+    "id": "d9",
     "puntaje": 10,
-    "texto": "¿Cuál es el aporte de Lasso frente a Ridge en un modelo de riesgo?",
+    "texto": "La regla de asignación permite que un cliente cumpla condiciones de dos segmentos. ¿Cuál es el riesgo?",
     "opciones": [
       {
-        "txt": "Puede llevar coeficientes exactamente a cero, con lo que también selecciona variables",
+        "txt": "La asignación queda determinada por el orden de ejecución y puede cambiar sin que cambie el riesgo del cliente",
         "ok": true
       },
       {
-        "txt": "Elimina la necesidad de muestra de validación"
+        "txt": "El cliente recibe doble provisión"
       },
       {
-        "txt": "Aumenta el information value de las variables incluidas"
+        "txt": "Se pierde la trazabilidad contable de la operación"
       },
       {
-        "txt": "Convierte la regresión logística en un modelo no paramétrico"
+        "txt": "El algoritmo deja de converger"
       }
     ],
-    "retro": "Ambas penalizan coeficientes grandes para mejorar la generalización. Lasso además anula coeficientes, por lo que reduce el número de variables."
+    "retro": "Reglas ambiguas producen asignaciones dependientes de la implementación. Es un hallazgo de diseño, no de sistemas."
   },
   {
-    "id": "b10",
+    "id": "d10",
     "puntaje": 10,
-    "texto": "La scorecard asigna puntos por sexo del solicitante. ¿Qué corresponde hacer?",
+    "texto": "¿Qué evidencia solicitaría para evaluar la estabilidad de la segmentación?",
     "opciones": [
       {
-        "txt": "Verificar si la normativa aplicable lo permite y si existe evaluación documentada de trato diferenciado",
+        "txt": "Composición de cada segmento en dos cierres y porcentaje de clientes que migró, contrastado con el comportamiento de pago",
         "ok": true
       },
       {
-        "txt": "Nada, si la variable tiene information value suficiente"
+        "txt": "El acta del comité que aprobó la segmentación"
       },
       {
-        "txt": "Eliminar la variable sin más análisis"
+        "txt": "El gráfico de silueta del período actual"
       },
       {
-        "txt": "Reportarlo solo si algún cliente reclama"
+        "txt": "El listado de variables usadas"
       }
     ],
-    "retro": "El uso de atributos protegidos es un riesgo regulatorio y reputacional. El poder predictivo no sustituye la evaluación de admisibilidad legal."
+    "retro": "La estabilidad se evalúa comparando períodos. Migración alta sin cambio de comportamiento es la señal a perseguir."
   }
 ];
-ACModulo.iniciar("M02", BANCO);
+ACModulo.iniciar("M04", BANCO);
 </script>
 </body>
 </html>

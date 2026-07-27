@@ -1,58 +1,21 @@
-# Publicación del programa MRC-2026
+# Publicación sin carpetas
 
-Esta carpeta es el sitio listo para subir. No requiere servidor de
-aplicación, base de datos ni proceso de compilación: son archivos estáticos.
+Todos los archivos van en un solo nivel. Esto existe porque la interfaz web
+de GitHub no acepta carpetas en el selector de archivos: aquí se pueden
+seleccionar todos de una vez con Control + E.
 
-## Qué subir
+## Cómo subir
 
-Todo el contenido de esta carpeta a la raíz del sitio o a un subdirectorio,
-respetando la estructura:
+1. En el repositorio: Add file, luego Upload files.
+2. Selecciona **todos** los archivos de esta carpeta.
+3. Commit.
 
-    index.html
-    certificado.html
-    seguimiento.html
-    modulos/m01.html … m08.html
-    .nojekyll
-    AuditCaats_MRC2026.html   (opcional: copia del programa en un solo archivo)
+Si el repositorio ya tiene una versión anterior, borra antes las carpetas
+`modulos`, `elearning` y cualquier archivo suelto que no esté en esta lista.
+Los archivos con el mismo nombre se reemplazan solos.
 
-La carpeta `backend/` NO se sube al sitio web: su contenido va al proyecto de
-Google Apps Script.
+## Verificación
 
-## Opciones de alojamiento
-
-Cualquiera sirve. En orden de simplicidad:
-
-- Netlify o Cloudflare Pages: arrastrar la carpeta sobre el panel.
-- GitHub Pages: subir al repositorio y activar Pages. El archivo `.nojekyll`
-  ya viene incluido.
-- Hosting propio: copiar por FTP al directorio público.
-
-## Después de publicar
-
-1. Abrir el sitio y comprobar que el logo aparece en la cabecera.
-2. Inscribirse con datos de prueba y completar un módulo entero.
-3. Verificar que el certificado imprime bien en A4 vertical.
-4. Confirmar que el código del certificado se registra en la planilla del
-   backend.
-
-## Sin backend
-
-El programa funciona sin servidor. El avance de cada participante queda en su
-navegador y se conserva entre sesiones: se puede cerrar y continuar otro día.
-
-Para trasladarlo entre equipos o respaldarlo, el portal permite descargar el
-avance en un archivo y restaurarlo después. La coordinación consolida esos
-archivos en `seguimiento.html` y exporta la tabla de control a CSV.
-
-El backend solo agrega verificación pública de certificados por terceros. Si el
-programa es interno, puede omitirse.
-
-## Backend de certificación
-
-En el proyecto de Apps Script existente: reemplazar `1_Codigo.gs`, agregar
-`verificar.html` y publicar con **Administrar implementaciones → Editar →
-Versión nueva**. Crear una implementación nueva cambia la URL y deja sin
-verificación los certificados ya emitidos.
-
-La URL `/exec` debe quedar cargada en `assets/ac_programa.js` **antes** de
-ejecutar `empaquetar.py`.
+Abre el sitio, entra al Módulo 0 y confirma que carga. Después entra al
+Módulo I y baja hasta la cédula A-3: ahí debe aparecer el simulador con su
+barra deslizante.

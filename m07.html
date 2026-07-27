@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desempeño y evidencia gráfica · AuditCaat's</title>
+<title>Pérdida esperada y provisión NIIF 9 · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -286,6 +286,90 @@ a:hover { color: var(--ac-marca-alto); }
 }
 .ac-cita cite { display: block; font-style: normal; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); margin-top: var(--e-2); }
 
+/* ---------- Simuladores ---------------------------------------------- */
+.ac-widget {
+  margin: 0 0 var(--e-5);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  background: var(--ac-cedula);
+  overflow: hidden;
+}
+.ac-w-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-2) var(--e-4);
+  background: var(--ac-tinta); color: #fff;
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+}
+.ac-w-encab span { color: #7FD1B9; letter-spacing: .12em; text-transform: uppercase; }
+.ac-w-encab em { color: rgba(255,255,255,.72); font-style: normal; }
+.ac-w-cuerpo { padding: var(--e-4); }
+
+.ac-w-controles {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--e-3) var(--e-5); margin-bottom: var(--e-4);
+}
+.ac-w-ctrl label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--t-sm); font-weight: 600; margin-bottom: 2px;
+}
+.ac-w-ctrl label b { font-family: var(--ac-dato); font-weight: 500; color: var(--ac-marca); }
+.ac-w-ctrl input[type=range] { width: 100%; accent-color: var(--ac-marca); margin: 0; }
+.ac-w-check {
+  display: flex; align-items: center; gap: var(--e-2);
+  font-size: var(--t-sm); font-weight: 600; align-self: end; padding-bottom: 2px;
+}
+.ac-w-check input { accent-color: var(--ac-marca); }
+
+.ac-w-lienzo { background: var(--ac-papel); border-radius: var(--radio); padding: var(--e-2); }
+.ac-w-lienzo svg { width: 100%; height: auto; display: block; }
+
+.ac-w-lectura {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: var(--ac-rayado); margin-top: var(--e-4);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio); overflow: hidden;
+}
+.ac-w-lectura > div { background: var(--ac-cedula); padding: var(--e-3) var(--e-4); }
+.ac-w-lectura > div.alerta { background: var(--ac-alerta-bg); }
+.ac-w-lectura dt {
+  font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .07em;
+  color: var(--ac-tinta-3);
+}
+.ac-w-lectura dd {
+  margin: 2px 0 0; font-family: var(--ac-dato); font-size: var(--t-lg); font-weight: 500;
+}
+.ac-w-lectura > div.alerta dd { color: var(--ac-alerta); }
+
+.ac-w-pie {
+  padding: var(--e-3) var(--e-4);
+  border-top: 1px dashed var(--ac-rayado-2); background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+
+/* Piezas de los graficos */
+.w-eje { stroke: var(--ac-rayado-2); stroke-width: 1; }
+.w-txt { font-family: var(--ac-dato); font-size: 11px; fill: var(--ac-tinta-3); }
+.w-barra-on  { fill: var(--ac-marca); }
+.w-barra-off { fill: var(--ac-rayado); }
+.w-barra-neg { fill: var(--ac-tinta-2); }
+.w-barra-mal { fill: var(--ac-tick); }
+.w-barra-ref { fill: var(--ac-rayado-2); }
+.w-barra-tot { fill: var(--ac-tinta); }
+.w-hist-b { fill: var(--ac-marca); opacity: .55; }
+.w-hist-m { fill: var(--ac-tick); opacity: .70; }
+.w-corte  { stroke: var(--ac-tick); stroke-width: 2; }
+.w-corte-t { fill: var(--ac-tick); }
+.w-optimo { stroke: var(--ac-marca); stroke-width: 2; stroke-dasharray: 4 3; }
+.w-optimo-t { fill: var(--ac-marca); }
+.w-linea-a { fill: none; stroke: var(--ac-tick); stroke-width: 2.5; }
+.w-linea-b { fill: none; stroke: var(--ac-marca); stroke-width: 2.5; }
+.w-pto-a { fill: var(--ac-tick); }
+.w-pto-b { fill: var(--ac-marca); }
+.w-t-a { fill: var(--ac-tick); }
+.w-t-b { fill: var(--ac-marca); }
+.w-t-ref { fill: var(--ac-tinta-3); }
+.w-c0 { fill: #12594F; } .w-c1 { fill: #B0182D; } .w-c2 { fill: #8A5B00; }
+.w-c3 { fill: #2B5F8A; } .w-c4 { fill: #6B3FA0; } .w-c5 { fill: #47586B; }
+
 /* Bloque de codigo del laboratorio */
 .ac-codigo {
   margin: 0 0 var(--e-4);
@@ -410,10 +494,10 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Desempeño y evidencia gráfica</strong>
+      <strong id="cab-titulo">Pérdida esperada y provisión NIIF 9</strong>
       <small id="cab-ref">Referencia</small>
     </div>
-    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+    <div class="ac-cabecera-fin"><a href="index.html" style="color:#fff">Volver al índice</a></div>
   </div>
 </header>
 
@@ -425,149 +509,143 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Leer las métricas y los gráficos con que un equipo de riesgo justifica su modelo, y saber cuáles admiten conclusión y cuáles solo describen la muestra con que se construyó.
+    <strong>Qué se lleva de este módulo</strong>Seguir el recorrido completo desde el parámetro estadístico hasta el asiento contable y la revelación, e identificar en qué punto de ese recorrido se pierde la trazabilidad.
   </div>
 
-  <section class="ac-cedula" data-cedula="E-1">
+  <section class="ac-cedula" data-cedula="G-1">
     <div class="ac-cedula-encab">
-      <span class="ref">E-1</span>
-      <h3>Discriminación: qué mide realmente la curva ROC</h3>
+      <span class="ref">G-1</span>
+      <h3>Qué es una provisión y por qué existe</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La curva ROC responde una sola pregunta: si tomo al azar un cliente que incumplió y uno que no, ¿con qué frecuencia el modelo le asigna peor puntaje al que incumplió? El área bajo esa curva es esa frecuencia. No dice si la probabilidad estimada es correcta en nivel, solo si el orden es correcto.</p>
-      <blockquote class="ac-cita">En términos de curva ROC, los modelos sobre 80 % son todos buenos.<cite>Clase 5, aprox. 00:50:16</cite></blockquote>
-      <div class="ac-umbral"><strong>Referencia de discriminación</strong>Un área bajo la curva de 0,50 equivale a no discriminar. Bajo 0,70 el modelo es insuficiente para decisiones de crédito. Entre 0,70 y 0,80 es aceptable con reservas. Sobre 0,80 se considera bueno. Sobre 0,95 hay que sospechar fuga de información antes de celebrar.</div>
-      <p>El índice de Gini expresa lo mismo en otra escala: es dos veces el área bajo la curva menos uno. Un área de 0,84 equivale a un Gini de 0,68. No son dos evidencias distintas: es la misma cifra presentada dos veces.</p>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El informe presenta área bajo la curva, Gini y KS como si fueran tres confirmaciones independientes del desempeño. Las dos primeras son la misma medida; el KS aporta una lectura distinta, pero también sobre la misma capacidad de ordenar.</div>
+      <p>La provisión por riesgo de crédito es la reserva que constituye una institución financiera para cubrir las pérdidas potenciales derivadas del incumplimiento de sus clientes. No es efectivo apartado: es un pasivo que reconoce una obligación probable.</p>
+      <blockquote class="ac-cita">Es la reserva que tienen las instituciones financieras para cubrir las potenciales pérdidas que se provocan por incumplimiento de contratos con los clientes.<cite>Clase 6, aprox. 00:00:19</cite></blockquote>
+      <p>La analogía que ordena el concepto para un contador es la depreciación. Un activo se deteriora y ese deterioro se reconoce para que los libros muestren el valor real del activo. La cartera de créditos es un activo, y la provisión es el reconocimiento de su deterioro.</p>
+      <blockquote class="ac-cita">Como cualquier activo, para mí la provisión es el concepto del deterioro de ese activo, como hablar de una depreciación: para tener en los libros el valor real de ese activo.<cite>Clase 6, aprox. 00:09:08</cite></blockquote>
+      <div class="ac-nota"><strong>Consecuencia para la auditoría</strong>Si la cartera tiene más probabilidad de impago, la provisión debe ser mayor. La pregunta de auditoría no es si la provisión existe, sino si su magnitud corresponde al riesgo efectivo de la cartera en la fecha de cierre.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="E-2">
+  <section class="ac-cedula" data-cedula="G-2">
     <div class="ac-cedula-encab">
-      <span class="ref">E-2</span>
-      <h3>KS y divergencia</h3>
+      <span class="ref">G-2</span>
+      <h3>Los tres parámetros y la fórmula</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El estadístico KS mide la máxima distancia entre la distribución acumulada de clientes buenos y la de malos a lo largo del puntaje. Responde dónde se separan más las dos poblaciones y cuánto.</p>
-      <div class="ac-umbral"><strong>Rangos habituales de KS por tipo de modelo</strong>En modelos de admisión, valores entre 25 % y 35 % son normales. En modelos de comportamiento, donde hay historial interno del cliente, se esperan valores entre 35 % y 50 %. Un KS sobre 60 % en admisión debe verificarse antes de aceptarse. En divergencia, valores sobre 2 indican buena separación.</div>
-      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Un KS de 30 % es un buen resultado en admisión y un mal resultado en comportamiento. Evaluar ambos contra el mismo umbral es un error frecuente en informes de validación.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Antes de contrastar cualquier métrica contra un umbral, identificar de qué tipo de modelo se trata: admisión, comportamiento o cobranza. El umbral depende del tipo, y esa clasificación debe estar en la documentación del modelo.</div>
+      <p>La pérdida esperada se compone de tres parámetros. Cada uno proviene de un modelo distinto, con datos, supuestos y responsables distintos. Revisarlos como un solo bloque es el error de enfoque más frecuente.</p>
+      <table class="ac-tabla"><thead><tr><th>Parámetro</th><th>Qué estima</th><th>Origen habitual del dato</th></tr></thead><tbody><tr><td>PD</td><td>Probabilidad de que el cliente incumpla</td><td>Modelo de score o matriz de transición</td></tr><tr><td>LGD</td><td>Porcentaje de la exposición que no se recupera</td><td>Historia de recuperación y garantías</td></tr><tr><td>EAD</td><td>Exposición al momento del incumplimiento</td><td>Saldo más factores de conversión del contingente</td></tr></tbody></table>
+      <p>La pérdida esperada de una operación es el producto de los tres. Como es un producto, un error en cualquiera de ellos se traslada íntegro al resultado: un 20 % de error en la LGD produce un 20 % de error en la provisión, cualquiera sea la calidad del modelo de PD.</p>
+      <blockquote class="ac-cita">Es poco común que el criterio prospectivo se aplique sobre la EAD, porque la EAD corresponde básicamente a los factores del contingente.<cite>Clase 8, aprox. 00:01:54</cite></blockquote>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Toda la atención de validación se concentra en el modelo de PD, que es el más elaborado y el que tiene métricas atractivas. La LGD suele ser un promedio histórico sin modelo detrás y sin revisión, y pesa exactamente igual en la cifra.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar por separado la documentación de PD, LGD y EAD. Registrar cuál de las tres carece de metodología formal. Habitualmente es la LGD, y ahí suele estar el mayor riesgo no cubierto.</div>
+      <div data-widget="provision"></div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="E-3">
+  <section class="ac-cedula" data-cedula="G-3">
     <div class="ac-cedula-encab">
-      <span class="ref">E-3</span>
-      <h3>Matriz de confusión y punto de corte</h3>
+      <span class="ref">G-3</span>
+      <h3>Etapas y horizonte de estimación</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El modelo entrega una probabilidad. Para decidir hace falta un punto de corte. La matriz de confusión muestra las cuatro combinaciones posibles entre lo que el modelo predijo y lo que efectivamente ocurrió, para ese corte.</p>
-      <table class="ac-tabla"><thead><tr><th></th><th>Incumplió</th><th>No incumplió</th></tr></thead><tbody><tr><td>Modelo rechaza</td><td>Acierto: pérdida evitada</td><td>Falso positivo: negocio perdido</td></tr><tr><td>Modelo aprueba</td><td>Falso negativo: pérdida asumida</td><td>Acierto: negocio bueno</td></tr></tbody></table>
-      <p>Los dos errores no cuestan lo mismo. Un falso negativo cuesta la pérdida del crédito; un falso positivo cuesta el margen que se dejó de ganar. Como la pérdida suele ser varias veces el margen, el corte económicamente óptimo está bastante por debajo del 50 % que la intuición sugiere.</p>
-      <div class="ac-umbral"><strong>Consecuencia práctica</strong>En carteras de consumo, con pérdida por operación incumplida muy superior al margen por operación sana, el corte óptimo suele ubicarse en torno al 10 % de probabilidad estimada, no al 50 %.</div>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se reporta exactitud global como métrica principal. En una cartera con 3 % de incumplimiento, un modelo que aprueba todo tiene 97 % de exactitud y valor cero. La exactitud no es una métrica útil con clases desbalanceadas.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la justificación económica del punto de corte vigente: costo asumido por falso negativo, margen perdido por falso positivo y fecha de la última revisión de esos supuestos.</div>
+      <p>El marco de pérdida esperada clasifica las operaciones en tres etapas según haya o no aumento significativo del riesgo desde el reconocimiento inicial. La etapa determina el horizonte sobre el que se estima la pérdida.</p>
+      <table class="ac-tabla"><thead><tr><th>Etapa</th><th>Situación</th><th>Horizonte de la pérdida esperada</th></tr></thead><tbody><tr><td class="num">1</td><td>Sin aumento significativo del riesgo</td><td>Doce meses</td></tr><tr><td class="num">2</td><td>Aumento significativo, sin deterioro crediticio</td><td>Toda la vida del instrumento</td></tr><tr><td class="num">3</td><td>Con deterioro crediticio</td><td>Toda la vida, con interés sobre saldo neto</td></tr></tbody></table>
+      <p>El paso de etapa 1 a etapa 2 multiplica la provisión de una operación, porque cambia el horizonte. Por eso el criterio de aumento significativo del riesgo es una de las definiciones con mayor efecto sobre la cifra y una de las menos formalizadas.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El criterio de traspaso está definido de forma cualitativa o depende de un umbral que se puede ajustar sin cambiar la metodología documentada. Mover ese umbral mueve la provisión sin que aparezca como cambio de política contable.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Obtener el criterio cuantitativo de traspaso entre etapas, verificar que está aprobado formalmente y recalcular la distribución de la cartera por etapa aplicándolo sobre una muestra. Documentar cualquier diferencia contra el reporte.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="E-4">
+  <section class="ac-cedula" data-cedula="G-4">
     <div class="ac-cedula-encab">
-      <span class="ref">E-4</span>
-      <h3>Modelos de estimación: cuando la salida no es una probabilidad</h3>
+      <span class="ref">G-4</span>
+      <h3>Información prospectiva</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>No todos los modelos de riesgo predicen un evento binario. Los modelos de estimación de renta, por ejemplo, predicen un monto, y ahí no aplican ROC ni KS. Se evalúan comparando el valor estimado contra el valor real.</p>
-      <p>La herramienta habitual es el gráfico de contorno de valor real contra valor estimado. Un modelo que funciona concentra la masa de puntos alrededor de la diagonal. Las desviaciones sistemáticas por sobre o por debajo de esa diagonal son sesgo, no dispersión.</p>
-      <ul><li>Nube concentrada sobre la diagonal: el modelo estima bien en ese rango.</li><li>Nube desplazada hacia arriba en los tramos bajos: el modelo sobreestima a los clientes de menor renta.</li><li>Nube que se abre en los extremos: el modelo pierde precisión donde hay menos observaciones.</li><li>Diferencias entre el contorno de entrenamiento y el de prueba: sobreajuste.</li></ul>
-      <div class="ac-riesgo"><strong>Por qué importa para la provisión</strong>Si la renta estimada alimenta el cálculo de capacidad de pago, un sesgo sistemático de sobreestimación en los tramos bajos produce aprobaciones a clientes cuya capacidad real es menor. El efecto aparece después, en la morosidad de ese segmento.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Pedir los gráficos de contorno de entrenamiento y de prueba por segmento y compararlos. Si solo se entrega el de entrenamiento, el desempeño no está acreditado.</div>
+      <p>El marco exige incorporar información prospectiva: la estimación no puede basarse solo en lo observado, debe considerar condiciones futuras esperadas. En la práctica esto se traduce en proyectar los parámetros según escenarios macroeconómicos.</p>
+      <blockquote class="ac-cita">Se busca que se tomen los criterios prospectivos tanto en la probabilidad de incumplimiento como en la LGD. El criterio es que usted debe proyectar.<cite>Clase 8, aprox. 00:02:42</cite></blockquote>
+      <p>Los escenarios se ponderan por probabilidad de ocurrencia. Esa ponderación es una decisión de la administración con efecto directo sobre la provisión, y es uno de los puntos donde la subjetividad es mayor.</p>
+      <div class="ac-umbral"><strong>Qué debe estar documentado</strong>Escenarios utilizados, variables macroeconómicas de cada uno, fuente de las proyecciones, ponderación asignada a cada escenario, fundamento de esa ponderación y quién la aprobó.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La ponderación de escenarios se ajusta para alcanzar un nivel de provisión predefinido. Sin fundamento documentado y sin comparación con la ponderación del período anterior, el ajuste es indetectable en el estado financiero.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Comparar la ponderación de escenarios entre cierres consecutivos. Todo cambio debe tener fundamento documentado y aprobación. Un cambio de ponderación sin cambio en las proyecciones macroeconómicas subyacentes exige explicación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="E-5">
+  <section class="ac-cedula" data-cedula="G-5">
     <div class="ac-cedula-encab">
-      <span class="ref">E-5</span>
-      <h3>Calibración: el desempeño que casi nunca se revisa</h3>
+      <span class="ref">G-5</span>
+      <h3>Del parámetro al asiento</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Discriminar y calibrar son cosas distintas. Un modelo discrimina bien si ordena correctamente. Calibra bien si el nivel de la probabilidad estimada coincide con la frecuencia observada. Un modelo puede ordenar impecablemente y estimar mal el nivel.</p>
-      <p>Para la provisión, la calibración es lo determinante. La probabilidad de incumplimiento entra directamente en el cálculo de la pérdida esperada. Si el modelo estima 2 % donde se observa 5 %, la provisión queda subestimada aunque el área bajo la curva sea excelente.</p>
-      <table class="ac-tabla"><thead><tr><th>Tramo de PD estimada</th><th>PD promedio estimada</th><th>Incumplimiento observado</th><th>Desvío</th></tr></thead><tbody><tr><td>Muy bajo</td><td class="num">0,8 %</td><td class="num">0,9 %</td><td>Aceptable</td></tr><tr><td>Bajo</td><td class="num">2,1 %</td><td class="num">3,4 %</td><td>Subestima</td></tr><tr><td>Medio</td><td class="num">6,5 %</td><td class="num">9,8 %</td><td>Subestima</td></tr><tr><td>Alto</td><td class="num">18,0 %</td><td class="num">17,2 %</td><td>Aceptable</td></tr></tbody></table>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la tabla de PD estimada contra incumplimiento observado por tramo, sobre una ventana cerrada. Es la prueba directa de que la provisión está bien dimensionada y frecuentemente no forma parte del informe de desempeño.</div>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El informe de validación presenta solo métricas de discriminación. Se concluye que el modelo es bueno y no se verificó lo único que afecta directamente la cifra contable.</div>
+      <p>La cadena completa tiene ocho eslabones y la trazabilidad se pierde casi siempre en el mismo punto: entre la salida del motor de cálculo y el asiento contable, donde suelen aplicarse ajustes manuales.</p>
+      <ol><li>Extracción de datos de los sistemas de origen.</li><li>Cálculo de los parámetros por operación o por segmento.</li><li>Aplicación de la fórmula de pérdida esperada.</li><li>Agregación por cartera y por etapa.</li><li>Ajustes de la administración, si existen.</li><li>Asiento contable del gasto y de la provisión acumulada.</li><li>Conciliación entre el motor de cálculo y el mayor contable.</li><li>Revelación en notas.</li></ol>
+      <div class="ac-riesgo"><strong>El ajuste de la administración</strong>Es la diferencia entre lo que el modelo calcula y lo que finalmente se contabiliza. Puede estar justificado, por ejemplo cuando el modelo no captura un riesgo reciente. Pero debe estar cuantificado, fundamentado y aprobado, y debe conciliar con el mayor.</div>
+      <div class="ac-umbral"><strong>Prueba mínima de conciliación</strong>La suma de la provisión por operación del motor de cálculo debe conciliar con el saldo del mayor. Toda diferencia debe estar explicada línea por línea. Una diferencia sin explicación es un hallazgo, aunque su monto sea inmaterial: revela que el control de conciliación no opera.</div>
+      <div class="ac-nota"><strong>Entregable de este módulo</strong>La hoja de recálculo de provisión: se toma una muestra de operaciones, se reconstruye la pérdida esperada con los parámetros vigentes y se concilia contra lo contabilizado.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="E-6">
+  <section class="ac-cedula" data-cedula="G-6">
     <div class="ac-cedula-encab">
-      <span class="ref">E-6</span>
-      <h3>Laboratorio: métricas, punto de corte y calibración</h3>
+      <span class="ref">G-6</span>
+      <h3>Laboratorio: recalcular la provisión y conciliar</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Tres bloques que producen la cédula de desempeño completa: discriminación, corte económico y tabla de calibración.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Discriminación</em></div><pre><code>import numpy as np
-from sklearn.metrics import roc_curve, roc_auc_score, confusion_matrix
+      <p>El simulador mostró cómo pesan los tres parámetros. Ahora se recalcula la provisión de la cartera completa y se concilia contra el mayor contable.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Clasificar por etapa</em></div><pre><code>import pandas as pd
 
-p = modelo.predict_proba(X_va)[:, 1]
-fpr, tpr, cortes = roc_curve(y_va, p)
+c = pd.read_csv("cartera_cierre.csv")
 
-auc = roc_auc_score(y_va, p)
-ks = (tpr - fpr).max()
-corte_ks = cortes[(tpr - fpr).argmax()]
+c["etapa"] = 1
+c.loc[c["dias_mora"] &gt;= 30, "etapa"] = 2
+c.loc[c["dias_mora"] &gt;= 90, "etapa"] = 3
 
-print(f"AUC   {auc:.3f}")
-print(f"Gini  {2 * auc - 1:.3f}      (es la misma medida que el AUC)")
-print(f"KS    {ks:.1%}  en probabilidad {corte_ks:.3f}")</code></pre></div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Punto de corte de mínimo costo</em></div><pre><code>PERDIDA = 1.00      # por unidad de exposición incumplida
-MARGEN  = 0.12      # por unidad de exposición sana
+print(c["etapa"].value_counts().sort_index())</code></pre></div>
+      <p>Es el mismo patrón del Módulo 0: se pone 1 en todas las filas y luego se sobrescriben las que cumplen cada condición. El orden importa, porque una operación con 120 días cumple las dos y debe quedar en etapa 3.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 2. Aplicar la fórmula</em></div><pre><code># El horizonte cambia con la etapa: doce meses en la 1, toda la vida en 2 y 3
+c["pd_aplicable"] = c["pd_12m"].where(c["etapa"] == 1, c["pd_lifetime"])
 
-rejilla = np.arange(0.01, 0.51, 0.01)
-costo = [((y_va == 1) &amp; (p &lt; c)).sum() * PERDIDA +
-         ((y_va == 0) &amp; (p &gt;= c)).sum() * MARGEN for c in rejilla]
+c["ead"] = c["saldo"] + c["linea_no_usada"] * c["factor_conversion"]
+c["perdida_esperada"] = c["pd_aplicable"] * c["lgd"] * c["ead"]
 
-optimo = rejilla[int(np.argmin(costo))]
-print(f"Corte de mínimo costo: {optimo:.0%}")
-print(confusion_matrix(y_va, (p &gt;= optimo).astype(int)))
-# El corte queda muy por debajo del 50 % porque los errores no cuestan igual</code></pre></div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Calibración: la evidencia que sostiene la provisión</em></div><pre><code>import pandas as pd
+print(f"Provisión recalculada: {c['perdida_esperada'].sum():,.2f}")</code></pre></div>
+      <p>where es un si condicional aplicado a toda la columna: deja la PD a doce meses cuando la etapa es 1 y la de toda la vida en el resto. La exposición suma el saldo más la parte del cupo no usado que se espera consumir.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Conciliar, que es el procedimiento de auditoría</em></div><pre><code>SALDO_MAYOR = 4_812_357.90
 
-cal = pd.DataFrame({"pd_estimada": p, "observado": y_va})
-cal["tramo"] = pd.qcut(cal.pd_estimada, 5,
-                       labels=["muy bajo", "bajo", "medio", "alto", "muy alto"])
+diferencia = c["perdida_esperada"].sum() - SALDO_MAYOR
+print(f"Diferencia contra el mayor: {diferencia:,.2f}")
 
-tabla = cal.groupby("tramo", observed=True).agg(
-    operaciones=("observado", "size"),
-    pd_estimada=("pd_estimada", "mean"),
-    observado=("observado", "mean"))
-tabla["desvio"] = tabla.observado - tabla.pd_estimada
-print(tabla.round(4))
-
-if (tabla.desvio &gt; 0).all():
-    print("El modelo subestima en todos los tramos: la provisión queda corta")</code></pre></div>
+if abs(diferencia) &gt; 0.01:
+    print("Requerir la composición del ajuste de la administración")</code></pre></div>
+      <p>El guion bajo dentro del número es solo un separador visual para leerlo mejor; Python lo ignora. Una diferencia sin explicación es un hallazgo aunque el monto sea inmaterial: indica que el control de conciliación no está operando.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Sensibilidad de la LGD, el parámetro sin modelo</em></div><pre><code>base = c["perdida_esperada"].sum()
+for factor in (0.9, 1.0, 1.1, 1.2):
+    total = (c["pd_aplicable"] * (c["lgd"] * factor).clip(upper=1) * c["ead"]).sum()
+    print(f"LGD x{factor}   provisión {total:&gt;14,.0f}   {total / base - 1:+.1%}")</code></pre></div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="E-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="E-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="G-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="G-6"></span>
     </div>
   </section>
 
@@ -585,7 +663,7 @@ if (tabla.desvio &gt; 0).all():
       </div>
       <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
         <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
-        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="index.html">Volver al índice</a>
       </div>
     </div>
   </section>
@@ -609,17 +687,25 @@ const AC_PROGRAMA = {
   titulo: "Validación de modelos de riesgo de crédito para auditores y contadores",
   emisor: "AuditCaat's Data Assurance",
   anio: 2026,
-  horasTotales: 21,
+  horasTotales: 23,
   entorno: "Python 3.11 · pandas · numpy · scikit-learn",
   aprobacionMinima: 0.70,   // 70% del puntaje del modulo
   modulos: [
+    {
+      id: "M00", ref: "0", marca: "✓", horas: 2.0, clase: "Material del programa",
+      titulo: "Python para quien nunca ha programado",
+      resumen: "Desde la primera línea. Colab sin instalar nada, variables, tablas, filtrar y agrupar. Si usas Excel, ya sabes más de lo que crees.",
+      entregable: "Cuaderno con los controles de integridad",
+      estadoPublicacion: "publicado",
+      url: "m00.html"
+    },
     {
       id: "M01", ref: "A", marca: "✓", horas: 2.5, clase: "Clase 1",
       titulo: "Por qué un contador audita modelos",
       resumen: "Ciclo del crédito, ventanas de observación y desempeño, tipos de modelo y qué significa que un modelo esté mal.",
       entregable: "Programa de entendimiento del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m01.html",
+      url: "m01.html",
       congelado: true   // hay certificados emitidos: quien ya lo aprobó puede convalidarlo
     },
     {
@@ -628,7 +714,7 @@ const AC_PROGRAMA = {
       resumen: "WOE, information value, binning, regresión logística, construcción del scorecard, sobreajuste y regularización.",
       entregable: "Cédula de revisión de variables y binning",
       estadoPublicacion: "publicado",
-      url: "modulos/m02.html"
+      url: "m02.html"
     },
     {
       id: "M03", ref: "C", marca: "○", horas: 2.5, clase: "Clases 2 y 5",
@@ -636,7 +722,7 @@ const AC_PROGRAMA = {
       resumen: "Árboles, bagging, boosting. Cuándo un modelo más complejo se justifica y cuándo es un riesgo de auditoría.",
       entregable: "Matriz comparativa de modelos candidatos",
       estadoPublicacion: "publicado",
-      url: "modulos/m03.html"
+      url: "m03.html"
     },
     {
       id: "M04", ref: "D", marca: "×", horas: 2.5, clase: "Clase 4",
@@ -644,7 +730,7 @@ const AC_PROGRAMA = {
       resumen: "Cluster y k-means, criterios de corte, cómo una segmentación mal construida contamina la provisión.",
       entregable: "Matriz de riesgos de segmentación",
       estadoPublicacion: "publicado",
-      url: "modulos/m04.html"
+      url: "m04.html"
     },
     {
       id: "M05", ref: "E", marca: "≡", horas: 3.0, clase: "Clases 3 y 5",
@@ -652,7 +738,7 @@ const AC_PROGRAMA = {
       resumen: "ROC, Gini, KS, divergencia, matriz de confusión y punto de corte. Lectura de gráficos de contorno y tablas de percentiles.",
       entregable: "Cédula de desempeño del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m05.html"
+      url: "m05.html"
     },
     {
       id: "M06", ref: "F", marca: "≠", horas: 2.5, clase: "Clase 3",
@@ -660,7 +746,7 @@ const AC_PROGRAMA = {
       resumen: "PSI, CSI, deterioro fuera de muestra y fuera de tiempo. El módulo con mayor uso en encargos reales.",
       entregable: "Plantilla de monitoreo con PSI",
       estadoPublicacion: "publicado",
-      url: "modulos/m06.html"
+      url: "m06.html"
     },
     {
       id: "M07", ref: "G", marca: "∫", horas: 2.5, clase: "Clases 6 y 7",
@@ -668,7 +754,7 @@ const AC_PROGRAMA = {
       resumen: "Stages, PD, LGD y EAD. Del parámetro estadístico al asiento contable y a la revelación.",
       entregable: "Hoja de recálculo de provisión",
       estadoPublicacion: "publicado",
-      url: "modulos/m07.html"
+      url: "m07.html"
     },
     {
       id: "M08", ref: "H", marca: "§", horas: 2.5, clase: "Clase 8",
@@ -676,7 +762,7 @@ const AC_PROGRAMA = {
       resumen: "Capital económico, pruebas de tensión y cierre del programa con el memorando de validación independiente.",
       entregable: "Memorando de validación independiente",
       estadoPublicacion: "publicado",
-      url: "modulos/m08.html"
+      url: "m08.html"
     }
   ]
 };
@@ -1241,9 +1327,9 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
   // Rutas de navegacion. El empaquetador de archivo unico las reemplaza
   // por rutas de hash para que el mismo runtime sirva en ambos formatos.
   const Rutas = {
-    cert: id => "../certificado.html?modulo=" + id,
+    cert: id => "certificado.html?modulo=" + id,
     diploma: () => "certificado.html?tipo=programa",
-    indice: () => "../index.html",
+    indice: () => "index.html",
     equipo: () => "seguimiento.html"
   };
 
@@ -1255,6 +1341,593 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
     moduloPorId: id => AC_PROGRAMA.modulos.find(m => m.id === id)
   };
 
+})(window);
+
+</script>
+<script>
+/* ===================================================================
+   AuditCaat's — Simuladores del programa  (ac_widgets.js)
+
+   Cada simulador se declara en el contenido como ("widget", "id") y
+   se monta sobre <div data-widget="id">. Todo se calcula en el
+   navegador con SVG: sin librerias, sin red, sin imagenes.
+
+   Los datos son sinteticos y deterministas: todos los participantes
+   ven exactamente los mismos numeros.
+   =================================================================== */
+
+(function (global) {
+  "use strict";
+
+  /* ---------- Utilidades ------------------------------------------ */
+
+  // Generador con semilla: misma semilla, misma serie, en todo navegador.
+  function azar(semilla) {
+    let a = semilla >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function normal(r) {                       // Box-Muller
+    return Math.sqrt(-2 * Math.log(1 - r())) * Math.cos(2 * Math.PI * r());
+  }
+  const fmt = (n, d) => n.toLocaleString("es-CL", {
+    minimumFractionDigits: d === undefined ? 0 : d,
+    maximumFractionDigits: d === undefined ? 0 : d });
+  const pct = (n, d) => fmt(n * 100, d === undefined ? 1 : d) + " %";
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  /* ---------- Andamiaje de la interfaz ----------------------------- */
+
+  function control(cfg) {
+    const id = "w" + Math.random().toString(36).slice(2, 8);
+    return `<div class="ac-w-ctrl">
+      <label for="${id}">${cfg.etiqueta}<b data-valor></b></label>
+      <input type="range" id="${id}" min="${cfg.min}" max="${cfg.max}"
+             step="${cfg.paso || 1}" value="${cfg.valor}" data-slider="${cfg.nombre}">
+    </div>`;
+  }
+
+  function interruptor(cfg) {
+    return `<label class="ac-w-check">
+      <input type="checkbox" data-check="${cfg.nombre}" ${cfg.valor ? "checked" : ""}>
+      <span>${cfg.etiqueta}</span></label>`;
+  }
+
+  function armar(nodo, cfg) {
+    nodo.innerHTML = `
+      <div class="ac-widget">
+        <div class="ac-w-encab">
+          <span>Simulador</span><em>${cfg.titulo}</em>
+        </div>
+        <div class="ac-w-cuerpo">
+          <div class="ac-w-controles">${cfg.controles}</div>
+          <div class="ac-w-lienzo" data-lienzo></div>
+          <div class="ac-w-lectura" data-lectura></div>
+        </div>
+        <div class="ac-w-pie">${cfg.pie}</div>
+      </div>`;
+
+    const estado = {};
+    const sliders = nodo.querySelectorAll("[data-slider]");
+    const checks = nodo.querySelectorAll("[data-check]");
+
+    function leer() {
+      sliders.forEach(s => { estado[s.dataset.slider] = parseFloat(s.value); });
+      checks.forEach(c => { estado[c.dataset.check] = c.checked; });
+      return estado;
+    }
+    function refrescar() {
+      leer();
+      sliders.forEach(s => {
+        const b = s.closest(".ac-w-ctrl").querySelector("[data-valor]");
+        if (b) b.textContent = cfg.etiquetaValor(s.dataset.slider, parseFloat(s.value));
+      });
+      cfg.dibujar(estado,
+        nodo.querySelector("[data-lienzo]"),
+        nodo.querySelector("[data-lectura]"));
+    }
+    sliders.forEach(s => s.addEventListener("input", refrescar));
+    checks.forEach(c => c.addEventListener("change", refrescar));
+    refrescar();
+  }
+
+  // Marco SVG con ejes
+  function svg(ancho, alto, contenido) {
+    return `<svg viewBox="0 0 ${ancho} ${alto}" preserveAspectRatio="xMidYMid meet"
+                 role="img" aria-hidden="true">${contenido}</svg>`;
+  }
+  const eje = (x1, y1, x2, y2) =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="w-eje"/>`;
+  const texto = (x, y, t, clase) =>
+    `<text x="${x}" y="${y}" class="w-txt ${clase || ""}">${t}</text>`;
+
+  function lectura(items) {
+    return items.map(i =>
+      `<div class="${i.alerta ? "alerta" : ""}"><dt>${i.k}</dt><dd>${i.v}</dd></div>`).join("");
+  }
+
+  /* =================================================================
+     M01 — El horizonte cambia la tasa de incumplimiento
+     ================================================================= */
+  const wVentana = {
+    titulo: "Ventana de desempeño",
+    montar(nodo) {
+      const r = azar(20260722);
+      // Momento del incumplimiento de cada operación, en meses
+      const meses = Array.from({ length: 4000 }, () => {
+        const u = r();
+        return u < 0.14 ? 1 + Math.floor(Math.abs(normal(r)) * 14) : 999;
+      });
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "h", etiqueta: "Horizonte observado", min: 3, max: 36, valor: 12 }),
+        etiquetaValor: (n, v) => v + " meses",
+        dibujar(e, lienzo, lect) {
+          const h = e.h;
+          const tasa = meses.filter(m => m <= h).length / meses.length;
+          const A = 620, B = 190;
+          let barras = "";
+          for (let m = 1; m <= 36; m++) {
+            const n = meses.filter(x => x === m).length;
+            const alto = (n / 90) * 130;
+            barras += `<rect x="${20 + (m - 1) * 16.4}" y="${160 - alto}" width="13"
+              height="${Math.max(alto, 0.5)}" class="${m <= h ? "w-barra-on" : "w-barra-off"}"/>`;
+          }
+          const xc = 20 + h * 16.4 - 1.5;
+          lienzo.innerHTML = svg(A, B,
+            barras +
+            `<line x1="${xc}" y1="14" x2="${xc}" y2="162" class="w-corte"/>` +
+            texto(xc + 5, 24, "corte", "w-corte-t") +
+            eje(18, 162, 606, 162) +
+            texto(20, 182, "mes 1") + texto(546, 182, "mes 36"));
+          lect.innerHTML = lectura([
+            { k: "Tasa de incumplimiento", v: pct(tasa, 2) },
+            { k: "Operaciones malas", v: fmt(meses.filter(m => m <= h).length) },
+            { k: "Aún sin madurar", v: fmt(meses.filter(m => m > h && m < 999).length),
+              alerta: h < 12 }
+          ]);
+        },
+        pie: "La misma cartera tiene tasas distintas según el horizonte. Un modelo a doce " +
+             "meses y otro a veinticuatro no son comparables aunque midan lo mismo. Si la " +
+             "ventana es corta, parte de los incumplimientos todavía no ocurrió."
+      });
+    }
+  };
+
+  /* =================================================================
+     M02 — Cuántos tramos: el IV sube y los tramos se vacían
+     ================================================================= */
+  const wBinning = {
+    titulo: "Tramos, WOE e information value",
+    montar(nodo) {
+      const r = azar(880123);
+      const datos = Array.from({ length: 6000 }, () => {
+        const x = clamp(30 + normal(r) * 18, 0, 96);          // antigüedad en meses
+        const p = 1 / (1 + Math.exp((x - 26) / 9));           // más antiguo, mejor
+        return { x: x, malo: r() < p * 0.30 ? 1 : 0 };
+      }).sort((a, b) => a.x - b.x);
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de tramos", min: 2, max: 20, valor: 5 }) +
+                   interruptor({ nombre: "opt", etiqueta: "Cortes automáticos por information value", valor: false }),
+        etiquetaValor: (n, v) => v + " tramos",
+        dibujar(e, lienzo, lect) {
+          const k = e.k, n = datos.length, porTramo = Math.floor(n / k);
+          // Dos formas de cortar: por cuantiles deja tramos parejos; el corte
+          // automatico busca maximizar el IV y produce tramos muy desiguales.
+          const min = datos[0].x, max = datos[n - 1].x;
+          const grupo = i => {
+            if (!e.opt) return datos.slice(i * porTramo, i === k - 1 ? n : (i + 1) * porTramo);
+            const a = min + (max - min) * (i / k), b = min + (max - min) * ((i + 1) / k);
+            return datos.filter(d => d.x >= a && (i === k - 1 ? d.x <= b : d.x < b));
+          };
+          const B = Math.max(1, datos.filter(d => !d.malo).length);
+          const M = Math.max(1, datos.filter(d => d.malo).length);
+          let iv = 0, chicos = 0, woes = [];
+          for (let i = 0; i < k; i++) {
+            const g = grupo(i);
+            if (!g.length) { woes.push({ w: 0, part: 0 }); chicos++; continue; }
+            const mal = g.filter(d => d.malo).length, bue = g.length - mal;
+            const pb = (bue + 0.5) / (B + 0.5 * k), pm = (mal + 0.5) / (M + 0.5 * k);
+            const w = Math.log(pb / pm);
+            iv += (pb - pm) * w;
+            woes.push({ w: w, part: g.length / n });
+            if (g.length / n < 0.05) chicos++;
+          }
+          const A = 620, H = 190, cero = 100, ancho = 580 / k;
+          let barras = woes.map((o, i) => {
+            const alto = clamp(o.w * 42, -84, 84);
+            return `<rect x="${22 + i * ancho + 2}" y="${alto > 0 ? cero - alto : cero}"
+              width="${Math.max(ancho - 4, 2)}" height="${Math.abs(alto) || 1}"
+              class="${o.part < 0.05 ? "w-barra-mal" : (o.w >= 0 ? "w-barra-on" : "w-barra-neg")}"/>`;
+          }).join("");
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(20, cero, 606, cero) +
+            texto(22, 22, "WOE positivo: concentra buenos") +
+            texto(22, 182, "WOE negativo: concentra malos"));
+          lect.innerHTML = lectura([
+            { k: "Information value", v: fmt(iv, 4), alerta: iv > 0.5 },
+            { k: "Tramos bajo el 5 %", v: chicos, alerta: chicos > 0 },
+            { k: "Lectura", v: iv < 0.02 ? "no aporta" : iv < 0.1 ? "débil"
+                 : iv < 0.3 ? "aceptable" : iv < 0.5 ? "fuerte" : "sospechoso" }
+          ]);
+        },
+        pie: "Con cortes por cuantiles los tramos quedan parejos. Activa los cortes " +
+             "automáticos y sube el número de tramos: el information value mejora y al mismo " +
+             "tiempo aparecen tramos en rojo, con menos del 5 % de la población. Ese es el " +
+             "costo oculto del binning automático, y es lo que hay que pedir que justifiquen."
+      });
+    }
+  };
+
+  /* =================================================================
+     M03 — Complejidad contra desempeño real
+     ================================================================= */
+  const wComplejidad = {
+    titulo: "Complejidad del modelo y sobreajuste",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "c", etiqueta: "Complejidad del modelo", min: 1, max: 20, valor: 4 }),
+        etiquetaValor: (n, v) => "nivel " + v,
+        dibujar(e, lienzo, lect) {
+          const des = c => 0.70 + 0.29 * (1 - Math.exp(-c / 4.2));
+          const val = c => 0.70 + 0.13 * (1 - Math.exp(-c / 3.0)) - 0.011 * Math.max(0, c - 6);
+          const A = 620, H = 200, x = c => 30 + (c - 1) * 29, y = a => 178 - (a - 0.68) * 470;
+          const linea = f => Array.from({ length: 20 }, (_, i) =>
+            `${i ? "L" : "M"}${x(i + 1)},${y(f(i + 1))}`).join(" ");
+          lienzo.innerHTML = svg(A, H,
+            eje(28, 178, 606, 178) + eje(28, 12, 28, 178) +
+            `<path d="${linea(des)}" class="w-linea-b"/>` +
+            `<path d="${linea(val)}" class="w-linea-a"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(des(e.c))}" r="5" class="w-pto-b"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(val(e.c))}" r="5" class="w-pto-a"/>` +
+            `<line x1="${x(e.c)}" y1="12" x2="${x(e.c)}" y2="178" class="w-corte"/>` +
+            texto(36, 24, "desarrollo", "w-t-b") + texto(36, 40, "validación", "w-t-a") +
+            texto(30, 194, "simple") + texto(556, 194, "complejo"));
+          const brecha = des(e.c) - val(e.c);
+          lect.innerHTML = lectura([
+            { k: "AUC en desarrollo", v: fmt(des(e.c), 3) },
+            { k: "AUC en validación", v: fmt(val(e.c), 3) },
+            { k: "Brecha", v: fmt(brecha, 3), alerta: brecha > 0.05 }
+          ]);
+        },
+        pie: "La curva de desarrollo nunca baja: por eso no sirve para decidir. La de " +
+             "validación sube, se estanca y empieza a caer. Cuando la brecha pasa de cinco " +
+             "puntos, el modelo está aprendiendo su propia muestra."
+      });
+    }
+  };
+
+  /* =================================================================
+     M04 — Estandarizar o no estandarizar
+     ================================================================= */
+  const wSegmentos = {
+    titulo: "Segmentación y escala de las variables",
+    montar(nodo) {
+      const r = azar(4477);
+      // monto en millones, antigüedad en meses: escalas muy distintas
+      const puntos = [];
+      [[8, 12], [8, 46], [34, 14], [34, 48]].forEach(c => {
+        for (let i = 0; i < 45; i++)
+          puntos.push({ m: c[0] + normal(r) * 5, a: c[1] + normal(r) * 6 });
+      });
+
+      function kmedias(pts, k, estandarizar) {
+        const em = estandarizar ? 1 / 13 : 1 / 13, ea = estandarizar ? 1 / 16 : 1 / 400;
+        const cen = Array.from({ length: k }, (_, i) => ({
+          m: pts[i * 37 % pts.length].m, a: pts[i * 53 % pts.length].a }));
+        let asig = [];
+        for (let it = 0; it < 25; it++) {
+          asig = pts.map(p => {
+            let mej = 0, d0 = Infinity;
+            cen.forEach((c, j) => {
+              const d = Math.pow((p.m - c.m) * em, 2) + Math.pow((p.a - c.a) * ea, 2);
+              if (d < d0) { d0 = d; mej = j; }
+            });
+            return mej;
+          });
+          cen.forEach((c, j) => {
+            const g = pts.filter((_, i) => asig[i] === j);
+            if (g.length) {
+              c.m = g.reduce((s, p) => s + p.m, 0) / g.length;
+              c.a = g.reduce((s, p) => s + p.a, 0) / g.length;
+            }
+          });
+        }
+        return asig;
+      }
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de grupos", min: 2, max: 6, valor: 4 }) +
+                   interruptor({ nombre: "std", etiqueta: "Estandarizar las variables", valor: false }),
+        etiquetaValor: (n, v) => "k = " + v,
+        dibujar(e, lienzo, lect) {
+          const asig = kmedias(puntos, e.k, e.std);
+          const A = 620, H = 210;
+          const px = p => 40 + (p.m / 46) * 550, py = p => 180 - (p.a / 62) * 160;
+          const circulos = puntos.map((p, i) =>
+            `<circle cx="${px(p).toFixed(1)}" cy="${py(p).toFixed(1)}" r="3.6"
+              class="w-c${asig[i] % 6}"/>`).join("");
+          lienzo.innerHTML = svg(A, H,
+            circulos + eje(36, 182, 600, 182) + eje(36, 10, 36, 182) +
+            texto(300, 202, "monto del crédito") +
+            `<text x="14" y="100" class="w-txt" transform="rotate(-90 14 100)">antigüedad</text>`);
+          // ¿los grupos se separan por monto o por antigüedad?
+          const gs = Array.from({ length: e.k }, (_, j) => puntos.filter((_, i) => asig[i] === j));
+          const varM = gs.map(g => g.length ? g.reduce((s, p) => s + p.m, 0) / g.length : 0);
+          const varA = gs.map(g => g.length ? g.reduce((s, p) => s + p.a, 0) / g.length : 0);
+          const disp = v => Math.max(...v) - Math.min(...v);
+          const domina = disp(varM) / 46 > disp(varA) / 62 * 1.6;
+          lect.innerHTML = lectura([
+            { k: "Variables", v: e.std ? "estandarizadas" : "en su escala original" },
+            { k: "Los grupos se separan por", v: domina ? "el monto, casi solo" : "ambas variables" },
+            { k: "Diagnóstico", v: domina ? "la escala manda sobre el comportamiento" : "segmentación razonable",
+              alerta: domina }
+          ]);
+        },
+        pie: "Con las variables sin estandarizar, el monto absorbe toda la distancia y los " +
+             "cortes salen verticales: la antigüedad deja de importar. Activa la casilla y " +
+             "mira cómo se reordenan los grupos con exactamente los mismos datos."
+      });
+    }
+  };
+
+  /* =================================================================
+     M05 — Punto de corte y costo de los dos errores
+     ================================================================= */
+  const wCorte = {
+    titulo: "Punto de corte, matriz de confusión y costo",
+    montar(nodo) {
+      const r = azar(9091);
+      const pob = Array.from({ length: 5000 }, () => {
+        const malo = r() < 0.08;
+        const s = clamp(malo ? 0.34 + normal(r) * 0.16 : 0.10 + normal(r) * 0.09, 0.001, 0.999);
+        return { malo: malo, p: s };
+      });
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "c", etiqueta: "Punto de corte", min: 1, max: 60, valor: 20 }) +
+          control({ nombre: "rel", etiqueta: "Pérdida frente al margen", min: 2, max: 25, valor: 8 }),
+        etiquetaValor: (n, v) => n === "c" ? v + " %" : v + " veces",
+        dibujar(e, lienzo, lect) {
+          const c = e.c / 100;
+          const VP = pob.filter(o => o.malo && o.p >= c).length;
+          const FN = pob.filter(o => o.malo && o.p < c).length;
+          const FP = pob.filter(o => !o.malo && o.p >= c).length;
+          const VN = pob.filter(o => !o.malo && o.p < c).length;
+          const costo = k => pob.filter(o => o.malo && o.p < k).length * e.rel +
+                             pob.filter(o => !o.malo && o.p >= k).length;
+          let mejor = 0.01, cm = Infinity;
+          for (let k = 0.01; k <= 0.60; k += 0.01) { const v = costo(k); if (v < cm) { cm = v; mejor = k; } }
+
+          const A = 620, H = 200;
+          const hist = (filtro, clase) => {
+            let s = "";
+            for (let i = 0; i < 60; i++) {
+              const n = pob.filter(o => filtro(o) && o.p >= i / 100 && o.p < (i + 1) / 100).length;
+              if (n) s += `<rect x="${24 + i * 9.6}" y="${170 - n / 2.2}" width="8.4"
+                height="${n / 2.2}" class="${clase}"/>`;
+            }
+            return s;
+          };
+          const xc = 24 + e.c * 9.6, xo = 24 + mejor * 100 * 9.6;
+          lienzo.innerHTML = svg(A, H,
+            hist(o => !o.malo, "w-hist-b") + hist(o => o.malo, "w-hist-m") +
+            eje(22, 172, 606, 172) +
+            `<line x1="${xo}" y1="16" x2="${xo}" y2="172" class="w-optimo"/>` +
+            `<line x1="${xc}" y1="10" x2="${xc}" y2="172" class="w-corte"/>` +
+            texto(28, 24, "no incumplen", "w-t-b") + texto(28, 40, "incumplen", "w-t-a") +
+            texto(xo - 18, 192, "óptimo", "w-optimo-t"));
+          lect.innerHTML = lectura([
+            { k: "Rechazados que habrían pagado", v: fmt(FP) },
+            { k: "Aprobados que incumplieron", v: fmt(FN), alerta: FN > VP },
+            { k: "Costo total del corte", v: fmt(costo(c)) },
+            { k: "Corte de mínimo costo", v: pct(mejor, 0), alerta: Math.abs(mejor - c) > 0.03 }
+          ]);
+        },
+        pie: "Mueve el corte y observa que el mínimo costo casi nunca está en 50 %. Sube la " +
+             "razón entre pérdida y margen: cuanto más cuesta un crédito que no se paga, más " +
+             "hacia la izquierda se va el corte óptimo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M06 — Cuánto desplazamiento hace falta para cruzar 0,25
+     ================================================================= */
+  const wPsi = {
+    titulo: "Índice de estabilidad poblacional",
+    montar(nodo) {
+      const base = [0.06, 0.11, 0.17, 0.22, 0.19, 0.14, 0.08, 0.03];
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "d", etiqueta: "Desplazamiento de la población", min: -30, max: 30, valor: 0 }) +
+          control({ nombre: "e", etiqueta: "Concentración", min: -20, max: 30, valor: 0 }),
+        etiquetaValor: (n, v) => (v > 0 ? "+" : "") + v,
+        dibujar(e, lienzo, lect) {
+          const n = base.length, centro = (n - 1) / 2;
+          let act = base.map((p, i) => {
+            const mov = 1 + (e.d / 100) * (i - centro);
+            const con = 1 + (e.e / 100) * (1 - Math.abs(i - centro) / centro);
+            return Math.max(p * mov * con, 0.001);
+          });
+          const s = act.reduce((a, b) => a + b, 0);
+          act = act.map(v => v / s);
+
+          let psi = 0, aportes = [];
+          act.forEach((a, i) => {
+            const ap = (a - base[i]) * Math.log(a / base[i]);
+            psi += ap; aportes.push(ap);
+          });
+
+          const A = 620, H = 190, w = 66;
+          let barras = "";
+          base.forEach((b, i) => {
+            const x = 30 + i * w;
+            barras += `<rect x="${x}" y="${168 - b * 480}" width="26" height="${b * 480}" class="w-barra-ref"/>`;
+            barras += `<rect x="${x + 28}" y="${168 - act[i] * 480}" width="26"
+              height="${act[i] * 480}" class="${aportes[i] > 0.02 ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(26, 168, 606, 168) +
+            texto(30, 22, "construcción", "w-t-ref") + texto(30, 38, "período actual", "w-t-a") +
+            texto(30, 186, "puntaje bajo") + texto(520, 186, "puntaje alto"));
+          const est = psi < 0.10 ? "población estable" : psi < 0.25
+            ? "desplazamiento moderado: analizar" : "desplazamiento relevante: revisar el modelo";
+          lect.innerHTML = lectura([
+            { k: "PSI", v: fmt(psi, 4), alerta: psi >= 0.25 },
+            { k: "Diagnóstico", v: est, alerta: psi >= 0.25 },
+            { k: "Tramos con aporte alto", v: aportes.filter(a => a > 0.02).length,
+              alerta: aportes.filter(a => a > 0.02).length > 0 }
+          ]);
+        },
+        pie: "Prueba a mover la población hacia un lado y luego a concentrarla en el centro. " +
+             "Fíjate en algo incómodo: se pueden tener dos tramos claramente distintos y un " +
+             "PSI total todavía bajo, porque los movimientos se compensan."
+      });
+    }
+  };
+
+  /* =================================================================
+     M07 — Los tres parámetros pesan igual
+     ================================================================= */
+  const wProvision = {
+    titulo: "Pérdida esperada y sus tres parámetros",
+    montar(nodo) {
+      const EXPOSICION = 4200000000;
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "pd", etiqueta: "PD", min: 5, max: 150, valor: 32, paso: 1 }) +
+          control({ nombre: "lgd", etiqueta: "LGD", min: 10, max: 90, valor: 45 }) +
+          control({ nombre: "cf", etiqueta: "Factor de conversión del contingente", min: 0, max: 100, valor: 40 }),
+        etiquetaValor: (n, v) => n === "pd" ? fmt(v / 10, 1) + " %" : v + " %",
+        dibujar(e, lienzo, lect) {
+          const pd = e.pd / 1000, lgd = e.lgd / 100;
+          const ead = EXPOSICION * (1 + 0.22 * (e.cf / 100));
+          const prov = pd * lgd * ead;
+          const baseProv = 0.032 * 0.45 * EXPOSICION * 1.088;
+
+          const A = 620, H = 150;
+          const barra = (y, etq, frac, clase) =>
+            `<rect x="150" y="${y}" width="${clamp(frac, 0, 1) * 430}" height="24" class="${clase}"/>` +
+            texto(20, y + 17, etq);
+          lienzo.innerHTML = svg(A, H,
+            barra(16, "PD", pd / 0.15, "w-barra-on") +
+            barra(52, "LGD", lgd, "w-barra-on") +
+            barra(88, "EAD", ead / (EXPOSICION * 1.25), "w-barra-on") +
+            `<rect x="150" y="120" width="${clamp(prov / (baseProv * 3), 0, 1) * 430}"
+               height="24" class="w-barra-tot"/>` + texto(20, 137, "Provisión"));
+          const var_ = prov / baseProv - 1;
+          lect.innerHTML = lectura([
+            { k: "Provisión", v: "$ " + fmt(prov) },
+            { k: "Cobertura de la exposición", v: pct(prov / ead, 2) },
+            { k: "Variación contra el cierre", v: (var_ > 0 ? "+" : "") + pct(var_, 1),
+              alerta: Math.abs(var_) > 0.15 }
+          ]);
+        },
+        pie: "Baja la PD un 10 % y anótalo. Ahora devuélvela y baja la LGD un 10 %. El efecto " +
+             "sobre la provisión es idéntico, porque es un producto. Por eso revisar solo el " +
+             "modelo de PD deja fuera la mitad del riesgo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M08 — La correlación engorda la cola
+     ================================================================= */
+  const wPerdidas = {
+    titulo: "Distribución de pérdidas, VaR y capital",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "rho", etiqueta: "Correlación entre incumplimientos", min: 0, max: 40, valor: 0 }) +
+          control({ nombre: "conf", etiqueta: "Nivel de confianza", min: 90, max: 999, valor: 990, paso: 1 }),
+        etiquetaValor: (n, v) => n === "rho" ? fmt(v / 100, 2) : fmt(v / 10, 1) + " %",
+        dibujar(e, lienzo, lect) {
+          const rho = e.rho / 100, conf = e.conf / 1000;
+          const r = azar(30303);
+          const N = 6000, pd = 0.032, lgd = 0.45, exp_ = 4200000000;
+          const perd = new Array(N);
+          for (let i = 0; i < N; i++) {
+            const shock = normal(r);
+            // Modelo de factor único: un shock común mueve a toda la cartera a la vez
+            const z = Math.sqrt(rho) * shock + Math.sqrt(1 - rho) * normal(r);
+            const tasa = clamp(pd * Math.exp(z * (0.35 + rho * 1.6) - 0.06), 0, 0.6);
+            perd[i] = tasa * lgd * exp_;
+          }
+          perd.sort((a, b) => a - b);
+          const media = perd.reduce((a, b) => a + b, 0) / N;
+          const varq = perd[Math.min(N - 1, Math.floor(conf * N))];
+          const tope = perd[N - 1] * 1.02;
+
+          const A = 620, H = 190, bins = 44;
+          let hist = "";
+          const cuenta = new Array(bins).fill(0);
+          perd.forEach(p => cuenta[Math.min(bins - 1, Math.floor(p / tope * bins))]++);
+          const maxc = Math.max(...cuenta);
+          cuenta.forEach((c, i) => {
+            const x = 24 + i * 13, alto = (c / maxc) * 140;
+            const val = (i + 0.5) / bins * tope;
+            hist += `<rect x="${x}" y="${164 - alto}" width="11.5" height="${alto || 0.5}"
+              class="${val >= varq ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          const xm = 24 + (media / tope) * bins * 13, xv = 24 + (varq / tope) * bins * 13;
+          lienzo.innerHTML = svg(A, H,
+            hist + eje(22, 166, 606, 166) +
+            `<line x1="${xm}" y1="14" x2="${xm}" y2="166" class="w-optimo"/>` +
+            `<line x1="${xv}" y1="14" x2="${xv}" y2="166" class="w-corte"/>` +
+            texto(xm + 5, 26, "esperada → provisión", "w-optimo-t") +
+            texto(clamp(xv - 150, 24, 420), 46, "VaR → capital", "w-corte-t"));
+          lect.innerHTML = lectura([
+            { k: "Pérdida esperada", v: "$ " + fmt(media) },
+            { k: "VaR al " + fmt(conf * 100, 1) + " %", v: "$ " + fmt(varq) },
+            { k: "Pérdida inesperada", v: "$ " + fmt(varq - media) },
+            { k: "Capital sobre la media", v: fmt((varq - media) / media, 2) + " veces",
+              alerta: (varq - media) / media > 1.5 }
+          ]);
+        },
+        pie: "Con correlación cero, la distribución es estrecha y el capital exigido es " +
+             "modesto. Súbela a 0,20 y observa: la pérdida esperada casi no se mueve, pero la " +
+             "cola se estira y el capital se multiplica. Ese supuesto no se ve en ningún dato " +
+             "observado y decide la cifra."
+      });
+    }
+  };
+
+  /* ---------- Registro y montaje ----------------------------------- */
+
+  const REGISTRO = {
+    ventana: wVentana, binning: wBinning, complejidad: wComplejidad,
+    segmentos: wSegmentos, corte: wCorte, psi: wPsi,
+    provision: wProvision, perdidas: wPerdidas
+  };
+
+  global.ACWidgets = {
+    registro: REGISTRO,
+    montarTodos(raiz) {
+      (raiz || document).querySelectorAll("[data-widget]").forEach(n => {
+        const w = REGISTRO[n.dataset.widget];
+        if (!w) { n.innerHTML = '<p class="ac-riesgo">Simulador no disponible.</p>'; return; }
+        try { w.montar(n); }
+        catch (err) {
+          n.innerHTML = '<p class="ac-riesgo">No se pudo cargar el simulador.</p>';
+          if (global.console) console.error("Widget", n.dataset.widget, err);
+        }
+      });
+    }
+  };
 })(window);
 
 </script>
@@ -1294,6 +1967,7 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
       const r = $("#cab-ref");   if (r) r.textContent = "Referencia " + mod.ref + " · " + mod.horas.toFixed(1).replace(".", ",") + " h";
       document.title = mod.titulo + " · AuditCaat's";
 
+      if (global.ACWidgets) ACWidgets.montarTodos(document);
       this.restaurarCedulas();
       this.enlazarBotones();
       AC.Quiz.render("#quiz", banco);
@@ -1414,217 +2088,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "e1",
+    "id": "g1",
     "puntaje": 10,
-    "texto": "¿Qué mide el área bajo la curva ROC?",
+    "texto": "¿Qué representa contablemente la provisión por riesgo de crédito?",
     "opciones": [
       {
-        "txt": "La capacidad del modelo de ordenar correctamente: dar peor puntaje a quien incumple que a quien no",
+        "txt": "Un pasivo que reconoce el deterioro esperado de la cartera, análogo a la depreciación de un activo",
         "ok": true
       },
       {
-        "txt": "Que la probabilidad estimada coincide con la observada"
+        "txt": "Efectivo apartado en una cuenta restringida"
       },
       {
-        "txt": "El porcentaje de decisiones correctas del modelo"
+        "txt": "Un activo contingente"
       },
       {
-        "txt": "La estabilidad del modelo entre períodos"
+        "txt": "Una reserva patrimonial de libre disposición"
       }
     ],
-    "retro": "Mide orden, no nivel. Un modelo puede ordenar bien y estimar mal la magnitud de la probabilidad."
+    "retro": "Es un pasivo, no liquidez reservada. La cartera es un activo y la provisión reconoce su deterioro."
   },
   {
-    "id": "e2",
+    "id": "g2",
     "puntaje": 10,
-    "texto": "El informe presenta área bajo la curva de 0,84 y Gini de 0,68 como dos evidencias de desempeño. ¿Qué corresponde observar?",
+    "texto": "La LGD utilizada es un promedio histórico sin metodología documentada, mientras la PD proviene de un modelo validado. ¿Cuál es la observación?",
     "opciones": [
       {
-        "txt": "Son la misma medida en distinta escala: el Gini es dos veces el área menos uno",
+        "txt": "La LGD pesa igual que la PD en el producto: un error en ella se traslada íntegro a la provisión",
         "ok": true
       },
       {
-        "txt": "El Gini está mal calculado"
+        "txt": "No hay observación: la PD es el parámetro determinante"
       },
       {
-        "txt": "Falta reportar la exactitud global"
+        "txt": "La LGD no requiere metodología por norma"
       },
       {
-        "txt": "Son evidencias independientes y correctas"
+        "txt": "El efecto se compensa con la EAD"
       }
     ],
-    "retro": "0,84 × 2 − 1 = 0,68. Presentarlas como confirmaciones separadas sobreestima el respaldo del modelo."
+    "retro": "La pérdida esperada es un producto. Un 20 % de error en LGD produce 20 % de error en la provisión, por bueno que sea el modelo de PD."
   },
   {
-    "id": "e3",
+    "id": "g3",
     "puntaje": 10,
-    "texto": "Un modelo de comportamiento reporta KS de 28 %. ¿Cómo se evalúa?",
+    "texto": "Una operación pasa de etapa 1 a etapa 2. ¿Qué cambia en el cálculo?",
     "opciones": [
       {
-        "txt": "Bajo para un modelo de comportamiento, donde se esperan valores entre 35 % y 50 %",
+        "txt": "El horizonte de estimación pasa de doce meses a toda la vida del instrumento",
         "ok": true
       },
       {
-        "txt": "Adecuado, porque supera el 25 %"
+        "txt": "Se deja de reconocer interés"
       },
       {
-        "txt": "Excelente para cualquier tipo de modelo"
+        "txt": "La LGD se fija en 100 %"
       },
       {
-        "txt": "No evaluable sin conocer el área bajo la curva"
+        "txt": "La operación se castiga"
       }
     ],
-    "retro": "El umbral depende del tipo de modelo. Un KS de 28 % sería normal en admisión y es insuficiente en comportamiento, que dispone de historial interno."
+    "retro": "El cambio de etapa cambia el horizonte, y por eso multiplica la provisión de la operación."
   },
   {
-    "id": "e4",
+    "id": "g4",
     "puntaje": 10,
-    "texto": "En una cartera con 3 % de incumplimiento, un modelo reporta 97 % de exactitud. ¿Qué conclusión corresponde?",
+    "texto": "El criterio de aumento significativo del riesgo está definido cualitativamente y depende de un umbral ajustable. ¿Cuál es el riesgo?",
     "opciones": [
       {
-        "txt": "La exactitud no es informativa con clases desbalanceadas: aprobar todo produce el mismo resultado",
+        "txt": "Se puede mover la provisión ajustando el umbral, sin que aparezca como cambio de política contable",
         "ok": true
       },
       {
-        "txt": "El modelo tiene desempeño sobresaliente"
+        "txt": "Se incumple la definición de cartera vencida"
       },
       {
-        "txt": "El punto de corte está bien calibrado"
+        "txt": "Se afecta la clasificación del activo en el balance"
       },
       {
-        "txt": "Corresponde aumentar el punto de corte"
+        "txt": "Ninguno, mientras el umbral esté dentro de rangos de mercado"
       }
     ],
-    "retro": "Un modelo que nunca rechaza acierta el 97 % de las veces y no aporta valor. Con clases desbalanceadas hay que mirar la matriz de confusión completa."
+    "retro": "El traspaso entre etapas es una de las definiciones con mayor efecto sobre la cifra. Debe ser cuantitativo y aprobado formalmente."
   },
   {
-    "id": "e5",
+    "id": "g5",
     "puntaje": 10,
-    "texto": "¿Por qué el punto de corte económicamente óptimo suele estar muy por debajo del 50 %?",
+    "texto": "¿Qué significa incorporar información prospectiva en la estimación?",
     "opciones": [
       {
-        "txt": "Porque la pérdida de una operación incumplida es varias veces el margen de una operación sana",
+        "txt": "Proyectar los parámetros considerando condiciones macroeconómicas futuras esperadas, no solo la historia observada",
         "ok": true
       },
       {
-        "txt": "Porque la mayoría de los clientes son malos"
+        "txt": "Estimar la provisión del ejercicio siguiente"
       },
       {
-        "txt": "Porque el modelo subestima sistemáticamente"
+        "txt": "Usar solo el último año de datos"
       },
       {
-        "txt": "Porque lo exige la normativa"
+        "txt": "Proyectar el crecimiento de la cartera"
       }
     ],
-    "retro": "Los dos errores tienen costos asimétricos. El corte se fija donde el costo esperado total es mínimo, no en el punto medio de la probabilidad."
+    "retro": "La estimación no puede apoyarse únicamente en lo observado. Se proyecta según escenarios y se pondera por probabilidad de ocurrencia."
   },
   {
-    "id": "e6",
+    "id": "g6",
     "puntaje": 10,
-    "texto": "En un modelo de estimación de renta, ¿qué indica una nube desplazada por encima de la diagonal en los tramos bajos?",
+    "texto": "La ponderación de escenarios cambió respecto del cierre anterior sin que cambiaran las proyecciones macroeconómicas. ¿Qué corresponde?",
     "opciones": [
       {
-        "txt": "El modelo sobreestima sistemáticamente la renta de los clientes de menor ingreso",
+        "txt": "Requerir el fundamento documentado y la aprobación del cambio",
         "ok": true
       },
       {
-        "txt": "El modelo tiene buena precisión en ese tramo"
+        "txt": "Aceptarlo: la ponderación es una decisión discrecional"
       },
       {
-        "txt": "Hay pocos datos en ese tramo"
+        "txt": "Recalcular la provisión con la ponderación anterior y reportar la diferencia como error"
       },
       {
-        "txt": "El modelo está bien calibrado"
+        "txt": "Reportarlo solo si el efecto supera la materialidad"
       }
     ],
-    "retro": "Es sesgo, no dispersión. Si esa renta alimenta la capacidad de pago, produce aprobaciones a clientes con capacidad real menor."
+    "retro": "La ponderación tiene efecto directo sobre la provisión y es uno de los puntos de mayor subjetividad. Todo cambio requiere fundamento."
   },
   {
-    "id": "e7",
+    "id": "g7",
     "puntaje": 10,
-    "texto": "El equipo entrega solo el gráfico de contorno de la muestra de entrenamiento. ¿Cuál es la observación?",
+    "texto": "¿En qué punto de la cadena se pierde con más frecuencia la trazabilidad?",
     "opciones": [
       {
-        "txt": "El desempeño no está acreditado: falta el contorno de la muestra de prueba para descartar sobreajuste",
+        "txt": "Entre la salida del motor de cálculo y el asiento contable, donde se aplican ajustes manuales",
         "ok": true
       },
       {
-        "txt": "Es suficiente si el gráfico muestra buen ajuste"
+        "txt": "En la extracción de datos de los sistemas de origen"
       },
       {
-        "txt": "Corresponde solicitar la curva ROC en su lugar"
+        "txt": "En la aplicación de la fórmula de pérdida esperada"
       },
       {
-        "txt": "No aplica porque el modelo no es binario"
+        "txt": "En la revelación en notas"
       }
     ],
-    "retro": "El ajuste sobre la propia muestra de entrenamiento siempre se ve mejor. La comparación entre ambas muestras es la evidencia."
+    "retro": "Los ajustes de la administración pueden estar justificados, pero deben estar cuantificados, fundamentados y conciliados con el mayor."
   },
   {
-    "id": "e8",
+    "id": "g8",
     "puntaje": 10,
-    "texto": "¿Cuál es la diferencia entre discriminación y calibración?",
+    "texto": "Existe una diferencia inmaterial y sin explicación entre el motor de cálculo y el mayor contable. ¿Cómo se trata?",
     "opciones": [
       {
-        "txt": "Discriminar es ordenar correctamente; calibrar es que el nivel estimado coincida con la frecuencia observada",
+        "txt": "Es un hallazgo: revela que el control de conciliación no está operando",
         "ok": true
       },
       {
-        "txt": "Son sinónimos medidos con estadísticos distintos"
+        "txt": "No se reporta por ser inmaterial"
       },
       {
-        "txt": "La calibración solo aplica a modelos de comportamiento"
+        "txt": "Se ajusta contra resultados del ejercicio"
       },
       {
-        "txt": "La discriminación se mide sobre datos fuera de tiempo"
+        "txt": "Se documenta como diferencia de redondeo"
       }
     ],
-    "retro": "Un modelo puede discriminar impecablemente y estimar mal el nivel. Para la provisión, lo determinante es la calibración."
+    "retro": "La materialidad del monto no determina la conclusión sobre el control. Una diferencia sin explicación indica que la conciliación no se está ejecutando."
   },
   {
-    "id": "e9",
+    "id": "g9",
     "puntaje": 10,
-    "texto": "El modelo estima 2,1 % de PD en un tramo donde se observó 3,4 % de incumplimiento. ¿Cuál es el efecto contable?",
+    "texto": "¿Cuál de los tres parámetros suele carecer de metodología formal?",
     "opciones": [
       {
-        "txt": "La provisión de ese tramo está subestimada, aunque la discriminación sea buena",
+        "txt": "La LGD",
         "ok": true
       },
       {
-        "txt": "Ninguno: la diferencia está dentro de lo esperable"
+        "txt": "La PD"
       },
       {
-        "txt": "Se compensa con los tramos donde sobreestima"
+        "txt": "La EAD"
       },
       {
-        "txt": "Afecta al punto de corte, no a la provisión"
+        "txt": "Ninguno: los tres se documentan por igual"
       }
     ],
-    "retro": "La PD entra directamente en el cálculo de la pérdida esperada. Un desvío sistemático hacia abajo produce subprovisión."
+    "retro": "La PD concentra la atención por sus métricas. La LGD suele ser un promedio histórico sin revisión, y pesa igual en la fórmula."
   },
   {
-    "id": "e10",
+    "id": "g10",
     "puntaje": 10,
-    "texto": "Un modelo de admisión reporta área bajo la curva de 0,97. ¿Cuál es la primera acción?",
+    "texto": "¿Qué evidencia sustenta mejor la suficiencia de la provisión de un segmento?",
     "opciones": [
       {
-        "txt": "Verificar si alguna variable contiene información posterior a la decisión de crédito",
+        "txt": "La comparación entre PD estimada e incumplimiento efectivamente observado en una ventana cerrada",
         "ok": true
       },
       {
-        "txt": "Aprobar el modelo por su desempeño sobresaliente"
+        "txt": "El área bajo la curva del modelo de PD"
       },
       {
-        "txt": "Reducir el punto de corte"
+        "txt": "El acta del comité que aprobó la metodología"
       },
       {
-        "txt": "Solicitar el índice de Gini para confirmar"
+        "txt": "El PSI del puntaje del período"
       }
     ],
-    "retro": "Un desempeño así en admisión es infrecuente. La causa habitual es fuga de información, no calidad excepcional del modelo."
+    "retro": "La suficiencia depende del nivel, no del orden. Solo la comparación entre estimado y observado prueba que la provisión está bien dimensionada."
   }
 ];
-ACModulo.iniciar("M05", BANCO);
+ACModulo.iniciar("M07", BANCO);
 </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Estabilidad y validación fuera de tiempo · AuditCaat's</title>
+<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -286,6 +286,90 @@ a:hover { color: var(--ac-marca-alto); }
 }
 .ac-cita cite { display: block; font-style: normal; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); margin-top: var(--e-2); }
 
+/* ---------- Simuladores ---------------------------------------------- */
+.ac-widget {
+  margin: 0 0 var(--e-5);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  background: var(--ac-cedula);
+  overflow: hidden;
+}
+.ac-w-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-2) var(--e-4);
+  background: var(--ac-tinta); color: #fff;
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+}
+.ac-w-encab span { color: #7FD1B9; letter-spacing: .12em; text-transform: uppercase; }
+.ac-w-encab em { color: rgba(255,255,255,.72); font-style: normal; }
+.ac-w-cuerpo { padding: var(--e-4); }
+
+.ac-w-controles {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--e-3) var(--e-5); margin-bottom: var(--e-4);
+}
+.ac-w-ctrl label {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: var(--t-sm); font-weight: 600; margin-bottom: 2px;
+}
+.ac-w-ctrl label b { font-family: var(--ac-dato); font-weight: 500; color: var(--ac-marca); }
+.ac-w-ctrl input[type=range] { width: 100%; accent-color: var(--ac-marca); margin: 0; }
+.ac-w-check {
+  display: flex; align-items: center; gap: var(--e-2);
+  font-size: var(--t-sm); font-weight: 600; align-self: end; padding-bottom: 2px;
+}
+.ac-w-check input { accent-color: var(--ac-marca); }
+
+.ac-w-lienzo { background: var(--ac-papel); border-radius: var(--radio); padding: var(--e-2); }
+.ac-w-lienzo svg { width: 100%; height: auto; display: block; }
+
+.ac-w-lectura {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: var(--ac-rayado); margin-top: var(--e-4);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio); overflow: hidden;
+}
+.ac-w-lectura > div { background: var(--ac-cedula); padding: var(--e-3) var(--e-4); }
+.ac-w-lectura > div.alerta { background: var(--ac-alerta-bg); }
+.ac-w-lectura dt {
+  font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .07em;
+  color: var(--ac-tinta-3);
+}
+.ac-w-lectura dd {
+  margin: 2px 0 0; font-family: var(--ac-dato); font-size: var(--t-lg); font-weight: 500;
+}
+.ac-w-lectura > div.alerta dd { color: var(--ac-alerta); }
+
+.ac-w-pie {
+  padding: var(--e-3) var(--e-4);
+  border-top: 1px dashed var(--ac-rayado-2); background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+
+/* Piezas de los graficos */
+.w-eje { stroke: var(--ac-rayado-2); stroke-width: 1; }
+.w-txt { font-family: var(--ac-dato); font-size: 11px; fill: var(--ac-tinta-3); }
+.w-barra-on  { fill: var(--ac-marca); }
+.w-barra-off { fill: var(--ac-rayado); }
+.w-barra-neg { fill: var(--ac-tinta-2); }
+.w-barra-mal { fill: var(--ac-tick); }
+.w-barra-ref { fill: var(--ac-rayado-2); }
+.w-barra-tot { fill: var(--ac-tinta); }
+.w-hist-b { fill: var(--ac-marca); opacity: .55; }
+.w-hist-m { fill: var(--ac-tick); opacity: .70; }
+.w-corte  { stroke: var(--ac-tick); stroke-width: 2; }
+.w-corte-t { fill: var(--ac-tick); }
+.w-optimo { stroke: var(--ac-marca); stroke-width: 2; stroke-dasharray: 4 3; }
+.w-optimo-t { fill: var(--ac-marca); }
+.w-linea-a { fill: none; stroke: var(--ac-tick); stroke-width: 2.5; }
+.w-linea-b { fill: none; stroke: var(--ac-marca); stroke-width: 2.5; }
+.w-pto-a { fill: var(--ac-tick); }
+.w-pto-b { fill: var(--ac-marca); }
+.w-t-a { fill: var(--ac-tick); }
+.w-t-b { fill: var(--ac-marca); }
+.w-t-ref { fill: var(--ac-tinta-3); }
+.w-c0 { fill: #12594F; } .w-c1 { fill: #B0182D; } .w-c2 { fill: #8A5B00; }
+.w-c3 { fill: #2B5F8A; } .w-c4 { fill: #6B3FA0; } .w-c5 { fill: #47586B; }
+
 /* Bloque de codigo del laboratorio */
 .ac-codigo {
   margin: 0 0 var(--e-4);
@@ -410,10 +494,10 @@ a:hover { color: var(--ac-marca-alto); }
   <div class="ac-envoltura ac-cabecera-fila">
     <div class="ac-logo" id="logo"><span>AC</span></div>
     <div class="ac-cabecera-txt">
-      <strong id="cab-titulo">Estabilidad y validación fuera de tiempo</strong>
+      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
       <small id="cab-ref">Referencia</small>
     </div>
-    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+    <div class="ac-cabecera-fin"><a href="index.html" style="color:#fff">Volver al índice</a></div>
   </div>
 </header>
 
@@ -425,147 +509,134 @@ a:hover { color: var(--ac-marca-alto); }
   </div>
 
   <div class="ac-nota" style="margin-bottom:var(--e-6)">
-    <strong>Qué se lleva de este módulo</strong>Detectar el deterioro de un modelo que sigue operando. Es el módulo que sostiene el encargo recurrente: un modelo aprobado hace tres años puede estar produciendo hoy una provisión que ya no corresponde.
+    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
   </div>
 
-  <section class="ac-cedula" data-cedula="F-1">
+  <section class="ac-cedula" data-cedula="H-1">
     <div class="ac-cedula-encab">
-      <span class="ref">F-1</span>
-      <h3>Tres formas de validar y para qué sirve cada una</h3>
+      <span class="ref">H-1</span>
+      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Un modelo se evalúa sobre distintas muestras, y cada una responde una pregunta diferente. Confundirlas es la causa de que un modelo aprobado se deteriore sin que nadie lo advierta.</p>
-      <table class="ac-tabla"><thead><tr><th>Muestra</th><th>Qué responde</th><th>Qué no detecta</th></tr></thead><tbody><tr><td>Desarrollo</td><td>Si el modelo aprendió</td><td>Nada sobre generalización</td></tr><tr><td>Validación</td><td>Si generaliza a otros clientes del mismo período</td><td>Cambios en el tiempo</td></tr><tr><td>Fuera de tiempo</td><td>Si sigue vigente en un período posterior</td><td>—</td></tr></tbody></table>
-      <blockquote class="ac-cita">Hay diferentes formas de hacer este corte de datos: algunos ocupan tres, entrenamiento, prueba y validación, y lo hacen 60, 20 y 20; en este caso vamos a ocupar 80 y 20.<cite>Clase 3, aprox. 01:50:24</cite></blockquote>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>La partición se hace al azar sobre todo el histórico. Clientes del mismo período quedan en ambas muestras y la validación no prueba nada sobre el paso del tiempo. Es el error más común y el más fácil de detectar.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar las fechas mínima y máxima de cada muestra. Si los rangos se solapan por completo, no existe validación fuera de tiempo, sin importar cómo se llame el apartado del informe.</div>
+      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
+      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
+      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
+      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-1">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-1"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-1"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="F-2">
+  <section class="ac-cedula" data-cedula="H-2">
     <div class="ac-cedula-encab">
-      <span class="ref">F-2</span>
-      <h3>PSI: cómo se calcula y qué significa</h3>
+      <span class="ref">H-2</span>
+      <h3>Frecuencia, severidad y valor en riesgo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El índice de estabilidad poblacional compara la distribución de una variable o del puntaje entre el período en que se construyó el modelo y el período actual. No mide desempeño: mide si la población sigue siendo la misma.</p>
-      <p>Se calcula por tramo. Para cada uno se toma la diferencia entre el porcentaje actual y el de referencia, se multiplica por el logaritmo de su razón, y se suman los tramos.</p>
-      <table class="ac-tabla"><thead><tr><th>Tramo de puntaje</th><th>% referencia</th><th>% actual</th><th>Aporte al PSI</th></tr></thead><tbody><tr><td>Bajo 400</td><td class="num">8,0 %</td><td class="num">14,0 %</td><td class="num">0,0336</td></tr><tr><td>400 a 500</td><td class="num">17,0 %</td><td class="num">21,0 %</td><td class="num">0,0085</td></tr><tr><td>500 a 600</td><td class="num">31,0 %</td><td class="num">29,0 %</td><td class="num">0,0013</td></tr><tr><td>600 a 700</td><td class="num">28,0 %</td><td class="num">24,0 %</td><td class="num">0,0062</td></tr><tr><td>Sobre 700</td><td class="num">16,0 %</td><td class="num">12,0 %</td><td class="num">0,0115</td></tr><tr><td>Total</td><td class="num">100 %</td><td class="num">100 %</td><td class="num">0,0611</td></tr></tbody></table>
-      <div class="ac-umbral"><strong>Interpretación del PSI</strong>Bajo 0,10 la población es estable. Entre 0,10 y 0,25 hay desplazamiento moderado que exige análisis. Sobre 0,25 el desplazamiento es relevante y el modelo debe revisarse formalmente.</div>
-      <div class="ac-nota"><strong>Qué mirar además del total</strong>El PSI total puede ser bajo mientras dos tramos se compensan entre sí. Revisar siempre el aporte por tramo, no solo la suma.</div>
+      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
+      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
+      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+      <div data-widget="perdidas"></div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-2">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-2"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-2"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="F-3">
+  <section class="ac-cedula" data-cedula="H-3">
     <div class="ac-cedula-encab">
-      <span class="ref">F-3</span>
-      <h3>PSI de la población y de las variables</h3>
+      <span class="ref">H-3</span>
+      <h3>Stress test: qué es y qué no es</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>El PSI se aplica sobre el puntaje final y también sobre cada variable de entrada. Cuando se calcula sobre las variables suele llamarse índice de estabilidad de características. La combinación de ambos identifica el origen del problema.</p>
-      <table class="ac-tabla"><thead><tr><th>PSI del puntaje</th><th>PSI de variables</th><th>Diagnóstico</th></tr></thead><tbody><tr><td>Bajo</td><td>Bajo</td><td>Población estable</td></tr><tr><td>Bajo</td><td>Alto en algunas</td><td>Cambios que se compensan; revisar igualmente</td></tr><tr><td>Alto</td><td>Alto en pocas</td><td>Origen identificado en esas variables</td></tr><tr><td>Alto</td><td>Bajo en todas</td><td>Revisar integridad del cálculo o cambio de política</td></tr></tbody></table>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se monitorea solo el puntaje. Una variable cambia de definición en el sistema de origen, el resto compensa y el puntaje se ve estable mientras el modelo ya opera sobre datos distintos de los que se construyó.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el PSI por variable del último ciclo de monitoreo. Si no existe, la institución no está en condiciones de identificar la causa de un deterioro cuando ocurra.</div>
+      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
+      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
+      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-3">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-3"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-3"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="F-4">
+  <section class="ac-cedula" data-cedula="H-4">
     <div class="ac-cedula-encab">
-      <span class="ref">F-4</span>
-      <h3>Ventanas contaminadas: el caso de la pandemia</h3>
+      <span class="ref">H-4</span>
+      <h3>Castigo, recupero y presupuesto de riesgo</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>La estabilidad supone que el período de referencia es representativo. Cuando la ventana de observación o de desempeño abarca un episodio excepcional, esa suposición no se cumple y todas las métricas construidas sobre ella quedan condicionadas.</p>
-      <p>Durante los años de pandemia coexistieron ayudas estatales, reprogramaciones masivas y suspensión de cobranza. El resultado fue morosidad artificialmente baja. Un modelo construido con esa ventana aprende un comportamiento de pago que no se repite en condiciones normales.</p>
-      <div class="ac-riesgo"><strong>Cómo se manifiesta</strong>El modelo subestima la probabilidad de incumplimiento de manera sistemática. La discriminación puede seguir siendo buena, porque el orden entre clientes se mantiene, mientras el nivel de la provisión queda por debajo del riesgo real.</div>
-      <div class="ac-umbral"><strong>Preguntas obligatorias sobre la ventana</strong>Qué período cubre la ventana de observación, qué período la de desempeño, si alguno abarca episodios excepcionales, y qué tratamiento se dio a las operaciones reprogramadas durante esos meses.</div>
-      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar la tasa de incumplimiento del período de construcción contra la de los períodos anterior y posterior. Una diferencia relevante sin explicación documentada es un hallazgo con efecto directo sobre la suficiencia de la provisión.</div>
+      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
+      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
+      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-4">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-4"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-4"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="F-5">
+  <section class="ac-cedula" data-cedula="H-5">
     <div class="ac-cedula-encab">
-      <span class="ref">F-5</span>
-      <h3>Monitoreo: la política que casi nunca existe</h3>
+      <span class="ref">H-5</span>
+      <h3>El memorando de validación independiente</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Un modelo no se valida una vez. La institución debe tener definido con qué frecuencia se mide, qué umbrales disparan una acción y quién decide. Sin eso, el monitoreo se convierte en un informe que nadie usa.</p>
-      <table class="ac-tabla"><thead><tr><th>Indicador</th><th>Frecuencia mínima</th><th>Umbral de acción</th></tr></thead><tbody><tr><td>PSI del puntaje</td><td>Mensual</td><td>Sobre 0,25</td></tr><tr><td>PSI por variable</td><td>Trimestral</td><td>Sobre 0,25 en cualquier variable</td></tr><tr><td>Área bajo la curva fuera de tiempo</td><td>Semestral</td><td>Caída sobre 5 puntos</td></tr><tr><td>PD estimada contra observada</td><td>Anual</td><td>Desvío sistemático por tramo</td></tr><tr><td>Tasa de aprobación</td><td>Mensual</td><td>Variación sin cambio de política</td></tr></tbody></table>
-      <div class="ac-riesgo"><strong>Qué sale mal</strong>El monitoreo existe, arroja PSI sobre 0,25 durante cuatro trimestres seguidos y no hay evidencia de acción. La deficiencia no es de medición sino de gobierno: la institución sabía y no actuó.</div>
-      <div class="ac-nota"><strong>Entregable de este módulo</strong>La plantilla de monitoreo con los cinco indicadores, sus umbrales y el responsable de cada uno. Es directamente reutilizable en encargos y es lo primero que se solicita al revisar el gobierno de modelos.</div>
+      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
+      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
+      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
+      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-5">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-5"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-5"></span>
     </div>
   </section>
 
-  <section class="ac-cedula" data-cedula="F-6">
+  <section class="ac-cedula" data-cedula="H-6">
     <div class="ac-cedula-encab">
-      <span class="ref">F-6</span>
-      <h3>Laboratorio: función de PSI reutilizable</h3>
+      <span class="ref">H-6</span>
+      <h3>Laboratorio: distribución de pérdidas y capital</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Esta función es el entregable del módulo. Sirve tanto para el puntaje como para cualquier variable de entrada, y devuelve el detalle por tramo, que es lo que el total puede ocultar.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>PSI con detalle por tramo</em></div><pre><code>import numpy as np
-import pandas as pd
+      <p>El simulador mostró cómo la correlación engorda la cola. Acá se construye la distribución completa y se separan los dos números: el que se provisiona y el que se cubre con capital.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Un solo escenario</em></div><pre><code>import numpy as np
 
-def psi(referencia, actual, tramos=10):
-    """Índice de estabilidad poblacional entre dos períodos.
+rng = np.random.default_rng(20260722)
 
-    Los cortes se fijan con los percentiles del período de referencia:
-    es la distribución de construcción la que define la grilla.
-    """
-    cortes = np.percentile(referencia, np.linspace(0, 100, tramos + 1))
-    cortes[0], cortes[-1] = -np.inf, np.inf
+pd_ = c["pd_aplicable"].to_numpy()
+lgd = c["lgd"].to_numpy()
+ead = c["ead"].to_numpy()
 
-    r = np.histogram(referencia, cortes)[0] / len(referencia)
-    a = np.histogram(actual, cortes)[0] / len(actual)
-    r, a = np.clip(r, 1e-6, None), np.clip(a, 1e-6, None)
+incumple = rng.random(len(pd_)) &lt; pd_
+print(f"Pérdida del escenario: {(ead[incumple] * lgd[incumple]).sum():,.0f}")</code></pre></div>
+      <p>rng.random sortea un número entre 0 y 1 por cada operación. Si sale menor que su probabilidad de incumplir, esa operación incumple en este escenario. Ejecuta la celda varias veces: el resultado cambia. Ese es justamente el punto.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 2. Repetirlo muchas veces</em></div><pre><code>SIMULACIONES = 20_000
+perdidas = np.empty(SIMULACIONES)
 
-    detalle = pd.DataFrame({"referencia": r, "actual": a,
-                            "aporte": (a - r) * np.log(a / r)})
-    return detalle, float(detalle.aporte.sum())
+for i in range(SIMULACIONES):
+    incumple = rng.random(len(pd_)) &lt; pd_
+    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
 
-
-detalle, valor = psi(score_construccion, score_actual)
-print(detalle.round(4))
-print(f"PSI = {valor:.4f}  -&gt;",
-      "estable" if valor &lt; 0.10 else
-      "desplazamiento moderado" if valor &lt; 0.25 else
-      "REVISAR EL MODELO")</code></pre></div>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Monitoreo por variable y tramos que se compensan</em></div><pre><code># Tramos que aportan mucho aunque el total sea bajo
-relevantes = detalle[detalle.aporte &gt; 0.02]
-if len(relevantes) and valor &lt; 0.10:
-    print("PSI total bajo pero con movimientos que se compensan:")
-    print(relevantes.round(4))
-
-# La cédula F-3 exige PSI también por variable de entrada
-for v in variables_modelo:
-    _, psi_v = psi(desarrollo[v], actual[v])
-    marca = "  &lt;-- REVISAR" if psi_v &gt; 0.25 else ""
-    print(f"{v:&lt;24} PSI {psi_v:.4f}{marca}")</code></pre></div>
-      <div class="ac-nota"><strong>Uso en encargos</strong>Guarda esta función como parte del papel de trabajo. Aplicada sobre la extracción del cliente, produce en minutos la evidencia que sostiene la observación sobre monitoreo de modelos.</div>
+print(f"Pérdida esperada   {perdidas.mean():&gt;14,.0f}   -&gt; provisión")
+print(f"VaR al 99 %        {np.percentile(perdidas, 99):&gt;14,.0f}")</code></pre></div>
+      <p>El bucle repite el escenario veinte mil veces y guarda cada resultado. El promedio de todos es la pérdida esperada. El percentil 99 deja fuera solo el 1 % peor: ese es el valor en riesgo. La diferencia entre ambos es lo que se cubre con capital.</p>
+      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El código sortea cada operación por separado, como si los incumplimientos fueran independientes. En una crisis ocurren juntos. Esa correlación es lo que engorda la cola, y un modelo que la ignora subestima el capital sin que ningún dato observado lo delate.</div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. El escenario de tensión</em></div><pre><code>pd_estres = np.clip(pd_ * 2.4, 0, 1)
+print(f"Pérdida esperada bajo tensión: {(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
+      <div class="ac-nota"><strong>Cierre del programa</strong>El factor de 2,4 no es un número universal: sale de comparar la tasa de incumplimiento de la peor crisis observada contra la del período normal. Ese cálculo, hecho con los datos de la entidad, es el que sostiene si la prueba de tensión tensiona de verdad.</div>
     </div>
     <div class="ac-cedula-pie">
-      <button class="ac-btn ac-btn-secundario" data-marcar="F-6">Marcar cédula revisada</button>
-      <span class="ac-marca-aud" data-marca-de="F-6"></span>
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-6"></span>
     </div>
   </section>
 
@@ -583,7 +654,7 @@ for v in variables_modelo:
       </div>
       <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
         <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
-        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="index.html">Volver al índice</a>
       </div>
     </div>
   </section>
@@ -607,17 +678,25 @@ const AC_PROGRAMA = {
   titulo: "Validación de modelos de riesgo de crédito para auditores y contadores",
   emisor: "AuditCaat's Data Assurance",
   anio: 2026,
-  horasTotales: 21,
+  horasTotales: 23,
   entorno: "Python 3.11 · pandas · numpy · scikit-learn",
   aprobacionMinima: 0.70,   // 70% del puntaje del modulo
   modulos: [
+    {
+      id: "M00", ref: "0", marca: "✓", horas: 2.0, clase: "Material del programa",
+      titulo: "Python para quien nunca ha programado",
+      resumen: "Desde la primera línea. Colab sin instalar nada, variables, tablas, filtrar y agrupar. Si usas Excel, ya sabes más de lo que crees.",
+      entregable: "Cuaderno con los controles de integridad",
+      estadoPublicacion: "publicado",
+      url: "m00.html"
+    },
     {
       id: "M01", ref: "A", marca: "✓", horas: 2.5, clase: "Clase 1",
       titulo: "Por qué un contador audita modelos",
       resumen: "Ciclo del crédito, ventanas de observación y desempeño, tipos de modelo y qué significa que un modelo esté mal.",
       entregable: "Programa de entendimiento del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m01.html",
+      url: "m01.html",
       congelado: true   // hay certificados emitidos: quien ya lo aprobó puede convalidarlo
     },
     {
@@ -626,7 +705,7 @@ const AC_PROGRAMA = {
       resumen: "WOE, information value, binning, regresión logística, construcción del scorecard, sobreajuste y regularización.",
       entregable: "Cédula de revisión de variables y binning",
       estadoPublicacion: "publicado",
-      url: "modulos/m02.html"
+      url: "m02.html"
     },
     {
       id: "M03", ref: "C", marca: "○", horas: 2.5, clase: "Clases 2 y 5",
@@ -634,7 +713,7 @@ const AC_PROGRAMA = {
       resumen: "Árboles, bagging, boosting. Cuándo un modelo más complejo se justifica y cuándo es un riesgo de auditoría.",
       entregable: "Matriz comparativa de modelos candidatos",
       estadoPublicacion: "publicado",
-      url: "modulos/m03.html"
+      url: "m03.html"
     },
     {
       id: "M04", ref: "D", marca: "×", horas: 2.5, clase: "Clase 4",
@@ -642,7 +721,7 @@ const AC_PROGRAMA = {
       resumen: "Cluster y k-means, criterios de corte, cómo una segmentación mal construida contamina la provisión.",
       entregable: "Matriz de riesgos de segmentación",
       estadoPublicacion: "publicado",
-      url: "modulos/m04.html"
+      url: "m04.html"
     },
     {
       id: "M05", ref: "E", marca: "≡", horas: 3.0, clase: "Clases 3 y 5",
@@ -650,7 +729,7 @@ const AC_PROGRAMA = {
       resumen: "ROC, Gini, KS, divergencia, matriz de confusión y punto de corte. Lectura de gráficos de contorno y tablas de percentiles.",
       entregable: "Cédula de desempeño del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m05.html"
+      url: "m05.html"
     },
     {
       id: "M06", ref: "F", marca: "≠", horas: 2.5, clase: "Clase 3",
@@ -658,7 +737,7 @@ const AC_PROGRAMA = {
       resumen: "PSI, CSI, deterioro fuera de muestra y fuera de tiempo. El módulo con mayor uso en encargos reales.",
       entregable: "Plantilla de monitoreo con PSI",
       estadoPublicacion: "publicado",
-      url: "modulos/m06.html"
+      url: "m06.html"
     },
     {
       id: "M07", ref: "G", marca: "∫", horas: 2.5, clase: "Clases 6 y 7",
@@ -666,7 +745,7 @@ const AC_PROGRAMA = {
       resumen: "Stages, PD, LGD y EAD. Del parámetro estadístico al asiento contable y a la revelación.",
       entregable: "Hoja de recálculo de provisión",
       estadoPublicacion: "publicado",
-      url: "modulos/m07.html"
+      url: "m07.html"
     },
     {
       id: "M08", ref: "H", marca: "§", horas: 2.5, clase: "Clase 8",
@@ -674,7 +753,7 @@ const AC_PROGRAMA = {
       resumen: "Capital económico, pruebas de tensión y cierre del programa con el memorando de validación independiente.",
       entregable: "Memorando de validación independiente",
       estadoPublicacion: "publicado",
-      url: "modulos/m08.html"
+      url: "m08.html"
     }
   ]
 };
@@ -1239,9 +1318,9 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
   // Rutas de navegacion. El empaquetador de archivo unico las reemplaza
   // por rutas de hash para que el mismo runtime sirva en ambos formatos.
   const Rutas = {
-    cert: id => "../certificado.html?modulo=" + id,
+    cert: id => "certificado.html?modulo=" + id,
     diploma: () => "certificado.html?tipo=programa",
-    indice: () => "../index.html",
+    indice: () => "index.html",
     equipo: () => "seguimiento.html"
   };
 
@@ -1253,6 +1332,593 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
     moduloPorId: id => AC_PROGRAMA.modulos.find(m => m.id === id)
   };
 
+})(window);
+
+</script>
+<script>
+/* ===================================================================
+   AuditCaat's — Simuladores del programa  (ac_widgets.js)
+
+   Cada simulador se declara en el contenido como ("widget", "id") y
+   se monta sobre <div data-widget="id">. Todo se calcula en el
+   navegador con SVG: sin librerias, sin red, sin imagenes.
+
+   Los datos son sinteticos y deterministas: todos los participantes
+   ven exactamente los mismos numeros.
+   =================================================================== */
+
+(function (global) {
+  "use strict";
+
+  /* ---------- Utilidades ------------------------------------------ */
+
+  // Generador con semilla: misma semilla, misma serie, en todo navegador.
+  function azar(semilla) {
+    let a = semilla >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) >>> 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function normal(r) {                       // Box-Muller
+    return Math.sqrt(-2 * Math.log(1 - r())) * Math.cos(2 * Math.PI * r());
+  }
+  const fmt = (n, d) => n.toLocaleString("es-CL", {
+    minimumFractionDigits: d === undefined ? 0 : d,
+    maximumFractionDigits: d === undefined ? 0 : d });
+  const pct = (n, d) => fmt(n * 100, d === undefined ? 1 : d) + " %";
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  /* ---------- Andamiaje de la interfaz ----------------------------- */
+
+  function control(cfg) {
+    const id = "w" + Math.random().toString(36).slice(2, 8);
+    return `<div class="ac-w-ctrl">
+      <label for="${id}">${cfg.etiqueta}<b data-valor></b></label>
+      <input type="range" id="${id}" min="${cfg.min}" max="${cfg.max}"
+             step="${cfg.paso || 1}" value="${cfg.valor}" data-slider="${cfg.nombre}">
+    </div>`;
+  }
+
+  function interruptor(cfg) {
+    return `<label class="ac-w-check">
+      <input type="checkbox" data-check="${cfg.nombre}" ${cfg.valor ? "checked" : ""}>
+      <span>${cfg.etiqueta}</span></label>`;
+  }
+
+  function armar(nodo, cfg) {
+    nodo.innerHTML = `
+      <div class="ac-widget">
+        <div class="ac-w-encab">
+          <span>Simulador</span><em>${cfg.titulo}</em>
+        </div>
+        <div class="ac-w-cuerpo">
+          <div class="ac-w-controles">${cfg.controles}</div>
+          <div class="ac-w-lienzo" data-lienzo></div>
+          <div class="ac-w-lectura" data-lectura></div>
+        </div>
+        <div class="ac-w-pie">${cfg.pie}</div>
+      </div>`;
+
+    const estado = {};
+    const sliders = nodo.querySelectorAll("[data-slider]");
+    const checks = nodo.querySelectorAll("[data-check]");
+
+    function leer() {
+      sliders.forEach(s => { estado[s.dataset.slider] = parseFloat(s.value); });
+      checks.forEach(c => { estado[c.dataset.check] = c.checked; });
+      return estado;
+    }
+    function refrescar() {
+      leer();
+      sliders.forEach(s => {
+        const b = s.closest(".ac-w-ctrl").querySelector("[data-valor]");
+        if (b) b.textContent = cfg.etiquetaValor(s.dataset.slider, parseFloat(s.value));
+      });
+      cfg.dibujar(estado,
+        nodo.querySelector("[data-lienzo]"),
+        nodo.querySelector("[data-lectura]"));
+    }
+    sliders.forEach(s => s.addEventListener("input", refrescar));
+    checks.forEach(c => c.addEventListener("change", refrescar));
+    refrescar();
+  }
+
+  // Marco SVG con ejes
+  function svg(ancho, alto, contenido) {
+    return `<svg viewBox="0 0 ${ancho} ${alto}" preserveAspectRatio="xMidYMid meet"
+                 role="img" aria-hidden="true">${contenido}</svg>`;
+  }
+  const eje = (x1, y1, x2, y2) =>
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="w-eje"/>`;
+  const texto = (x, y, t, clase) =>
+    `<text x="${x}" y="${y}" class="w-txt ${clase || ""}">${t}</text>`;
+
+  function lectura(items) {
+    return items.map(i =>
+      `<div class="${i.alerta ? "alerta" : ""}"><dt>${i.k}</dt><dd>${i.v}</dd></div>`).join("");
+  }
+
+  /* =================================================================
+     M01 — El horizonte cambia la tasa de incumplimiento
+     ================================================================= */
+  const wVentana = {
+    titulo: "Ventana de desempeño",
+    montar(nodo) {
+      const r = azar(20260722);
+      // Momento del incumplimiento de cada operación, en meses
+      const meses = Array.from({ length: 4000 }, () => {
+        const u = r();
+        return u < 0.14 ? 1 + Math.floor(Math.abs(normal(r)) * 14) : 999;
+      });
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "h", etiqueta: "Horizonte observado", min: 3, max: 36, valor: 12 }),
+        etiquetaValor: (n, v) => v + " meses",
+        dibujar(e, lienzo, lect) {
+          const h = e.h;
+          const tasa = meses.filter(m => m <= h).length / meses.length;
+          const A = 620, B = 190;
+          let barras = "";
+          for (let m = 1; m <= 36; m++) {
+            const n = meses.filter(x => x === m).length;
+            const alto = (n / 90) * 130;
+            barras += `<rect x="${20 + (m - 1) * 16.4}" y="${160 - alto}" width="13"
+              height="${Math.max(alto, 0.5)}" class="${m <= h ? "w-barra-on" : "w-barra-off"}"/>`;
+          }
+          const xc = 20 + h * 16.4 - 1.5;
+          lienzo.innerHTML = svg(A, B,
+            barras +
+            `<line x1="${xc}" y1="14" x2="${xc}" y2="162" class="w-corte"/>` +
+            texto(xc + 5, 24, "corte", "w-corte-t") +
+            eje(18, 162, 606, 162) +
+            texto(20, 182, "mes 1") + texto(546, 182, "mes 36"));
+          lect.innerHTML = lectura([
+            { k: "Tasa de incumplimiento", v: pct(tasa, 2) },
+            { k: "Operaciones malas", v: fmt(meses.filter(m => m <= h).length) },
+            { k: "Aún sin madurar", v: fmt(meses.filter(m => m > h && m < 999).length),
+              alerta: h < 12 }
+          ]);
+        },
+        pie: "La misma cartera tiene tasas distintas según el horizonte. Un modelo a doce " +
+             "meses y otro a veinticuatro no son comparables aunque midan lo mismo. Si la " +
+             "ventana es corta, parte de los incumplimientos todavía no ocurrió."
+      });
+    }
+  };
+
+  /* =================================================================
+     M02 — Cuántos tramos: el IV sube y los tramos se vacían
+     ================================================================= */
+  const wBinning = {
+    titulo: "Tramos, WOE e information value",
+    montar(nodo) {
+      const r = azar(880123);
+      const datos = Array.from({ length: 6000 }, () => {
+        const x = clamp(30 + normal(r) * 18, 0, 96);          // antigüedad en meses
+        const p = 1 / (1 + Math.exp((x - 26) / 9));           // más antiguo, mejor
+        return { x: x, malo: r() < p * 0.30 ? 1 : 0 };
+      }).sort((a, b) => a.x - b.x);
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de tramos", min: 2, max: 20, valor: 5 }) +
+                   interruptor({ nombre: "opt", etiqueta: "Cortes automáticos por information value", valor: false }),
+        etiquetaValor: (n, v) => v + " tramos",
+        dibujar(e, lienzo, lect) {
+          const k = e.k, n = datos.length, porTramo = Math.floor(n / k);
+          // Dos formas de cortar: por cuantiles deja tramos parejos; el corte
+          // automatico busca maximizar el IV y produce tramos muy desiguales.
+          const min = datos[0].x, max = datos[n - 1].x;
+          const grupo = i => {
+            if (!e.opt) return datos.slice(i * porTramo, i === k - 1 ? n : (i + 1) * porTramo);
+            const a = min + (max - min) * (i / k), b = min + (max - min) * ((i + 1) / k);
+            return datos.filter(d => d.x >= a && (i === k - 1 ? d.x <= b : d.x < b));
+          };
+          const B = Math.max(1, datos.filter(d => !d.malo).length);
+          const M = Math.max(1, datos.filter(d => d.malo).length);
+          let iv = 0, chicos = 0, woes = [];
+          for (let i = 0; i < k; i++) {
+            const g = grupo(i);
+            if (!g.length) { woes.push({ w: 0, part: 0 }); chicos++; continue; }
+            const mal = g.filter(d => d.malo).length, bue = g.length - mal;
+            const pb = (bue + 0.5) / (B + 0.5 * k), pm = (mal + 0.5) / (M + 0.5 * k);
+            const w = Math.log(pb / pm);
+            iv += (pb - pm) * w;
+            woes.push({ w: w, part: g.length / n });
+            if (g.length / n < 0.05) chicos++;
+          }
+          const A = 620, H = 190, cero = 100, ancho = 580 / k;
+          let barras = woes.map((o, i) => {
+            const alto = clamp(o.w * 42, -84, 84);
+            return `<rect x="${22 + i * ancho + 2}" y="${alto > 0 ? cero - alto : cero}"
+              width="${Math.max(ancho - 4, 2)}" height="${Math.abs(alto) || 1}"
+              class="${o.part < 0.05 ? "w-barra-mal" : (o.w >= 0 ? "w-barra-on" : "w-barra-neg")}"/>`;
+          }).join("");
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(20, cero, 606, cero) +
+            texto(22, 22, "WOE positivo: concentra buenos") +
+            texto(22, 182, "WOE negativo: concentra malos"));
+          lect.innerHTML = lectura([
+            { k: "Information value", v: fmt(iv, 4), alerta: iv > 0.5 },
+            { k: "Tramos bajo el 5 %", v: chicos, alerta: chicos > 0 },
+            { k: "Lectura", v: iv < 0.02 ? "no aporta" : iv < 0.1 ? "débil"
+                 : iv < 0.3 ? "aceptable" : iv < 0.5 ? "fuerte" : "sospechoso" }
+          ]);
+        },
+        pie: "Con cortes por cuantiles los tramos quedan parejos. Activa los cortes " +
+             "automáticos y sube el número de tramos: el information value mejora y al mismo " +
+             "tiempo aparecen tramos en rojo, con menos del 5 % de la población. Ese es el " +
+             "costo oculto del binning automático, y es lo que hay que pedir que justifiquen."
+      });
+    }
+  };
+
+  /* =================================================================
+     M03 — Complejidad contra desempeño real
+     ================================================================= */
+  const wComplejidad = {
+    titulo: "Complejidad del modelo y sobreajuste",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "c", etiqueta: "Complejidad del modelo", min: 1, max: 20, valor: 4 }),
+        etiquetaValor: (n, v) => "nivel " + v,
+        dibujar(e, lienzo, lect) {
+          const des = c => 0.70 + 0.29 * (1 - Math.exp(-c / 4.2));
+          const val = c => 0.70 + 0.13 * (1 - Math.exp(-c / 3.0)) - 0.011 * Math.max(0, c - 6);
+          const A = 620, H = 200, x = c => 30 + (c - 1) * 29, y = a => 178 - (a - 0.68) * 470;
+          const linea = f => Array.from({ length: 20 }, (_, i) =>
+            `${i ? "L" : "M"}${x(i + 1)},${y(f(i + 1))}`).join(" ");
+          lienzo.innerHTML = svg(A, H,
+            eje(28, 178, 606, 178) + eje(28, 12, 28, 178) +
+            `<path d="${linea(des)}" class="w-linea-b"/>` +
+            `<path d="${linea(val)}" class="w-linea-a"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(des(e.c))}" r="5" class="w-pto-b"/>` +
+            `<circle cx="${x(e.c)}" cy="${y(val(e.c))}" r="5" class="w-pto-a"/>` +
+            `<line x1="${x(e.c)}" y1="12" x2="${x(e.c)}" y2="178" class="w-corte"/>` +
+            texto(36, 24, "desarrollo", "w-t-b") + texto(36, 40, "validación", "w-t-a") +
+            texto(30, 194, "simple") + texto(556, 194, "complejo"));
+          const brecha = des(e.c) - val(e.c);
+          lect.innerHTML = lectura([
+            { k: "AUC en desarrollo", v: fmt(des(e.c), 3) },
+            { k: "AUC en validación", v: fmt(val(e.c), 3) },
+            { k: "Brecha", v: fmt(brecha, 3), alerta: brecha > 0.05 }
+          ]);
+        },
+        pie: "La curva de desarrollo nunca baja: por eso no sirve para decidir. La de " +
+             "validación sube, se estanca y empieza a caer. Cuando la brecha pasa de cinco " +
+             "puntos, el modelo está aprendiendo su propia muestra."
+      });
+    }
+  };
+
+  /* =================================================================
+     M04 — Estandarizar o no estandarizar
+     ================================================================= */
+  const wSegmentos = {
+    titulo: "Segmentación y escala de las variables",
+    montar(nodo) {
+      const r = azar(4477);
+      // monto en millones, antigüedad en meses: escalas muy distintas
+      const puntos = [];
+      [[8, 12], [8, 46], [34, 14], [34, 48]].forEach(c => {
+        for (let i = 0; i < 45; i++)
+          puntos.push({ m: c[0] + normal(r) * 5, a: c[1] + normal(r) * 6 });
+      });
+
+      function kmedias(pts, k, estandarizar) {
+        const em = estandarizar ? 1 / 13 : 1 / 13, ea = estandarizar ? 1 / 16 : 1 / 400;
+        const cen = Array.from({ length: k }, (_, i) => ({
+          m: pts[i * 37 % pts.length].m, a: pts[i * 53 % pts.length].a }));
+        let asig = [];
+        for (let it = 0; it < 25; it++) {
+          asig = pts.map(p => {
+            let mej = 0, d0 = Infinity;
+            cen.forEach((c, j) => {
+              const d = Math.pow((p.m - c.m) * em, 2) + Math.pow((p.a - c.a) * ea, 2);
+              if (d < d0) { d0 = d; mej = j; }
+            });
+            return mej;
+          });
+          cen.forEach((c, j) => {
+            const g = pts.filter((_, i) => asig[i] === j);
+            if (g.length) {
+              c.m = g.reduce((s, p) => s + p.m, 0) / g.length;
+              c.a = g.reduce((s, p) => s + p.a, 0) / g.length;
+            }
+          });
+        }
+        return asig;
+      }
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles: control({ nombre: "k", etiqueta: "Número de grupos", min: 2, max: 6, valor: 4 }) +
+                   interruptor({ nombre: "std", etiqueta: "Estandarizar las variables", valor: false }),
+        etiquetaValor: (n, v) => "k = " + v,
+        dibujar(e, lienzo, lect) {
+          const asig = kmedias(puntos, e.k, e.std);
+          const A = 620, H = 210;
+          const px = p => 40 + (p.m / 46) * 550, py = p => 180 - (p.a / 62) * 160;
+          const circulos = puntos.map((p, i) =>
+            `<circle cx="${px(p).toFixed(1)}" cy="${py(p).toFixed(1)}" r="3.6"
+              class="w-c${asig[i] % 6}"/>`).join("");
+          lienzo.innerHTML = svg(A, H,
+            circulos + eje(36, 182, 600, 182) + eje(36, 10, 36, 182) +
+            texto(300, 202, "monto del crédito") +
+            `<text x="14" y="100" class="w-txt" transform="rotate(-90 14 100)">antigüedad</text>`);
+          // ¿los grupos se separan por monto o por antigüedad?
+          const gs = Array.from({ length: e.k }, (_, j) => puntos.filter((_, i) => asig[i] === j));
+          const varM = gs.map(g => g.length ? g.reduce((s, p) => s + p.m, 0) / g.length : 0);
+          const varA = gs.map(g => g.length ? g.reduce((s, p) => s + p.a, 0) / g.length : 0);
+          const disp = v => Math.max(...v) - Math.min(...v);
+          const domina = disp(varM) / 46 > disp(varA) / 62 * 1.6;
+          lect.innerHTML = lectura([
+            { k: "Variables", v: e.std ? "estandarizadas" : "en su escala original" },
+            { k: "Los grupos se separan por", v: domina ? "el monto, casi solo" : "ambas variables" },
+            { k: "Diagnóstico", v: domina ? "la escala manda sobre el comportamiento" : "segmentación razonable",
+              alerta: domina }
+          ]);
+        },
+        pie: "Con las variables sin estandarizar, el monto absorbe toda la distancia y los " +
+             "cortes salen verticales: la antigüedad deja de importar. Activa la casilla y " +
+             "mira cómo se reordenan los grupos con exactamente los mismos datos."
+      });
+    }
+  };
+
+  /* =================================================================
+     M05 — Punto de corte y costo de los dos errores
+     ================================================================= */
+  const wCorte = {
+    titulo: "Punto de corte, matriz de confusión y costo",
+    montar(nodo) {
+      const r = azar(9091);
+      const pob = Array.from({ length: 5000 }, () => {
+        const malo = r() < 0.08;
+        const s = clamp(malo ? 0.34 + normal(r) * 0.16 : 0.10 + normal(r) * 0.09, 0.001, 0.999);
+        return { malo: malo, p: s };
+      });
+
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "c", etiqueta: "Punto de corte", min: 1, max: 60, valor: 20 }) +
+          control({ nombre: "rel", etiqueta: "Pérdida frente al margen", min: 2, max: 25, valor: 8 }),
+        etiquetaValor: (n, v) => n === "c" ? v + " %" : v + " veces",
+        dibujar(e, lienzo, lect) {
+          const c = e.c / 100;
+          const VP = pob.filter(o => o.malo && o.p >= c).length;
+          const FN = pob.filter(o => o.malo && o.p < c).length;
+          const FP = pob.filter(o => !o.malo && o.p >= c).length;
+          const VN = pob.filter(o => !o.malo && o.p < c).length;
+          const costo = k => pob.filter(o => o.malo && o.p < k).length * e.rel +
+                             pob.filter(o => !o.malo && o.p >= k).length;
+          let mejor = 0.01, cm = Infinity;
+          for (let k = 0.01; k <= 0.60; k += 0.01) { const v = costo(k); if (v < cm) { cm = v; mejor = k; } }
+
+          const A = 620, H = 200;
+          const hist = (filtro, clase) => {
+            let s = "";
+            for (let i = 0; i < 60; i++) {
+              const n = pob.filter(o => filtro(o) && o.p >= i / 100 && o.p < (i + 1) / 100).length;
+              if (n) s += `<rect x="${24 + i * 9.6}" y="${170 - n / 2.2}" width="8.4"
+                height="${n / 2.2}" class="${clase}"/>`;
+            }
+            return s;
+          };
+          const xc = 24 + e.c * 9.6, xo = 24 + mejor * 100 * 9.6;
+          lienzo.innerHTML = svg(A, H,
+            hist(o => !o.malo, "w-hist-b") + hist(o => o.malo, "w-hist-m") +
+            eje(22, 172, 606, 172) +
+            `<line x1="${xo}" y1="16" x2="${xo}" y2="172" class="w-optimo"/>` +
+            `<line x1="${xc}" y1="10" x2="${xc}" y2="172" class="w-corte"/>` +
+            texto(28, 24, "no incumplen", "w-t-b") + texto(28, 40, "incumplen", "w-t-a") +
+            texto(xo - 18, 192, "óptimo", "w-optimo-t"));
+          lect.innerHTML = lectura([
+            { k: "Rechazados que habrían pagado", v: fmt(FP) },
+            { k: "Aprobados que incumplieron", v: fmt(FN), alerta: FN > VP },
+            { k: "Costo total del corte", v: fmt(costo(c)) },
+            { k: "Corte de mínimo costo", v: pct(mejor, 0), alerta: Math.abs(mejor - c) > 0.03 }
+          ]);
+        },
+        pie: "Mueve el corte y observa que el mínimo costo casi nunca está en 50 %. Sube la " +
+             "razón entre pérdida y margen: cuanto más cuesta un crédito que no se paga, más " +
+             "hacia la izquierda se va el corte óptimo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M06 — Cuánto desplazamiento hace falta para cruzar 0,25
+     ================================================================= */
+  const wPsi = {
+    titulo: "Índice de estabilidad poblacional",
+    montar(nodo) {
+      const base = [0.06, 0.11, 0.17, 0.22, 0.19, 0.14, 0.08, 0.03];
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "d", etiqueta: "Desplazamiento de la población", min: -30, max: 30, valor: 0 }) +
+          control({ nombre: "e", etiqueta: "Concentración", min: -20, max: 30, valor: 0 }),
+        etiquetaValor: (n, v) => (v > 0 ? "+" : "") + v,
+        dibujar(e, lienzo, lect) {
+          const n = base.length, centro = (n - 1) / 2;
+          let act = base.map((p, i) => {
+            const mov = 1 + (e.d / 100) * (i - centro);
+            const con = 1 + (e.e / 100) * (1 - Math.abs(i - centro) / centro);
+            return Math.max(p * mov * con, 0.001);
+          });
+          const s = act.reduce((a, b) => a + b, 0);
+          act = act.map(v => v / s);
+
+          let psi = 0, aportes = [];
+          act.forEach((a, i) => {
+            const ap = (a - base[i]) * Math.log(a / base[i]);
+            psi += ap; aportes.push(ap);
+          });
+
+          const A = 620, H = 190, w = 66;
+          let barras = "";
+          base.forEach((b, i) => {
+            const x = 30 + i * w;
+            barras += `<rect x="${x}" y="${168 - b * 480}" width="26" height="${b * 480}" class="w-barra-ref"/>`;
+            barras += `<rect x="${x + 28}" y="${168 - act[i] * 480}" width="26"
+              height="${act[i] * 480}" class="${aportes[i] > 0.02 ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          lienzo.innerHTML = svg(A, H,
+            barras + eje(26, 168, 606, 168) +
+            texto(30, 22, "construcción", "w-t-ref") + texto(30, 38, "período actual", "w-t-a") +
+            texto(30, 186, "puntaje bajo") + texto(520, 186, "puntaje alto"));
+          const est = psi < 0.10 ? "población estable" : psi < 0.25
+            ? "desplazamiento moderado: analizar" : "desplazamiento relevante: revisar el modelo";
+          lect.innerHTML = lectura([
+            { k: "PSI", v: fmt(psi, 4), alerta: psi >= 0.25 },
+            { k: "Diagnóstico", v: est, alerta: psi >= 0.25 },
+            { k: "Tramos con aporte alto", v: aportes.filter(a => a > 0.02).length,
+              alerta: aportes.filter(a => a > 0.02).length > 0 }
+          ]);
+        },
+        pie: "Prueba a mover la población hacia un lado y luego a concentrarla en el centro. " +
+             "Fíjate en algo incómodo: se pueden tener dos tramos claramente distintos y un " +
+             "PSI total todavía bajo, porque los movimientos se compensan."
+      });
+    }
+  };
+
+  /* =================================================================
+     M07 — Los tres parámetros pesan igual
+     ================================================================= */
+  const wProvision = {
+    titulo: "Pérdida esperada y sus tres parámetros",
+    montar(nodo) {
+      const EXPOSICION = 4200000000;
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "pd", etiqueta: "PD", min: 5, max: 150, valor: 32, paso: 1 }) +
+          control({ nombre: "lgd", etiqueta: "LGD", min: 10, max: 90, valor: 45 }) +
+          control({ nombre: "cf", etiqueta: "Factor de conversión del contingente", min: 0, max: 100, valor: 40 }),
+        etiquetaValor: (n, v) => n === "pd" ? fmt(v / 10, 1) + " %" : v + " %",
+        dibujar(e, lienzo, lect) {
+          const pd = e.pd / 1000, lgd = e.lgd / 100;
+          const ead = EXPOSICION * (1 + 0.22 * (e.cf / 100));
+          const prov = pd * lgd * ead;
+          const baseProv = 0.032 * 0.45 * EXPOSICION * 1.088;
+
+          const A = 620, H = 150;
+          const barra = (y, etq, frac, clase) =>
+            `<rect x="150" y="${y}" width="${clamp(frac, 0, 1) * 430}" height="24" class="${clase}"/>` +
+            texto(20, y + 17, etq);
+          lienzo.innerHTML = svg(A, H,
+            barra(16, "PD", pd / 0.15, "w-barra-on") +
+            barra(52, "LGD", lgd, "w-barra-on") +
+            barra(88, "EAD", ead / (EXPOSICION * 1.25), "w-barra-on") +
+            `<rect x="150" y="120" width="${clamp(prov / (baseProv * 3), 0, 1) * 430}"
+               height="24" class="w-barra-tot"/>` + texto(20, 137, "Provisión"));
+          const var_ = prov / baseProv - 1;
+          lect.innerHTML = lectura([
+            { k: "Provisión", v: "$ " + fmt(prov) },
+            { k: "Cobertura de la exposición", v: pct(prov / ead, 2) },
+            { k: "Variación contra el cierre", v: (var_ > 0 ? "+" : "") + pct(var_, 1),
+              alerta: Math.abs(var_) > 0.15 }
+          ]);
+        },
+        pie: "Baja la PD un 10 % y anótalo. Ahora devuélvela y baja la LGD un 10 %. El efecto " +
+             "sobre la provisión es idéntico, porque es un producto. Por eso revisar solo el " +
+             "modelo de PD deja fuera la mitad del riesgo."
+      });
+    }
+  };
+
+  /* =================================================================
+     M08 — La correlación engorda la cola
+     ================================================================= */
+  const wPerdidas = {
+    titulo: "Distribución de pérdidas, VaR y capital",
+    montar(nodo) {
+      armar(nodo, {
+        titulo: this.titulo,
+        controles:
+          control({ nombre: "rho", etiqueta: "Correlación entre incumplimientos", min: 0, max: 40, valor: 0 }) +
+          control({ nombre: "conf", etiqueta: "Nivel de confianza", min: 90, max: 999, valor: 990, paso: 1 }),
+        etiquetaValor: (n, v) => n === "rho" ? fmt(v / 100, 2) : fmt(v / 10, 1) + " %",
+        dibujar(e, lienzo, lect) {
+          const rho = e.rho / 100, conf = e.conf / 1000;
+          const r = azar(30303);
+          const N = 6000, pd = 0.032, lgd = 0.45, exp_ = 4200000000;
+          const perd = new Array(N);
+          for (let i = 0; i < N; i++) {
+            const shock = normal(r);
+            // Modelo de factor único: un shock común mueve a toda la cartera a la vez
+            const z = Math.sqrt(rho) * shock + Math.sqrt(1 - rho) * normal(r);
+            const tasa = clamp(pd * Math.exp(z * (0.35 + rho * 1.6) - 0.06), 0, 0.6);
+            perd[i] = tasa * lgd * exp_;
+          }
+          perd.sort((a, b) => a - b);
+          const media = perd.reduce((a, b) => a + b, 0) / N;
+          const varq = perd[Math.min(N - 1, Math.floor(conf * N))];
+          const tope = perd[N - 1] * 1.02;
+
+          const A = 620, H = 190, bins = 44;
+          let hist = "";
+          const cuenta = new Array(bins).fill(0);
+          perd.forEach(p => cuenta[Math.min(bins - 1, Math.floor(p / tope * bins))]++);
+          const maxc = Math.max(...cuenta);
+          cuenta.forEach((c, i) => {
+            const x = 24 + i * 13, alto = (c / maxc) * 140;
+            const val = (i + 0.5) / bins * tope;
+            hist += `<rect x="${x}" y="${164 - alto}" width="11.5" height="${alto || 0.5}"
+              class="${val >= varq ? "w-barra-mal" : "w-barra-on"}"/>`;
+          });
+          const xm = 24 + (media / tope) * bins * 13, xv = 24 + (varq / tope) * bins * 13;
+          lienzo.innerHTML = svg(A, H,
+            hist + eje(22, 166, 606, 166) +
+            `<line x1="${xm}" y1="14" x2="${xm}" y2="166" class="w-optimo"/>` +
+            `<line x1="${xv}" y1="14" x2="${xv}" y2="166" class="w-corte"/>` +
+            texto(xm + 5, 26, "esperada → provisión", "w-optimo-t") +
+            texto(clamp(xv - 150, 24, 420), 46, "VaR → capital", "w-corte-t"));
+          lect.innerHTML = lectura([
+            { k: "Pérdida esperada", v: "$ " + fmt(media) },
+            { k: "VaR al " + fmt(conf * 100, 1) + " %", v: "$ " + fmt(varq) },
+            { k: "Pérdida inesperada", v: "$ " + fmt(varq - media) },
+            { k: "Capital sobre la media", v: fmt((varq - media) / media, 2) + " veces",
+              alerta: (varq - media) / media > 1.5 }
+          ]);
+        },
+        pie: "Con correlación cero, la distribución es estrecha y el capital exigido es " +
+             "modesto. Súbela a 0,20 y observa: la pérdida esperada casi no se mueve, pero la " +
+             "cola se estira y el capital se multiplica. Ese supuesto no se ve en ningún dato " +
+             "observado y decide la cifra."
+      });
+    }
+  };
+
+  /* ---------- Registro y montaje ----------------------------------- */
+
+  const REGISTRO = {
+    ventana: wVentana, binning: wBinning, complejidad: wComplejidad,
+    segmentos: wSegmentos, corte: wCorte, psi: wPsi,
+    provision: wProvision, perdidas: wPerdidas
+  };
+
+  global.ACWidgets = {
+    registro: REGISTRO,
+    montarTodos(raiz) {
+      (raiz || document).querySelectorAll("[data-widget]").forEach(n => {
+        const w = REGISTRO[n.dataset.widget];
+        if (!w) { n.innerHTML = '<p class="ac-riesgo">Simulador no disponible.</p>'; return; }
+        try { w.montar(n); }
+        catch (err) {
+          n.innerHTML = '<p class="ac-riesgo">No se pudo cargar el simulador.</p>';
+          if (global.console) console.error("Widget", n.dataset.widget, err);
+        }
+      });
+    }
+  };
 })(window);
 
 </script>
@@ -1292,6 +1958,7 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
       const r = $("#cab-ref");   if (r) r.textContent = "Referencia " + mod.ref + " · " + mod.horas.toFixed(1).replace(".", ",") + " h";
       document.title = mod.titulo + " · AuditCaat's";
 
+      if (global.ACWidgets) ACWidgets.montarTodos(document);
       this.restaurarCedulas();
       this.enlazarBotones();
       AC.Quiz.render("#quiz", banco);
@@ -1412,217 +2079,217 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
 <script>
 const BANCO = [
   {
-    "id": "f1",
+    "id": "h1",
     "puntaje": 10,
-    "texto": "¿Qué prueba una muestra de validación que comparte período con la de desarrollo?",
+    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
     "opciones": [
       {
-        "txt": "Que el modelo generaliza a otros clientes del mismo período, pero nada sobre el paso del tiempo",
+        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
         "ok": true
       },
       {
-        "txt": "Que el modelo sigue vigente hoy"
+        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
       },
       {
-        "txt": "Que la población es estable"
+        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
       },
       {
-        "txt": "Que la provisión está bien calculada"
+        "txt": "Ambas se provisionan, con distinto horizonte"
       }
     ],
-    "retro": "Sin separación temporal no hay validación fuera de tiempo, aunque el informe use ese título."
+    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
   },
   {
-    "id": "f2",
+    "id": "h2",
     "puntaje": 10,
-    "texto": "El PSI del puntaje es 0,31. ¿Qué corresponde?",
+    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
     "opciones": [
       {
-        "txt": "Desplazamiento relevante de la población: el modelo debe revisarse formalmente",
+        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
         "ok": true
       },
       {
-        "txt": "Población estable, no se requiere acción"
+        "txt": "Que la pérdida máxima posible es ese monto"
       },
       {
-        "txt": "El modelo perdió capacidad de discriminación"
+        "txt": "Que el 99 % de los clientes no incumplirá"
       },
       {
-        "txt": "La provisión está sobrestimada"
+        "txt": "Que la provisión debe igualar ese monto"
       }
     ],
-    "retro": "Sobre 0,25 el desplazamiento exige revisión formal. El PSI no mide desempeño: indica que la población ya no es la de referencia."
+    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
   },
   {
-    "id": "f3",
+    "id": "h3",
     "puntaje": 10,
-    "texto": "El PSI total es 0,08 pero dos tramos aportan 0,04 cada uno en direcciones opuestas. ¿Qué corresponde observar?",
+    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
     "opciones": [
       {
-        "txt": "Hay movimientos que se compensan en el total y deben analizarse por tramo",
+        "txt": "La correlación supuesta entre incumplimientos",
         "ok": true
       },
       {
-        "txt": "Nada: el total está bajo el umbral"
+        "txt": "El número de operaciones de la cartera"
       },
       {
-        "txt": "El cálculo del PSI está mal hecho"
+        "txt": "La tasa de interés de colocación"
       },
       {
-        "txt": "Corresponde recalibrar el modelo"
+        "txt": "El nivel de provisión constituido"
       }
     ],
-    "retro": "El total puede ocultar desplazamientos relevantes que se anulan entre sí. Por eso se revisa el aporte por tramo."
+    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
   },
   {
-    "id": "f4",
+    "id": "h4",
     "puntaje": 10,
-    "texto": "El PSI del puntaje es bajo y el de una variable de entrada es 0,40. ¿Cuál es la hipótesis más probable?",
+    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
     "opciones": [
       {
-        "txt": "Esa variable cambió y el efecto se compensa con otras dentro del puntaje",
+        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
         "ok": true
       },
       {
-        "txt": "El modelo está funcionando correctamente"
+        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
       },
       {
-        "txt": "El PSI del puntaje está mal calculado"
+        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
       },
       {
-        "txt": "La cartera creció"
+        "txt": "No aplica observación porque el escenario es hipotético"
       }
     ],
-    "retro": "Es exactamente el caso que hace insuficiente monitorear solo el puntaje. La causa típica es un cambio de definición en el sistema de origen."
+    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
   },
   {
-    "id": "f5",
+    "id": "h5",
     "puntaje": 10,
-    "texto": "Un modelo se construyó con ventana de desempeño durante los meses de ayudas estatales y reprogramaciones masivas. ¿Cuál es el efecto esperable?",
+    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
     "opciones": [
       {
-        "txt": "Subestimación sistemática de la probabilidad de incumplimiento",
+        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
         "ok": true
       },
       {
-        "txt": "Sobreestimación de la probabilidad de incumplimiento"
+        "txt": "Se reconoce un gasto adicional por el monto total"
       },
       {
-        "txt": "Pérdida de capacidad de discriminación únicamente"
+        "txt": "Se traslada a etapa 2"
       },
       {
-        "txt": "Ningún efecto si la muestra es grande"
+        "txt": "Se reversa la provisión contra resultados"
       }
     ],
-    "retro": "La morosidad observada fue artificialmente baja. El modelo aprende ese comportamiento y estima por debajo del riesgo real."
+    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
   },
   {
-    "id": "f6",
+    "id": "h6",
     "puntaje": 10,
-    "texto": "En el caso anterior, ¿por qué la curva ROC puede seguir viéndose bien?",
+    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
     "opciones": [
       {
-        "txt": "Porque mide el orden entre clientes, que puede mantenerse aunque el nivel esté desplazado",
+        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
         "ok": true
       },
       {
-        "txt": "Porque la ROC se calcula sobre la muestra de desarrollo"
+        "txt": "Se incumple el plazo legal de prescripción"
       },
       {
-        "txt": "Porque la ROC corrige automáticamente por el período"
+        "txt": "Se pierde el derecho a cobrar la operación"
       },
       {
-        "txt": "Porque el desbalance de clases la infla"
+        "txt": "Aumenta la provisión del período siguiente"
       }
     ],
-    "retro": "Discriminación y calibración son independientes. El orden se conserva; el nivel no."
+    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
   },
   {
-    "id": "f7",
+    "id": "h7",
     "puntaje": 10,
-    "texto": "El PSI superó 0,25 durante cuatro trimestres y no hay evidencia de acción. ¿Cómo se clasifica el hallazgo?",
+    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
     "opciones": [
       {
-        "txt": "Deficiencia de gobierno de modelos: la institución detectó el deterioro y no actuó",
+        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
         "ok": true
       },
       {
-        "txt": "Deficiencia de la metodología de cálculo del PSI"
+        "txt": "Ser realizada por un tercero externo a la institución"
       },
       {
-        "txt": "Observación sin efecto porque el monitoreo se realizó"
+        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
       },
       {
-        "txt": "Hallazgo de auditoría de sistemas"
+        "txt": "Contar con la aprobación del área de riesgo"
       }
     ],
-    "retro": "Medir y no actuar es más grave que no medir: existe evidencia documentada de que se conocía la situación."
+    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
   },
   {
-    "id": "f8",
+    "id": "h8",
     "puntaje": 10,
-    "texto": "¿Qué documento pediría primero al evaluar el monitoreo de un modelo?",
+    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
     "opciones": [
       {
-        "txt": "La política que define indicadores, frecuencia, umbrales de acción y responsables",
+        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
         "ok": true
       },
       {
-        "txt": "El código fuente del modelo"
+        "txt": "Que el efecto supere la materialidad"
       },
       {
-        "txt": "El último informe de resultados"
+        "txt": "Que el auditado esté de acuerdo"
       },
       {
-        "txt": "El acta de aprobación original"
+        "txt": "Que exista una recomendación asociada"
       }
     ],
-    "retro": "Sin política, cada informe se interpreta a discreción y no hay criterio contra el cual medir el incumplimiento."
+    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
   },
   {
-    "id": "f9",
+    "id": "h9",
     "puntaje": 10,
-    "texto": "¿Qué evidencia demuestra que existe validación fuera de tiempo?",
+    "texto": "El presupuesto de riesgo se compone de:",
     "opciones": [
       {
-        "txt": "Fechas mínima y máxima de cada muestra, con la de prueba en un período posterior al de desarrollo",
+        "txt": "El gasto en riesgo más el castigo neto de recupero",
         "ok": true
       },
       {
-        "txt": "El porcentaje de la partición, por ejemplo 80 y 20"
+        "txt": "La provisión constituida más el capital regulatorio"
       },
       {
-        "txt": "El nombre del apartado en el informe de validación"
+        "txt": "La pérdida esperada más la inesperada"
       },
       {
-        "txt": "El número de observaciones de cada muestra"
+        "txt": "El valor en riesgo al 99 %"
       }
     ],
-    "retro": "La proporción de la partición no dice nada sobre separación temporal. Las fechas sí."
+    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
   },
   {
-    "id": "f10",
+    "id": "h10",
     "puntaje": 10,
-    "texto": "¿Cuál de estos indicadores detecta un cambio de comportamiento del negocio antes que las métricas de desempeño?",
+    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
     "opciones": [
       {
-        "txt": "La tasa de aprobación, cuando varía sin cambio de política",
+        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
         "ok": true
       },
       {
-        "txt": "El área bajo la curva de la muestra de desarrollo"
+        "txt": "La falta de registro de la semilla aleatoria del modelo"
       },
       {
-        "txt": "El information value de las variables originales"
+        "txt": "El uso de un algoritmo poco interpretable"
       },
       {
-        "txt": "La exactitud global del modelo"
+        "txt": "La ausencia de gráfico de silueta en la segmentación"
       }
     ],
-    "retro": "El desempeño requiere que el evento madure. La tasa de aprobación se observa de inmediato y anticipa el problema."
+    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
   }
 ];
-ACModulo.iniciar("M06", BANCO);
+ACModulo.iniciar("M08", BANCO);
 </script>
 </body>
 </html>

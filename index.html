@@ -689,7 +689,7 @@ const AC_PROGRAMA = {
       resumen: "Desde la primera línea. Colab sin instalar nada, variables, tablas, filtrar y agrupar. Si usas Excel, ya sabes más de lo que crees.",
       entregable: "Cuaderno con los controles de integridad",
       estadoPublicacion: "publicado",
-      url: "modulos/m00.html"
+      url: "m00.html"
     },
     {
       id: "M01", ref: "A", marca: "✓", horas: 2.5, clase: "Clase 1",
@@ -697,7 +697,7 @@ const AC_PROGRAMA = {
       resumen: "Ciclo del crédito, ventanas de observación y desempeño, tipos de modelo y qué significa que un modelo esté mal.",
       entregable: "Programa de entendimiento del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m01.html",
+      url: "m01.html",
       congelado: true   // hay certificados emitidos: quien ya lo aprobó puede convalidarlo
     },
     {
@@ -706,7 +706,7 @@ const AC_PROGRAMA = {
       resumen: "WOE, information value, binning, regresión logística, construcción del scorecard, sobreajuste y regularización.",
       entregable: "Cédula de revisión de variables y binning",
       estadoPublicacion: "publicado",
-      url: "modulos/m02.html"
+      url: "m02.html"
     },
     {
       id: "M03", ref: "C", marca: "○", horas: 2.5, clase: "Clases 2 y 5",
@@ -714,7 +714,7 @@ const AC_PROGRAMA = {
       resumen: "Árboles, bagging, boosting. Cuándo un modelo más complejo se justifica y cuándo es un riesgo de auditoría.",
       entregable: "Matriz comparativa de modelos candidatos",
       estadoPublicacion: "publicado",
-      url: "modulos/m03.html"
+      url: "m03.html"
     },
     {
       id: "M04", ref: "D", marca: "×", horas: 2.5, clase: "Clase 4",
@@ -722,7 +722,7 @@ const AC_PROGRAMA = {
       resumen: "Cluster y k-means, criterios de corte, cómo una segmentación mal construida contamina la provisión.",
       entregable: "Matriz de riesgos de segmentación",
       estadoPublicacion: "publicado",
-      url: "modulos/m04.html"
+      url: "m04.html"
     },
     {
       id: "M05", ref: "E", marca: "≡", horas: 3.0, clase: "Clases 3 y 5",
@@ -730,7 +730,7 @@ const AC_PROGRAMA = {
       resumen: "ROC, Gini, KS, divergencia, matriz de confusión y punto de corte. Lectura de gráficos de contorno y tablas de percentiles.",
       entregable: "Cédula de desempeño del modelo",
       estadoPublicacion: "publicado",
-      url: "modulos/m05.html"
+      url: "m05.html"
     },
     {
       id: "M06", ref: "F", marca: "≠", horas: 2.5, clase: "Clase 3",
@@ -738,7 +738,7 @@ const AC_PROGRAMA = {
       resumen: "PSI, CSI, deterioro fuera de muestra y fuera de tiempo. El módulo con mayor uso en encargos reales.",
       entregable: "Plantilla de monitoreo con PSI",
       estadoPublicacion: "publicado",
-      url: "modulos/m06.html"
+      url: "m06.html"
     },
     {
       id: "M07", ref: "G", marca: "∫", horas: 2.5, clase: "Clases 6 y 7",
@@ -746,7 +746,7 @@ const AC_PROGRAMA = {
       resumen: "Stages, PD, LGD y EAD. Del parámetro estadístico al asiento contable y a la revelación.",
       entregable: "Hoja de recálculo de provisión",
       estadoPublicacion: "publicado",
-      url: "modulos/m07.html"
+      url: "m07.html"
     },
     {
       id: "M08", ref: "H", marca: "§", horas: 2.5, clase: "Clase 8",
@@ -754,7 +754,7 @@ const AC_PROGRAMA = {
       resumen: "Capital económico, pruebas de tensión y cierre del programa con el memorando de validación independiente.",
       entregable: "Memorando de validación independiente",
       estadoPublicacion: "publicado",
-      url: "modulos/m08.html"
+      url: "m08.html"
     }
   ]
 };
@@ -1319,9 +1319,9 @@ const AC_BACKEND = "";  // ej: https://script.google.com/a/macros/auditcaats.com
   // Rutas de navegacion. El empaquetador de archivo unico las reemplaza
   // por rutas de hash para que el mismo runtime sirva en ambos formatos.
   const Rutas = {
-    cert: id => "../certificado.html?modulo=" + id,
+    cert: id => "certificado.html?modulo=" + id,
     diploma: () => "certificado.html?tipo=programa",
-    indice: () => "../index.html",
+    indice: () => "index.html",
     equipo: () => "seguimiento.html"
   };
 
