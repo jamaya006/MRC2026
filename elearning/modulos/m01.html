@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Por qué un contador audita modelos · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Por qué un contador audita modelos</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Situar el modelo como fuente de una cifra de los estados financieros y no como un asunto técnico del área de riesgo. Al terminar, distinguir los tres tipos de modelo, leer una ventana de observación y saber qué significa que un modelo esté mal.
+  </div>
+
+  <section class="ac-cedula" data-cedula="A-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-1</span>
+      <h3>De la pérdida incurrida a la pérdida esperada</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Durante décadas la provisión se reconocía cuando existía evidencia objetiva de deterioro: el cliente había dejado de pagar. El marco actual invierte el orden. La pérdida se estima desde el origen del crédito, antes de que ocurra el incumplimiento.</p>
+      <p>El cambio tiene una consecuencia práctica para quien audita: la provisión dejó de ser el resultado de una regla verificable línea por línea y pasó a ser una estimación producida por un modelo. Ya no se recalcula la cifra: se evalúa el proceso que la produce.</p>
+      <div class="ac-nota"><strong>Regla de trabajo del programa</strong>Ningún concepto estadístico se introduce sin responder tres preguntas: qué cifra contable depende de él, qué ocurre si está mal y qué procedimiento de auditoría corresponde. Si las tres no tienen respuesta, el concepto no entra al programa.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-2</span>
+      <h3>Los tres tipos de modelo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>En una institución financiera conviven al menos tres familias de modelos de riesgo de crédito. Se construyen distinto, se evalúan contra umbrales distintos y fallan de maneras distintas. Tratarlos como uno solo lleva a conclusiones equivocadas.</p>
+      <table class="ac-tabla"><thead><tr><th>Tipo</th><th>Población</th><th>Qué predice</th><th>Información disponible</th></tr></thead><tbody><tr><td>Admisión</td><td>Cliente nuevo</td><td>Si incumplirá el crédito solicitado</td><td>Externa y declarada</td></tr><tr><td>Comportamiento</td><td>Cliente vigente</td><td>Si se deteriorará en los próximos meses</td><td>Historial interno completo</td></tr><tr><td>Cobranza</td><td>Cliente en mora</td><td>Si seguirá empeorando o se recuperará</td><td>Historial más gestión de cobro</td></tr></tbody></table>
+      <blockquote class="ac-cita">El tercer mundo es todo lo que es cobranza: los recursos dentro de los modelos de cobranza no son infinitos.<cite>Clase 1, aprox. 01:03:31</cite></blockquote>
+      <div class="ac-nota"><strong>Consecuencia para la revisión</strong>El modelo de comportamiento dispone de historial interno y por eso se le exige más desempeño que a uno de admisión. Aplicar el mismo umbral a ambos es un error que aparece con frecuencia en informes de validación.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-3</span>
+      <h3>Ventana de observación y ventana de desempeño</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Todo modelo se construye sobre dos períodos. La ventana de observación es aquella de la que se toman las características del cliente. La ventana de desempeño es el período posterior en el que se observa si incumplió o no.</p>
+      <p>Esta separación es lo que hace que el modelo prediga en lugar de describir. Si una variable de la ventana de observación contiene información que en realidad pertenece a la ventana de desempeño, el modelo está mirando la respuesta.</p>
+      <blockquote class="ac-cita">Si yo construí un modelo de admisión de cliente con todas las originaciones de créditos entre 2018 y 2020…<cite>Clase 1, aprox. 01:53:29</cite></blockquote>
+      <div class="ac-riesgo"><strong>Ventana contaminada</strong>Un cliente con buen comportamiento histórico dejó de comportarse igual durante la pandemia. Un modelo construido con esa ventana aprende un patrón que no se repite en condiciones normales, y su calibración queda desplazada aunque el orden entre clientes se conserve.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar las fechas exactas de ambas ventanas y verificar que no se superponen. Preguntar expresamente si alguna abarca períodos con ayudas estatales, reprogramaciones masivas o suspensión de cobranza, y qué tratamiento se dio a las operaciones afectadas.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-4</span>
+      <h3>Qué significa que un modelo esté mal</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un modelo se equivoca en casos individuales por definición: estima probabilidades, no certezas. Que rechace a un cliente que habría pagado no es una falla. La falla es equivocarse de forma sistemática.</p>
+      <ul><li>Sesgo: se equivoca siempre en la misma dirección, por ejemplo subestimando la probabilidad de incumplimiento de un segmento completo.</li><li>Inestabilidad: funcionaba y dejó de funcionar porque la población cambió.</li><li>Fuga de información: parece funcionar porque usa datos que no existían al momento de decidir.</li><li>Desalineación: funciona, pero no se usa como fue diseñado, por ejemplo con un punto de corte que no corresponde a la política vigente.</li></ul>
+      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Los cuatro producen hallazgos distintos y recomendaciones distintas. El sesgo afecta la suficiencia de la provisión; la inestabilidad, el monitoreo; la fuga, la construcción; la desalineación, el control interno operativo.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-5</span>
+      <h3>Cómo se mide que un modelo separa</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La primera pregunta sobre cualquier modelo de clasificación es si logra separar a quienes incumplen de quienes no. Existen tres medidas de uso habitual y conviene reconocer qué aporta cada una.</p>
+      <blockquote class="ac-cita">Lo que se denomina tasa de divergencia o índice de divergencia: lo que busco es que los promedios de las distribuciones sean lo más distintos posibles.<cite>Clase 1, aprox. 02:26:03</cite></blockquote>
+      <div class="ac-umbral"><strong>Referencias citables</strong>Área bajo la curva ROC sobre 0,80 se considera buena. KS entre 25 % y 35 % es normal en admisión y entre 35 % y 50 % en comportamiento. Divergencia sobre 2 indica buena separación entre las distribuciones.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se presentan las tres métricas como confirmaciones independientes. Área bajo la curva y Gini son la misma medida en distinta escala, y las tres miden capacidad de ordenar. Ninguna prueba que el nivel de la probabilidad estimada sea correcto.</div>
+      <div class="ac-nota"><strong>Lo que falta en casi todos los informes</strong>La comparación entre probabilidad estimada e incumplimiento observado. Es la única evidencia que sostiene la suficiencia de la provisión, y se desarrolla en el Módulo V.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-6</span>
+      <h3>Quién responde por el número</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La provisión atraviesa varias áreas antes de llegar al estado financiero, y cada una asume una responsabilidad distinta. Identificar quién responde por qué es condición previa para dirigir un hallazgo a quien corresponde.</p>
+      <table class="ac-tabla"><thead><tr><th>Función</th><th>Responsabilidad</th></tr></thead><tbody><tr><td>Negocio</td><td>Origina las operaciones y aplica la política de crédito</td></tr><tr><td>Riesgos</td><td>Construye el modelo y estima los parámetros</td></tr><tr><td>Contabilidad</td><td>Registra la provisión y prepara la revelación</td></tr><tr><td>Auditoría interna</td><td>Evalúa el diseño y la operación de los controles</td></tr><tr><td>Validación independiente</td><td>Verifica que el modelo hace lo que dice hacer</td></tr><tr><td>Regulador</td><td>Fija requisitos mínimos y supervisa su cumplimiento</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La validación independiente la realiza el mismo equipo que construyó el modelo, o reporta al área de riesgo. La revisión puede ser técnicamente impecable y aun así no constituir validación independiente.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="A-7">
+    <div class="ac-cedula-encab">
+      <span class="ref">A-7</span>
+      <h3>Laboratorio: construir las ventanas y medir la tasa base</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Todo el programa trabaja sobre la misma cartera sintética. El primer ejercicio arma las dos ventanas y obtiene la tasa de incumplimiento, que es el número contra el cual se comparará todo lo demás.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Ventanas de observación y desempeño</em></div><pre><code>import pandas as pd
+
+cartera = pd.read_csv("cartera.csv",
+                      parse_dates=["fecha_originacion", "fecha_default"])
+
+# Ventana de observación: originaciones del período de construcción
+obs = cartera[cartera.fecha_originacion.between("2022-01-01", "2022-12-31")].copy()
+
+# Ventana de desempeño: doce meses posteriores a cada originación
+obs["fin_desempeno"] = obs.fecha_originacion + pd.DateOffset(months=12)
+obs["malo"] = (obs.fecha_default.notna() &amp;
+               (obs.fecha_default &lt;= obs.fin_desempeno)).astype(int)
+
+print(f"Operaciones            {len(obs):&gt;10,}")
+print(f"Tasa de incumplimiento {obs.malo.mean():&gt;10.2%}")
+
+# Control: ninguna fecha de incumplimiento puede preceder a la originación
+con_default = obs[obs.fecha_default.notna()]
+assert (con_default.fecha_default &gt;= con_default.fecha_originacion).all()</code></pre></div>
+      <div class="ac-nota"><strong>Lo que hay que mirar</strong>La tasa de incumplimiento del período de construcción es el punto de comparación para el resto del programa. Anótala: si difiere de la de los períodos vecinos, esa diferencia es el primer indicio de una ventana contaminada.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="A-7">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="A-7"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "a1",
+    "puntaje": 10,
+    "texto": "¿Qué cambió para el auditor con el paso a pérdida esperada?",
+    "opciones": [
+      {
+        "txt": "La provisión pasó de ser una regla verificable a una estimación producida por un modelo, por lo que se evalúa el proceso además de la cifra",
+        "ok": true
+      },
+      {
+        "txt": "La provisión dejó de registrarse en resultados"
+      },
+      {
+        "txt": "El auditor ya no necesita revisar la cartera"
+      },
+      {
+        "txt": "La provisión pasó a ser responsabilidad exclusiva del regulador"
+      }
+    ],
+    "retro": "El cambio es de naturaleza de la cifra: de hecho verificable a estimación. Eso traslada el foco al proceso que la produce."
+  },
+  {
+    "id": "a2",
+    "puntaje": 10,
+    "texto": "¿Por qué se exige más desempeño a un modelo de comportamiento que a uno de admisión?",
+    "opciones": [
+      {
+        "txt": "Porque dispone del historial interno del cliente, información que el modelo de admisión no tiene",
+        "ok": true
+      },
+      {
+        "txt": "Porque se aplica a carteras de mayor monto"
+      },
+      {
+        "txt": "Porque lo exige expresamente la normativa contable"
+      },
+      {
+        "txt": "Porque usa técnicas estadísticas más avanzadas"
+      }
+    ],
+    "retro": "Más información disponible implica mayor expectativa de desempeño. Por eso los umbrales de KS difieren entre ambos tipos."
+  },
+  {
+    "id": "a3",
+    "puntaje": 10,
+    "texto": "¿Qué distingue a la ventana de observación de la de desempeño?",
+    "opciones": [
+      {
+        "txt": "La de observación aporta las características del cliente; la de desempeño registra si incumplió",
+        "ok": true
+      },
+      {
+        "txt": "La de observación es siempre de doce meses"
+      },
+      {
+        "txt": "La de desempeño se usa solo en modelos de cobranza"
+      },
+      {
+        "txt": "Son nombres distintos para el mismo período"
+      }
+    ],
+    "retro": "La separación temporal entre ambas es lo que hace que el modelo prediga en lugar de describir."
+  },
+  {
+    "id": "a4",
+    "puntaje": 10,
+    "texto": "Un modelo rechaza a un cliente que habría pagado sin problemas. ¿Es una falla del modelo?",
+    "opciones": [
+      {
+        "txt": "No: el modelo estima probabilidades. La falla sería equivocarse de forma sistemática",
+        "ok": true
+      },
+      {
+        "txt": "Sí: todo rechazo incorrecto es una falla"
+      },
+      {
+        "txt": "Sí, si el cliente reclama formalmente"
+      },
+      {
+        "txt": "Solo si el monto del crédito es material"
+      }
+    ],
+    "retro": "Los errores individuales son inherentes. Lo que se audita es el error sistemático: sesgo, inestabilidad, fuga o desalineación."
+  },
+  {
+    "id": "a5",
+    "puntaje": 10,
+    "texto": "Un modelo funcionaba bien y su desempeño se deterioró porque la cartera cambió de composición. ¿Cómo se clasifica?",
+    "opciones": [
+      {
+        "txt": "Inestabilidad",
+        "ok": true
+      },
+      {
+        "txt": "Fuga de información"
+      },
+      {
+        "txt": "Sesgo"
+      },
+      {
+        "txt": "Desalineación"
+      }
+    ],
+    "retro": "La inestabilidad apunta al monitoreo: el modelo era válido y la población dejó de ser la misma."
+  },
+  {
+    "id": "a6",
+    "puntaje": 10,
+    "texto": "El modelo opera con un punto de corte distinto al que fija la política vigente. ¿Cómo se clasifica?",
+    "opciones": [
+      {
+        "txt": "Desalineación entre el modelo y su uso",
+        "ok": true
+      },
+      {
+        "txt": "Sesgo del modelo"
+      },
+      {
+        "txt": "Inestabilidad de la población"
+      },
+      {
+        "txt": "Error de calibración"
+      }
+    ],
+    "retro": "El modelo puede ser correcto y estar mal utilizado. Es un hallazgo de control interno operativo, no de metodología."
+  },
+  {
+    "id": "a7",
+    "puntaje": 10,
+    "texto": "Un modelo de admisión reporta área bajo la curva de 0,82. ¿Qué se puede concluir?",
+    "opciones": [
+      {
+        "txt": "Que ordena bien a los clientes, pero no que la probabilidad estimada tenga el nivel correcto",
+        "ok": true
+      },
+      {
+        "txt": "Que la provisión está correctamente dimensionada"
+      },
+      {
+        "txt": "Que el modelo es estable en el tiempo"
+      },
+      {
+        "txt": "Que no requiere validación adicional"
+      }
+    ],
+    "retro": "Discriminación y calibración son cosas distintas. Ordenar bien no implica estimar bien el nivel."
+  },
+  {
+    "id": "a8",
+    "puntaje": 10,
+    "texto": "¿Qué mide la divergencia?",
+    "opciones": [
+      {
+        "txt": "Cuán distintos son los promedios de las distribuciones de quienes incumplen y quienes no",
+        "ok": true
+      },
+      {
+        "txt": "La diferencia entre PD estimada y observada"
+      },
+      {
+        "txt": "El desplazamiento de la población entre períodos"
+      },
+      {
+        "txt": "La proporción de falsos positivos"
+      }
+    ],
+    "retro": "Busca que las dos distribuciones estén lo más separadas posible. Valores sobre 2 indican buena separación."
+  },
+  {
+    "id": "a9",
+    "puntaje": 10,
+    "texto": "La validación del modelo la realizó el mismo equipo que lo construyó. ¿Cuál es la observación?",
+    "opciones": [
+      {
+        "txt": "No constituye validación independiente, aunque el trabajo sea técnicamente correcto",
+        "ok": true
+      },
+      {
+        "txt": "Es adecuado porque conocen mejor el modelo"
+      },
+      {
+        "txt": "Solo es observable si el resultado fue favorable"
+      },
+      {
+        "txt": "Corresponde observación únicamente si lo exige el regulador"
+      }
+    ],
+    "retro": "La independencia es una condición orgánica. La calidad técnica del trabajo no la reemplaza."
+  },
+  {
+    "id": "a10",
+    "puntaje": 10,
+    "texto": "¿Qué evidencia falta en casi todos los informes de desempeño?",
+    "opciones": [
+      {
+        "txt": "La comparación entre probabilidad estimada e incumplimiento observado",
+        "ok": true
+      },
+      {
+        "txt": "El área bajo la curva de la muestra de desarrollo"
+      },
+      {
+        "txt": "El listado de variables del modelo"
+      },
+      {
+        "txt": "El índice de Gini"
+      }
+    ],
+    "retro": "Es la única evidencia directa sobre la suficiencia de la provisión, y suele estar ausente entre métricas de discriminación."
+  }
+];
+ACModulo.iniciar("M01", BANCO);
+</script>
+</body>
+</html>

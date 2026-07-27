@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+ :root{--papel:#E7ECF2;--cedula:#FCFDFE;--tinta:#16202C;--tinta2:#47586B;
+       --rayado:#C6D3E0;--marca:#12594F;--tick:#B0182D;--ok:#1A6B3C;--okbg:#E4F2E9}
+ body{margin:0;background:var(--papel);color:var(--tinta);
+      font:16px/1.6 "Source Sans 3",-apple-system,"Segoe UI",sans-serif}
+ .caja{max-width:620px;margin:48px auto;padding:0 20px}
+ .cedula{background:var(--cedula);border:1px solid var(--rayado);border-radius:3px;
+         box-shadow:0 1px 2px rgba(22,32,44,.07),0 6px 18px rgba(22,32,44,.06)}
+ .encab{background:#DDE5EE;border-bottom:2px solid var(--tinta);padding:14px 24px}
+ .encab h1{margin:0;font:600 20px/1.2 "Zilla Slab",Georgia,serif}
+ .encab small{color:var(--tinta2);font-size:12px;letter-spacing:.10em;text-transform:uppercase}
+ .cuerpo{padding:24px}
+ input{width:100%;padding:10px 12px;border:1px solid var(--rayado);border-radius:3px;
+       font:16px "IBM Plex Mono",monospace;text-transform:uppercase}
+ button{margin-top:12px;padding:10px 18px;border:0;border-radius:3px;background:var(--marca);
+        color:#fff;font:600 15px "Source Sans 3",sans-serif;cursor:pointer}
+ button:disabled{opacity:.5;cursor:not-allowed}
+ .res{margin-top:20px;padding:16px 18px;border-left:3px solid;border-radius:0 3px 3px 0;display:none}
+ .res.ok{display:block;border-color:var(--ok);background:var(--okbg)}
+ .res.no{display:block;border-color:var(--tick);background:#FBE9EC}
+ dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:15px}
+ dt{color:var(--tinta2)} dd{margin:0;font-weight:600}
+ .cod{font-family:"IBM Plex Mono",monospace;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="caja">
+  <div class="cedula">
+    <div class="encab">
+      <small>AuditCaat's Data Assurance</small>
+      <h1>Verificación de certificados</h1>
+    </div>
+    <div class="cuerpo">
+      <p>Ingresa el código impreso al pie del certificado para comprobar su emisión.</p>
+      <input id="cod" placeholder="AC-2026-XXXXX-XXXX" autocomplete="off">
+      <button id="btn">Verificar</button>
+      <div class="res" id="res"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var res = document.getElementById('res');
+var btn = document.getElementById('btn');
+var cod = document.getElementById('cod');
+
+function pintar(r){
+  btn.disabled = false; btn.textContent = 'Verificar';
+  if(!r || !r.hallado){
+    res.className = 'res no';
+    res.innerHTML = '<strong>Sin registro.</strong> No hay un certificado emitido con ese código. ' +
+                    'Revisa que esté completo, incluidos los guiones.';
+    return;
+  }
+  var titulo = r.tipo === 'programa' ? 'Programa completo' : 'Módulo ' + r.modulo;
+  res.className = 'res ok';
+  res.innerHTML = '<strong>Certificado válido.</strong>' +
+    '<dl>' +
+    '<dt>Código</dt><dd class="cod">' + r.codigo + '</dd>' +
+    '<dt>Otorgado a</dt><dd>' + r.nombre + '</dd>' +
+    '<dt>Organización</dt><dd>' + (r.organizacion || '—') + '</dd>' +
+    '<dt>Alcance</dt><dd>' + titulo + '</dd>' +
+    '<dt>Puntaje</dt><dd>' + r.puntaje + ' de ' + r.maximo + '</dd>' +
+    '<dt>Registrado</dt><dd>' + r.fecha + '</dd>' +
+    '</dl>';
+}
+
+function consultar(){
+  var v = cod.value.trim();
+  if(!v) return;
+  btn.disabled = true; btn.textContent = 'Verificando…';
+  google.script.run.withSuccessHandler(pintar)
+    .withFailureHandler(function(){ pintar(null); })
+    .verificarCodigo(v);
+}
+
+btn.addEventListener('click', consultar);
+cod.addEventListener('keydown', function(e){ if(e.key === 'Enter') consultar(); });
+
+var inicial = '<?= codigoInicial ?>';
+if(inicial){ cod.value = inicial; consultar(); }
+</script>
+</body>
+</html>

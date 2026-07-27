@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De la variable al scorecard · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">De la variable al scorecard</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Revisar cómo se eligen y transforman las variables de un modelo de score, y detectar las tres fallas que más se repiten en esa etapa: correlación mal medida, tramos hechos por conveniencia y modelos ajustados a su propia muestra.
+  </div>
+
+  <section class="ac-cedula" data-cedula="B-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-1</span>
+      <h3>Selección de variables: por qué la correlación no alcanza</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El primer filtro de un modelo es descartar variables redundantes. El error frecuente es aplicar correlación de Pearson a todo el conjunto sin mirar la naturaleza de cada variable. Pearson mide asociación lineal entre variables continuas; aplicada a variables cualitativas o a continuas ya tramificadas, entrega un número que no significa lo que el modelador cree.</p>
+      <blockquote class="ac-cita">Hay que tener en cuenta la naturaleza de las variables a la hora de analizarlas por correlación, sobre todo cuando son cualitativas, porque la correlación de Pearson por sí sola no ayuda.<cite>Clase 2, aprox. 00:13:05</cite></blockquote>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Dos variables que miden lo mismo sobreviven al filtro porque su correlación calculada fue baja. El modelo queda con multicolinealidad, los coeficientes se vuelven inestables y basta un cambio menor de muestra para que cambien de signo.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la matriz de correlación junto con el diccionario de variables y verificar que el estadístico usado corresponde al tipo de variable. Para pares categórica-categórica corresponde V de Cramér o chi cuadrado; para categórica-continua, razón de correlación. Documentar el umbral de descarte y confirmar que se aplicó de forma consistente.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-2</span>
+      <h3>Weight of evidence: qué mide y cómo se lee</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El weight of evidence, o WOE, se calcula por tramo de una variable. Compara la proporción de clientes buenos que caen en ese tramo con la proporción de clientes malos que caen en el mismo tramo, y toma el logaritmo de esa razón. Un WOE positivo indica concentración de buenos; uno negativo, de malos.</p>
+      <blockquote class="ac-cita">El WOE se define a nivel de cada tramo: el logaritmo de la proporción de buenos en la categoría sobre el total de buenos, contra la proporción equivalente de malos.<cite>Clase 2, aprox. 00:19:57</cite></blockquote>
+      <p>La utilidad para auditoría es que el WOE hace visible el comportamiento de la variable tramo por tramo. Una variable puede tener buen poder predictivo global y aun así comportarse de forma incoherente en un tramo específico.</p>
+      <table class="ac-tabla"><thead><tr><th>Tramo de antigüedad</th><th>Buenos</th><th>Malos</th><th>WOE</th><th>Lectura</th></tr></thead><tbody><tr><td>Menos de 6 meses</td><td class="num">1.200</td><td class="num">480</td><td class="num">-0,62</td><td>Concentra malos</td></tr><tr><td>6 a 24 meses</td><td class="num">3.400</td><td class="num">610</td><td class="num">0,18</td><td>Cerca del promedio</td></tr><tr><td>24 a 60 meses</td><td class="num">4.100</td><td class="num">390</td><td class="num">0,71</td><td>Concentra buenos</td></tr><tr><td>Más de 60 meses</td><td class="num">2.300</td><td class="num">340</td><td class="num">0,41</td><td>Rompe la monotonía</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El último tramo baja en lugar de seguir subiendo. Si el modelador no lo explica, hay dos posibilidades: el tramo tiene pocos casos y el WOE es ruido, o la variable no se comporta como el negocio supone. Ambas exigen respuesta antes de aceptar el modelo.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Pedir la tabla de WOE por variable con el conteo de casos por tramo. Marcar todo tramo con menos del 5 % de la población y todo quiebre de monotonía sin justificación escrita en la documentación del modelo.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-3</span>
+      <h3>Information value: el umbral que se puede citar</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Mientras el WOE describe cada tramo, el information value resume en un solo número el poder predictivo de la variable completa. Se usa para decidir qué variables entran al modelo, y es especialmente habitual en regresión logística binaria y en modelos de score.</p>
+      <blockquote class="ac-cita">El information value mide la predicción del atributo, y es muy útil cuando se trabaja con regresiones logísticas binarias, en particular para un modelo de score.<cite>Clase 2, aprox. 00:15:17</cite></blockquote>
+      <div class="ac-umbral"><strong>Rangos de referencia del information value</strong>Bajo 0,02 la variable no aporta. Entre 0,02 y 0,10 el aporte es débil. Entre 0,10 y 0,30 es aceptable. Entre 0,30 y 0,50 es fuerte. Sobre 0,50 hay que sospechar: una variable así de predictiva suele contener información que no estaba disponible al momento de decidir.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El caso clásico es una variable con IV superior a 0,8 que resulta ser el estado de morosidad del propio período que se quiere predecir. El modelo luce excelente en desarrollo y no sirve en producción, porque esa variable no existe cuando hay que decidir sobre un cliente nuevo.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Listar las variables con IV sobre 0,50 y para cada una reconstruir el momento en que el dato queda disponible. Contrastarlo con la fecha de la decisión de crédito. Si el dato es posterior, hay fuga de información y el desempeño reportado está sobrestimado.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-4</span>
+      <h3>Binning: dónde se pierde la trazabilidad</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Convertir una variable continua en tramos se llama binning. Existen rutinas de binning óptimo que buscan automáticamente los cortes que maximizan el information value. El problema es que el óptimo estadístico y el óptimo de gestión no coinciden.</p>
+      <blockquote class="ac-cita">El binning óptimo maximiza la diferencia a través del information value. El problema de ese óptimo es que maximiza los grupos: busca muchos grupos.<cite>Clase 2, aprox. 00:29:06</cite></blockquote>
+      <p>Muchos tramos elevan el IV en la muestra de desarrollo y al mismo tiempo dejan tramos con pocos casos, que son los primeros en volverse inestables cuando la cartera cambia. Un modelo con veinte tramos por variable es un modelo difícil de explicar a un comité y difícil de monitorear.</p>
+      <div class="ac-umbral"><strong>Criterio práctico de revisión</strong>Entre cuatro y seis tramos por variable, cada uno con al menos 5 % de la población, y WOE monótono salvo justificación de negocio documentada.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Los cortes se rehacen sobre la misma muestra hasta que el modelo alcanza la métrica que el comité quería ver. No queda registro de los cortes descartados y el resultado es un modelo ajustado a su propia muestra.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la bitácora de construcción del binning: cortes probados, criterio de selección y quién los aprobó. La ausencia de esa bitácora es en sí misma un hallazgo de control interno, independiente de la calidad estadística del modelo.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-5</span>
+      <h3>Del modelo al scorecard: odds, puntos y escala</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La salida de una regresión logística es una probabilidad. Una probabilidad de 0,037 no es un número con el que un comité de crédito trabaje cómodamente. Por eso se aplica una transformación lineal que lleva esa probabilidad a una escala de puntos: eso es la scorecard.</p>
+      <blockquote class="ac-cita">La probabilidad no siempre es fácil de interpretar en un comité. Por eso se instauró la scorecard, que es hacer una transformación lineal de las probabilidades a una escala entendible.<cite>Clase 2, aprox. 00:56:32</cite></blockquote>
+      <p>El odds es la razón entre buenos y malos de la población. Si por cada veinte clientes buenos hay uno malo, el odds es veinte a uno. La escala se define fijando un puntaje de referencia para un odds dado y los puntos necesarios para duplicar ese odds.</p>
+      <table class="ac-tabla"><thead><tr><th>Atributo del solicitante</th><th>Puntos</th></tr></thead><tbody><tr><td>Base de la escala</td><td class="num">83</td></tr><tr><td>Sexo declarado: hombre</td><td class="num">98</td></tr><tr><td>Línea disponible entre 2,5 y 4,5 veces el ingreso</td><td class="num">93</td></tr><tr><td>Puntaje total del ejemplo</td><td class="num">274</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La escala es una transformación, no información nueva. Reescalar no mejora un modelo malo: solo lo hace ver ordenado. Un scorecard bien presentado puede esconder un modelo con discriminación insuficiente.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Verificar que el puntaje de corte usado en la operación corresponde a la probabilidad que la política de crédito dice aceptar. Es frecuente que la escala se recalibre y el punto de corte quede en el valor antiguo, aprobando clientes que la política vigente rechazaría.</div>
+      <div class="ac-riesgo"><strong>Atributos sensibles</strong>Cuando la scorecard asigna puntos por sexo, edad, nacionalidad o domicilio, hay que verificar si la normativa aplicable lo permite y si existe evaluación de trato diferenciado. Es un riesgo regulatorio y reputacional, no solo estadístico.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-6</span>
+      <h3>Sobreajuste y regularización</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un modelo sobreajustado es el que funciona muy bien sobre la población con la que se construyó y falla al aplicarse a otra. Es el riesgo central de toda la etapa de construcción, y por eso importa el binning, el número de variables y la separación entre muestra de desarrollo y de validación.</p>
+      <blockquote class="ac-cita">Cuando trato de perfeccionar tanto el modelo, ese modelo tiende a sobreajustarse: funciona muy bien para la población con la que se construyó, pero no cuando se aplica a una población diferente.<cite>Clase 2, aprox. 01:17:07</cite></blockquote>
+      <p>Ridge y Lasso son técnicas de regularización: penalizan los coeficientes grandes para que el modelo generalice mejor y para reducir multicolinealidad. Lasso además puede llevar coeficientes exactamente a cero, con lo que selecciona variables.</p>
+      <div class="ac-umbral"><strong>Señal de alerta</strong>Una caída del área bajo la curva superior a cinco puntos porcentuales entre la muestra de desarrollo y la de validación indica sobreajuste y exige explicación.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Pedir las métricas de desempeño calculadas por separado en desarrollo y en validación, con el detalle de cómo se dividió la muestra. Si solo existe una cifra global, el modelo no fue validado: fue descrito.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="B-7">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-7</span>
+      <h3>Laboratorio: calcular WOE e information value</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La función siguiente reproduce lo que hace cualquier herramienta comercial de scorecard. Escribirla una vez sirve para saber exactamente qué se está revisando cuando el equipo de riesgo entrega una tabla de WOE.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>WOE e IV por variable</em></div><pre><code>import numpy as np
+import pandas as pd
+
+def woe_iv(df, variable, objetivo="malo", tramos=5):
+    d = df[[variable, objetivo]].copy()
+    if d[variable].dtype.kind in "ifc":
+        d["tramo"] = pd.qcut(d[variable], tramos, duplicates="drop")
+    else:
+        d["tramo"] = d[variable]
+
+    t = d.groupby("tramo", observed=True)[objetivo].agg(["count", "sum"])
+    t.columns = ["total", "malos"]
+    t["buenos"] = t.total - t.malos
+
+    # Corrección de continuidad: evita el logaritmo de cero en tramos sin eventos
+    t["p_buenos"] = (t.buenos + 0.5) / (t.buenos.sum() + 0.5 * len(t))
+    t["p_malos"] = (t.malos + 0.5) / (t.malos.sum() + 0.5 * len(t))
+
+    t["woe"] = np.log(t.p_buenos / t.p_malos)
+    t["iv"] = (t.p_buenos - t.p_malos) * t.woe
+    t["participacion"] = t.total / t.total.sum()
+    return t, t.iv.sum()
+
+tabla, iv = woe_iv(desarrollo, "antiguedad_meses")
+print(tabla[["total", "participacion", "woe", "iv"]].round(4))
+print(f"IV total = {iv:.4f}")</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Los dos controles de la cédula B-3 y B-4</em></div><pre><code># Control 1: ningún tramo bajo el 5 % de la población
+chicos = tabla[tabla.participacion &lt; 0.05]
+if len(chicos):
+    print("Tramos con volumen insuficiente:")
+    print(chicos[["total", "participacion"]])
+
+# Control 2: information value sospechosamente alto
+if iv &gt; 0.50:
+    print(f"ALERTA IV={iv:.3f}: verificar cuándo queda disponible esta variable "
+          f"frente a la fecha de la decisión de crédito")
+
+# Control 3: monotonía del WOE
+if not (tabla.woe.is_monotonic_increasing or tabla.woe.is_monotonic_decreasing):
+    print("El WOE no es monótono: requerir justificación de negocio")</code></pre></div>
+      <div class="ac-riesgo"><strong>Sobre el binning automático</strong>Las rutinas de binning óptimo maximizan el IV en la muestra de desarrollo y tienden a producir demasiados tramos. Si se usa una, hay que fijar el número máximo de tramos y el tamaño mínimo por tramo antes de ejecutarla, no después de ver el resultado.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-7">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-7"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "b1",
+    "puntaje": 10,
+    "texto": "El equipo de riesgo descartó variables usando correlación de Pearson sobre todo el conjunto, incluidas variables categóricas. ¿Cuál es la observación correcta?",
+    "opciones": [
+      {
+        "txt": "Pearson no es el estadístico apropiado para variables categóricas, por lo que el filtro pudo dejar pasar variables redundantes",
+        "ok": true
+      },
+      {
+        "txt": "Es correcto: Pearson se aplica a cualquier tipo de variable"
+      },
+      {
+        "txt": "El problema es el umbral usado, no el estadístico"
+      },
+      {
+        "txt": "No corresponde observación porque la correlación es una etapa exploratoria"
+      }
+    ],
+    "retro": "Pearson mide asociación lineal entre continuas. Para pares categóricos corresponde V de Cramér o chi cuadrado. El riesgo es multicolinealidad no detectada y coeficientes inestables."
+  },
+  {
+    "id": "b2",
+    "puntaje": 10,
+    "texto": "Una variable presenta WOE de -0,62 en el primer tramo y 0,71 en el tercero. ¿Qué indica el signo negativo?",
+    "opciones": [
+      {
+        "txt": "Que ese tramo concentra proporcionalmente más clientes malos que buenos",
+        "ok": true
+      },
+      {
+        "txt": "Que la variable fue mal calculada, porque el WOE no puede ser negativo"
+      },
+      {
+        "txt": "Que el tramo tiene pocos casos"
+      },
+      {
+        "txt": "Que la variable debe eliminarse del modelo"
+      }
+    ],
+    "retro": "El WOE es un logaritmo de razón de proporciones: negativo significa mayor peso de malos en ese tramo. Es informativo, no un defecto."
+  },
+  {
+    "id": "b3",
+    "puntaje": 10,
+    "texto": "Una variable presenta information value de 0,84. ¿Cuál es la primera hipótesis que debe verificar el auditor?",
+    "opciones": [
+      {
+        "txt": "Que la variable contiene información no disponible al momento de la decisión de crédito",
+        "ok": true
+      },
+      {
+        "txt": "Que la variable es excelente y debe ponderarse más"
+      },
+      {
+        "txt": "Que el binning tiene pocos tramos"
+      },
+      {
+        "txt": "Que el modelo está subajustado"
+      }
+    ],
+    "retro": "Un IV sobre 0,50 es sospechoso. El caso típico es una variable que refleja el propio evento que se quiere predecir. El desempeño reportado queda sobrestimado."
+  },
+  {
+    "id": "b4",
+    "puntaje": 10,
+    "texto": "El modelador usó una rutina de binning óptimo que generó dieciocho tramos para una variable continua. ¿Cuál es el riesgo principal?",
+    "opciones": [
+      {
+        "txt": "Tramos con pocos casos que se vuelven inestables al cambiar la cartera, y un modelo difícil de explicar y monitorear",
+        "ok": true
+      },
+      {
+        "txt": "Ninguno: más tramos siempre mejoran la capacidad predictiva"
+      },
+      {
+        "txt": "Que el information value quede subestimado"
+      },
+      {
+        "txt": "Que la variable pase a ser categórica"
+      }
+    ],
+    "retro": "El óptimo estadístico maximiza el IV en la muestra de desarrollo. Eso eleva la métrica y al mismo tiempo fragiliza el modelo fuera de esa muestra."
+  },
+  {
+    "id": "b5",
+    "puntaje": 10,
+    "texto": "En la revisión del binning, el equipo no conserva registro de los cortes probados y descartados. ¿Cómo se clasifica esto?",
+    "opciones": [
+      {
+        "txt": "Hallazgo de control interno por falta de trazabilidad, independiente de la calidad estadística del resultado",
+        "ok": true
+      },
+      {
+        "txt": "No es hallazgo si el modelo alcanza las métricas mínimas"
+      },
+      {
+        "txt": "Hallazgo solo si el regulador lo exige expresamente"
+      },
+      {
+        "txt": "Observación menor que se comunica verbalmente"
+      }
+    ],
+    "retro": "Sin bitácora no se puede descartar que los cortes se hayan ajustado hasta obtener la métrica deseada. La ausencia de evidencia es el hallazgo."
+  },
+  {
+    "id": "b6",
+    "puntaje": 10,
+    "texto": "¿Qué es el odds en la construcción de una scorecard?",
+    "opciones": [
+      {
+        "txt": "La razón entre clientes buenos y malos de la población",
+        "ok": true
+      },
+      {
+        "txt": "La probabilidad de incumplimiento del cliente"
+      },
+      {
+        "txt": "El puntaje mínimo para aprobar una solicitud"
+      },
+      {
+        "txt": "La diferencia entre puntaje observado y esperado"
+      }
+    ],
+    "retro": "El odds es una razón, no una probabilidad. Si hay veinte buenos por cada malo, el odds es veinte a uno. La escala de puntos se construye sobre esa razón."
+  },
+  {
+    "id": "b7",
+    "puntaje": 10,
+    "texto": "Riesgo recalibró la escala de la scorecard pero el sistema mantiene el punto de corte anterior. ¿Cuál es el efecto?",
+    "opciones": [
+      {
+        "txt": "Se están aprobando o rechazando solicitudes con un criterio distinto al que fija la política vigente",
+        "ok": true
+      },
+      {
+        "txt": "Ninguno: la escala es solo presentación"
+      },
+      {
+        "txt": "Mejora la aprobación porque la escala es más precisa"
+      },
+      {
+        "txt": "Se corrige solo en el siguiente ciclo de monitoreo"
+      }
+    ],
+    "retro": "La escala es una transformación, pero el punto de corte opera sobre la escala. Si una cambia y el otro no, la política deja de aplicarse como está escrita."
+  },
+  {
+    "id": "b8",
+    "puntaje": 10,
+    "texto": "El área bajo la curva es 0,86 en desarrollo y 0,74 en validación. ¿Qué corresponde concluir?",
+    "opciones": [
+      {
+        "txt": "Hay indicio de sobreajuste y se debe requerir explicación antes de aceptar el modelo",
+        "ok": true
+      },
+      {
+        "txt": "El modelo es aceptable porque ambos valores superan 0,70"
+      },
+      {
+        "txt": "La muestra de validación es demasiado pequeña"
+      },
+      {
+        "txt": "Corresponde recalcular el information value de las variables"
+      }
+    ],
+    "retro": "Doce puntos de caída exceden ampliamente el margen razonable. El desempeño real esperable es el de validación, no el de desarrollo."
+  },
+  {
+    "id": "b9",
+    "puntaje": 10,
+    "texto": "¿Cuál es el aporte de Lasso frente a Ridge en un modelo de riesgo?",
+    "opciones": [
+      {
+        "txt": "Puede llevar coeficientes exactamente a cero, con lo que también selecciona variables",
+        "ok": true
+      },
+      {
+        "txt": "Elimina la necesidad de muestra de validación"
+      },
+      {
+        "txt": "Aumenta el information value de las variables incluidas"
+      },
+      {
+        "txt": "Convierte la regresión logística en un modelo no paramétrico"
+      }
+    ],
+    "retro": "Ambas penalizan coeficientes grandes para mejorar la generalización. Lasso además anula coeficientes, por lo que reduce el número de variables."
+  },
+  {
+    "id": "b10",
+    "puntaje": 10,
+    "texto": "La scorecard asigna puntos por sexo del solicitante. ¿Qué corresponde hacer?",
+    "opciones": [
+      {
+        "txt": "Verificar si la normativa aplicable lo permite y si existe evaluación documentada de trato diferenciado",
+        "ok": true
+      },
+      {
+        "txt": "Nada, si la variable tiene information value suficiente"
+      },
+      {
+        "txt": "Eliminar la variable sin más análisis"
+      },
+      {
+        "txt": "Reportarlo solo si algún cliente reclama"
+      }
+    ],
+    "retro": "El uso de atributos protegidos es un riesgo regulatorio y reputacional. El poder predictivo no sustituye la evaluación de admisibilidad legal."
+  }
+];
+ACModulo.iniciar("M02", BANCO);
+</script>
+</body>
+</html>

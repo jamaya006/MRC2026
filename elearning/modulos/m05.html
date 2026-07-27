@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desempeño y evidencia gráfica · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Desempeño y evidencia gráfica</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Leer las métricas y los gráficos con que un equipo de riesgo justifica su modelo, y saber cuáles admiten conclusión y cuáles solo describen la muestra con que se construyó.
+  </div>
+
+  <section class="ac-cedula" data-cedula="E-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-1</span>
+      <h3>Discriminación: qué mide realmente la curva ROC</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La curva ROC responde una sola pregunta: si tomo al azar un cliente que incumplió y uno que no, ¿con qué frecuencia el modelo le asigna peor puntaje al que incumplió? El área bajo esa curva es esa frecuencia. No dice si la probabilidad estimada es correcta en nivel, solo si el orden es correcto.</p>
+      <blockquote class="ac-cita">En términos de curva ROC, los modelos sobre 80 % son todos buenos.<cite>Clase 5, aprox. 00:50:16</cite></blockquote>
+      <div class="ac-umbral"><strong>Referencia de discriminación</strong>Un área bajo la curva de 0,50 equivale a no discriminar. Bajo 0,70 el modelo es insuficiente para decisiones de crédito. Entre 0,70 y 0,80 es aceptable con reservas. Sobre 0,80 se considera bueno. Sobre 0,95 hay que sospechar fuga de información antes de celebrar.</div>
+      <p>El índice de Gini expresa lo mismo en otra escala: es dos veces el área bajo la curva menos uno. Un área de 0,84 equivale a un Gini de 0,68. No son dos evidencias distintas: es la misma cifra presentada dos veces.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El informe presenta área bajo la curva, Gini y KS como si fueran tres confirmaciones independientes del desempeño. Las dos primeras son la misma medida; el KS aporta una lectura distinta, pero también sobre la misma capacidad de ordenar.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="E-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-2</span>
+      <h3>KS y divergencia</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El estadístico KS mide la máxima distancia entre la distribución acumulada de clientes buenos y la de malos a lo largo del puntaje. Responde dónde se separan más las dos poblaciones y cuánto.</p>
+      <div class="ac-umbral"><strong>Rangos habituales de KS por tipo de modelo</strong>En modelos de admisión, valores entre 25 % y 35 % son normales. En modelos de comportamiento, donde hay historial interno del cliente, se esperan valores entre 35 % y 50 %. Un KS sobre 60 % en admisión debe verificarse antes de aceptarse. En divergencia, valores sobre 2 indican buena separación.</div>
+      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Un KS de 30 % es un buen resultado en admisión y un mal resultado en comportamiento. Evaluar ambos contra el mismo umbral es un error frecuente en informes de validación.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Antes de contrastar cualquier métrica contra un umbral, identificar de qué tipo de modelo se trata: admisión, comportamiento o cobranza. El umbral depende del tipo, y esa clasificación debe estar en la documentación del modelo.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="E-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-3</span>
+      <h3>Matriz de confusión y punto de corte</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El modelo entrega una probabilidad. Para decidir hace falta un punto de corte. La matriz de confusión muestra las cuatro combinaciones posibles entre lo que el modelo predijo y lo que efectivamente ocurrió, para ese corte.</p>
+      <table class="ac-tabla"><thead><tr><th></th><th>Incumplió</th><th>No incumplió</th></tr></thead><tbody><tr><td>Modelo rechaza</td><td>Acierto: pérdida evitada</td><td>Falso positivo: negocio perdido</td></tr><tr><td>Modelo aprueba</td><td>Falso negativo: pérdida asumida</td><td>Acierto: negocio bueno</td></tr></tbody></table>
+      <p>Los dos errores no cuestan lo mismo. Un falso negativo cuesta la pérdida del crédito; un falso positivo cuesta el margen que se dejó de ganar. Como la pérdida suele ser varias veces el margen, el corte económicamente óptimo está bastante por debajo del 50 % que la intuición sugiere.</p>
+      <div class="ac-umbral"><strong>Consecuencia práctica</strong>En carteras de consumo, con pérdida por operación incumplida muy superior al margen por operación sana, el corte óptimo suele ubicarse en torno al 10 % de probabilidad estimada, no al 50 %.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se reporta exactitud global como métrica principal. En una cartera con 3 % de incumplimiento, un modelo que aprueba todo tiene 97 % de exactitud y valor cero. La exactitud no es una métrica útil con clases desbalanceadas.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la justificación económica del punto de corte vigente: costo asumido por falso negativo, margen perdido por falso positivo y fecha de la última revisión de esos supuestos.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="E-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-4</span>
+      <h3>Modelos de estimación: cuando la salida no es una probabilidad</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>No todos los modelos de riesgo predicen un evento binario. Los modelos de estimación de renta, por ejemplo, predicen un monto, y ahí no aplican ROC ni KS. Se evalúan comparando el valor estimado contra el valor real.</p>
+      <p>La herramienta habitual es el gráfico de contorno de valor real contra valor estimado. Un modelo que funciona concentra la masa de puntos alrededor de la diagonal. Las desviaciones sistemáticas por sobre o por debajo de esa diagonal son sesgo, no dispersión.</p>
+      <ul><li>Nube concentrada sobre la diagonal: el modelo estima bien en ese rango.</li><li>Nube desplazada hacia arriba en los tramos bajos: el modelo sobreestima a los clientes de menor renta.</li><li>Nube que se abre en los extremos: el modelo pierde precisión donde hay menos observaciones.</li><li>Diferencias entre el contorno de entrenamiento y el de prueba: sobreajuste.</li></ul>
+      <div class="ac-riesgo"><strong>Por qué importa para la provisión</strong>Si la renta estimada alimenta el cálculo de capacidad de pago, un sesgo sistemático de sobreestimación en los tramos bajos produce aprobaciones a clientes cuya capacidad real es menor. El efecto aparece después, en la morosidad de ese segmento.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Pedir los gráficos de contorno de entrenamiento y de prueba por segmento y compararlos. Si solo se entrega el de entrenamiento, el desempeño no está acreditado.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="E-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-5</span>
+      <h3>Calibración: el desempeño que casi nunca se revisa</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Discriminar y calibrar son cosas distintas. Un modelo discrimina bien si ordena correctamente. Calibra bien si el nivel de la probabilidad estimada coincide con la frecuencia observada. Un modelo puede ordenar impecablemente y estimar mal el nivel.</p>
+      <p>Para la provisión, la calibración es lo determinante. La probabilidad de incumplimiento entra directamente en el cálculo de la pérdida esperada. Si el modelo estima 2 % donde se observa 5 %, la provisión queda subestimada aunque el área bajo la curva sea excelente.</p>
+      <table class="ac-tabla"><thead><tr><th>Tramo de PD estimada</th><th>PD promedio estimada</th><th>Incumplimiento observado</th><th>Desvío</th></tr></thead><tbody><tr><td>Muy bajo</td><td class="num">0,8 %</td><td class="num">0,9 %</td><td>Aceptable</td></tr><tr><td>Bajo</td><td class="num">2,1 %</td><td class="num">3,4 %</td><td>Subestima</td></tr><tr><td>Medio</td><td class="num">6,5 %</td><td class="num">9,8 %</td><td>Subestima</td></tr><tr><td>Alto</td><td class="num">18,0 %</td><td class="num">17,2 %</td><td>Aceptable</td></tr></tbody></table>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar la tabla de PD estimada contra incumplimiento observado por tramo, sobre una ventana cerrada. Es la prueba directa de que la provisión está bien dimensionada y frecuentemente no forma parte del informe de desempeño.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El informe de validación presenta solo métricas de discriminación. Se concluye que el modelo es bueno y no se verificó lo único que afecta directamente la cifra contable.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="E-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">E-6</span>
+      <h3>Laboratorio: métricas, punto de corte y calibración</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Tres bloques que producen la cédula de desempeño completa: discriminación, corte económico y tabla de calibración.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Discriminación</em></div><pre><code>import numpy as np
+from sklearn.metrics import roc_curve, roc_auc_score, confusion_matrix
+
+p = modelo.predict_proba(X_va)[:, 1]
+fpr, tpr, cortes = roc_curve(y_va, p)
+
+auc = roc_auc_score(y_va, p)
+ks = (tpr - fpr).max()
+corte_ks = cortes[(tpr - fpr).argmax()]
+
+print(f"AUC   {auc:.3f}")
+print(f"Gini  {2 * auc - 1:.3f}      (es la misma medida que el AUC)")
+print(f"KS    {ks:.1%}  en probabilidad {corte_ks:.3f}")</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Punto de corte de mínimo costo</em></div><pre><code>PERDIDA = 1.00      # por unidad de exposición incumplida
+MARGEN  = 0.12      # por unidad de exposición sana
+
+rejilla = np.arange(0.01, 0.51, 0.01)
+costo = [((y_va == 1) &amp; (p &lt; c)).sum() * PERDIDA +
+         ((y_va == 0) &amp; (p &gt;= c)).sum() * MARGEN for c in rejilla]
+
+optimo = rejilla[int(np.argmin(costo))]
+print(f"Corte de mínimo costo: {optimo:.0%}")
+print(confusion_matrix(y_va, (p &gt;= optimo).astype(int)))
+# El corte queda muy por debajo del 50 % porque los errores no cuestan igual</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Calibración: la evidencia que sostiene la provisión</em></div><pre><code>import pandas as pd
+
+cal = pd.DataFrame({"pd_estimada": p, "observado": y_va})
+cal["tramo"] = pd.qcut(cal.pd_estimada, 5,
+                       labels=["muy bajo", "bajo", "medio", "alto", "muy alto"])
+
+tabla = cal.groupby("tramo", observed=True).agg(
+    operaciones=("observado", "size"),
+    pd_estimada=("pd_estimada", "mean"),
+    observado=("observado", "mean"))
+tabla["desvio"] = tabla.observado - tabla.pd_estimada
+print(tabla.round(4))
+
+if (tabla.desvio &gt; 0).all():
+    print("El modelo subestima en todos los tramos: la provisión queda corta")</code></pre></div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="E-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="E-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "e1",
+    "puntaje": 10,
+    "texto": "¿Qué mide el área bajo la curva ROC?",
+    "opciones": [
+      {
+        "txt": "La capacidad del modelo de ordenar correctamente: dar peor puntaje a quien incumple que a quien no",
+        "ok": true
+      },
+      {
+        "txt": "Que la probabilidad estimada coincide con la observada"
+      },
+      {
+        "txt": "El porcentaje de decisiones correctas del modelo"
+      },
+      {
+        "txt": "La estabilidad del modelo entre períodos"
+      }
+    ],
+    "retro": "Mide orden, no nivel. Un modelo puede ordenar bien y estimar mal la magnitud de la probabilidad."
+  },
+  {
+    "id": "e2",
+    "puntaje": 10,
+    "texto": "El informe presenta área bajo la curva de 0,84 y Gini de 0,68 como dos evidencias de desempeño. ¿Qué corresponde observar?",
+    "opciones": [
+      {
+        "txt": "Son la misma medida en distinta escala: el Gini es dos veces el área menos uno",
+        "ok": true
+      },
+      {
+        "txt": "El Gini está mal calculado"
+      },
+      {
+        "txt": "Falta reportar la exactitud global"
+      },
+      {
+        "txt": "Son evidencias independientes y correctas"
+      }
+    ],
+    "retro": "0,84 × 2 − 1 = 0,68. Presentarlas como confirmaciones separadas sobreestima el respaldo del modelo."
+  },
+  {
+    "id": "e3",
+    "puntaje": 10,
+    "texto": "Un modelo de comportamiento reporta KS de 28 %. ¿Cómo se evalúa?",
+    "opciones": [
+      {
+        "txt": "Bajo para un modelo de comportamiento, donde se esperan valores entre 35 % y 50 %",
+        "ok": true
+      },
+      {
+        "txt": "Adecuado, porque supera el 25 %"
+      },
+      {
+        "txt": "Excelente para cualquier tipo de modelo"
+      },
+      {
+        "txt": "No evaluable sin conocer el área bajo la curva"
+      }
+    ],
+    "retro": "El umbral depende del tipo de modelo. Un KS de 28 % sería normal en admisión y es insuficiente en comportamiento, que dispone de historial interno."
+  },
+  {
+    "id": "e4",
+    "puntaje": 10,
+    "texto": "En una cartera con 3 % de incumplimiento, un modelo reporta 97 % de exactitud. ¿Qué conclusión corresponde?",
+    "opciones": [
+      {
+        "txt": "La exactitud no es informativa con clases desbalanceadas: aprobar todo produce el mismo resultado",
+        "ok": true
+      },
+      {
+        "txt": "El modelo tiene desempeño sobresaliente"
+      },
+      {
+        "txt": "El punto de corte está bien calibrado"
+      },
+      {
+        "txt": "Corresponde aumentar el punto de corte"
+      }
+    ],
+    "retro": "Un modelo que nunca rechaza acierta el 97 % de las veces y no aporta valor. Con clases desbalanceadas hay que mirar la matriz de confusión completa."
+  },
+  {
+    "id": "e5",
+    "puntaje": 10,
+    "texto": "¿Por qué el punto de corte económicamente óptimo suele estar muy por debajo del 50 %?",
+    "opciones": [
+      {
+        "txt": "Porque la pérdida de una operación incumplida es varias veces el margen de una operación sana",
+        "ok": true
+      },
+      {
+        "txt": "Porque la mayoría de los clientes son malos"
+      },
+      {
+        "txt": "Porque el modelo subestima sistemáticamente"
+      },
+      {
+        "txt": "Porque lo exige la normativa"
+      }
+    ],
+    "retro": "Los dos errores tienen costos asimétricos. El corte se fija donde el costo esperado total es mínimo, no en el punto medio de la probabilidad."
+  },
+  {
+    "id": "e6",
+    "puntaje": 10,
+    "texto": "En un modelo de estimación de renta, ¿qué indica una nube desplazada por encima de la diagonal en los tramos bajos?",
+    "opciones": [
+      {
+        "txt": "El modelo sobreestima sistemáticamente la renta de los clientes de menor ingreso",
+        "ok": true
+      },
+      {
+        "txt": "El modelo tiene buena precisión en ese tramo"
+      },
+      {
+        "txt": "Hay pocos datos en ese tramo"
+      },
+      {
+        "txt": "El modelo está bien calibrado"
+      }
+    ],
+    "retro": "Es sesgo, no dispersión. Si esa renta alimenta la capacidad de pago, produce aprobaciones a clientes con capacidad real menor."
+  },
+  {
+    "id": "e7",
+    "puntaje": 10,
+    "texto": "El equipo entrega solo el gráfico de contorno de la muestra de entrenamiento. ¿Cuál es la observación?",
+    "opciones": [
+      {
+        "txt": "El desempeño no está acreditado: falta el contorno de la muestra de prueba para descartar sobreajuste",
+        "ok": true
+      },
+      {
+        "txt": "Es suficiente si el gráfico muestra buen ajuste"
+      },
+      {
+        "txt": "Corresponde solicitar la curva ROC en su lugar"
+      },
+      {
+        "txt": "No aplica porque el modelo no es binario"
+      }
+    ],
+    "retro": "El ajuste sobre la propia muestra de entrenamiento siempre se ve mejor. La comparación entre ambas muestras es la evidencia."
+  },
+  {
+    "id": "e8",
+    "puntaje": 10,
+    "texto": "¿Cuál es la diferencia entre discriminación y calibración?",
+    "opciones": [
+      {
+        "txt": "Discriminar es ordenar correctamente; calibrar es que el nivel estimado coincida con la frecuencia observada",
+        "ok": true
+      },
+      {
+        "txt": "Son sinónimos medidos con estadísticos distintos"
+      },
+      {
+        "txt": "La calibración solo aplica a modelos de comportamiento"
+      },
+      {
+        "txt": "La discriminación se mide sobre datos fuera de tiempo"
+      }
+    ],
+    "retro": "Un modelo puede discriminar impecablemente y estimar mal el nivel. Para la provisión, lo determinante es la calibración."
+  },
+  {
+    "id": "e9",
+    "puntaje": 10,
+    "texto": "El modelo estima 2,1 % de PD en un tramo donde se observó 3,4 % de incumplimiento. ¿Cuál es el efecto contable?",
+    "opciones": [
+      {
+        "txt": "La provisión de ese tramo está subestimada, aunque la discriminación sea buena",
+        "ok": true
+      },
+      {
+        "txt": "Ninguno: la diferencia está dentro de lo esperable"
+      },
+      {
+        "txt": "Se compensa con los tramos donde sobreestima"
+      },
+      {
+        "txt": "Afecta al punto de corte, no a la provisión"
+      }
+    ],
+    "retro": "La PD entra directamente en el cálculo de la pérdida esperada. Un desvío sistemático hacia abajo produce subprovisión."
+  },
+  {
+    "id": "e10",
+    "puntaje": 10,
+    "texto": "Un modelo de admisión reporta área bajo la curva de 0,97. ¿Cuál es la primera acción?",
+    "opciones": [
+      {
+        "txt": "Verificar si alguna variable contiene información posterior a la decisión de crédito",
+        "ok": true
+      },
+      {
+        "txt": "Aprobar el modelo por su desempeño sobresaliente"
+      },
+      {
+        "txt": "Reducir el punto de corte"
+      },
+      {
+        "txt": "Solicitar el índice de Gini para confirmar"
+      }
+    ],
+    "retro": "Un desempeño así en admisión es infrecuente. La causa habitual es fuga de información, no calidad excepcional del modelo."
+  }
+];
+ACModulo.iniciar("M05", BANCO);
+</script>
+</body>
+</html>

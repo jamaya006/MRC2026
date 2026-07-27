@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certificado · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ac_marca.css">
+<link rel="stylesheet" href="assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera ac-no-imprimir">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong>Certificado</strong>
+      <small>AuditCaat's Data Assurance</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<div class="ac-envoltura ac-no-imprimir" style="padding-top:var(--e-5);display:flex;gap:var(--e-3);flex-wrap:wrap">
+  <button class="ac-btn ac-btn-primario" id="btn-imprimir">Imprimir o guardar en PDF</button>
+  <a class="ac-btn ac-btn-secundario" id="btn-li" target="_blank" rel="noopener">Agregar a LinkedIn</a>
+  <button class="ac-btn ac-btn-secundario" id="btn-json">Descargar constancia</button>
+</div>
+
+<div id="hoja"></div>
+
+<script src="assets/ac_programa.js"></script>
+<script src="assets/ac_engine.js"></script>
+<script src="assets/ac_cert.js"></script>
+<script>
+(function () {
+  const $ = AC.util.$;
+  if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
+    $("#logo").classList.add("tiene-imagen");
+  }
+  if (!AC.Participante.obtener()) { location.href = "index.html"; return; }
+
+  const q = new URLSearchParams(location.search);
+  const r = ACCert.render("#hoja", { tipo: q.get("tipo"), moduloId: q.get("modulo") });
+  if (r) ACCert.enlazarAcciones(r.certificado, r.titulo);
+})();
+</script>
+</body>
+</html>

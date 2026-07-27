@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelos alternativos y criterio de aceptación · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Modelos alternativos y criterio de aceptación</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Decidir cuándo un modelo más complejo que la regresión logística se justifica y cuándo es un riesgo. El criterio no es cuál predice mejor, sino cuál se puede explicar, reproducir y monitorear.
+  </div>
+
+  <section class="ac-cedula" data-cedula="C-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-1</span>
+      <h3>Por qué aparecen los árboles y qué cambian</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La regresión logística impone una forma: el efecto de cada variable es monótono y se suma al de las demás. Un árbol de decisión no impone esa forma. Divide la población en grupos mediante cortes sucesivos y captura interacciones que la logística solo reproduce si alguien las declara explícitamente.</p>
+      <p>Esa flexibilidad tiene un costo. Un árbol profundo puede separar casi perfectamente la muestra de desarrollo y perder gran parte de ese desempeño fuera de ella. Es el mismo sobreajuste del módulo anterior, con más capacidad de producirlo.</p>
+      <div class="ac-nota"><strong>Lo que cambia para el auditor</strong>En una logística se revisa el signo y la magnitud de cada coeficiente. En un árbol no hay coeficientes: se revisa la estructura de cortes, la profundidad, el mínimo de casos por hoja y la estabilidad de esas reglas entre muestras.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="C-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-2</span>
+      <h3>Bagging y boosting: qué se gana y qué se pierde</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un árbol solo es inestable. Las técnicas de ensamble combinan muchos árboles para estabilizar el resultado. Bagging los entrena en paralelo sobre remuestreos y promedia; boosting los entrena en secuencia, cada uno corrigiendo los errores del anterior.</p>
+      <table class="ac-tabla"><thead><tr><th>Enfoque</th><th>Cómo combina</th><th>Fortaleza</th><th>Riesgo dominante</th></tr></thead><tbody><tr><td>Árbol único</td><td>No combina</td><td>Reglas legibles</td><td>Inestabilidad</td></tr><tr><td>Bagging</td><td>Promedio en paralelo</td><td>Reduce varianza</td><td>Pierde legibilidad</td></tr><tr><td>Boosting</td><td>Secuencial y ponderado</td><td>Mayor desempeño</td><td>Sobreajuste y sensibilidad al ruido</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Boosting persigue los errores de los pasos anteriores. Si la muestra contiene registros con errores de carga o períodos anómalos, el modelo dedica capacidad a ajustar precisamente esos casos. El resultado luce mejor en desarrollo y se deteriora rápido en producción.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Antes de evaluar el desempeño de un ensamble, revisar la depuración de la muestra. Un modelo de boosting sobre datos sucios amplifica la suciedad en lugar de promediarla.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="C-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-3</span>
+      <h3>Interpretabilidad: el requisito que no es negociable</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Una institución debe poder explicar por qué rechazó una solicitud, tanto al cliente como al supervisor. Un modelo cuya decisión no se puede descomponer en razones concretas genera un problema operativo antes que estadístico.</p>
+      <p>La regresión logística con scorecard resuelve esto de forma natural: el puntaje es una suma de puntos atribuibles a atributos concretos. Un ensamble de cientos de árboles requiere herramientas adicionales de atribución, y esas herramientas son aproximaciones, no la decisión real del modelo.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La institución adopta un modelo de mayor desempeño y mantiene la scorecard anterior solo para explicar decisiones. Se termina con dos modelos: uno que decide y otro que justifica. La explicación entregada al cliente no corresponde al criterio que se aplicó.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Verificar que el modelo que produce la decisión es el mismo que genera la razón de rechazo comunicada. Solicitar diez casos rechazados y reconstruir la razón entregada al cliente desde la salida del modelo en producción.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="C-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-4</span>
+      <h3>Criterio de aceptación de un modelo más complejo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La pregunta no es si el modelo complejo predice mejor. Casi siempre predice algo mejor en la muestra de desarrollo. La pregunta es si esa mejora sobrevive en validación y si compensa el costo de explicarlo, mantenerlo y monitorearlo.</p>
+      <div class="ac-umbral"><strong>Regla de decisión propuesta</strong>Se acepta el modelo más complejo si la mejora de área bajo la curva en la muestra de validación, no en desarrollo, supera tres puntos porcentuales y se mantiene en una ventana fuera de tiempo. Por debajo de eso, la ganancia no compensa la pérdida de interpretabilidad.</div>
+      <ol><li>Comparar ambos modelos sobre exactamente la misma muestra de validación.</li><li>Verificar que la partición de datos fue idéntica y con la misma semilla.</li><li>Repetir la comparación sobre una ventana temporal posterior.</li><li>Estimar el efecto de la diferencia sobre la provisión, no solo sobre la métrica.</li><li>Documentar la decisión y los responsables que la aprobaron.</li></ol>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se comparan modelos evaluados sobre muestras distintas o con particiones diferentes. La comparación no es válida y la decisión de reemplazo queda sin sustento.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="C-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-5</span>
+      <h3>Reproducibilidad: el hallazgo más frecuente</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un modelo de aprendizaje automático depende de una semilla aleatoria, de versiones específicas de librerías y del orden de los datos de entrada. Si alguno de esos elementos no está documentado, el modelo no se puede reproducir y, por lo tanto, no se puede validar de forma independiente.</p>
+      <div class="ac-umbral"><strong>Elementos mínimos del expediente del modelo</strong>Semilla utilizada, versión del lenguaje y de cada librería, criterio y semilla de la partición de la muestra, hiperparámetros finales, fecha de extracción de los datos y responsable de cada paso.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Ejecutar de nuevo el modelo con el expediente entregado y comparar la salida con la reportada. Diferencias en el cuarto decimal son normales; diferencias en la métrica de desempeño indican que el expediente está incompleto.</div>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El modelo se entrenó en el equipo de un analista que ya no está en la institución, con versiones de librerías que nadie registró. El modelo sigue operando y nadie puede reconstruirlo. Es una observación de continuidad operacional, además de una limitación al alcance de la validación.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="C-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">C-6</span>
+      <h3>Laboratorio: comparar dos modelos con criterio</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La comparación solo es válida si ambos modelos ven exactamente la misma partición. El código fija la semilla una vez y la reutiliza, que es la condición que la cédula C-4 exige verificar.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Comparación sobre partición idéntica</em></div><pre><code>from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.metrics import roc_auc_score
+
+SEMILLA = 20260722          # queda registrada en el expediente del modelo
+
+X_tr, X_va, y_tr, y_va = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=SEMILLA)
+
+candidatos = {
+    "Logística": LogisticRegression(max_iter=1000),
+    "Boosting":  GradientBoostingClassifier(random_state=SEMILLA),
+}
+
+for nombre, modelo in candidatos.items():
+    modelo.fit(X_tr, y_tr)
+    auc_des = roc_auc_score(y_tr, modelo.predict_proba(X_tr)[:, 1])
+    auc_val = roc_auc_score(y_va, modelo.predict_proba(X_va)[:, 1])
+    print(f"{nombre:&lt;11} desarrollo {auc_des:.3f}   "
+          f"validación {auc_val:.3f}   caída {auc_des - auc_val:+.3f}")</code></pre></div>
+      <div class="ac-nota"><strong>Cómo se lee el resultado</strong>Lo que decide la adopción es la columna de validación, no la de desarrollo. La caída de cada modelo, por separado, indica cuánto sobreajustó. Un boosting con caída de 0,10 y una logística con caída de 0,02 dicen más sobre el riesgo del modelo que la diferencia entre ambos.</div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Registro de reproducibilidad</em></div><pre><code>import sys, sklearn, pandas, numpy
+
+print(f"Python       {sys.version.split()[0]}")
+print(f"scikit-learn {sklearn.__version__}")
+print(f"pandas       {pandas.__version__}")
+print(f"numpy        {numpy.__version__}")
+print(f"Semilla      {SEMILLA}")
+# Esta salida se adjunta al expediente: sin ella no hay validación replicable</code></pre></div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="C-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="C-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "c1",
+    "puntaje": 10,
+    "texto": "¿Cuál es la diferencia estructural entre una regresión logística y un árbol de decisión?",
+    "opciones": [
+      {
+        "txt": "El árbol captura interacciones entre variables sin que haya que declararlas, mientras la logística requiere especificarlas",
+        "ok": true
+      },
+      {
+        "txt": "El árbol siempre tiene mejor desempeño"
+      },
+      {
+        "txt": "La logística no admite variables categóricas"
+      },
+      {
+        "txt": "El árbol no requiere muestra de validación"
+      }
+    ],
+    "retro": "La logística impone efectos aditivos y monótonos. El árbol no, y por eso captura interacciones, pero también sobreajusta con más facilidad."
+  },
+  {
+    "id": "c2",
+    "puntaje": 10,
+    "texto": "¿Por qué el boosting es especialmente sensible a la calidad de los datos?",
+    "opciones": [
+      {
+        "txt": "Porque cada iteración se concentra en los errores de la anterior, y los registros erróneos se comportan como errores a corregir",
+        "ok": true
+      },
+      {
+        "txt": "Porque no admite variables continuas"
+      },
+      {
+        "txt": "Porque promedia los resultados y diluye la señal"
+      },
+      {
+        "txt": "Porque requiere más memoria que otras técnicas"
+      }
+    ],
+    "retro": "El algoritmo pondera lo que no logró ajustar. Datos sucios reciben más atención, no menos, y el modelo termina ajustando ruido."
+  },
+  {
+    "id": "c3",
+    "puntaje": 10,
+    "texto": "La institución decide con un modelo de boosting y explica los rechazos con la scorecard anterior. ¿Cuál es el hallazgo?",
+    "opciones": [
+      {
+        "txt": "La razón comunicada al cliente no corresponde al criterio que efectivamente se aplicó",
+        "ok": true
+      },
+      {
+        "txt": "No hay hallazgo si ambas herramientas fueron aprobadas por el comité"
+      },
+      {
+        "txt": "El hallazgo es que la scorecard está desactualizada"
+      },
+      {
+        "txt": "Es una buena práctica de doble control"
+      }
+    ],
+    "retro": "Decidir con un modelo y justificar con otro deja a la institución sin capacidad real de explicar sus decisiones ante el cliente o el supervisor."
+  },
+  {
+    "id": "c4",
+    "puntaje": 10,
+    "texto": "Un modelo complejo mejora el área bajo la curva de 0,81 a 0,88 en desarrollo y de 0,78 a 0,79 en validación. ¿Qué corresponde recomendar?",
+    "opciones": [
+      {
+        "txt": "No adoptarlo: la mejora real es de un punto y no compensa la pérdida de interpretabilidad",
+        "ok": true
+      },
+      {
+        "txt": "Adoptarlo por la mejora de siete puntos"
+      },
+      {
+        "txt": "Adoptarlo y revisar la validación más adelante"
+      },
+      {
+        "txt": "Rehacer el desarrollo con más variables"
+      }
+    ],
+    "retro": "La mejora en desarrollo es sobreajuste. Lo que se puede esperar en producción es el resultado de validación: un punto porcentual."
+  },
+  {
+    "id": "c5",
+    "puntaje": 10,
+    "texto": "Al comparar dos modelos candidatos, ¿qué condición hace inválida la comparación?",
+    "opciones": [
+      {
+        "txt": "Que se hayan evaluado sobre muestras de validación distintas o con particiones diferentes",
+        "ok": true
+      },
+      {
+        "txt": "Que uno sea logística y el otro un ensamble"
+      },
+      {
+        "txt": "Que uno use más variables que el otro"
+      },
+      {
+        "txt": "Que se hayan entrenado en fechas distintas"
+      }
+    ],
+    "retro": "Sin la misma muestra y la misma partición, la diferencia de métricas puede deberse a la muestra y no al modelo."
+  },
+  {
+    "id": "c6",
+    "puntaje": 10,
+    "texto": "¿Qué elemento es imprescindible en el expediente para poder replicar un modelo?",
+    "opciones": [
+      {
+        "txt": "La semilla aleatoria y las versiones de las librerías utilizadas",
+        "ok": true
+      },
+      {
+        "txt": "El nombre comercial del software"
+      },
+      {
+        "txt": "El acta del comité que lo aprobó"
+      },
+      {
+        "txt": "El presupuesto del proyecto"
+      }
+    ],
+    "retro": "Sin semilla ni versiones, la ejecución no es reproducible y la validación independiente pierde su base."
+  },
+  {
+    "id": "c7",
+    "puntaje": 10,
+    "texto": "El validador reproduce el modelo y obtiene área bajo la curva de 0,74 frente al 0,82 reportado. ¿Cuál es la conclusión inmediata?",
+    "opciones": [
+      {
+        "txt": "El expediente entregado está incompleto y hay una limitación al alcance",
+        "ok": true
+      },
+      {
+        "txt": "El modelo original está mal y debe descartarse"
+      },
+      {
+        "txt": "Es una diferencia normal por aleatoriedad"
+      },
+      {
+        "txt": "Corresponde ajustar la semilla hasta igualar el resultado"
+      }
+    ],
+    "retro": "Ajustar la semilla hasta reproducir el número es exactamente lo contrario de validar. La diferencia indica que falta información en el expediente."
+  },
+  {
+    "id": "c8",
+    "puntaje": 10,
+    "texto": "¿Qué se revisa en un árbol que no tiene equivalente en una regresión logística?",
+    "opciones": [
+      {
+        "txt": "La profundidad, el mínimo de casos por hoja y la estabilidad de los cortes",
+        "ok": true
+      },
+      {
+        "txt": "El signo de los coeficientes"
+      },
+      {
+        "txt": "El information value de cada variable"
+      },
+      {
+        "txt": "El intercepto del modelo"
+      }
+    ],
+    "retro": "Un árbol no tiene coeficientes. Su control de complejidad está en la profundidad y en el tamaño mínimo de las hojas."
+  },
+  {
+    "id": "c9",
+    "puntaje": 10,
+    "texto": "El analista que construyó el modelo dejó la institución y nadie registró el entorno de ejecución. El modelo sigue operando. ¿Cómo se reporta?",
+    "opciones": [
+      {
+        "txt": "Como observación de continuidad operacional y limitación al alcance de la validación",
+        "ok": true
+      },
+      {
+        "txt": "Como observación de recursos humanos"
+      },
+      {
+        "txt": "No se reporta mientras el modelo funcione"
+      },
+      {
+        "txt": "Como deficiencia estadística del modelo"
+      }
+    ],
+    "retro": "El modelo puede ser estadísticamente correcto y aun así representar un riesgo operacional: no se puede mantener, corregir ni validar."
+  },
+  {
+    "id": "c10",
+    "puntaje": 10,
+    "texto": "¿Qué aporta el bagging respecto de un árbol único?",
+    "opciones": [
+      {
+        "txt": "Reduce la varianza del resultado al promediar árboles entrenados sobre remuestreos",
+        "ok": true
+      },
+      {
+        "txt": "Aumenta la interpretabilidad del modelo"
+      },
+      {
+        "txt": "Elimina la necesidad de tramificar variables"
+      },
+      {
+        "txt": "Garantiza que no exista sobreajuste"
+      }
+    ],
+    "retro": "El bagging estabiliza. Lo que gana en varianza lo pierde en legibilidad: ya no hay un conjunto único de reglas que mostrar."
+  }
+];
+ACModulo.iniciar("M03", BANCO);
+</script>
+</body>
+</html>

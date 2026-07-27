@@ -1,0 +1,320 @@
+/* ===================================================================
+   AuditCaat's — Estilo compartido del programa
+   Depende de ac_marca.css. No definir colores literales aqui.
+   =================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--ac-texto);
+  font-size: var(--t-md);
+  line-height: 1.65;
+  color: var(--ac-tinta);
+  background-color: var(--ac-papel);
+  /* rayado de hoja contable, discreto */
+  background-image: repeating-linear-gradient(
+      to bottom, transparent 0 31px, rgba(159,178,198,.20) 31px 32px);
+}
+
+h1, h2, h3, h4 { font-family: var(--ac-display); font-weight: 600; line-height: 1.2; margin: 0; }
+p { margin: 0 0 var(--e-4); }
+a { color: var(--ac-marca); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ac-marca-alto); }
+
+:focus-visible {
+  outline: 2px solid var(--ac-tick);
+  outline-offset: 2px;
+}
+
+.ac-envoltura { max-width: 1080px; margin: 0 auto; padding: 0 var(--e-5); }
+.ac-angosto   { max-width: 760px;  margin: 0 auto; padding: 0 var(--e-5); }
+
+/* ---------- Encabezado institucional -------------------------------- */
+.ac-cabecera {
+  background: var(--ac-tinta);
+  color: #fff;
+  border-bottom: 3px solid var(--ac-marca);
+}
+.ac-cabecera-fila {
+  display: flex; align-items: center; gap: var(--e-4);
+  padding: var(--e-4) 0;
+}
+.ac-logo {
+  width: 46px; height: 46px; flex: none;
+  background-size: contain;
+  background-image: var(--ac-logo);
+  background-size: contain; background-repeat: no-repeat; background-position: center;
+  display: grid; place-items: center;
+  font-family: var(--ac-display); font-size: var(--t-lg); color: #fff;
+  border: 1px solid rgba(255,255,255,.30); border-radius: var(--radio);
+}
+.ac-logo.tiene-imagen { border-color: transparent; width: 156px; height: 39px;
+  background-position: left center; }
+.ac-logo.tiene-imagen span { display: none; }
+.ac-cabecera-txt strong { display: block; font-family: var(--ac-display); font-size: var(--t-lg); letter-spacing: .01em; }
+.ac-cabecera-txt small { color: rgba(255,255,255,.68); font-size: var(--t-xs); letter-spacing: .10em; text-transform: uppercase; }
+.ac-cabecera-fin { margin-left: auto; text-align: right; font-family: var(--ac-dato); font-size: var(--t-xs); color: rgba(255,255,255,.72); }
+
+/* ---------- Portada del programa ------------------------------------ */
+.ac-portada { padding: var(--e-8) 0 var(--e-6); }
+.ac-eyebrow {
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+  letter-spacing: .18em; text-transform: uppercase; color: var(--ac-tinta-3);
+  margin-bottom: var(--e-3);
+}
+.ac-portada h1 { font-size: var(--t-3xl); max-width: 20ch; margin-bottom: var(--e-4); }
+.ac-portada .bajada { font-size: var(--t-lg); color: var(--ac-tinta-2); max-width: 62ch; }
+
+.ac-fichaprograma {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px; background: var(--ac-rayado);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio);
+  margin-top: var(--e-6); overflow: hidden;
+}
+.ac-fichaprograma div { background: var(--ac-cedula); padding: var(--e-4); }
+.ac-fichaprograma dt { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .10em; color: var(--ac-tinta-3); }
+.ac-fichaprograma dd { margin: var(--e-1) 0 0; font-family: var(--ac-display); font-size: var(--t-xl); }
+
+/* ---------- INDICE DE LEGAJO (elemento firma) -----------------------
+   La ruta del programa no se ve como un carrusel de tarjetas: se ve
+   como el indice de un legajo de auditoria, con referencia, folio,
+   estado y columna de marcas.
+   ------------------------------------------------------------------ */
+.ac-legajo {
+  background: var(--ac-cedula);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin: var(--e-6) 0 var(--e-8);
+  overflow: hidden;
+}
+.ac-legajo-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-4) var(--e-5);
+  border-bottom: 2px solid var(--ac-tinta);
+  background: var(--ac-papel-2);
+}
+.ac-legajo-encab h2 { font-size: var(--t-lg); }
+.ac-legajo-encab span { margin-left: auto; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-2); }
+
+.ac-fila {
+  display: grid;
+  grid-template-columns: 62px 1fr 132px 96px 54px;
+  align-items: center;
+  gap: var(--e-4);
+  padding: var(--e-4) var(--e-5);
+  border-bottom: 1px solid var(--ac-rayado);
+  text-decoration: none; color: inherit;
+  position: relative;
+  transition: background .14s ease;
+}
+.ac-fila:last-child { border-bottom: 0; }
+.ac-fila:hover, .ac-fila:focus-visible { background: var(--ac-marca-suave); }
+.ac-fila[aria-disabled="true"] { background: repeating-linear-gradient(135deg, transparent 0 9px, rgba(159,178,198,.13) 9px 18px); cursor: not-allowed; }
+.ac-fila[aria-disabled="true"]:hover { background: repeating-linear-gradient(135deg, transparent 0 9px, rgba(159,178,198,.13) 9px 18px); }
+.ac-fila[aria-disabled="true"] .ac-fila-tit { color: var(--ac-bloqueo); }
+
+.ac-ref {
+  font-family: var(--ac-dato); font-size: var(--t-sm); font-weight: 600;
+  color: var(--ac-tinta); border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio); padding: 2px 0; text-align: center;
+  background: var(--ac-papel);
+}
+.ac-fila-tit { font-family: var(--ac-display); font-size: var(--t-lg); }
+.ac-fila-sub { font-size: var(--t-sm); color: var(--ac-tinta-2); }
+.ac-fila-meta { font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); }
+
+.ac-estado {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: var(--radio); display: inline-block; white-space: nowrap;
+}
+.ac-estado.pendiente { background: var(--ac-papel-2); color: var(--ac-tinta-2); }
+.ac-estado.curso     { background: var(--ac-alerta-bg); color: var(--ac-alerta); }
+.ac-estado.aprobado  { background: var(--ac-ok-bg); color: var(--ac-ok); }
+.ac-estado.bloqueado { background: transparent; color: var(--ac-bloqueo); border: 1px dashed var(--ac-rayado-2); }
+
+/* Marca de auditoria estampada */
+.ac-marca-aud {
+  font-family: var(--ac-display); font-size: 1.6rem; line-height: 1;
+  color: var(--ac-tick); text-align: center;
+  transform: rotate(-9deg);
+  opacity: 0; transition: opacity .25s ease;
+}
+.ac-marca-aud.puesta { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .ac-marca-aud.puesta { animation: ac-estampar .34s cubic-bezier(.2,1.5,.4,1) both; }
+}
+@keyframes ac-estampar {
+  0%   { opacity: 0; transform: rotate(-9deg) scale(2.4); }
+  70%  { opacity: 1; transform: rotate(-9deg) scale(.92); }
+  100% { opacity: 1; transform: rotate(-9deg) scale(1); }
+}
+
+/* ---------- Barra de avance ------------------------------------------ */
+.ac-avance { display: flex; align-items: center; gap: var(--e-3); margin-top: var(--e-2); }
+.ac-avance-riel { flex: 1; height: 6px; background: var(--ac-papel-2); border-radius: 99px; overflow: hidden; }
+.ac-avance-lleno { height: 100%; background: var(--ac-marca); width: 0; transition: width .4s ease; }
+.ac-avance small { font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-2); }
+
+/* ---------- Cedula (bloque de contenido dentro de un modulo) --------- */
+.ac-cedula {
+  background: var(--ac-cedula);
+  border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin: 0 0 var(--e-6);
+  overflow: hidden;
+}
+.ac-cedula-encab {
+  display: flex; align-items: center; gap: var(--e-3);
+  padding: var(--e-3) var(--e-5);
+  background: var(--ac-papel-2);
+  border-bottom: 1px solid var(--ac-rayado-2);
+}
+.ac-cedula-encab .ref { font-family: var(--ac-dato); font-size: var(--t-sm); font-weight: 600; color: var(--ac-marca); }
+.ac-cedula-encab h3 { font-size: var(--t-lg); flex: 1; }
+.ac-cedula-cuerpo { padding: var(--e-5); }
+.ac-cedula-cuerpo > :last-child { margin-bottom: 0; }
+.ac-cedula-pie {
+  display: flex; align-items: center; gap: var(--e-3);
+  padding: var(--e-3) var(--e-5);
+  border-top: 1px dashed var(--ac-rayado-2);
+  background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+
+/* Recuadros didacticos */
+.ac-nota, .ac-riesgo, .ac-umbral {
+  border-left: 3px solid; padding: var(--e-4) var(--e-4) var(--e-4) var(--e-5);
+  margin: 0 0 var(--e-4); border-radius: 0 var(--radio) var(--radio) 0;
+}
+.ac-nota   { border-color: var(--ac-marca); background: var(--ac-marca-suave); }
+.ac-riesgo { border-color: var(--ac-alerta); background: var(--ac-alerta-bg); }
+.ac-umbral { border-color: var(--ac-tick);  background: var(--ac-tick-suave); }
+.ac-nota  strong, .ac-riesgo strong, .ac-umbral strong { display: block; font-family: var(--ac-display); margin-bottom: var(--e-1); }
+
+.ac-cita {
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+  border-left: 2px solid var(--ac-rayado-2); padding-left: var(--e-4);
+  font-style: italic; margin: 0 0 var(--e-4);
+}
+.ac-cita cite { display: block; font-style: normal; font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); margin-top: var(--e-2); }
+
+/* Bloque de codigo del laboratorio */
+.ac-codigo {
+  margin: 0 0 var(--e-4);
+  border: 1px solid var(--ac-tinta);
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--ac-tinta);
+}
+.ac-codigo-encab {
+  display: flex; align-items: baseline; gap: var(--e-3);
+  padding: var(--e-2) var(--e-4);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  font-family: var(--ac-dato); font-size: var(--t-xs);
+}
+.ac-codigo-encab span {
+  color: #7FD1B9; letter-spacing: .12em; text-transform: uppercase;
+}
+.ac-codigo-encab em { color: rgba(255,255,255,.62); font-style: normal; }
+.ac-codigo pre {
+  margin: 0; padding: var(--e-4);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.ac-codigo code {
+  font-family: var(--ac-dato); font-size: 13px; line-height: 1.6;
+  color: #E4ECF2; white-space: pre; tab-size: 4;
+}
+
+/* Tablas de datos */
+.ac-tabla { width: 100%; border-collapse: collapse; font-size: var(--t-sm); margin: 0 0 var(--e-4); }
+.ac-tabla th { text-align: left; background: var(--ac-papel-2); font-family: var(--ac-texto); font-weight: 600; }
+.ac-tabla th, .ac-tabla td { border: 1px solid var(--ac-rayado); padding: var(--e-2) var(--e-3); }
+.ac-tabla td.num { font-family: var(--ac-dato); text-align: right; }
+
+/* ---------- Controles ------------------------------------------------ */
+.ac-btn {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  font-family: var(--ac-texto); font-size: var(--t-sm); font-weight: 600;
+  padding: 10px 18px; border-radius: var(--radio); border: 1px solid transparent;
+  cursor: pointer; text-decoration: none; transition: background .14s ease, border-color .14s ease;
+}
+.ac-btn-primario { background: var(--ac-marca); color: #fff; }
+.ac-btn-primario:hover { background: var(--ac-marca-alto); color: #fff; }
+.ac-btn-secundario { background: transparent; color: var(--ac-tinta); border-color: var(--ac-rayado-2); }
+.ac-btn-secundario:hover { border-color: var(--ac-tinta); }
+.ac-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.ac-campo { margin-bottom: var(--e-4); }
+.ac-campo label { display: block; font-size: var(--t-sm); font-weight: 600; margin-bottom: var(--e-1); }
+.ac-campo input, .ac-campo select {
+  width: 100%; font-family: var(--ac-texto); font-size: var(--t-md);
+  padding: 9px 11px; border: 1px solid var(--ac-rayado-2);
+  border-radius: var(--radio); background: #fff; color: var(--ac-tinta);
+}
+.ac-campo input:focus, .ac-campo select:focus { border-color: var(--ac-marca); outline: none; box-shadow: 0 0 0 3px var(--ac-marca-suave); }
+.ac-campo .error { color: var(--ac-tick); font-size: var(--t-xs); margin-top: var(--e-1); display: none; }
+.ac-campo.invalido input, .ac-campo.invalido select { border-color: var(--ac-tick); }
+.ac-campo.invalido .error { display: block; }
+
+/* ---------- Quiz ----------------------------------------------------- */
+.ac-pregunta { border-bottom: 1px solid var(--ac-rayado); padding: var(--e-5) 0; }
+.ac-pregunta:first-child { padding-top: 0; }
+.ac-pregunta:last-child { border-bottom: 0; padding-bottom: 0; }
+.ac-pregunta-num { font-family: var(--ac-dato); font-size: var(--t-xs); color: var(--ac-tinta-3); letter-spacing: .10em; }
+.ac-pregunta-txt { font-family: var(--ac-display); font-size: var(--t-lg); margin: var(--e-1) 0 var(--e-4); }
+.ac-opcion {
+  display: flex; gap: var(--e-3); align-items: flex-start;
+  padding: var(--e-3) var(--e-4); margin-bottom: var(--e-2);
+  border: 1px solid var(--ac-rayado); border-radius: var(--radio);
+  background: #fff; cursor: pointer; transition: border-color .12s ease, background .12s ease;
+}
+.ac-opcion:hover { border-color: var(--ac-rayado-2); }
+.ac-opcion input { margin-top: 5px; accent-color: var(--ac-marca); }
+.ac-opcion.correcta { border-color: var(--ac-ok); background: var(--ac-ok-bg); }
+.ac-opcion.incorrecta { border-color: var(--ac-tick); background: var(--ac-tick-suave); }
+.ac-retro {
+  display: none; margin-top: var(--e-3); padding: var(--e-3) var(--e-4);
+  border-left: 3px solid var(--ac-tinta-3); background: var(--ac-papel);
+  font-size: var(--t-sm); color: var(--ac-tinta-2);
+}
+.ac-retro.visible { display: block; }
+
+/* ---------- Certificado (A4 vertical, tamaños absolutos) ------------- */
+.ac-cert {
+  width: 210mm; min-height: 297mm; margin: var(--e-6) auto; padding: 22mm 20mm;
+  background: #fff; color: var(--ac-tinta);
+  border: 1px solid var(--ac-rayado-2); box-shadow: var(--sombra-alta);
+  background-image: none;
+}
+.ac-cert-borde { border: 2pt solid var(--ac-tinta); padding: 14mm 12mm; min-height: 253mm; position: relative; }
+.ac-cert img.logo { height: 16mm; display: block; margin: 0 auto 8mm; }
+.ac-cert h1 { font-size: 26pt; text-align: center; letter-spacing: .02em; }
+.ac-cert .sub { text-align: center; font-family: var(--ac-dato); font-size: 8.5pt; letter-spacing: .22em; text-transform: uppercase; color: var(--ac-tinta-2); margin-bottom: 12mm; }
+.ac-cert .nombre { font-family: var(--ac-display); font-size: 22pt; text-align: center; border-bottom: 1pt solid var(--ac-rayado-2); padding-bottom: 4mm; margin: 0 0 8mm; }
+.ac-cert .codigo { font-family: var(--ac-dato); font-size: 10pt; text-align: center; letter-spacing: .10em; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  body { background: #fff; background-image: none; }
+  .ac-cabecera, .ac-no-imprimir { display: none !important; }
+  .ac-cert { box-shadow: none; border: 0; margin: 0; width: auto; }
+}
+
+/* ---------- Responsive ------------------------------------------------ */
+@media (max-width: 720px) {
+  .ac-portada h1 { font-size: var(--t-2xl); }
+  .ac-fila { grid-template-columns: 48px 1fr 40px; row-gap: var(--e-2); }
+  .ac-fila .ac-fila-meta { grid-column: 2; }
+  .ac-fila .ac-estado { grid-column: 2; justify-self: start; }
+  .ac-marca-aud { grid-row: 1 / span 3; grid-column: 3; }
+  .ac-cert { width: auto; padding: var(--e-5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

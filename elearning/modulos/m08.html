@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pérdida inesperada, capital y stress test · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Pérdida inesperada, capital y stress test</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Cerrar el programa distinguiendo lo que se provisiona de lo que se cubre con capital, y consolidar los hallazgos de los ocho módulos en un memorando de validación independiente.
+  </div>
+
+  <section class="ac-cedula" data-cedula="H-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-1</span>
+      <h3>Dos pérdidas distintas y dos respuestas distintas</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La pérdida de una cartera no es un número: es una distribución. La pérdida esperada es su valor medio. La pérdida inesperada es lo que puede ocurrir por sobre ese promedio en un escenario desfavorable.</p>
+      <blockquote class="ac-cita">Aparece el concepto de pérdida inesperada, que tiene que ver con todo lo que está a la derecha de la pérdida media o de la pérdida esperada.<cite>Clase 8, aprox. 01:54:08</cite></blockquote>
+      <table class="ac-tabla"><thead><tr><th>Concepto</th><th>Qué representa</th><th>Cómo se cubre</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Pérdida esperada</td><td>Valor medio de la distribución</td><td>Provisión</td><td>Resultado y balance</td></tr><tr><td>Pérdida inesperada</td><td>Desviación adversa sobre la media</td><td>Capital</td><td>Patrimonio y requerimientos</td></tr></tbody></table>
+      <div class="ac-nota"><strong>Por qué importa la distinción</strong>Provisionar la pérdida inesperada o pretender cubrir la esperada con capital son errores conceptuales con efecto contable. La primera es un gasto del ejercicio; la segunda es una exigencia patrimonial.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="H-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-2</span>
+      <h3>Frecuencia, severidad y valor en riesgo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Para construir la distribución de pérdidas se modelan dos componentes por separado: con qué frecuencia ocurren los incumplimientos y de qué magnitud es la pérdida cuando ocurren.</p>
+      <blockquote class="ac-cita">Se van ajustando cuáles son las mejores distribuciones en términos de frecuencia y severidad, y ahí uno compara el valor en riesgo y define cuál es la que mejor se ajusta en base a múltiples indicadores.<cite>Clase 8, aprox. 02:36:37</cite></blockquote>
+      <p>El valor en riesgo es el percentil de esa distribución para un nivel de confianza dado. Decir que el valor en riesgo al 99 % es un monto determinado significa que, bajo los supuestos del modelo, se espera superar esa pérdida en uno de cada cien períodos.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El resultado depende por completo de la distribución elegida y de la correlación supuesta entre incumplimientos. Cambiar el supuesto de correlación altera el percentil de forma sustancial sin que cambie ningún dato observado.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el criterio de selección de las distribuciones, las pruebas de bondad de ajuste consideradas y el supuesto de correlación. Verificar que el supuesto se mantiene entre períodos o que su cambio está fundamentado.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="H-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-3</span>
+      <h3>Stress test: qué es y qué no es</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Una prueba de tensión proyecta el comportamiento de la cartera bajo condiciones adversas definidas. No es una predicción: es una medición de sensibilidad ante un escenario que se supone posible.</p>
+      <blockquote class="ac-cita">El concepto de stress test de riesgo de crédito busca pronosticar escenarios futuros, obviamente escenarios de estrés, condiciones adversas.<cite>Clase 8, aprox. 02:47:21</cite></blockquote>
+      <ol><li>Definir el escenario adverso y sus variables macroeconómicas.</li><li>Traducir esas variables a efectos sobre los parámetros de riesgo.</li><li>Recalcular la pérdida esperada y la inesperada bajo el escenario.</li><li>Evaluar el efecto sobre resultados, provisiones y suficiencia de capital.</li><li>Documentar las acciones de mitigación disponibles.</li></ol>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El escenario adverso es más benigno que la peor situación efectivamente observada en la historia de la institución. Una prueba de tensión que no tensiona no informa nada, y consume recursos que aparentan cumplimiento.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar los supuestos del escenario adverso contra los valores efectivamente observados en las últimas crisis relevantes. Si el escenario adverso es menos severo que lo ya ocurrido, corresponde observación.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="H-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-4</span>
+      <h3>Castigo, recupero y presupuesto de riesgo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Cuando una operación se considera irrecuperable se castiga: sale del activo contra la provisión constituida. La gestión posterior puede recuperar parte de ese monto, y ese recupero se reconoce cuando ocurre.</p>
+      <blockquote class="ac-cita">El presupuesto es el gasto en riesgo más el castigo neto de recupero.<cite>Clase 8, aprox. 03:09:13</cite></blockquote>
+      <p>El momento del castigo es una decisión con efecto sobre la cifra. Adelantarlo reduce la cartera bruta y consume provisión; postergarlo mantiene en el activo operaciones sin capacidad de recuperación.</p>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La política de castigo no está formalizada o admite excepciones sin aprobación documentada. El castigo pasa a ser una herramienta de administración de indicadores en lugar del reconocimiento de un hecho económico.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Obtener la política de castigo, verificar su aplicación sobre una muestra y revisar las excepciones del período con su aprobación. Contrastar la antigüedad de la mora al momento del castigo contra el criterio declarado.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="H-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-5</span>
+      <h3>El memorando de validación independiente</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El cierre del programa es el documento que consolida el trabajo: qué se revisó, con qué alcance, qué se encontró y qué efecto tiene sobre la cifra. Es el entregable que da valor al resto de los papeles de trabajo.</p>
+      <table class="ac-tabla"><thead><tr><th>Sección</th><th>Contenido</th><th>Módulo que la alimenta</th></tr></thead><tbody><tr><td>Alcance y limitaciones</td><td>Qué se revisó y qué no, y por qué</td><td>I y III</td></tr><tr><td>Datos y variables</td><td>Calidad, fuga de información, binning</td><td>II</td></tr><tr><td>Segmentación</td><td>Criterio, estabilidad, efecto en parámetros</td><td>IV</td></tr><tr><td>Desempeño</td><td>Discriminación y calibración</td><td>V</td></tr><tr><td>Estabilidad</td><td>PSI, fuera de tiempo, monitoreo</td><td>VI</td></tr><tr><td>Provisión</td><td>Recálculo y conciliación</td><td>VII</td></tr><tr><td>Capital y tensión</td><td>Supuestos y severidad de escenarios</td><td>VIII</td></tr><tr><td>Hallazgos y efecto</td><td>Clasificados por severidad y efecto en la cifra</td><td>Todos</td></tr></tbody></table>
+      <div class="ac-umbral"><strong>Regla de redacción de hallazgos</strong>Cada hallazgo declara la condición observada, el criterio contra el que se compara, la causa, el efecto cuantificado cuando es posible y la recomendación. Un hallazgo sin criterio explícito es una opinión.</div>
+      <div class="ac-nota"><strong>Independencia</strong>La validación debe ser realizada por alguien distinto de quien construyó el modelo, con acceso a los datos y a la documentación, y con capacidad de reportar a un nivel distinto del área de riesgo. Sin las tres condiciones, la revisión puede ser técnicamente correcta y no constituir validación independiente.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="H-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">H-6</span>
+      <h3>Laboratorio: distribución de pérdidas, VaR y tensión</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La simulación construye la distribución completa de pérdidas de la cartera. De ahí salen los dos números del módulo: la media, que se provisiona, y la cola, que se cubre con capital.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Simulación de la distribución de pérdidas</em></div><pre><code>import numpy as np
+
+rng = np.random.default_rng(20260722)
+SIMULACIONES = 50_000
+
+pd_ = c.pd_aplicable.to_numpy()
+lgd = c.lgd.to_numpy()
+ead = c.ead.to_numpy()
+
+perdidas = np.empty(SIMULACIONES)
+for i in range(SIMULACIONES):
+    incumple = rng.random(pd_.size) &lt; pd_
+    perdidas[i] = (ead[incumple] * lgd[incumple]).sum()
+
+esperada = perdidas.mean()
+var99 = np.percentile(perdidas, 99)
+
+print(f"Pérdida esperada    {esperada:&gt;14,.0f}   -&gt; provisión")
+print(f"VaR 99 %            {var99:&gt;14,.0f}")
+print(f"Pérdida inesperada  {var99 - esperada:&gt;14,.0f}   -&gt; capital")</code></pre></div>
+      <div class="ac-riesgo"><strong>El supuesto que hay que cuestionar</strong>El bucle anterior sortea cada operación de forma independiente. En una crisis los incumplimientos ocurren juntos, y esa correlación es precisamente lo que engorda la cola de la distribución. Un modelo que asume independencia subestima el capital necesario sin que ningún dato observado lo delate.</div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Efecto de la correlación y escenario de tensión</em></div><pre><code># Factor común: un shock sistémico que afecta a toda la cartera a la vez
+RHO = 0.15
+for rho in (0.0, 0.10, 0.20):
+    tot = np.empty(10_000)
+    for i in range(10_000):
+        shock = rng.standard_normal()
+        umbral = (np.sqrt(rho) * shock + np.sqrt(1 - rho) *
+                  rng.standard_normal(pd_.size))
+        incumple = umbral &lt; np.quantile(umbral, pd_.mean())
+        tot[i] = (ead[incumple] * lgd[incumple]).sum()
+    print(f"rho={rho:.2f}   VaR 99 % {np.percentile(tot, 99):&gt;14,.0f}")
+
+# Escenario adverso: al menos tan severo como la peor crisis observada
+pd_estres = np.clip(pd_ * 2.4, 0, 1)
+print(f"\nPérdida esperada bajo tensión "
+      f"{(pd_estres * lgd * ead).sum():,.0f}")</code></pre></div>
+      <div class="ac-nota"><strong>Cierre del programa</strong>Con este laboratorio quedan cubiertos los ocho entregables. El memorando de validación independiente consolida los hallazgos de los ocho módulos con su efecto cuantificado sobre la cifra.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="H-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="H-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "h1",
+    "puntaje": 10,
+    "texto": "¿Cuál es la diferencia entre pérdida esperada e inesperada?",
+    "opciones": [
+      {
+        "txt": "La esperada es el valor medio de la distribución y se provisiona; la inesperada es la desviación adversa y se cubre con capital",
+        "ok": true
+      },
+      {
+        "txt": "La inesperada corresponde a fraudes y la esperada a incumplimientos"
+      },
+      {
+        "txt": "La esperada es de corto plazo y la inesperada de largo plazo"
+      },
+      {
+        "txt": "Ambas se provisionan, con distinto horizonte"
+      }
+    ],
+    "retro": "Son respuestas distintas a partes distintas de la misma distribución: provisión para la media, capital para la cola."
+  },
+  {
+    "id": "h2",
+    "puntaje": 10,
+    "texto": "¿Qué significa un valor en riesgo al 99 % de un monto determinado?",
+    "opciones": [
+      {
+        "txt": "Que bajo los supuestos del modelo se espera superar esa pérdida en uno de cada cien períodos",
+        "ok": true
+      },
+      {
+        "txt": "Que la pérdida máxima posible es ese monto"
+      },
+      {
+        "txt": "Que el 99 % de los clientes no incumplirá"
+      },
+      {
+        "txt": "Que la provisión debe igualar ese monto"
+      }
+    ],
+    "retro": "Es un percentil bajo supuestos, no un techo. La pérdida puede superarlo, y ese es precisamente el 1 % restante."
+  },
+  {
+    "id": "h3",
+    "puntaje": 10,
+    "texto": "¿Qué supuesto altera el resultado del valor en riesgo sin que cambie ningún dato observado?",
+    "opciones": [
+      {
+        "txt": "La correlación supuesta entre incumplimientos",
+        "ok": true
+      },
+      {
+        "txt": "El número de operaciones de la cartera"
+      },
+      {
+        "txt": "La tasa de interés de colocación"
+      },
+      {
+        "txt": "El nivel de provisión constituido"
+      }
+    ],
+    "retro": "La correlación determina la forma de la cola de la distribución. Cambiarla mueve el percentil sin que nada observable cambie."
+  },
+  {
+    "id": "h4",
+    "puntaje": 10,
+    "texto": "El escenario adverso del stress test es menos severo que la peor crisis observada por la institución. ¿Qué corresponde?",
+    "opciones": [
+      {
+        "txt": "Observación: una prueba de tensión que no tensiona no informa sobre la resistencia real",
+        "ok": true
+      },
+      {
+        "txt": "Aceptarlo si el escenario fue aprobado por el directorio"
+      },
+      {
+        "txt": "Aceptarlo si la metodología sigue estándares de mercado"
+      },
+      {
+        "txt": "No aplica observación porque el escenario es hipotético"
+      }
+    ],
+    "retro": "El referente mínimo de severidad es lo efectivamente ocurrido. Un escenario más benigno genera cumplimiento aparente."
+  },
+  {
+    "id": "h5",
+    "puntaje": 10,
+    "texto": "¿Qué ocurre contablemente cuando se castiga una operación?",
+    "opciones": [
+      {
+        "txt": "Sale del activo contra la provisión constituida, y el recupero posterior se reconoce cuando ocurre",
+        "ok": true
+      },
+      {
+        "txt": "Se reconoce un gasto adicional por el monto total"
+      },
+      {
+        "txt": "Se traslada a etapa 2"
+      },
+      {
+        "txt": "Se reversa la provisión contra resultados"
+      }
+    ],
+    "retro": "El castigo usa la provisión ya constituida. Si la provisión era insuficiente, la diferencia sí golpea resultados."
+  },
+  {
+    "id": "h6",
+    "puntaje": 10,
+    "texto": "La política de castigo admite excepciones sin aprobación documentada. ¿Cuál es el riesgo?",
+    "opciones": [
+      {
+        "txt": "El castigo se transforma en herramienta de administración de indicadores en lugar de reconocimiento de un hecho económico",
+        "ok": true
+      },
+      {
+        "txt": "Se incumple el plazo legal de prescripción"
+      },
+      {
+        "txt": "Se pierde el derecho a cobrar la operación"
+      },
+      {
+        "txt": "Aumenta la provisión del período siguiente"
+      }
+    ],
+    "retro": "Adelantar o postergar el castigo mueve cartera bruta, mora e indicadores. Sin regla formal, esa decisión queda a discreción."
+  },
+  {
+    "id": "h7",
+    "puntaje": 10,
+    "texto": "¿Qué condiciones debe cumplir una revisión para constituir validación independiente?",
+    "opciones": [
+      {
+        "txt": "Ser realizada por alguien distinto del constructor, con acceso a datos y documentación, y con reporte a un nivel distinto del área de riesgo",
+        "ok": true
+      },
+      {
+        "txt": "Ser realizada por un tercero externo a la institución"
+      },
+      {
+        "txt": "Aplicar las mismas métricas que usó el equipo de desarrollo"
+      },
+      {
+        "txt": "Contar con la aprobación del área de riesgo"
+      }
+    ],
+    "retro": "La independencia es orgánica y de acceso. Una revisión que reporta al área que construyó el modelo no es independiente, aunque sea técnicamente correcta."
+  },
+  {
+    "id": "h8",
+    "puntaje": 10,
+    "texto": "¿Qué elemento convierte una observación en un hallazgo de auditoría?",
+    "opciones": [
+      {
+        "txt": "La existencia de un criterio explícito contra el cual se compara la condición observada",
+        "ok": true
+      },
+      {
+        "txt": "Que el efecto supere la materialidad"
+      },
+      {
+        "txt": "Que el auditado esté de acuerdo"
+      },
+      {
+        "txt": "Que exista una recomendación asociada"
+      }
+    ],
+    "retro": "Sin criterio explícito hay una opinión. Condición, criterio, causa, efecto y recomendación son la estructura completa."
+  },
+  {
+    "id": "h9",
+    "puntaje": 10,
+    "texto": "El presupuesto de riesgo se compone de:",
+    "opciones": [
+      {
+        "txt": "El gasto en riesgo más el castigo neto de recupero",
+        "ok": true
+      },
+      {
+        "txt": "La provisión constituida más el capital regulatorio"
+      },
+      {
+        "txt": "La pérdida esperada más la inesperada"
+      },
+      {
+        "txt": "El valor en riesgo al 99 %"
+      }
+    ],
+    "retro": "Es una definición de gestión, no un cálculo de modelo. Sirve para contrastar lo presupuestado contra lo efectivamente ocurrido."
+  },
+  {
+    "id": "h10",
+    "puntaje": 10,
+    "texto": "¿Qué hallazgo del programa tiene efecto más directo sobre la cifra de provisión del estado financiero?",
+    "opciones": [
+      {
+        "txt": "Un desvío sistemático entre PD estimada e incumplimiento observado por tramo",
+        "ok": true
+      },
+      {
+        "txt": "La falta de registro de la semilla aleatoria del modelo"
+      },
+      {
+        "txt": "El uso de un algoritmo poco interpretable"
+      },
+      {
+        "txt": "La ausencia de gráfico de silueta en la segmentación"
+      }
+    ],
+    "retro": "Los otros tres son deficiencias reales de gobierno y metodología. Solo el desvío de calibración se traduce directamente en una provisión mal dimensionada."
+  }
+];
+ACModulo.iniciar("M08", BANCO);
+</script>
+</body>
+</html>

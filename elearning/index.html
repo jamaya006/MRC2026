@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programa de validación de modelos de riesgo de crédito · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ac_marca.css">
+<link rel="stylesheet" href="assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong>AuditCaat's Data Assurance</strong>
+      <small>Programa de formación interna</small>
+    </div>
+    <div class="ac-cabecera-fin" id="cab-participante"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Portada ============ -->
+  <section class="ac-envoltura ac-portada">
+    <div class="ac-eyebrow">Programa MRC-2026 · 21 horas</div>
+    <h1>Validación de modelos de riesgo de crédito</h1>
+    <p class="bajada">
+      Ocho módulos para auditores y contadores que deben revisar la cifra que sale de un modelo
+      estadístico. Ningún concepto se enseña sin responder tres cosas: qué cifra contable depende
+      de él, qué ocurre si está mal y qué procedimiento de auditoría corresponde.
+    </p>
+    <p class="bajada" style="font-size:var(--t-md);margin-top:var(--e-4)">
+      Cada módulo cierra con un laboratorio en Python: código que se ejecuta sobre la
+      cartera del curso y produce el papel de trabajo del módulo. No se requiere
+      experiencia previa en programación; el código viene escrito y comentado.
+    </p>
+
+    <dl class="ac-fichaprograma">
+      <div><dt>Módulos</dt><dd>8</dd></div>
+      <div><dt>Duración</dt><dd>21 h</dd></div>
+      <div><dt>Aprobación</dt><dd>70 %</dd></div>
+      <div><dt>Entregables</dt><dd>8 papeles</dd></div>
+      <div><dt>Certifica</dt><dd>Por módulo</dd></div>
+      <div><dt>Entorno</dt><dd>Python</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ Registro ============ -->
+  <section class="ac-angosto" id="bloque-registro" hidden>
+    <div class="ac-cedula">
+      <div class="ac-cedula-encab">
+        <span class="ref">REG</span>
+        <h3>Inscripción al programa</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Los datos se registran una sola vez para los ocho módulos y se usan para emitir los
+        certificados. Quedan guardados en este navegador; si cambias de equipo, deberás volver a
+        inscribirte y convalidar los módulos ya aprobados con su código.</p>
+
+        <div class="ac-campo">
+          <label for="f-nombre">Nombre completo</label>
+          <input id="f-nombre" autocomplete="name" placeholder="Como debe aparecer en el certificado">
+          <div class="error">Ingresa nombre y apellido.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-doc">Documento de identidad</label>
+          <input id="f-doc" autocomplete="off" placeholder="RUT, DNI o pasaporte">
+          <div class="error">Ingresa el documento.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-mail">Correo</label>
+          <input id="f-mail" type="email" autocomplete="email" placeholder="nombre@organizacion.com">
+          <div class="error">Ingresa un correo válido.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-cargo">Rol</label>
+          <select id="f-cargo">
+            <option value="">Selecciona</option>
+            <option>Auditor externo</option>
+            <option>Auditor interno</option>
+            <option>Contador</option>
+            <option>Analista de riesgo</option>
+            <option>Validador de modelos</option>
+            <option>Supervisión o regulación</option>
+            <option>Otro</option>
+          </select>
+          <div class="error">Selecciona un rol.</div>
+        </div>
+        <div class="ac-campo">
+          <label for="f-org">Organización</label>
+          <input id="f-org" autocomplete="organization" placeholder="Empresa o institución">
+          <div class="error">Ingresa la organización.</div>
+        </div>
+
+        <button class="ac-btn ac-btn-primario" id="btn-inscribir">Inscribirme</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Índice de legajo ============ -->
+  <section class="ac-envoltura" id="bloque-ruta" hidden>
+    <div class="ac-avance">
+      <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+      <small id="ac-avance-txt"></small>
+    </div>
+
+    <div class="ac-legajo">
+      <div class="ac-legajo-encab">
+        <h2>Índice del legajo</h2>
+        <span>Ref. · Módulo · Dedicación y fuente · Estado · Marca</span>
+      </div>
+      <div id="ruta"></div>
+    </div>
+
+    <div class="ac-cedula" id="bloque-convalidar">
+      <div class="ac-cedula-encab">
+        <span class="ref">CONV</span>
+        <h3>Convalidar un módulo ya aprobado</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Si ya cursaste un módulo y tienes su certificado, ingresa el código para reconocerlo
+        sin repetirlo. Aplica a quienes aprobaron el Módulo I antes de que existiera el portal.</p>
+        <div class="ac-campo">
+          <label for="f-conv-mod">Módulo</label>
+          <select id="f-conv-mod"></select>
+        </div>
+        <div class="ac-campo">
+          <label for="f-conv-cod">Código del certificado</label>
+          <input id="f-conv-cod" placeholder="AC-2026-XXXXX-XXXX" style="font-family:var(--ac-dato);text-transform:uppercase">
+          <div class="error">El código no tiene el formato AC-2026-XXXXX-XXXX.</div>
+        </div>
+        <button class="ac-btn ac-btn-secundario" id="btn-convalidar">Convalidar</button>
+        <span id="conv-msg" style="margin-left:12px;font-size:var(--t-sm)"></span>
+      </div>
+    </div>
+
+    <div class="ac-cedula" id="bloque-diploma" hidden>
+      <div class="ac-cedula-encab">
+        <span class="ref">DIP</span>
+        <h3>Diploma del programa</h3>
+      </div>
+      <div class="ac-cedula-cuerpo">
+        <p>Los ocho módulos están aprobados. El diploma acredita las 21 horas del programa completo.</p>
+        <button class="ac-btn ac-btn-primario" id="btn-diploma">Emitir diploma</button>
+      </div>
+    </div>
+
+    <p class="ac-no-imprimir" style="text-align:right;font-size:var(--t-xs)">
+      <a href="#" id="btn-salir">Cerrar sesión y borrar mis datos de este navegador</a>
+    </p>
+  </section>
+
+</main>
+
+<script src="assets/ac_programa.js"></script>
+<script src="assets/ac_engine.js"></script>
+<script>
+(function () {
+  const $ = AC.util.$;
+
+  // El logo se pinta como fondo CSS; si no se cargó el base64, queda el monograma.
+  if (getComputedStyle(document.documentElement).getPropertyValue("--ac-logo").trim() !== "none") {
+    $("#logo").classList.add("tiene-imagen");
+  }
+
+  function pintar() {
+    const p = AC.Participante.obtener();
+    $("#bloque-registro").hidden = !!p;
+    $("#bloque-ruta").hidden = !p;
+    if (!p) return;
+
+    $("#cab-participante").innerHTML =
+      AC.util.esc(p.nombre) + "<br>" + AC.util.esc(p.organizacion);
+
+    AC.Portal.render("#ruta");
+    $("#bloque-diploma").hidden = !AC.Progreso.programaCompleto();
+
+    if (!AC.Store.persistente()) {
+      $("#cab-participante").innerHTML +=
+        '<br><span style="color:#F0C24B">Sin guardado permanente en este navegador</span>';
+    }
+  }
+
+  // ---- Inscripción ----
+  function validar(id, prueba) {
+    const campo = $("#" + id).closest(".ac-campo");
+    const ok = prueba($("#" + id).value.trim());
+    campo.classList.toggle("invalido", !ok);
+    return ok;
+  }
+
+  $("#btn-inscribir").addEventListener("click", function () {
+    const ok = [
+      validar("f-nombre", v => v.split(/\s+/).length >= 2),
+      validar("f-doc",    v => v.length >= 5),
+      validar("f-mail",   v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)),
+      validar("f-cargo",  v => v !== ""),
+      validar("f-org",    v => v.length >= 2)
+    ].every(Boolean);
+    if (!ok) return;
+
+    AC.Participante.registrar({
+      nombre: $("#f-nombre").value,
+      documento: $("#f-doc").value,
+      email: $("#f-mail").value,
+      cargo: $("#f-cargo").value,
+      organizacion: $("#f-org").value
+    });
+    pintar();
+    const ruta = $("#bloque-ruta");
+    if (ruta.scrollIntoView) ruta.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // ---- Convalidación ----
+  $("#f-conv-mod").innerHTML = AC.programa.modulos
+    .map(m => '<option value="' + m.id + '">' + m.ref + " · " + AC.util.esc(m.titulo) + "</option>").join("");
+
+  $("#btn-convalidar").addEventListener("click", function () {
+    const cod = $("#f-conv-cod").value.trim().toUpperCase();
+    const mod = $("#f-conv-mod").value;
+    const ok = AC.Progreso.convalidar(mod, cod);
+    $("#f-conv-cod").closest(".ac-campo").classList.toggle("invalido", !ok);
+    $("#conv-msg").textContent = ok ? "Módulo convalidado." : "";
+    $("#conv-msg").style.color = "var(--ac-ok)";
+    if (ok) { $("#f-conv-cod").value = ""; pintar(); }
+  });
+
+  // ---- Diploma ----
+  $("#btn-diploma").addEventListener("click", function () {
+    const d = AC.Certificado.emitirDiploma();
+    if (d) location.href = AC.Rutas.diploma();
+  });
+
+  // ---- Salir ----
+  $("#btn-salir").addEventListener("click", function (e) {
+    e.preventDefault();
+    if (confirm("Se borrarán tu inscripción y tu avance en este navegador. Los certificados ya emitidos siguen siendo válidos. ¿Continuar?")) {
+      AC.Participante.salir();
+      location.reload();
+    }
+  });
+
+  pintar();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estabilidad y validación fuera de tiempo · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Estabilidad y validación fuera de tiempo</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <div class="ac-nota" style="margin-bottom:var(--e-6)">
+    <strong>Qué se lleva de este módulo</strong>Detectar el deterioro de un modelo que sigue operando. Es el módulo que sostiene el encargo recurrente: un modelo aprobado hace tres años puede estar produciendo hoy una provisión que ya no corresponde.
+  </div>
+
+  <section class="ac-cedula" data-cedula="F-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-1</span>
+      <h3>Tres formas de validar y para qué sirve cada una</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un modelo se evalúa sobre distintas muestras, y cada una responde una pregunta diferente. Confundirlas es la causa de que un modelo aprobado se deteriore sin que nadie lo advierta.</p>
+      <table class="ac-tabla"><thead><tr><th>Muestra</th><th>Qué responde</th><th>Qué no detecta</th></tr></thead><tbody><tr><td>Desarrollo</td><td>Si el modelo aprendió</td><td>Nada sobre generalización</td></tr><tr><td>Validación</td><td>Si generaliza a otros clientes del mismo período</td><td>Cambios en el tiempo</td></tr><tr><td>Fuera de tiempo</td><td>Si sigue vigente en un período posterior</td><td>—</td></tr></tbody></table>
+      <blockquote class="ac-cita">Hay diferentes formas de hacer este corte de datos: algunos ocupan tres, entrenamiento, prueba y validación, y lo hacen 60, 20 y 20; en este caso vamos a ocupar 80 y 20.<cite>Clase 3, aprox. 01:50:24</cite></blockquote>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>La partición se hace al azar sobre todo el histórico. Clientes del mismo período quedan en ambas muestras y la validación no prueba nada sobre el paso del tiempo. Es el error más común y el más fácil de detectar.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar las fechas mínima y máxima de cada muestra. Si los rangos se solapan por completo, no existe validación fuera de tiempo, sin importar cómo se llame el apartado del informe.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-1"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="F-2">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-2</span>
+      <h3>PSI: cómo se calcula y qué significa</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El índice de estabilidad poblacional compara la distribución de una variable o del puntaje entre el período en que se construyó el modelo y el período actual. No mide desempeño: mide si la población sigue siendo la misma.</p>
+      <p>Se calcula por tramo. Para cada uno se toma la diferencia entre el porcentaje actual y el de referencia, se multiplica por el logaritmo de su razón, y se suman los tramos.</p>
+      <table class="ac-tabla"><thead><tr><th>Tramo de puntaje</th><th>% referencia</th><th>% actual</th><th>Aporte al PSI</th></tr></thead><tbody><tr><td>Bajo 400</td><td class="num">8,0 %</td><td class="num">14,0 %</td><td class="num">0,0336</td></tr><tr><td>400 a 500</td><td class="num">17,0 %</td><td class="num">21,0 %</td><td class="num">0,0085</td></tr><tr><td>500 a 600</td><td class="num">31,0 %</td><td class="num">29,0 %</td><td class="num">0,0013</td></tr><tr><td>600 a 700</td><td class="num">28,0 %</td><td class="num">24,0 %</td><td class="num">0,0062</td></tr><tr><td>Sobre 700</td><td class="num">16,0 %</td><td class="num">12,0 %</td><td class="num">0,0115</td></tr><tr><td>Total</td><td class="num">100 %</td><td class="num">100 %</td><td class="num">0,0611</td></tr></tbody></table>
+      <div class="ac-umbral"><strong>Interpretación del PSI</strong>Bajo 0,10 la población es estable. Entre 0,10 y 0,25 hay desplazamiento moderado que exige análisis. Sobre 0,25 el desplazamiento es relevante y el modelo debe revisarse formalmente.</div>
+      <div class="ac-nota"><strong>Qué mirar además del total</strong>El PSI total puede ser bajo mientras dos tramos se compensan entre sí. Revisar siempre el aporte por tramo, no solo la suma.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-2">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-2"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="F-3">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-3</span>
+      <h3>PSI de la población y de las variables</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>El PSI se aplica sobre el puntaje final y también sobre cada variable de entrada. Cuando se calcula sobre las variables suele llamarse índice de estabilidad de características. La combinación de ambos identifica el origen del problema.</p>
+      <table class="ac-tabla"><thead><tr><th>PSI del puntaje</th><th>PSI de variables</th><th>Diagnóstico</th></tr></thead><tbody><tr><td>Bajo</td><td>Bajo</td><td>Población estable</td></tr><tr><td>Bajo</td><td>Alto en algunas</td><td>Cambios que se compensan; revisar igualmente</td></tr><tr><td>Alto</td><td>Alto en pocas</td><td>Origen identificado en esas variables</td></tr><tr><td>Alto</td><td>Bajo en todas</td><td>Revisar integridad del cálculo o cambio de política</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>Se monitorea solo el puntaje. Una variable cambia de definición en el sistema de origen, el resto compensa y el puntaje se ve estable mientras el modelo ya opera sobre datos distintos de los que se construyó.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Solicitar el PSI por variable del último ciclo de monitoreo. Si no existe, la institución no está en condiciones de identificar la causa de un deterioro cuando ocurra.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-3">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-3"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="F-4">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-4</span>
+      <h3>Ventanas contaminadas: el caso de la pandemia</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>La estabilidad supone que el período de referencia es representativo. Cuando la ventana de observación o de desempeño abarca un episodio excepcional, esa suposición no se cumple y todas las métricas construidas sobre ella quedan condicionadas.</p>
+      <p>Durante los años de pandemia coexistieron ayudas estatales, reprogramaciones masivas y suspensión de cobranza. El resultado fue morosidad artificialmente baja. Un modelo construido con esa ventana aprende un comportamiento de pago que no se repite en condiciones normales.</p>
+      <div class="ac-riesgo"><strong>Cómo se manifiesta</strong>El modelo subestima la probabilidad de incumplimiento de manera sistemática. La discriminación puede seguir siendo buena, porque el orden entre clientes se mantiene, mientras el nivel de la provisión queda por debajo del riesgo real.</div>
+      <div class="ac-umbral"><strong>Preguntas obligatorias sobre la ventana</strong>Qué período cubre la ventana de observación, qué período la de desempeño, si alguno abarca episodios excepcionales, y qué tratamiento se dio a las operaciones reprogramadas durante esos meses.</div>
+      <div class="ac-nota"><strong>Procedimiento</strong>Contrastar la tasa de incumplimiento del período de construcción contra la de los períodos anterior y posterior. Una diferencia relevante sin explicación documentada es un hallazgo con efecto directo sobre la suficiencia de la provisión.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-4">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-4"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="F-5">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-5</span>
+      <h3>Monitoreo: la política que casi nunca existe</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Un modelo no se valida una vez. La institución debe tener definido con qué frecuencia se mide, qué umbrales disparan una acción y quién decide. Sin eso, el monitoreo se convierte en un informe que nadie usa.</p>
+      <table class="ac-tabla"><thead><tr><th>Indicador</th><th>Frecuencia mínima</th><th>Umbral de acción</th></tr></thead><tbody><tr><td>PSI del puntaje</td><td>Mensual</td><td>Sobre 0,25</td></tr><tr><td>PSI por variable</td><td>Trimestral</td><td>Sobre 0,25 en cualquier variable</td></tr><tr><td>Área bajo la curva fuera de tiempo</td><td>Semestral</td><td>Caída sobre 5 puntos</td></tr><tr><td>PD estimada contra observada</td><td>Anual</td><td>Desvío sistemático por tramo</td></tr><tr><td>Tasa de aprobación</td><td>Mensual</td><td>Variación sin cambio de política</td></tr></tbody></table>
+      <div class="ac-riesgo"><strong>Qué sale mal</strong>El monitoreo existe, arroja PSI sobre 0,25 durante cuatro trimestres seguidos y no hay evidencia de acción. La deficiencia no es de medición sino de gobierno: la institución sabía y no actuó.</div>
+      <div class="ac-nota"><strong>Entregable de este módulo</strong>La plantilla de monitoreo con los cinco indicadores, sus umbrales y el responsable de cada uno. Es directamente reutilizable en encargos y es lo primero que se solicita al revisar el gobierno de modelos.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-5">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-5"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" data-cedula="F-6">
+    <div class="ac-cedula-encab">
+      <span class="ref">F-6</span>
+      <h3>Laboratorio: función de PSI reutilizable</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p>Esta función es el entregable del módulo. Sirve tanto para el puntaje como para cualquier variable de entrada, y devuelve el detalle por tramo, que es lo que el total puede ocultar.</p>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>PSI con detalle por tramo</em></div><pre><code>import numpy as np
+import pandas as pd
+
+def psi(referencia, actual, tramos=10):
+    """Índice de estabilidad poblacional entre dos períodos.
+
+    Los cortes se fijan con los percentiles del período de referencia:
+    es la distribución de construcción la que define la grilla.
+    """
+    cortes = np.percentile(referencia, np.linspace(0, 100, tramos + 1))
+    cortes[0], cortes[-1] = -np.inf, np.inf
+
+    r = np.histogram(referencia, cortes)[0] / len(referencia)
+    a = np.histogram(actual, cortes)[0] / len(actual)
+    r, a = np.clip(r, 1e-6, None), np.clip(a, 1e-6, None)
+
+    detalle = pd.DataFrame({"referencia": r, "actual": a,
+                            "aporte": (a - r) * np.log(a / r)})
+    return detalle, float(detalle.aporte.sum())
+
+
+detalle, valor = psi(score_construccion, score_actual)
+print(detalle.round(4))
+print(f"PSI = {valor:.4f}  -&gt;",
+      "estable" if valor &lt; 0.10 else
+      "desplazamiento moderado" if valor &lt; 0.25 else
+      "REVISAR EL MODELO")</code></pre></div>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Monitoreo por variable y tramos que se compensan</em></div><pre><code># Tramos que aportan mucho aunque el total sea bajo
+relevantes = detalle[detalle.aporte &gt; 0.02]
+if len(relevantes) and valor &lt; 0.10:
+    print("PSI total bajo pero con movimientos que se compensan:")
+    print(relevantes.round(4))
+
+# La cédula F-3 exige PSI también por variable de entrada
+for v in variables_modelo:
+    _, psi_v = psi(desarrollo[v], actual[v])
+    marca = "  &lt;-- REVISAR" if psi_v &gt; 0.25 else ""
+    print(f"{v:&lt;24} PSI {psi_v:.4f}{marca}")</code></pre></div>
+      <div class="ac-nota"><strong>Uso en encargos</strong>Guarda esta función como parte del papel de trabajo. Aplicada sobre la extracción del cliente, produce en minutos la evidencia que sostiene la observación sobre monitoreo de modelos.</div>
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="F-6">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="F-6"></span>
+    </div>
+  </section>
+
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa las cédulas para habilitar la evaluación.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center;flex-wrap:wrap">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" id="btn-indice" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+const BANCO = [
+  {
+    "id": "f1",
+    "puntaje": 10,
+    "texto": "¿Qué prueba una muestra de validación que comparte período con la de desarrollo?",
+    "opciones": [
+      {
+        "txt": "Que el modelo generaliza a otros clientes del mismo período, pero nada sobre el paso del tiempo",
+        "ok": true
+      },
+      {
+        "txt": "Que el modelo sigue vigente hoy"
+      },
+      {
+        "txt": "Que la población es estable"
+      },
+      {
+        "txt": "Que la provisión está bien calculada"
+      }
+    ],
+    "retro": "Sin separación temporal no hay validación fuera de tiempo, aunque el informe use ese título."
+  },
+  {
+    "id": "f2",
+    "puntaje": 10,
+    "texto": "El PSI del puntaje es 0,31. ¿Qué corresponde?",
+    "opciones": [
+      {
+        "txt": "Desplazamiento relevante de la población: el modelo debe revisarse formalmente",
+        "ok": true
+      },
+      {
+        "txt": "Población estable, no se requiere acción"
+      },
+      {
+        "txt": "El modelo perdió capacidad de discriminación"
+      },
+      {
+        "txt": "La provisión está sobrestimada"
+      }
+    ],
+    "retro": "Sobre 0,25 el desplazamiento exige revisión formal. El PSI no mide desempeño: indica que la población ya no es la de referencia."
+  },
+  {
+    "id": "f3",
+    "puntaje": 10,
+    "texto": "El PSI total es 0,08 pero dos tramos aportan 0,04 cada uno en direcciones opuestas. ¿Qué corresponde observar?",
+    "opciones": [
+      {
+        "txt": "Hay movimientos que se compensan en el total y deben analizarse por tramo",
+        "ok": true
+      },
+      {
+        "txt": "Nada: el total está bajo el umbral"
+      },
+      {
+        "txt": "El cálculo del PSI está mal hecho"
+      },
+      {
+        "txt": "Corresponde recalibrar el modelo"
+      }
+    ],
+    "retro": "El total puede ocultar desplazamientos relevantes que se anulan entre sí. Por eso se revisa el aporte por tramo."
+  },
+  {
+    "id": "f4",
+    "puntaje": 10,
+    "texto": "El PSI del puntaje es bajo y el de una variable de entrada es 0,40. ¿Cuál es la hipótesis más probable?",
+    "opciones": [
+      {
+        "txt": "Esa variable cambió y el efecto se compensa con otras dentro del puntaje",
+        "ok": true
+      },
+      {
+        "txt": "El modelo está funcionando correctamente"
+      },
+      {
+        "txt": "El PSI del puntaje está mal calculado"
+      },
+      {
+        "txt": "La cartera creció"
+      }
+    ],
+    "retro": "Es exactamente el caso que hace insuficiente monitorear solo el puntaje. La causa típica es un cambio de definición en el sistema de origen."
+  },
+  {
+    "id": "f5",
+    "puntaje": 10,
+    "texto": "Un modelo se construyó con ventana de desempeño durante los meses de ayudas estatales y reprogramaciones masivas. ¿Cuál es el efecto esperable?",
+    "opciones": [
+      {
+        "txt": "Subestimación sistemática de la probabilidad de incumplimiento",
+        "ok": true
+      },
+      {
+        "txt": "Sobreestimación de la probabilidad de incumplimiento"
+      },
+      {
+        "txt": "Pérdida de capacidad de discriminación únicamente"
+      },
+      {
+        "txt": "Ningún efecto si la muestra es grande"
+      }
+    ],
+    "retro": "La morosidad observada fue artificialmente baja. El modelo aprende ese comportamiento y estima por debajo del riesgo real."
+  },
+  {
+    "id": "f6",
+    "puntaje": 10,
+    "texto": "En el caso anterior, ¿por qué la curva ROC puede seguir viéndose bien?",
+    "opciones": [
+      {
+        "txt": "Porque mide el orden entre clientes, que puede mantenerse aunque el nivel esté desplazado",
+        "ok": true
+      },
+      {
+        "txt": "Porque la ROC se calcula sobre la muestra de desarrollo"
+      },
+      {
+        "txt": "Porque la ROC corrige automáticamente por el período"
+      },
+      {
+        "txt": "Porque el desbalance de clases la infla"
+      }
+    ],
+    "retro": "Discriminación y calibración son independientes. El orden se conserva; el nivel no."
+  },
+  {
+    "id": "f7",
+    "puntaje": 10,
+    "texto": "El PSI superó 0,25 durante cuatro trimestres y no hay evidencia de acción. ¿Cómo se clasifica el hallazgo?",
+    "opciones": [
+      {
+        "txt": "Deficiencia de gobierno de modelos: la institución detectó el deterioro y no actuó",
+        "ok": true
+      },
+      {
+        "txt": "Deficiencia de la metodología de cálculo del PSI"
+      },
+      {
+        "txt": "Observación sin efecto porque el monitoreo se realizó"
+      },
+      {
+        "txt": "Hallazgo de auditoría de sistemas"
+      }
+    ],
+    "retro": "Medir y no actuar es más grave que no medir: existe evidencia documentada de que se conocía la situación."
+  },
+  {
+    "id": "f8",
+    "puntaje": 10,
+    "texto": "¿Qué documento pediría primero al evaluar el monitoreo de un modelo?",
+    "opciones": [
+      {
+        "txt": "La política que define indicadores, frecuencia, umbrales de acción y responsables",
+        "ok": true
+      },
+      {
+        "txt": "El código fuente del modelo"
+      },
+      {
+        "txt": "El último informe de resultados"
+      },
+      {
+        "txt": "El acta de aprobación original"
+      }
+    ],
+    "retro": "Sin política, cada informe se interpreta a discreción y no hay criterio contra el cual medir el incumplimiento."
+  },
+  {
+    "id": "f9",
+    "puntaje": 10,
+    "texto": "¿Qué evidencia demuestra que existe validación fuera de tiempo?",
+    "opciones": [
+      {
+        "txt": "Fechas mínima y máxima de cada muestra, con la de prueba en un período posterior al de desarrollo",
+        "ok": true
+      },
+      {
+        "txt": "El porcentaje de la partición, por ejemplo 80 y 20"
+      },
+      {
+        "txt": "El nombre del apartado en el informe de validación"
+      },
+      {
+        "txt": "El número de observaciones de cada muestra"
+      }
+    ],
+    "retro": "La proporción de la partición no dice nada sobre separación temporal. Las fechas sí."
+  },
+  {
+    "id": "f10",
+    "puntaje": 10,
+    "texto": "¿Cuál de estos indicadores detecta un cambio de comportamiento del negocio antes que las métricas de desempeño?",
+    "opciones": [
+      {
+        "txt": "La tasa de aprobación, cuando varía sin cambio de política",
+        "ok": true
+      },
+      {
+        "txt": "El área bajo la curva de la muestra de desarrollo"
+      },
+      {
+        "txt": "El information value de las variables originales"
+      },
+      {
+        "txt": "La exactitud global del modelo"
+      }
+    ],
+    "retro": "El desempeño requiere que el evento madure. La tasa de aprobación se observa de inmediato y anticipa el problema."
+  }
+];
+ACModulo.iniciar("M06", BANCO);
+</script>
+</body>
+</html>

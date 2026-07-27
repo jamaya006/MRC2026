@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ===============================================================
+     PLANTILLA DE MODULO
+     Para crear un modulo nuevo:
+       1. Copiar este archivo como m0N.html
+       2. Cambiar MODULO_ID (linea del script final)
+       3. Escribir las cedulas en <main>
+       4. Reemplazar el BANCO de preguntas
+     No se copia CSS ni JS: todo vive en /assets.
+     =============================================================== -->
+<title>Módulo · AuditCaat's</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ac_marca.css">
+<link rel="stylesheet" href="../assets/ac_estilo.css">
+</head>
+<body>
+
+<header class="ac-cabecera">
+  <div class="ac-envoltura ac-cabecera-fila">
+    <div class="ac-logo" id="logo"><span>AC</span></div>
+    <div class="ac-cabecera-txt">
+      <strong id="cab-titulo">Módulo</strong>
+      <small id="cab-ref">Referencia</small>
+    </div>
+    <div class="ac-cabecera-fin"><a href="../index.html" style="color:#fff">Volver al índice</a></div>
+  </div>
+</header>
+
+<main class="ac-angosto" style="padding-top:var(--e-7);padding-bottom:var(--e-8)">
+
+  <div class="ac-avance">
+    <div class="ac-avance-riel"><div class="ac-avance-lleno" id="ac-avance-lleno"></div></div>
+    <small id="ac-avance-txt"></small>
+  </div>
+
+  <!-- ============================================================
+       CEDULA: unidad de contenido. Cada una se marca al terminarla.
+       data-cedula debe ser unico dentro del modulo.
+       ============================================================ -->
+  <section class="ac-cedula" data-cedula="B-1">
+    <div class="ac-cedula-encab">
+      <span class="ref">B-1</span>
+      <h3>Título de la cédula</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+
+      <p>Texto expositivo. Escribir desde el lado del auditor: qué revisa, con qué evidencia y
+      contra qué criterio.</p>
+
+      <div class="ac-umbral">
+        <strong>Umbral citable</strong>
+        Valores de referencia que el participante puede usar en un papel de trabajo.
+      </div>
+
+      <div class="ac-riesgo">
+        <strong>Qué sale mal</strong>
+        El error concreto que se observa en la práctica y cómo se detecta.
+      </div>
+
+      <div class="ac-nota">
+        <strong>Procedimiento</strong>
+        El paso de auditoría que corresponde y la evidencia que se solicita.
+      </div>
+
+      <blockquote class="ac-cita">
+        Paráfrasis de lo explicado en clase.
+        <cite>Clase N, aprox. 00:00:00</cite>
+      </blockquote>
+
+    </div>
+    <div class="ac-cedula-pie">
+      <button class="ac-btn ac-btn-secundario" data-marcar="B-1">Marcar cédula revisada</button>
+      <span class="ac-marca-aud" data-marca-de="B-1"></span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EVALUACION
+       ============================================================ -->
+  <section class="ac-cedula" id="bloque-eval">
+    <div class="ac-cedula-encab">
+      <span class="ref">EVAL</span>
+      <h3>Evaluación del módulo</h3>
+    </div>
+    <div class="ac-cedula-cuerpo">
+      <p id="eval-aviso">Completa todas las cédulas para habilitar la evaluación. Se aprueba con 70 %.</p>
+      <div id="quiz"></div>
+      <div style="margin-top:var(--e-5);display:flex;gap:var(--e-3);align-items:center">
+        <button class="ac-btn ac-btn-primario" id="btn-calificar" disabled>Calificar</button>
+        <span id="resultado" style="font-family:var(--ac-dato);font-size:var(--t-sm)"></span>
+      </div>
+      <div id="acciones-cert" style="margin-top:var(--e-4);display:none">
+        <a class="ac-btn ac-btn-primario" id="btn-cert">Ver certificado del módulo</a>
+        <a class="ac-btn ac-btn-secundario" href="../index.html">Volver al índice</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/ac_programa.js"></script>
+<script src="../assets/ac_engine.js"></script>
+<script src="../assets/ac_modulo.js"></script>
+<script>
+/* ---------------------------------------------------------------
+   Banco de preguntas del modulo.
+   ok:true marca la correcta; el motor baraja las opciones en cada
+   render, asi que el orden que se escriba aqui no importa.
+   --------------------------------------------------------------- */
+const BANCO = [
+  {
+    id: "q1", puntaje: 10,
+    texto: "Enunciado de la pregunta, redactado como una situación de auditoría.",
+    opciones: [
+      { txt: "Respuesta correcta", ok: true },
+      { txt: "Distractor plausible" },
+      { txt: "Distractor que refleja un error frecuente" },
+      { txt: "Distractor técnicamente incorrecto" }
+    ],
+    retro: "Por qué la correcta es correcta y qué error revela cada distractor."
+  }
+];
+
+ACModulo.iniciar("M02", BANCO);
+</script>
+</body>
+</html>
