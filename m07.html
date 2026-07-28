@@ -614,7 +614,7 @@ a:hover { color: var(--ac-marca-alto); }
       <p>El simulador mostró cómo pesan los tres parámetros. Ahora se recalcula la provisión de la cartera completa y se concilia contra el mayor contable.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Clasificar por etapa</em></div><pre><code>import pandas as pd
 
-c = pd.read_csv("cartera_cierre.csv")
+c = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera_cierre.csv")
 
 c["etapa"] = 1
 c.loc[c["dias_mora"] &gt;= 30, "etapa"] = 2
@@ -630,7 +630,7 @@ c["perdida_esperada"] = c["pd_aplicable"] * c["lgd"] * c["ead"]
 
 print(f"Provisión recalculada: {c['perdida_esperada'].sum():,.2f}")</code></pre></div>
       <p>where es un si condicional aplicado a toda la columna: deja la PD a doce meses cuando la etapa es 1 y la de toda la vida en el resto. La exposición suma el saldo más la parte del cupo no usado que se espera consumir.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Conciliar, que es el procedimiento de auditoría</em></div><pre><code>SALDO_MAYOR = 4_812_357.90
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Conciliar, que es el procedimiento de auditoría</em></div><pre><code>SALDO_MAYOR = 430_783_212.96
 
 diferencia = c["perdida_esperada"].sum() - SALDO_MAYOR
 print(f"Diferencia contra el mayor: {diferencia:,.2f}")

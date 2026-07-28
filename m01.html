@@ -623,7 +623,9 @@ a:hover { color: var(--ac-marca-alto); }
       <p>Vamos a obtener el número que usa el simulador de arriba, pero con la cartera del curso. Tres pasos, cada uno de pocas líneas.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Abrir el archivo y mirar qué trae</em></div><pre><code>import pandas as pd
 
-cartera = pd.read_csv("cartera.csv")
+# El archivo se lee directo desde el sitio del curso: no hay que descargar nada
+cartera = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera.csv")
+
 print(cartera.shape)
 print(cartera.head())</code></pre></div>
       <p>shape responde cuántas filas y columnas hay. head muestra las primeras cinco filas para confirmar que se leyó bien. Nunca sigas sin haber mirado esto: buena parte de los errores de un análisis vienen de un archivo que no traía lo que se creía.</p>

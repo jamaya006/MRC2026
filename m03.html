@@ -617,15 +617,19 @@ X_des, X_val, y_des, y_val = train_test_split(
 print(len(X_des), "para desarrollo y", len(X_val), "para validación")</code></pre></div>
       <p>X son las variables que explican; y es lo que se quiere predecir. La función reparte 80 y 20. stratify mantiene la misma proporción de incumplimientos en ambas partes. random_state es la semilla: fija el sorteo para que mañana salga idéntico. Sin ella, dos ejecuciones dan resultados distintos y nadie puede replicar el trabajo.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 2. Entrenar el modelo simple y medirlo</em></div><pre><code>from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score
 
-logistica = LogisticRegression(max_iter=1000)
+# La renta está en millones y la carga financiera entre 0 y 1: sin poner
+# todo en la misma escala, la regresión no converge bien
+logistica = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
 logistica.fit(X_des, y_des)
 
 auc_des = roc_auc_score(y_des, logistica.predict_proba(X_des)[:, 1])
 auc_val = roc_auc_score(y_val, logistica.predict_proba(X_val)[:, 1])
 print(f"Logística  desarrollo {auc_des:.3f}   validación {auc_val:.3f}")</code></pre></div>
-      <p>fit es entrenar: el modelo mira los datos de desarrollo y ajusta sus coeficientes. predict_proba devuelve la probabilidad de cada operación, y [:, 1] toma la columna de la probabilidad de incumplir. roc_auc_score la compara contra lo que pasó de verdad.</p>
+      <p>make_pipeline encadena dos pasos: primero estandariza, después ajusta. fit es entrenar: el modelo mira los datos de desarrollo y ajusta sus coeficientes. predict_proba devuelve la probabilidad de cada operación, y [:, 1] toma la columna de la probabilidad de incumplir. roc_auc_score la compara contra lo que pasó de verdad.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. El mismo procedimiento con un modelo complejo</em></div><pre><code>from sklearn.ensemble import GradientBoostingClassifier
 
 boosting = GradientBoostingClassifier(random_state=SEMILLA)

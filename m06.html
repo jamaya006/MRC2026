@@ -608,7 +608,14 @@ a:hover { color: var(--ac-marca-alto); }
     </div>
     <div class="ac-cedula-cuerpo">
       <p>Este es el entregable más reutilizable del programa. Se construye por partes y al final queda una función aplicable a cualquier extracción de cliente.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Repartir las dos poblaciones en los mismos tramos</em></div><pre><code>import numpy as np
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Traer las dos poblaciones y repartirlas en los mismos tramos</em></div><pre><code>import numpy as np
+import pandas as pd
+
+desarrollo = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera.csv")       # población de construcción
+actual = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera_actual.csv")    # población de hoy
+
+score_construccion = desarrollo["score"]
+score_actual = actual["score"]
 
 cortes = np.percentile(score_construccion, np.linspace(0, 100, 11))
 cortes[0], cortes[-1] = -np.inf, np.inf

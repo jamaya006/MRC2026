@@ -2323,18 +2323,21 @@ print(resumen)</code></pre></div>
   <section class="ac-cedula" data-cedula="0-6">
     <div class="ac-cedula-encab">
       <span class="ref">0-6</span>
-      <h3>Leer el archivo del curso y ejecutar el primer control</h3>
+      <h3>Leer la cartera del curso y ejecutar el primer control</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Hasta ahora la tabla la escribimos a mano. Lo normal es leerla de un archivo. Con esto ya puedes hacer todos los laboratorios del programa.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Leer un archivo y mirarlo</em></div><pre><code>import pandas as pd
+      <p>Hasta ahora la tabla la escribimos a mano. Lo normal es leerla de un archivo. El programa trae tres, publicados junto a este sitio, y se leen directo desde la web: no hay que descargar ni subir nada a Colab.</p>
+      <table class="ac-tabla"><thead><tr><th>Archivo</th><th>Qué contiene</th><th>Se usa en</th></tr></thead><tbody><tr><td>cartera.csv</td><td>15.000 originaciones 2021-2023 con desempeño observado</td><td>Módulos I a VI</td></tr><tr><td>cartera_actual.csv</td><td>4.500 originaciones de 2025, para comparar</td><td>Módulo VI</td></tr><tr><td>cartera_cierre.csv</td><td>9.000 operaciones al cierre con PD, LGD y EAD</td><td>Módulos VII y VIII</td></tr></tbody></table>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Leer la cartera y mirarla</em></div><pre><code>import pandas as pd
 
-cartera = pd.read_csv("cartera.csv")
+url = "https://jamaya006.github.io/MRC2026/cartera.csv"
+cartera = pd.read_csv(url)
 
 print(cartera.shape)     # cuántas filas y columnas trae
 print(cartera.head())    # las primeras cinco filas
 print(cartera.columns)   # los nombres de las columnas</code></pre></div>
-      <p>En Colab, el archivo se sube con el icono de carpeta del panel izquierdo. Se arrastra ahí y queda disponible con solo su nombre.</p>
+      <p>read_csv acepta una dirección web igual que un nombre de archivo. Si prefieres trabajar sin conexión, descarga el archivo desde esa misma dirección y súbelo a Colab con el icono de carpeta del panel izquierdo; después basta con poner su nombre entre comillas.</p>
+      <div class="ac-nota"><strong>Sobre estos datos</strong>La cartera es sintética: la genera un script con semilla fija, así que todos los participantes obtienen exactamente los mismos números y pueden comparar resultados. No contiene información de ningún cliente real.</div>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>El primer control de auditoría, completo</em></div><pre><code># ¿Hay saldos negativos donde no debería haberlos?
 negativos = cartera[cartera["saldo"] &lt; 0]
 print(f"Saldos negativos: {len(negativos)}")
@@ -2496,7 +2499,9 @@ print(cartera[["saldo", "dias_mora", "renta"]].isna().sum())</code></pre></div>
       <p>Vamos a obtener el número que usa el simulador de arriba, pero con la cartera del curso. Tres pasos, cada uno de pocas líneas.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Abrir el archivo y mirar qué trae</em></div><pre><code>import pandas as pd
 
-cartera = pd.read_csv("cartera.csv")
+# El archivo se lee directo desde el sitio del curso: no hay que descargar nada
+cartera = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera.csv")
+
 print(cartera.shape)
 print(cartera.head())</code></pre></div>
       <p>shape responde cuántas filas y columnas hay. head muestra las primeras cinco filas para confirmar que se leyó bien. Nunca sigas sin haber mirado esto: buena parte de los errores de un análisis vienen de un archivo que no traía lo que se creía.</p>
@@ -2838,15 +2843,19 @@ X_des, X_val, y_des, y_val = train_test_split(
 print(len(X_des), "para desarrollo y", len(X_val), "para validación")</code></pre></div>
       <p>X son las variables que explican; y es lo que se quiere predecir. La función reparte 80 y 20. stratify mantiene la misma proporción de incumplimientos en ambas partes. random_state es la semilla: fija el sorteo para que mañana salga idéntico. Sin ella, dos ejecuciones dan resultados distintos y nadie puede replicar el trabajo.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 2. Entrenar el modelo simple y medirlo</em></div><pre><code>from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score
 
-logistica = LogisticRegression(max_iter=1000)
+# La renta está en millones y la carga financiera entre 0 y 1: sin poner
+# todo en la misma escala, la regresión no converge bien
+logistica = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
 logistica.fit(X_des, y_des)
 
 auc_des = roc_auc_score(y_des, logistica.predict_proba(X_des)[:, 1])
 auc_val = roc_auc_score(y_val, logistica.predict_proba(X_val)[:, 1])
 print(f"Logística  desarrollo {auc_des:.3f}   validación {auc_val:.3f}")</code></pre></div>
-      <p>fit es entrenar: el modelo mira los datos de desarrollo y ajusta sus coeficientes. predict_proba devuelve la probabilidad de cada operación, y [:, 1] toma la columna de la probabilidad de incumplir. roc_auc_score la compara contra lo que pasó de verdad.</p>
+      <p>make_pipeline encadena dos pasos: primero estandariza, después ajusta. fit es entrenar: el modelo mira los datos de desarrollo y ajusta sus coeficientes. predict_proba devuelve la probabilidad de cada operación, y [:, 1] toma la columna de la probabilidad de incumplir. roc_auc_score la compara contra lo que pasó de verdad.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. El mismo procedimiento con un modelo complejo</em></div><pre><code>from sklearn.ensemble import GradientBoostingClassifier
 
 boosting = GradientBoostingClassifier(random_state=SEMILLA)
@@ -3317,7 +3326,14 @@ print(tabla.round(4))</code></pre></div>
     </div>
     <div class="ac-cedula-cuerpo">
       <p>Este es el entregable más reutilizable del programa. Se construye por partes y al final queda una función aplicable a cualquier extracción de cliente.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Repartir las dos poblaciones en los mismos tramos</em></div><pre><code>import numpy as np
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Traer las dos poblaciones y repartirlas en los mismos tramos</em></div><pre><code>import numpy as np
+import pandas as pd
+
+desarrollo = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera.csv")       # población de construcción
+actual = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera_actual.csv")    # población de hoy
+
+score_construccion = desarrollo["score"]
+score_actual = actual["score"]
 
 cortes = np.percentile(score_construccion, np.linspace(0, 100, 11))
 cortes[0], cortes[-1] = -np.inf, np.inf
@@ -3486,7 +3502,7 @@ print("estable" if psi &lt; 0.10 else "moderado" if psi &lt; 0.25 else "REVISAR 
       <p>El simulador mostró cómo pesan los tres parámetros. Ahora se recalcula la provisión de la cartera completa y se concilia contra el mayor contable.</p>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 1. Clasificar por etapa</em></div><pre><code>import pandas as pd
 
-c = pd.read_csv("cartera_cierre.csv")
+c = pd.read_csv("https://jamaya006.github.io/MRC2026/cartera_cierre.csv")
 
 c["etapa"] = 1
 c.loc[c["dias_mora"] &gt;= 30, "etapa"] = 2
@@ -3502,7 +3518,7 @@ c["perdida_esperada"] = c["pd_aplicable"] * c["lgd"] * c["ead"]
 
 print(f"Provisión recalculada: {c['perdida_esperada'].sum():,.2f}")</code></pre></div>
       <p>where es un si condicional aplicado a toda la columna: deja la PD a doce meses cuando la etapa es 1 y la de toda la vida en el resto. La exposición suma el saldo más la parte del cupo no usado que se espera consumir.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Conciliar, que es el procedimiento de auditoría</em></div><pre><code>SALDO_MAYOR = 4_812_357.90
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Paso 3. Conciliar, que es el procedimiento de auditoría</em></div><pre><code>SALDO_MAYOR = 430_783_212.96
 
 diferencia = c["perdida_esperada"].sum() - SALDO_MAYOR
 print(f"Diferencia contra el mayor: {diferencia:,.2f}")

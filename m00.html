@@ -643,18 +643,21 @@ print(resumen)</code></pre></div>
   <section class="ac-cedula" data-cedula="0-6">
     <div class="ac-cedula-encab">
       <span class="ref">0-6</span>
-      <h3>Leer el archivo del curso y ejecutar el primer control</h3>
+      <h3>Leer la cartera del curso y ejecutar el primer control</h3>
     </div>
     <div class="ac-cedula-cuerpo">
-      <p>Hasta ahora la tabla la escribimos a mano. Lo normal es leerla de un archivo. Con esto ya puedes hacer todos los laboratorios del programa.</p>
-      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Leer un archivo y mirarlo</em></div><pre><code>import pandas as pd
+      <p>Hasta ahora la tabla la escribimos a mano. Lo normal es leerla de un archivo. El programa trae tres, publicados junto a este sitio, y se leen directo desde la web: no hay que descargar ni subir nada a Colab.</p>
+      <table class="ac-tabla"><thead><tr><th>Archivo</th><th>Qué contiene</th><th>Se usa en</th></tr></thead><tbody><tr><td>cartera.csv</td><td>15.000 originaciones 2021-2023 con desempeño observado</td><td>Módulos I a VI</td></tr><tr><td>cartera_actual.csv</td><td>4.500 originaciones de 2025, para comparar</td><td>Módulo VI</td></tr><tr><td>cartera_cierre.csv</td><td>9.000 operaciones al cierre con PD, LGD y EAD</td><td>Módulos VII y VIII</td></tr></tbody></table>
+      <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>Leer la cartera y mirarla</em></div><pre><code>import pandas as pd
 
-cartera = pd.read_csv("cartera.csv")
+url = "https://jamaya006.github.io/MRC2026/cartera.csv"
+cartera = pd.read_csv(url)
 
 print(cartera.shape)     # cuántas filas y columnas trae
 print(cartera.head())    # las primeras cinco filas
 print(cartera.columns)   # los nombres de las columnas</code></pre></div>
-      <p>En Colab, el archivo se sube con el icono de carpeta del panel izquierdo. Se arrastra ahí y queda disponible con solo su nombre.</p>
+      <p>read_csv acepta una dirección web igual que un nombre de archivo. Si prefieres trabajar sin conexión, descarga el archivo desde esa misma dirección y súbelo a Colab con el icono de carpeta del panel izquierdo; después basta con poner su nombre entre comillas.</p>
+      <div class="ac-nota"><strong>Sobre estos datos</strong>La cartera es sintética: la genera un script con semilla fija, así que todos los participantes obtienen exactamente los mismos números y pueden comparar resultados. No contiene información de ningún cliente real.</div>
       <div class="ac-codigo"><div class="ac-codigo-encab"><span>Python</span><em>El primer control de auditoría, completo</em></div><pre><code># ¿Hay saldos negativos donde no debería haberlos?
 negativos = cartera[cartera["saldo"] &lt; 0]
 print(f"Saldos negativos: {len(negativos)}")
